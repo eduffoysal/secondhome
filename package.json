@@ -1,0 +1,19 @@
+{
+  "name": "edu",
+  "version": "1.0.0",
+  "description": "Mess management &amp; Edu Schedule Organizer Project. Group Secondhome, East Delta University, CSE",
+  "main": "bootstrap.bundle.js",
+  "scripts": {
+    "build": "npx tailwindcss -i ./src/input.css -o ./output/output.css -w"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss": "^3.3.5"
+  },
+  "dependencies": {
+    "flowbite": "^2.1.1",
+    "tw-elements": "^1.0.0"
+  }
+}
