@@ -1,9 +1,9 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["**/*.{php,js,html}","./layouts/**/*.html", "./content/**/*.md", "./content/**/*.html", "./src/**/*.js", "./node_modules/flowbite/**/*.js", "./node_modules/tw-elements/dist/js/**/*.js"],
-  // theme: {
-  //   extend: {},
-  // },
+  theme: {
+    extend: {},
+  },
   // plugins: [],
 
   safelist: [
@@ -28,11 +28,6 @@ module.exports = {
   // enable dark mode via class strategy
   darkMode: 'class',
 
-  theme: {
-    extend: {
-      // extend base Tailwind CSS utility classes
-    }
-  },
   plugins: [
     // include Flowbite as a plugin in your Tailwind CSS project
     require('flowbite/plugin'),
