@@ -4,7 +4,7 @@
     $today=date("Y-m-d");
     $time= date("h:i:s");
 
-    $con = new mysqli("localhost","root","","mess") or die(mysqli_error());
+    $con = new mysqli("localhost","root","","secondhome") or die(mysqli_error());
 
     $list=array();
     $month = date("m");
