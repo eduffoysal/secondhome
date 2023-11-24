@@ -54,32 +54,23 @@ body{
 </head>
 <body class="bg-light">
   <div class="conteiner">
-    <div class="row mt-4">
+    <div class="row mt-5">
       <div class="col-lg-4 form-signin m-auto">
-        <h2 class="text-center pt-3">Join us today!</h2>
-        <p class="text-center pt-1">Sign up now to become a member.</p>
-        <h3 class="text-center pt-2">Sign Up</h3>
+        <h2 class="text-center pt-5">You Are Welcome!</h2>
+        <p class="text-center pt-1">Login for an excited environment!!</p>
+        <h3 class="text-center pt-1">Log in</h3>
 
         <form action="#">
-          <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="First Name">
-          </div>
-          <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Last Name">
-          </div>
           <div class="input-group mb-3">
             <input type="text" class="form-control" placeholder="Email">
           </div>
           <div class="input-group mb-3">
             <input type="text" class="form-control" placeholder="Enter Password">
           </div>
-          <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Confirm Password">
-          </div>
           <div class="d-grid">
-            <button type="button" class="btn btn-primary">Sign Up</button>
-            <p class="text-center">
-                Already have an account? <a href="login.php" class="text-color"> Login Here</a>
+            <button type="button" class="btn btn-primary">Log In</button>
+            <p class="text-center py-2">
+                Don't have an account? <a href="project.php" class="text-color"> Sign up Here</a>
             </p>
           </div>
         </form>
