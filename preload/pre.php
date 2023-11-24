@@ -26,71 +26,6 @@
 
 
 
-/* bounce start */
-
-
-*{
-    margin: 0;
-    padding: 0;
-}
-
-body{
-     background: ghostwhite;
-    /* overflow: hidden; */
-
-}
-
-.letter{
-    display: flex;
-    width: 90%;
-    margin: auto;
-
-}
-
-.letter .word{
-    width: 100%;
-    
-    font-weight: 800;
-    font-family: sans-serif;
-    font-size: 35px;
-    text-align: center;
-    position: relative;
-    top: 9vh;
-    
-}
-
-.a , .c , .e , .g , .i , .k{
-    animation: anim1 3s cubic-bezier(0.5, 0.05, 1, 0.5) alternate infinite;
-    color: red;
-}
-
-
-
-
-.b , .d , .f , .h , .j , .l{
-    animation: anim2 3s cubic-bezier(0.5, 0.05, 1, 0.5) alternate infinite;
-
-}
-
-@keyframes anim1{
-    from{
-    
-    }
-    to{
-        transform: translateY(90vh) rotate(720deg);
-    }
-}
-
-@keyframes anim2{
-    from{
-        
-    }
-    to{
-        transform: translateY(90vh) rotate(-700deg);
-    }
-}
-
-
 /* heart */
 
 /* 
@@ -245,34 +180,11 @@ body{
 <body>
     
 
-    <!-- <div class="letter">
-        <div class="word a">F</div>
-        <div class="word b">A</div>
-        <div class="word c">R</div>
-        <div class="word d">H</div>
-        <div class="word e">A</div>
-        <div class="word f">D</div>
-        <div class="word g">F</div>
-        <div class="word h">O</div>
-        <div class="word i">Y</div>
-        <div class="word j">S</div>
-        <div class="word k">A</div>
-        <div class="word l">L</div>
-    </div> -->
-
-
-<!-- heart start -->
-    <!-- <div class="heart">
-        <h1 class="hearth1">I <3 you <br>.FMNF.</h1>
-    </div> -->
-<!-- heart end -->
-<!-- circular progress bar -->
      <div class="wrapper text-center">
         <div class="container preload text-center chart" data-size="400" data-value="88" data-arrow="up"></div>
     </div>
 
 
-<!-- animated progress bar -->
     <div class="container  preload text-center">
         <svg width="300" hieght="300" viewBox="0 0 300 300">
             <defs>
