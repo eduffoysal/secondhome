@@ -48,6 +48,9 @@ body{
 .form-control{
   border-color: #000000;
 }
+h2,p,h3{
+  color: #fff;
+}
 
 </style>
 
