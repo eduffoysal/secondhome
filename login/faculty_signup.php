@@ -15,12 +15,12 @@ html,body{
   height: 100%;
 }
 body{
-  background: url(../image/img4.jpg);
+  background: url(../image/img20.jpg);
   background-size: cover;
 }
 
 .form-signin{
-    background: rgba(236,240,241,.35);
+    background-color: #253342;
     border-radius: 20px;
     color: #000000;
     padding: 30px;
@@ -30,11 +30,11 @@ body{
 }
 
 .btn-primary{
-  background: #253342;
+  background-color: Slateblue;
   border: 0;
 }
 .btn-primary:hover{
-  background: #5c62D6;
+  background-color: Gray;
 }
 
 .text-color{
@@ -61,7 +61,7 @@ h2,p,h3{
       <div class="col-lg-4 form-signin m-auto">
         <h2 class="text-center pt-3">Join us today!</h2>
         <p class="text-center pt-1">Sign up now to become a member.</p>
-        <h3 class="text-center pt-2">Sign Up</h3>
+        <h3 class="text-center pt-2">Faculty Sign Up</h3>
 
         <form action="#">
           <div class="input-group mb-3">
@@ -80,9 +80,9 @@ h2,p,h3{
             <input type="text" class="form-control" placeholder="Confirm Password">
           </div>
           <div class="d-grid">
-            <button type="button" class="btn btn-primary">Sign Up</button>
+            <button type="button" class="btn btn-primary">Faculty Sign Up</button>
             <p class="text-center">
-                Already have an account? <a href="login.php" class="text-color"> Login Here</a>
+                Already have an account? <a href="faculty_login.php" class="text-color"> Login Here</a>
             </p>
           </div>
         </form>

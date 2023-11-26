@@ -15,7 +15,7 @@ html,body{
   height: 100%;
 }
 body{
-  background: url(../image/img6.jpg);
+  background: url(../image/img4.jpg);
   background-size: cover;
 }
 
@@ -61,7 +61,7 @@ h2,p,h3{
       <div class="col-lg-4 form-signin m-auto">
         <h2 class="text-center pt-5">You Are Welcome!</h2>
         <p class="text-center pt-1">Login for an excited environment!!</p>
-        <h3 class="text-center pt-1">Log in</h3>
+        <h3 class="text-center pt-1">User Log in</h3>
 
         <form action="#">
           <div class="input-group mb-3">

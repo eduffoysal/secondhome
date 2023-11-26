@@ -15,12 +15,13 @@ html,body{
   height: 100%;
 }
 body{
-  background: url(../image/img4.jpg);
+  background: url(../image/img10.jpg);
   background-size: cover;
 }
 
+
 .form-signin{
-    background: rgba(236,240,241,.35);
+    background-color: #FFF8DC;
     border-radius: 20px;
     color: #000000;
     padding: 30px;
@@ -49,7 +50,7 @@ body{
   border-color: #000000;
 }
 h2,p,h3{
-  color: #fff;
+  color: #000000;
 }
 
 </style>
@@ -61,7 +62,7 @@ h2,p,h3{
       <div class="col-lg-4 form-signin m-auto">
         <h2 class="text-center pt-3">Join us today!</h2>
         <p class="text-center pt-1">Sign up now to become a member.</p>
-        <h3 class="text-center pt-2">Sign Up</h3>
+        <h3 class="text-center pt-2">Mess Sign Up</h3>
 
         <form action="#">
           <div class="input-group mb-3">
@@ -82,7 +83,7 @@ h2,p,h3{
           <div class="d-grid">
             <button type="button" class="btn btn-primary">Sign Up</button>
             <p class="text-center">
-                Already have an account? <a href="login.php" class="text-color"> Login Here</a>
+                Already have an account? <a href="mess_login.php" class="text-color"> Login Here</a>
             </p>
           </div>
         </form>
