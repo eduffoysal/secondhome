@@ -15,12 +15,12 @@ html,body{
   height: 100%;
 }
 body{
-  background: url(../image/img4.jpg);
+  background: url(../image/img28.jpg);
   background-size: cover;
 }
 
 .form-signin{
-    background: rgba(236,240,241,.35);
+    background-color: #2F4F4F;
     border-radius: 20px;
     color: #000000;
     padding: 30px;
