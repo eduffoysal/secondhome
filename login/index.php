@@ -526,7 +526,7 @@ if(isset($_SESSION['user'])){
 
             <div class="flex justify-center items-center my-4 py-4 bg-indigo-100">
                 <div class="w-96 p-4 shadow-lg bg-white rounded-md">
-                    <h1 class="text-3xl block text-center font-semibold"><i class="fa-solid fa-user"></i> Login</h1>
+                    <h1 class="text-3xl block text-center font-semibold"><i class="fa-solid fa-user"></i> Login Teacher Account</h1>
                     <p class="mt-1 text-center text-sm text-gray-600">
                 Or
                 <a href="#" class="font-medium text-indigo-600 border-b border-indigo-600 teacher_c_btn"> register your FREE account </a>
