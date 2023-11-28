@@ -140,7 +140,7 @@ if(isset($_POST['user_mesignup'])){
 
 			$sql = "INSERT INTO users (u_name, phone, password, user_id, unique_id, u_type, phone_pass, email) values ('$username', '$phone', '$password', '$number', '$unique_id', '$user_type', '$phoneId', '$email')";
 
-			if($con->query($ql)){
+			if($con->query($sql)){
 
 				$p_sql = "INSERT INTO users_profile (name, phone, pass, u_id, unique_id, u_type, email) values ('$name', '$phone', '$password', '$number', '$unique_id', '$user_type', '$email')";
 
@@ -308,7 +308,7 @@ if(isset($_POST['mess_mesignup'])){
 
 			$sql = "INSERT INTO users (u_name, phone, password, user_id, unique_id, u_type, phone_pass, email) values ('$username', '$phone', '$password', '$number', '$unique_id', '$user_type', '$phoneId', '$email')";
 
-			if($con->query($ql)){
+			if($con->query($sql)){
 
 				$p_sql = "INSERT INTO users_profile (name, phone, pass, u_id, unique_id, u_type, email) values ('$name', '$phone', '$password', '$number', '$unique_id', '$user_type', '$email')";
 
@@ -477,7 +477,7 @@ if(isset($_POST['school_mesignup'])){
 
 			$sql = "INSERT INTO users (u_name, phone, password, user_id, unique_id, u_type, phone_pass, email) values ('$username', '$phone', '$password', '$number', '$unique_id', '$user_type', '$phoneId', '$email')";
 
-			if($con->query($ql)){
+			if($con->query($sql)){
 
 				$p_sql = "INSERT INTO users_profile (name, phone, pass, u_id, unique_id, u_type, email) values ('$name', '$phone', '$password', '$number', '$unique_id', '$user_type', '$email')";
 
@@ -645,7 +645,7 @@ if(isset($_POST['teacher_mesignup'])){
 
 			$sql = "INSERT INTO users (u_name, phone, password, user_id, unique_id, u_type, phone_pass, email) values ('$username', '$phone', '$password', '$number', '$unique_id', '$user_type', '$phoneId', '$email')";
 
-			if($con->query($ql)){
+			if($con->query($sql)){
 
 				$p_sql = "INSERT INTO users_profile (name, phone, pass, u_id, unique_id, u_type, email) values ('$name', '$phone', '$password', '$number', '$unique_id', '$user_type', '$email')";
 
