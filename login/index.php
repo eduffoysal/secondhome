@@ -226,7 +226,7 @@ if(isset($_SESSION['user'])){
 	</div> -->
 
 
-<div class="container mb-3">
+<div class="container-fluid mb-3">
     <div class="user" id="user">
 
 
@@ -284,15 +284,15 @@ if(isset($_SESSION['user'])){
             <div class="user_create_box hidden">
                 
                 <div class="my-4 py-8" style="background-image: linear-gradient(115deg, #9F7AEA, #FEE2FE)">
-                <div class="container mx-auto">
-                    <div class="flex flex-col lg:flex-row w-10/12 lg:w-8/12 bg-white rounded-xl mx-auto shadow-lg overflow-hidden">
-                    <div class="w-full lg:w-1/2 flex flex-col items-center justify-center p-12 bg-no-repeat bg-cover bg-center" style="background-image: url('../image/Register-Background.png');">
-                        <h1 class="text-white text-3xl mb-3">Welcome</h1>
-                        <div>
-                        <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean suspendisse aliquam varius rutrum purus maecenas ac <a href="#" class="text-purple-500 font-semibold user_l_btn">Login Now</a></p>
-                        </div>
+                <div class="container-fluid mx-auto">
+                    <div class="flex flex-col lg:flex-row w-11/12 lg:w-12/12 bg-white rounded-xl mx-auto shadow-lg overflow-hidden">
+                    <div class="w-full lg:w-1/2 flex flex-col items-center justify-center p-2 bg-no-repeat bg-cover bg-center" style="background-image: url('../image/Register-Background.png');">
+                    <h1 class="text-white text-3xl mb-3">Welcome</h1>
+                    <div>
+                    <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean suspendisse aliquam varius rutrum purus maecenas ac <a href="#" class="text-purple-500 font-semibold border-2 border-rose-600 p-1 m-1 shadow-lg space-y-3 hover:bg-sky-500 hover:ring-sky-500 rounded-full user_l_btn">Login Now</a></p>
                     </div>
-                    <div class="w-full lg:w-1/2 py-16 px-12">
+                </div>
+                    <div class="w-full lg:w-1/2 py-16 px-2">
                         <h2  class="text-3xl mb-4">Register User</h2>
                         <p class="mb-4">
                         Create User|Student account. It’s free and only take a minute
@@ -373,15 +373,15 @@ if(isset($_SESSION['user'])){
         <div class="mess_create_box hidden">
             
             <div class="my-4 py-8" style="background-image: linear-gradient(115deg, #9F7AEA, #FEE2FE)">
-            <div class="container mx-auto">
-                <div class="flex flex-col lg:flex-row w-10/12 lg:w-8/12 bg-white rounded-xl mx-auto shadow-lg overflow-hidden">
-                <div class="w-full lg:w-1/2 flex flex-col items-center justify-center p-12 bg-no-repeat bg-cover bg-center" style="background-image: url('../image/Register-Background.png');">
+            <div class="container-fluid mx-auto">
+                <div class="flex flex-col lg:flex-row w-11/12 lg:w-12/12 bg-white rounded-xl mx-auto shadow-lg overflow-hidden">
+                <div class="w-full lg:w-1/2 flex flex-col items-center justify-center p-2 bg-no-repeat bg-cover bg-center" style="background-image: url('../image/Register-Background.png');">
                     <h1 class="text-white text-3xl mb-3">Welcome</h1>
                     <div>
-                    <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean suspendisse aliquam varius rutrum purus maecenas ac <a href="#" class="text-purple-500 font-semibold mess_l_btn">Login Now</a></p>
+                    <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean suspendisse aliquam varius rutrum purus maecenas ac <a href="#" class="text-purple-500 font-semibold border-2 border-rose-600 p-1 m-1 shadow-lg space-y-3 hover:bg-sky-500 hover:ring-sky-500 rounded-full mess_l_btn">Login Now</a></p>
                     </div>
                 </div>
-                <div class="w-full lg:w-1/2 py-16 px-12">
+                <div class="w-full lg:w-1/2 py-16 px-2">
                     <h2  class="text-3xl mb-4">Register Mess</h2>
                     <p class="mb-4">
                     Create Mess Admin account. It’s free and only take a minute
@@ -474,15 +474,15 @@ if(isset($_SESSION['user'])){
             <div class="school_create_box hidden">
             
                 <div class="my-4 py-8" style="background-image: linear-gradient(115deg, #9F7AEA, #FEE2FE)">
-                <div class="container mx-auto">
-                    <div class="flex flex-col lg:flex-row w-10/12 lg:w-8/12 bg-white rounded-xl mx-auto shadow-lg overflow-hidden">
-                    <div class="w-full lg:w-1/2 flex flex-col items-center justify-center p-12 bg-no-repeat bg-cover bg-center" style="background-image: url('../image/Register-Background.png');">
+                <div class="container-fluid mx-auto">
+                    <div class="flex flex-col lg:flex-row w-11/12 lg:w-12/12 bg-white rounded-xl mx-auto shadow-lg overflow-hidden">
+                    <div class="w-full lg:w-1/2 flex flex-col items-center justify-center p-2 bg-no-repeat bg-cover bg-center" style="background-image: url('../image/Register-Background.png');">
                         <h1 class="text-white text-3xl mb-3">Welcome</h1>
                         <div>
-                        <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean suspendisse aliquam varius rutrum purus maecenas ac <a href="#" class="text-purple-500 font-semibold school_l_btn">Login Now</a></p>
+                        <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean suspendisse aliquam varius rutrum purus maecenas ac <a href="#" class="text-purple-500 font-semibold border-2 border-rose-600 p-1 m-1 shadow-lg space-y-3 hover:bg-sky-500 hover:ring-sky-500 rounded-full school_l_btn">Login Now</a></p>
                         </div>
                     </div>
-                    <div class="w-full lg:w-1/2 py-16 px-12">
+                    <div class="w-full lg:w-1/2 py-16 px-2">
                         <h2  class="text-3xl mb-4">Register Organizer</h2>
                         <p class="mb-4">
                         Create Organizer Admin account. It’s free and only take a minute
@@ -560,15 +560,15 @@ if(isset($_SESSION['user'])){
         <div class="teacher_create_box hidden">
         
             <div class="my-4 py-8" style="background-image: linear-gradient(115deg, #9F7AEA, #FEE2FE)">
-            <div class="container mx-auto">
-                <div class="flex flex-col lg:flex-row w-10/12 lg:w-8/12 bg-white rounded-xl mx-auto shadow-lg overflow-hidden">
-                <div class="w-full lg:w-1/2 flex flex-col items-center justify-center p-12 bg-no-repeat bg-cover bg-center" style="background-image: url('../image/Register-Background.png');">
+            <div class="container-fluid mx-auto">
+                <div class="flex flex-col lg:flex-row w-11/12 lg:w-12/12 bg-white rounded-xl mx-auto shadow-lg overflow-hidden">
+                <div class="w-full lg:w-1/2 flex flex-col items-center justify-center p-2 bg-no-repeat bg-cover bg-center" style="background-image: url('../image/Register-Background.png');">
                     <h1 class="text-white text-3xl mb-3">Welcome</h1>
                     <div>
-                    <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean suspendisse aliquam varius rutrum purus maecenas ac <a href="#" class="text-purple-500 font-semibold teacher_l_btn">Login Now</a></p>
+                    <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean suspendisse aliquam varius rutrum purus maecenas ac <a href="#" class="text-purple-500 font-semibold border-2 border-rose-600 p-1 m-1 shadow-lg space-y-3 hover:bg-sky-500 hover:ring-sky-500 rounded-full teacher_l_btn">Login Now</a></p>
                     </div>
                 </div>
-                <div class="w-full lg:w-1/2 py-16 px-12">
+                <div class="w-full lg:w-1/2 py-16 px-2">
                     <h2  class="text-3xl mb-4">Register</h2>
                     <p class="mb-4">
                     Create your account. It’s free and only take a minute
