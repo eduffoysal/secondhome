@@ -551,7 +551,7 @@ if(isset($_SESSION['user'])){
                             <input class="form-control" placeholder="Phone/User ID" name="teacher_melogin" id="teacher_melogin" type="hidden">
 
                             <label for="username" class="block text-base mb-2">Username</label>
-                            <input name="teacher_username" id="username" type="text" autofocus required class="border w-full text-base px-2 py-1 focus:outline-none focus:ring-0 focus:border-gray-600" placeholder="Enter Phone|Username..." />
+                            <input name="username" id="teacher_username" type="text" autofocus required class="border w-full text-base px-2 py-1 focus:outline-none focus:ring-0 focus:border-gray-600" placeholder="Enter Phone|Username..." />
                         </div>
                         <div class="mt-3">
                             <label for="password" class="block text-base mb-2">Password</label>
@@ -998,7 +998,7 @@ allTabMenu.forEach(item=> {
 					data: logform,
 					success:function(data){
 						if(data==1){
-
+                            alert(data);
                             Swal.fire({
                                 type: 'success',
                                 title: "Mess Admin Successfully Logged In!",
@@ -1019,7 +1019,7 @@ allTabMenu.forEach(item=> {
 							}, 2000);
 						}
 						else{
-                    //  alert(data);
+                     alert(data);
 
                     Swal.fire({
                                 type: 'warning',
@@ -1054,7 +1054,7 @@ allTabMenu.forEach(item=> {
 			var signform = $('#user_signform').serialize();
 			$.ajax({
 				method: 'POST',
-				url: 'login.php',
+				url: './login.php',
 				data: signform,
 
 				success:function(data){
@@ -1296,10 +1296,11 @@ allTabMenu.forEach(item=> {
 							$('#alerttext').text('Login Successful. User Verified!');
 							$('#teacher_loginbutton').val('Thank You!');
 							$('#teacher_logform')[0].reset();
+                            // alert(data);
                             Swal.fire({
                                 type: 'success',
                                 title: "Teacher Successfully Login!",
-                                text: "THank you Teacher!"+data,
+                                text: "THank you Teacher! "+data,
                                 icon: "success",
                                 button: false,
                                 dangerMode: true,

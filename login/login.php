@@ -28,7 +28,8 @@ if(isset($_POST['user_melogin'])){
 
 
 
-		$query="SELECT * FROM users WHERE (phone='$username' OR u_name='$username' OR user_id='$username') AND (phone_pass='$password' OR password='$password') AND u_type=1 ";
+		$query = "SELECT * FROM users WHERE (phone='$username' OR u_name='$username' OR user_id='$username') AND u_type='0' AND (phone_pass='$password' OR password='$password')";
+
 
         $queryr=mysqli_query($con,$query);
 
@@ -42,13 +43,13 @@ if(isset($_POST['user_melogin'])){
 			$_SESSION['user_phone']=$row['phone'];
             $_SESSION['mess_id'] = $row['mess_id'];
 			$_SESSION['school_id'] = $row['school_id'];
-			$_SESSION['role'] = 'admin';
+			$_SESSION['role'] = 'user';
             echo 1;
 		}
 		else{
             echo $username;
 			?>
-  				<span>Login Failed. User not Found.</span>
+  				<span>Login Failed. User|Student not Found.</span>
   			<?php
 		}
 	}
@@ -196,8 +197,7 @@ if(isset($_POST['mess_melogin'])){
 
 
 
-
-		$query="SELECT * FROM users WHERE (phone='$username' OR u_name='$username' OR user_id='$username') AND (phone_pass='$password' OR password='$password') AND u_type=1 ";
+		$query = "SELECT * FROM users WHERE (phone='$username' OR u_name='$username' OR user_id='$username') AND u_type='2' AND (phone_pass='$password' OR password='$password')";
 
         $queryr=mysqli_query($con,$query);
 
@@ -211,7 +211,7 @@ if(isset($_POST['mess_melogin'])){
 			$_SESSION['user_phone']=$row['phone'];
             $_SESSION['mess_id'] = $row['mess_id'];
 			$_SESSION['school_id'] = $row['school_id'];
-			$_SESSION['role'] = 'admin';
+			$_SESSION['role'] = 'mess';
             echo 1;
 		}
 		else{
@@ -367,7 +367,7 @@ if(isset($_POST['school_melogin'])){
 
 
 
-		$query="SELECT * FROM users WHERE (phone='$username' OR u_name='$username' OR user_id='$username') AND (phone_pass='$password' OR password='$password') AND u_type=1 ";
+		$query = "SELECT * FROM users WHERE (phone='$username' OR u_name='$username' OR user_id='$username') AND u_type='1' AND (phone_pass='$password' OR password='$password')";
 
         $queryr=mysqli_query($con,$query);
 
@@ -381,13 +381,13 @@ if(isset($_POST['school_melogin'])){
 			$_SESSION['user_phone']=$row['phone'];
             $_SESSION['mess_id'] = $row['mess_id'];
 			$_SESSION['school_id'] = $row['school_id'];
-			$_SESSION['role'] = 'admin';
+			$_SESSION['role'] = 'school';
             echo 1;
 		}
 		else{
             echo $username;
 			?>
-  				<span>Login Failed. User not Found.</span>
+  				<span>Login Failed. School Admin not Found.</span>
   			<?php
 		}
 	}
@@ -536,7 +536,8 @@ if(isset($_POST['teacher_melogin'])){
 
 
 
-		$query="SELECT * FROM users WHERE (phone='$username' OR u_name='$username' OR user_id='$username') AND (phone_pass='$password' OR password='$password') AND u_type=1 ";
+		$query = "SELECT * FROM users WHERE (phone='$username' OR u_name='$username' OR user_id='$username') AND u_type='3' AND (phone_pass='$password' OR password='$password')";
+
 
         $queryr=mysqli_query($con,$query);
 
@@ -550,13 +551,13 @@ if(isset($_POST['teacher_melogin'])){
 			$_SESSION['user_phone']=$row['phone'];
             $_SESSION['mess_id'] = $row['mess_id'];
 			$_SESSION['school_id'] = $row['school_id'];
-			$_SESSION['role'] = 'admin';
+			$_SESSION['role'] = 'teacher';
             echo 1;
 		}
 		else{
             echo $username;
 			?>
-  				<span>Login Failed. User not Found.</span>
+  				<span>Login Failed. Teacher not Found.</span>
   			<?php
 		}
 	}
