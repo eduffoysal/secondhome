@@ -961,12 +961,22 @@ allTabMenu.forEach(item=> {
 				data: signform,
 
 				success:function(data){
+                    Swal.fire({
+                                type: 'success',
+                                title: "Mess Admin Successfully Signed Up!",
+                                text: "THank you Admin! "+data,
+                                icon: "success",
+                                button: false,
+                                dangerMode: true,
+                                timer: 3000,
+                            
+                            });
 					setTimeout(function(){
 					$('#myalert').slideDown();
 					$('#alerttext').html(data);
 					$('#mess_signupbutton').val('Sign up');
 					$('#mess_signform')[0].reset();
-               alert(data);
+            //    alert(data);
 					}, 2000);
 				}
 			});
@@ -988,6 +998,18 @@ allTabMenu.forEach(item=> {
 					data: logform,
 					success:function(data){
 						if(data==1){
+
+                            Swal.fire({
+                                type: 'success',
+                                title: "Mess Admin Successfully Logged In!",
+                                text: "THank you Admin! "+data,
+                                icon: "success",
+                                button: false,
+                                dangerMode: true,
+                                timer: 3000,
+                            
+                            });
+
 							$('#myalert').slideDown();
 							$('#alerttext').text('Login Successful. User Verified!');
 							$('#mess_loginbutton').val('Thank You!');
@@ -997,7 +1019,19 @@ allTabMenu.forEach(item=> {
 							}, 2000);
 						}
 						else{
-                     alert(data);
+                    //  alert(data);
+
+                    Swal.fire({
+                                type: 'warning',
+                                title: "Mess Admin not Found!",
+                                text: "Try again you, Admin! "+data,
+                                icon: "warning",
+                                button: false,
+                                dangerMode: true,
+                                timer: 3000,
+                            
+                            });
+
 							$('#myalert').slideDown();
 							$('#alerttext').html(data);
 							$('#mess_loginbutton').val('Try Again!');
@@ -1024,12 +1058,24 @@ allTabMenu.forEach(item=> {
 				data: signform,
 
 				success:function(data){
+
+                    Swal.fire({
+                                type: 'success',
+                                title: "User Successfully Signed Up!",
+                                text: "THank you User! "+data,
+                                icon: "success",
+                                button: false,
+                                dangerMode: true,
+                                timer: 3000,
+                            
+                            });
+
 					setTimeout(function(){
 					$('#myalert').slideDown();
 					$('#alerttext').html(data);
 					$('#user_signupbutton').val('Sign up');
 					$('#user_signform')[0].reset();
-               alert(data);
+            //    alert(data);
 					}, 2000);
 				}
 			});
@@ -1051,6 +1097,18 @@ allTabMenu.forEach(item=> {
 					data: logform,
 					success:function(data){
 						if(data==1){
+
+                            Swal.fire({
+                                type: 'success',
+                                title: "User Successfully Logged In!",
+                                text: "THank you User! "+data,
+                                icon: "success",
+                                button: false,
+                                dangerMode: true,
+                                timer: 3000,
+                            
+                            });
+
 							$('#myalert').slideDown();
 							$('#alerttext').text('Login Successful. User Verified!');
 							$('#user_loginbutton').val('Thank You!');
@@ -1060,7 +1118,18 @@ allTabMenu.forEach(item=> {
 							}, 2000);
 						}
 						else{
-                     alert(data);
+                    //  alert(data);
+                    Swal.fire({
+                                type: 'warning',
+                                title: "User not Found!",
+                                text: "Try again you, User !"+data,
+                                icon: "warning",
+                                button: false,
+                                dangerMode: true,
+                                timer: 3000,
+                            
+                            });
+
 							$('#myalert').slideDown();
 							$('#alerttext').html(data);
 							$('#user_loginbutton').val('Try Again!');
@@ -1087,12 +1156,24 @@ allTabMenu.forEach(item=> {
 				data: signform,
 
 				success:function(data){
+
+                    Swal.fire({
+                                type: 'success',
+                                title: "School Admin Successfully Signed Up!",
+                                text: "THank you Admin, "+data,
+                                icon: "success",
+                                button: false,
+                                dangerMode: true,
+                                timer: 3000,
+                            
+                            });
+
 					setTimeout(function(){
 					$('#myalert').slideDown();
 					$('#alerttext').html(data);
 					$('#school_signupbutton').val('Sign up');
 					$('#school_signform')[0].reset();
-               alert(data);
+            //    alert(data);
 					}, 2000);
 				}
 			});
@@ -1114,6 +1195,18 @@ allTabMenu.forEach(item=> {
 					data: logform,
 					success:function(data){
 						if(data==1){
+
+                            Swal.fire({
+                                type: 'success',
+                                title: "Organizer Admin Successfully Logged In!",
+                                text: "THank you Organizer! "+data,
+                                icon: "success",
+                                button: false,
+                                dangerMode: true,
+                                timer: 3000,
+                            
+                            });
+
 							$('#myalert').slideDown();
 							$('#alerttext').text('Login Successful. User Verified!');
 							$('#school_loginbutton').val('Thank You!');
@@ -1123,7 +1216,19 @@ allTabMenu.forEach(item=> {
 							}, 2000);
 						}
 						else{
-                     alert(data);
+
+                            Swal.fire({
+                                type: 'warning',
+                                title: "School Admin not Found!",
+                                text: "Try again you, Teacher! "+data,
+                                icon: "warning",
+                                button: false,
+                                dangerMode: true,
+                                timer: 3000,
+                            
+                            });
+
+                    //  alert(data);
 							$('#myalert').slideDown();
 							$('#alerttext').html(data);
 							$('#school_loginbutton').val('Try Again!');
@@ -1150,12 +1255,22 @@ allTabMenu.forEach(item=> {
 				data: signform,
 
 				success:function(data){
+                    Swal.fire({
+                                type: 'success',
+                                title: "Teacher Successfully Signed Up!",
+                                text: "THank you Teacher! "+data,
+                                icon: "success",
+                                button: false,
+                                dangerMode: true,
+                                timer: 3000,
+                            
+                            });
 					setTimeout(function(){
 					$('#myalert').slideDown();
 					$('#alerttext').html(data);
 					$('#teacher_signupbutton').val('Sign up');
 					$('#teacher_signform')[0].reset();
-               alert(data);
+            //    alert(data);
 					}, 2000);
 				}
 			});
@@ -1181,12 +1296,32 @@ allTabMenu.forEach(item=> {
 							$('#alerttext').text('Login Successful. User Verified!');
 							$('#teacher_loginbutton').val('Thank You!');
 							$('#teacher_logform')[0].reset();
+                            Swal.fire({
+                                type: 'success',
+                                title: "Teacher Successfully Login!",
+                                text: "THank you Teacher!"+data,
+                                icon: "success",
+                                button: false,
+                                dangerMode: true,
+                                timer: 3000,
+                            
+                            });
 							setTimeout(function(){
 								location.reload();
 							}, 2000);
 						}
 						else{
-                     alert(data);
+                    //  alert(data);
+                            Swal.fire({
+                                type: 'warning',
+                                title: "Teacher not Found!",
+                                text: "Try again you, Teacher! "+data,
+                                icon: "warning",
+                                button: false,
+                                dangerMode: true,
+                                timer: 3000,
+                            
+                            });
 							$('#myalert').slideDown();
 							$('#alerttext').html(data);
 							$('#teacher_loginbutton').val('Try Again!');
@@ -1207,3 +1342,5 @@ allTabMenu.forEach(item=> {
 
 
 </script>
+<script src="../js/sweetalert.min.js"></script>
+<script src="../js/sweetalert2.all.min.js"></script>
