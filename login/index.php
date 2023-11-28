@@ -230,60 +230,103 @@ if(isset($_SESSION['user'])){
     <div class="user" id="user">
 
 
-    <div class="login_box">
-        <main class="my-4 py-4 flex flex-col items-center justify-center bg-gray-50 space-y-10  px-1 sm:px-3 lg:px-4">
-        <div>
-            <h1 class="mt-1 text-center text-xl font-extrabold text-gray-900">Sign in to your account</h1>
-            <p class="mt-1 text-center text-sm text-gray-600">
-            Or
-            <a href="#" class="font-medium text-indigo-600 border-b border-indigo-600"> register your FREE account </a>
-            </p>
-        </div>
-        <div class="max-w-md w-full mx-auto bg-white shadow rounded-lg p-4 space-y-6">
-            <div class="flex flex-col">
-            <label class="text-sm font-bold text-gray-600 mb-1" for="email">Email Address</label>
-            <input class="border rounded-md bg-white px-3 py-2" type="text" name="email" id="email" placeholder="Enter your Email Address" />
+            <div class="user_login_box">
+                <main class="my-4 py-4 flex flex-col items-center justify-center bg-gray-50 space-y-10  px-1 sm:px-3 lg:px-4">
+                <div>
+                    <h1 class="mt-1 text-center text-xl font-extrabold text-gray-900">Sign in to your account</h1>
+                    <p class="mt-1 text-center text-sm text-gray-600">
+                    Or
+                    <a href="#" class="font-medium text-indigo-600 border-b border-indigo-600 user_c_btn"> register your FREE account </a>
+                    </p>
+                </div>
+                <div class="max-w-md w-full mx-auto bg-white shadow rounded-lg p-4 space-y-6">
+                    <div class="flex flex-col">
+                    <label class="text-sm font-bold text-gray-600 mb-1" for="email">Email Address</label>
+                    <input class="border rounded-md bg-white px-3 py-2" type="text" name="email" id="email" placeholder="Enter your Email Address" />
+                    </div>
+                    <div class="flex flex-col">
+                    <label class="text-sm font-bold text-gray-600 mb-1" for="password">Password</label>
+                    <input class="border rounded-md bg-white px-3 py-2" type="password" name="password" id="password" placeholder="Enter your Password" />
+                    </div>
+                    <div class="flex justify-between text-sm">
+                    <div class="flex items-center space-x-2">
+                        <input class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded" type="checkbox" name="remember" id="remember" />
+                        <label for="remember">Remember me</label>
+                    </div>
+                    <div>
+                        <a class="text-indigo-600">Forgot your Password?</a>
+                    </div>
+                    </div>
+                    <div>
+                    <button class="w-full bg-indigo-600 text-white rounded-md p-2">Sign in</button>
+                    </div>
+                    <div class="relative pb-2">
+                    <div class="absolute top-0 left-0 w-full border-b"></div>
+                    <div class="absolute -top-3 left-0 w-full text-center">
+                        <span class="bg-white px-3 text-sm">or continue via</span>
+                    </div>
+                    </div>
+                    <div class="grid grid-cols-3 gap-3 text-xl">
+                    <div class="border-2 rounded-md p-3 text-center cursor-pointer hover:border-gray-600">
+                        <i class="fab fa-twitter"></i>
+                    </div>
+                    <div class="border-2 rounded-md p-3 text-center cursor-pointer hover:border-gray-600">
+                        <i class="fab fa-facebook"></i>
+                    </div>
+                    <div class="border-2 rounded-md p-3 text-center cursor-pointer hover:border-gray-600">
+                        <i class="fab fa-linkedin"></i>
+                    </div>
+                    </div>
+                </div>
+                </main>
             </div>
-            <div class="flex flex-col">
-            <label class="text-sm font-bold text-gray-600 mb-1" for="password">Password</label>
-            <input class="border rounded-md bg-white px-3 py-2" type="password" name="password" id="password" placeholder="Enter your Password" />
-            </div>
-            <div class="flex justify-between text-sm">
-            <div class="flex items-center space-x-2">
-                <input class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded" type="checkbox" name="remember" id="remember" />
-                <label for="remember">Remember me</label>
-            </div>
-            <div>
-                <a class="text-indigo-600">Forgot your Password?</a>
-            </div>
-            </div>
-            <div>
-            <button class="w-full bg-indigo-600 text-white rounded-md p-2">Sign in</button>
-            </div>
-            <div class="relative pb-2">
-            <div class="absolute top-0 left-0 w-full border-b"></div>
-            <div class="absolute -top-3 left-0 w-full text-center">
-                <span class="bg-white px-3 text-sm">or continue via</span>
-            </div>
-            </div>
-            <div class="grid grid-cols-3 gap-3 text-xl">
-            <div class="border-2 rounded-md p-3 text-center cursor-pointer hover:border-gray-600">
-                <i class="fab fa-twitter"></i>
-            </div>
-            <div class="border-2 rounded-md p-3 text-center cursor-pointer hover:border-gray-600">
-                <i class="fab fa-facebook"></i>
-            </div>
-            <div class="border-2 rounded-md p-3 text-center cursor-pointer hover:border-gray-600">
-                <i class="fab fa-linkedin"></i>
-            </div>
-            </div>
-        </div>
-        </main>
-    </div>
 
-    <div class="create_box">
-        
-    </div>
+            <div class="user_create_box hidden">
+                
+                <div class="my-4 py-8" style="background-image: linear-gradient(115deg, #9F7AEA, #FEE2FE)">
+                <div class="container mx-auto">
+                    <div class="flex flex-col lg:flex-row w-10/12 lg:w-8/12 bg-white rounded-xl mx-auto shadow-lg overflow-hidden">
+                    <div class="w-full lg:w-1/2 flex flex-col items-center justify-center p-12 bg-no-repeat bg-cover bg-center" style="background-image: url('../image/Register-Background.png');">
+                        <h1 class="text-white text-3xl mb-3">Welcome</h1>
+                        <div>
+                        <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean suspendisse aliquam varius rutrum purus maecenas ac <a href="#" class="text-purple-500 font-semibold user_l_btn">Login Now</a></p>
+                        </div>
+                    </div>
+                    <div class="w-full lg:w-1/2 py-16 px-12">
+                        <h2  class="text-3xl mb-4">Register</h2>
+                        <p class="mb-4">
+                        Create your account. It’s free and only take a minute
+                        </p>
+                        <form action="#">
+                        <div class="grid grid-cols-2 gap-5">
+                            <input type="text" placeholder="Firstname" class="border border-gray-400 py-1 px-2">
+                            <input type="text" placeholder="Surname" class="border border-gray-400 py-1 px-2">
+                        </div>
+                        <div class="mt-5">
+                            <input type="text" placeholder="Email" class="border border-gray-400 py-1 px-2 w-full">
+                        </div>
+                        <div class="mt-5">
+                            <input type="password" placeholder="Password" class="border border-gray-400 py-1 px-2 w-full">
+                        </div>
+                        <div class="mt-5">
+                            <input type="password" placeholder="Confirm Password" class="border border-gray-400 py-1 px-2 w-full">
+                        </div>
+                        <div class="mt-5">
+                            <input type="checkbox" class="border border-gray-400">
+                            <span>
+                            I accept the <a href="#" class="text-purple-500 font-semibold">Terms of Use</a> &  <a href="#" class="text-purple-500 font-semibold">Privacy Policy</a> 
+                            </span>
+                        </div>
+                        <div class="mt-5">
+                            <button class="w-full bg-purple-500 py-3 text-center text-white">Register Now</button>
+                        </div>
+                        </form>
+                    </div>
+                    </div>
+                </div>
+                </div>
+            
+            </div>
 
 
 
@@ -292,136 +335,277 @@ if(isset($_SESSION['user'])){
     <div class="mess" id="mess">
         
     
-    <div class="sign_box">
+        <div class="mess_login_box">
 
-        <div class="flex justify-center items-center my-4 py-4 bg-indigo-100">
-            <div class="w-96 p-4 shadow-lg bg-white rounded-md">
-                <h1 class="text-3xl block text-center font-semibold"><i class="fa-solid fa-user"></i> Login</h1>
-                <p class="mt-1 text-center text-sm text-gray-600">
-            Or
-            <a href="#" class="font-medium text-indigo-600 border-b border-indigo-600"> register your FREE account </a>
-            </p>
-                <hr class="mt-1">
-                <div class="mt-1">
-                    <label for="username" class="block text-base mb-2">Username</label>
-                    <input type="text" id="username" class="border w-full text-base px-2 py-1 focus:outline-none focus:ring-0 focus:border-gray-600" placeholder="Enter Username..." />
-                </div>
-                <div class="mt-3">
-                    <label for="password" class="block text-base mb-2">Password</label>
-                    <input type="password" id="password" class="border w-full text-base px-2 py-1 focus:outline-none focus:ring-0 focus:border-gray-600" placeholder="Enter Password..." />
-                </div>
-                <div class="mt-3 flex justify-between items-center">
-                    <div>
-                        <input type="checkbox">
-                        <label>Remember Me</label>
+            <div class="flex justify-center items-center my-4 py-4 bg-indigo-100">
+                <div class="w-96 p-4 shadow-lg bg-white rounded-md">
+                    <h1 class="text-3xl block text-center font-semibold"><i class="fa-solid fa-user"></i> Login</h1>
+                    <p class="mt-1 text-center text-sm text-gray-600">
+                Or
+                <a href="#" class="font-medium text-indigo-600 border-b border-indigo-600 mess_c_btn"> register your FREE account </a>
+                </p>
+                    <hr class="mt-1">
+                    <div class="mt-1">
+                        <label for="username" class="block text-base mb-2">Username</label>
+                        <input type="text" id="username" class="border w-full text-base px-2 py-1 focus:outline-none focus:ring-0 focus:border-gray-600" placeholder="Enter Username..." />
                     </div>
-                    <div>
-                        <a href="#" class="text-indigo-800 font-semibold">Forgot Password?</a>
+                    <div class="mt-3">
+                        <label for="password" class="block text-base mb-2">Password</label>
+                        <input type="password" id="password" class="border w-full text-base px-2 py-1 focus:outline-none focus:ring-0 focus:border-gray-600" placeholder="Enter Password..." />
                     </div>
-                </div>
-                <div class="mt-5">
-                    <button type="submit" class="border-2 border-indigo-700 bg-indigo-700 text-white py-1 w-full rounded-md hover:bg-transparent hover:text-indigo-700 font-semibold"><i class="fa-solid fa-right-to-bracket"></i>&nbsp;&nbsp;Login</button>
+                    <div class="mt-3 flex justify-between items-center">
+                        <div>
+                            <input type="checkbox">
+                            <label>Remember Me</label>
+                        </div>
+                        <div>
+                            <a href="#" class="text-indigo-800 font-semibold">Forgot Password?</a>
+                        </div>
+                    </div>
+                    <div class="mt-5">
+                        <button type="submit" class="border-2 border-indigo-700 bg-indigo-700 text-white py-1 w-full rounded-md hover:bg-transparent hover:text-indigo-700 font-semibold"><i class="fa-solid fa-right-to-bracket"></i>&nbsp;&nbsp;Login</button>
+                    </div>
                 </div>
             </div>
+
         </div>
 
-    </div>
-
-
+        <div class="mess_create_box hidden">
+            
+            <div class="my-4 py-8" style="background-image: linear-gradient(115deg, #9F7AEA, #FEE2FE)">
+            <div class="container mx-auto">
+                <div class="flex flex-col lg:flex-row w-10/12 lg:w-8/12 bg-white rounded-xl mx-auto shadow-lg overflow-hidden">
+                <div class="w-full lg:w-1/2 flex flex-col items-center justify-center p-12 bg-no-repeat bg-cover bg-center" style="background-image: url('../image/Register-Background.png');">
+                    <h1 class="text-white text-3xl mb-3">Welcome</h1>
+                    <div>
+                    <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean suspendisse aliquam varius rutrum purus maecenas ac <a href="#" class="text-purple-500 font-semibold mess_l_btn">Login Now</a></p>
+                    </div>
+                </div>
+                <div class="w-full lg:w-1/2 py-16 px-12">
+                    <h2  class="text-3xl mb-4">Register</h2>
+                    <p class="mb-4">
+                    Create your account. It’s free and only take a minute
+                    </p>
+                    <form action="#">
+                    <div class="grid grid-cols-2 gap-5">
+                        <input type="text" placeholder="Firstname" class="border border-gray-400 py-1 px-2">
+                        <input type="text" placeholder="Surname" class="border border-gray-400 py-1 px-2">
+                    </div>
+                    <div class="mt-5">
+                        <input type="text" placeholder="Email" class="border border-gray-400 py-1 px-2 w-full">
+                    </div>
+                    <div class="mt-5">
+                        <input type="password" placeholder="Password" class="border border-gray-400 py-1 px-2 w-full">
+                    </div>
+                    <div class="mt-5">
+                        <input type="password" placeholder="Confirm Password" class="border border-gray-400 py-1 px-2 w-full">
+                    </div>
+                    <div class="mt-5">
+                        <input type="checkbox" class="border border-gray-400">
+                        <span>
+                        I accept the <a href="#" class="text-purple-500 font-semibold">Terms of Use</a> &  <a href="#" class="text-purple-500 font-semibold">Privacy Policy</a> 
+                        </span>
+                    </div>
+                    <div class="mt-5">
+                        <button class="w-full bg-purple-500 py-3 text-center text-white">Register Now</button>
+                    </div>
+                    </form>
+                </div>
+                </div>
+            </div>
+            </div>
+        
+        </div>
 
     </div>
     <div class="school" id="school">
 
-    <div class="school_login_box">
-        <main class="my-4 py-4 flex flex-col items-center justify-center bg-gray-50 space-y-10  px-1 sm:px-3 lg:px-4">
-        <div>
-            <h1 class="mt-1 text-center text-xl font-extrabold text-gray-900">Sign in to your account</h1>
-            <p class="mt-1 text-center text-sm text-gray-600">
-            Or
-            <a href="#" class="font-medium text-indigo-600 border-b border-indigo-600"> register your FREE account </a>
-            </p>
-        </div>
-        <div class="max-w-md w-full mx-auto bg-white shadow rounded-lg p-4 space-y-6">
-            <div class="flex flex-col">
-            <label class="text-sm font-bold text-gray-600 mb-1" for="email">Email Address</label>
-            <input class="border rounded-md bg-white px-3 py-2" type="text" name="email" id="email" placeholder="Enter your Email Address" />
+            <div class="school_login_box">
+                <main class="my-4 py-4 flex flex-col items-center justify-center bg-gray-50 space-y-10  px-1 sm:px-3 lg:px-4">
+                <div>
+                    <h1 class="mt-1 text-center text-xl font-extrabold text-gray-900">Sign in to your account</h1>
+                    <p class="mt-1 text-center text-sm text-gray-600">
+                    Or
+                    <a href="#" class="font-medium text-indigo-600 border-b border-indigo-600 school_c_btn"> register your FREE account </a>
+                    </p>
+                </div>
+                <div class="max-w-md w-full mx-auto bg-white shadow rounded-lg p-4 space-y-6">
+                    <div class="flex flex-col">
+                    <label class="text-sm font-bold text-gray-600 mb-1" for="email">Email Address</label>
+                    <input class="border rounded-md bg-white px-3 py-2" type="text" name="email" id="email" placeholder="Enter your Email Address" />
+                    </div>
+                    <div class="flex flex-col">
+                    <label class="text-sm font-bold text-gray-600 mb-1" for="password">Password</label>
+                    <input class="border rounded-md bg-white px-3 py-2" type="password" name="password" id="password" placeholder="Enter your Password" />
+                    </div>
+                    <div class="flex justify-between text-sm">
+                    <div class="flex items-center space-x-2">
+                        <input class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded" type="checkbox" name="remember" id="remember" />
+                        <label for="remember">Remember me</label>
+                    </div>
+                    <div>
+                        <a class="text-indigo-600">Forgot your Password?</a>
+                    </div>
+                    </div>
+                    <div>
+                    <button class="w-full bg-indigo-600 text-white rounded-md p-2">Sign in</button>
+                    </div>
+                    <div class="relative pb-2">
+                    <div class="absolute top-0 left-0 w-full border-b"></div>
+                    <div class="absolute -top-3 left-0 w-full text-center">
+                        <span class="bg-white px-3 text-sm">or continue via</span>
+                    </div>
+                    </div>
+                    <div class="grid grid-cols-3 gap-3 text-xl">
+                    <div class="border-2 rounded-md p-3 text-center cursor-pointer hover:border-gray-600">
+                        <i class="fab fa-twitter"></i>
+                    </div>
+                    <div class="border-2 rounded-md p-3 text-center cursor-pointer hover:border-gray-600">
+                        <i class="fab fa-facebook"></i>
+                    </div>
+                    <div class="border-2 rounded-md p-3 text-center cursor-pointer hover:border-gray-600">
+                        <i class="fab fa-linkedin"></i>
+                    </div>
+                    </div>
+                </div>
+                </main>
             </div>
-            <div class="flex flex-col">
-            <label class="text-sm font-bold text-gray-600 mb-1" for="password">Password</label>
-            <input class="border rounded-md bg-white px-3 py-2" type="password" name="password" id="password" placeholder="Enter your Password" />
+
+            <div class="school_create_box hidden">
+            
+                <div class="my-4 py-8" style="background-image: linear-gradient(115deg, #9F7AEA, #FEE2FE)">
+                <div class="container mx-auto">
+                    <div class="flex flex-col lg:flex-row w-10/12 lg:w-8/12 bg-white rounded-xl mx-auto shadow-lg overflow-hidden">
+                    <div class="w-full lg:w-1/2 flex flex-col items-center justify-center p-12 bg-no-repeat bg-cover bg-center" style="background-image: url('../image/Register-Background.png');">
+                        <h1 class="text-white text-3xl mb-3">Welcome</h1>
+                        <div>
+                        <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean suspendisse aliquam varius rutrum purus maecenas ac <a href="#" class="text-purple-500 font-semibold school_l_btn">Login Now</a></p>
+                        </div>
+                    </div>
+                    <div class="w-full lg:w-1/2 py-16 px-12">
+                        <h2  class="text-3xl mb-4">Register</h2>
+                        <p class="mb-4">
+                        Create your account. It’s free and only take a minute
+                        </p>
+                        <form action="#">
+                        <div class="grid grid-cols-2 gap-5">
+                            <input type="text" placeholder="Firstname" class="border border-gray-400 py-1 px-2">
+                            <input type="text" placeholder="Surname" class="border border-gray-400 py-1 px-2">
+                        </div>
+                        <div class="mt-5">
+                            <input type="text" placeholder="Email" class="border border-gray-400 py-1 px-2 w-full">
+                        </div>
+                        <div class="mt-5">
+                            <input type="password" placeholder="Password" class="border border-gray-400 py-1 px-2 w-full">
+                        </div>
+                        <div class="mt-5">
+                            <input type="password" placeholder="Confirm Password" class="border border-gray-400 py-1 px-2 w-full">
+                        </div>
+                        <div class="mt-5">
+                            <input type="checkbox" class="border border-gray-400">
+                            <span>
+                            I accept the <a href="#" class="text-purple-500 font-semibold">Terms of Use</a> &  <a href="#" class="text-purple-500 font-semibold">Privacy Policy</a> 
+                            </span>
+                        </div>
+                        <div class="mt-5">
+                            <button class="w-full bg-purple-500 py-3 text-center text-white">Register Now</button>
+                        </div>
+                        </form>
+                    </div>
+                    </div>
+                </div>
+                </div>
+            
             </div>
-            <div class="flex justify-between text-sm">
-            <div class="flex items-center space-x-2">
-                <input class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded" type="checkbox" name="remember" id="remember" />
-                <label for="remember">Remember me</label>
-            </div>
-            <div>
-                <a class="text-indigo-600">Forgot your Password?</a>
-            </div>
-            </div>
-            <div>
-            <button class="w-full bg-indigo-600 text-white rounded-md p-2">Sign in</button>
-            </div>
-            <div class="relative pb-2">
-            <div class="absolute top-0 left-0 w-full border-b"></div>
-            <div class="absolute -top-3 left-0 w-full text-center">
-                <span class="bg-white px-3 text-sm">or continue via</span>
-            </div>
-            </div>
-            <div class="grid grid-cols-3 gap-3 text-xl">
-            <div class="border-2 rounded-md p-3 text-center cursor-pointer hover:border-gray-600">
-                <i class="fab fa-twitter"></i>
-            </div>
-            <div class="border-2 rounded-md p-3 text-center cursor-pointer hover:border-gray-600">
-                <i class="fab fa-facebook"></i>
-            </div>
-            <div class="border-2 rounded-md p-3 text-center cursor-pointer hover:border-gray-600">
-                <i class="fab fa-linkedin"></i>
-            </div>
-            </div>
-        </div>
-        </main>
-    </div>
 
     </div>
+
     <div class="teacher" id="teacher">
 
-    <div class="teacher_sign_box">
+        <div class="teacher_login_box">
 
-        <div class="flex justify-center items-center my-4 py-4 bg-indigo-100">
-            <div class="w-96 p-4 shadow-lg bg-white rounded-md">
-                <h1 class="text-3xl block text-center font-semibold"><i class="fa-solid fa-user"></i> Login</h1>
-                <p class="mt-1 text-center text-sm text-gray-600">
-            Or
-            <a href="#" class="font-medium text-indigo-600 border-b border-indigo-600"> register your FREE account </a>
-            </p>
-                <hr class="mt-1">
-                <div class="mt-1">
-                    <label for="username" class="block text-base mb-2">Username</label>
-                    <input type="text" id="username" class="border w-full text-base px-2 py-1 focus:outline-none focus:ring-0 focus:border-gray-600" placeholder="Enter Username..." />
-                </div>
-                <div class="mt-3">
-                    <label for="password" class="block text-base mb-2">Password</label>
-                    <input type="password" id="password" class="border w-full text-base px-2 py-1 focus:outline-none focus:ring-0 focus:border-gray-600" placeholder="Enter Password..." />
-                </div>
-                <div class="mt-3 flex justify-between items-center">
-                    <div>
-                        <input type="checkbox">
-                        <label>Remember Me</label>
+            <div class="flex justify-center items-center my-4 py-4 bg-indigo-100">
+                <div class="w-96 p-4 shadow-lg bg-white rounded-md">
+                    <h1 class="text-3xl block text-center font-semibold"><i class="fa-solid fa-user"></i> Login</h1>
+                    <p class="mt-1 text-center text-sm text-gray-600">
+                Or
+                <a href="#" class="font-medium text-indigo-600 border-b border-indigo-600 teacher_c_btn"> register your FREE account </a>
+                </p>
+                    <hr class="mt-1">
+                    <div class="mt-1">
+                        <label for="username" class="block text-base mb-2">Username</label>
+                        <input type="text" id="username" class="border w-full text-base px-2 py-1 focus:outline-none focus:ring-0 focus:border-gray-600" placeholder="Enter Username..." />
                     </div>
-                    <div>
-                        <a href="#" class="text-indigo-800 font-semibold">Forgot Password?</a>
+                    <div class="mt-3">
+                        <label for="password" class="block text-base mb-2">Password</label>
+                        <input type="password" id="password" class="border w-full text-base px-2 py-1 focus:outline-none focus:ring-0 focus:border-gray-600" placeholder="Enter Password..." />
                     </div>
-                </div>
-                <div class="mt-5">
-                    <button type="submit" class="border-2 border-indigo-700 bg-indigo-700 text-white py-1 w-full rounded-md hover:bg-transparent hover:text-indigo-700 font-semibold"><i class="fa-solid fa-right-to-bracket"></i>&nbsp;&nbsp;Login</button>
+                    <div class="mt-3 flex justify-between items-center">
+                        <div>
+                            <input type="checkbox">
+                            <label>Remember Me</label>
+                        </div>
+                        <div>
+                            <a href="#" class="text-indigo-800 font-semibold">Forgot Password?</a>
+                        </div>
+                    </div>
+                    <div class="mt-5">
+                        <button type="submit" class="border-2 border-indigo-700 bg-indigo-700 text-white py-1 w-full rounded-md hover:bg-transparent hover:text-indigo-700 font-semibold"><i class="fa-solid fa-right-to-bracket"></i>&nbsp;&nbsp;Login</button>
+                    </div>
                 </div>
             </div>
-        </div>
 
+
+        </div>
+        <div class="teacher_create_box hidden">
+        
+            <div class="my-4 py-8" style="background-image: linear-gradient(115deg, #9F7AEA, #FEE2FE)">
+            <div class="container mx-auto">
+                <div class="flex flex-col lg:flex-row w-10/12 lg:w-8/12 bg-white rounded-xl mx-auto shadow-lg overflow-hidden">
+                <div class="w-full lg:w-1/2 flex flex-col items-center justify-center p-12 bg-no-repeat bg-cover bg-center" style="background-image: url('../image/Register-Background.png');">
+                    <h1 class="text-white text-3xl mb-3">Welcome</h1>
+                    <div>
+                    <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean suspendisse aliquam varius rutrum purus maecenas ac <a href="#" class="text-purple-500 font-semibold teacher_l_btn">Login Now</a></p>
+                    </div>
+                </div>
+                <div class="w-full lg:w-1/2 py-16 px-12">
+                    <h2  class="text-3xl mb-4">Register</h2>
+                    <p class="mb-4">
+                    Create your account. It’s free and only take a minute
+                    </p>
+                    <form action="#">
+                    <div class="grid grid-cols-2 gap-5">
+                        <input type="text" placeholder="Firstname" class="border border-gray-400 py-1 px-2">
+                        <input type="text" placeholder="Surname" class="border border-gray-400 py-1 px-2">
+                    </div>
+                    <div class="mt-5">
+                        <input type="text" placeholder="Email" class="border border-gray-400 py-1 px-2 w-full">
+                    </div>
+                    <div class="mt-5">
+                        <input type="password" placeholder="Password" class="border border-gray-400 py-1 px-2 w-full">
+                    </div>
+                    <div class="mt-5">
+                        <input type="password" placeholder="Confirm Password" class="border border-gray-400 py-1 px-2 w-full">
+                    </div>
+                    <div class="mt-5">
+                        <input type="checkbox" class="border border-gray-400">
+                        <span>
+                        I accept the <a href="#" class="text-purple-500 font-semibold">Terms of Use</a> &  <a href="#" class="text-purple-500 font-semibold">Privacy Policy</a> 
+                        </span>
+                    </div>
+                    <div class="mt-5">
+                        <button class="w-full bg-purple-500 py-3 text-center text-white">Register Now</button>
+                    </div>
+                    </form>
+                </div>
+                </div>
+            </div>
+            </div>
+        
         </div>
 
     </div>
+
     <div class="notice" id="notice">
 
     </div>
@@ -573,6 +757,71 @@ if(isset($_SESSION['user'])){
             $('#user').css('display','none');
             $('#mess').css('display','none');
             $('#notice').css('display','block');
+        });
+    });
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.user_c_btn').click(function(){
+            $('.user_create_box').removeClass('hidden');
+            $('.user_login_box').addClass('hidden');
+        });
+    });
+</script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.user_l_btn').click(function(){
+            $('.user_login_box').removeClass('hidden');
+            $('.user_create_box').addClass('hidden');
+        });
+    });
+</script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.mess_c_btn').click(function(){
+            $('.mess_create_box').removeClass('hidden');
+            $('.mess_login_box').addClass('hidden');
+        });
+    });
+</script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.mess_l_btn').click(function(){
+            $('.mess_login_box').removeClass('hidden');
+            $('.mess_create_box').addClass('hidden');
+        });
+    });
+</script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.school_c_btn').click(function(){
+            $('.school_create_box').removeClass('hidden');
+            $('.school_login_box').addClass('hidden');
+        });
+    });
+</script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.school_l_btn').click(function(){
+            $('.school_login_box').removeClass('hidden');
+            $('.school_create_box').addClass('hidden');
+        });
+    });
+</script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.teacher_c_btn').click(function(){
+            $('.teacher_create_box').removeClass('hidden');
+            $('.teacher_login_box').addClass('hidden');
+        });
+    });
+</script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.teacher_l_btn').click(function(){
+            $('.teacher_login_box').removeClass('hidden');
+            $('.teacher_create_box').addClass('hidden');
         });
     });
 </script>
