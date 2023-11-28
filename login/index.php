@@ -233,10 +233,10 @@ if(isset($_SESSION['user'])){
             <div class="user_login_box">
                 <main class="my-4 py-4 flex flex-col items-center justify-center bg-gray-50 space-y-10  px-1 sm:px-3 lg:px-4">
                 <div>
-                    <h1 class="mt-1 text-center text-xl font-extrabold text-gray-900">Sign in to your account</h1>
+                    <h1 class="mt-1 text-center text-xl font-extrabold text-gray-900">Sign in to User|Student account</h1>
                     <p class="mt-1 text-center text-sm text-gray-600">
                     Or
-                    <a href="#" class="font-medium text-indigo-600 border-b border-indigo-600 user_c_btn"> register your FREE account </a>
+                    <a href="#" class="font-medium text-indigo-600 border-b border-indigo-600 user_c_btn"> register User|Student FREE account </a>
                     </p>
                 </div>
                 <div class="max-w-md w-full mx-auto bg-white shadow rounded-lg p-4 space-y-6">
@@ -293,9 +293,9 @@ if(isset($_SESSION['user'])){
                         </div>
                     </div>
                     <div class="w-full lg:w-1/2 py-16 px-12">
-                        <h2  class="text-3xl mb-4">Register</h2>
+                        <h2  class="text-3xl mb-4">Register User</h2>
                         <p class="mb-4">
-                        Create your account. It’s free and only take a minute
+                        Create User|Student account. It’s free and only take a minute
                         </p>
                         <form action="#">
                         <div class="grid grid-cols-2 gap-5">
@@ -339,10 +339,10 @@ if(isset($_SESSION['user'])){
 
             <div class="flex justify-center items-center my-4 py-4 bg-indigo-100">
                 <div class="w-96 p-4 shadow-lg bg-white rounded-md">
-                    <h1 class="text-3xl block text-center font-semibold"><i class="fa-solid fa-user"></i> Login</h1>
+                    <h1 class="text-3xl block text-center font-semibold"><i class="fa-solid fa-user"></i> Login Mess Admin</h1>
                     <p class="mt-1 text-center text-sm text-gray-600">
                 Or
-                <a href="#" class="font-medium text-indigo-600 border-b border-indigo-600 mess_c_btn"> register your FREE account </a>
+                <a href="#" class="font-medium text-indigo-600 border-b border-indigo-600 mess_c_btn"> register Mess Admin FREE account </a>
                 </p>
                     <hr class="mt-1">
                     <div class="mt-1">
@@ -382,9 +382,9 @@ if(isset($_SESSION['user'])){
                     </div>
                 </div>
                 <div class="w-full lg:w-1/2 py-16 px-12">
-                    <h2  class="text-3xl mb-4">Register</h2>
+                    <h2  class="text-3xl mb-4">Register Mess</h2>
                     <p class="mb-4">
-                    Create your account. It’s free and only take a minute
+                    Create Mess Admin account. It’s free and only take a minute
                     </p>
                     <form action="#">
                     <div class="grid grid-cols-2 gap-5">
@@ -423,10 +423,10 @@ if(isset($_SESSION['user'])){
             <div class="school_login_box">
                 <main class="my-4 py-4 flex flex-col items-center justify-center bg-gray-50 space-y-10  px-1 sm:px-3 lg:px-4">
                 <div>
-                    <h1 class="mt-1 text-center text-xl font-extrabold text-gray-900">Sign in to your account</h1>
+                    <h1 class="mt-1 text-center text-xl font-extrabold text-gray-900">Sign in to Organizer Admin account</h1>
                     <p class="mt-1 text-center text-sm text-gray-600">
                     Or
-                    <a href="#" class="font-medium text-indigo-600 border-b border-indigo-600 school_c_btn"> register your FREE account </a>
+                    <a href="#" class="font-medium text-indigo-600 border-b border-indigo-600 school_c_btn"> register Organizer Admin FREE account </a>
                     </p>
                 </div>
                 <div class="max-w-md w-full mx-auto bg-white shadow rounded-lg p-4 space-y-6">
@@ -483,9 +483,9 @@ if(isset($_SESSION['user'])){
                         </div>
                     </div>
                     <div class="w-full lg:w-1/2 py-16 px-12">
-                        <h2  class="text-3xl mb-4">Register</h2>
+                        <h2  class="text-3xl mb-4">Register Organizer</h2>
                         <p class="mb-4">
-                        Create your account. It’s free and only take a minute
+                        Create Organizer Admin account. It’s free and only take a minute
                         </p>
                         <form action="#">
                         <div class="grid grid-cols-2 gap-5">
