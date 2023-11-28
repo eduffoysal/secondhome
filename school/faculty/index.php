@@ -9,22 +9,16 @@ if(isset($_SESSION['user'])){
    if(!isset($_SESSION['role'])){
         header("location:../../login");
    }else{
-        if($_SESSION['role']=='teacher'){
-            header("location:../../school/faculty");
-        }elseif($_SESSION['role']=='school'){
-            header("location:../school");
+        if($_SESSION['role']=='school'){
+            header("location:../../admin/school");
+        }elseif($_SESSION['role']=='mess'){
+            header("location:../../admin/mess");
         }elseif($_SESSION['role']=='user'){
             header("location:../../");
         }elseif($_SESSION['role']=='manager'){
             header("location:../../");
         }
    }
-
-    if($_SESSION['mess_id']==''){
-        header("location:sign");
-    }else{
-        $mess_id = $_SESSION['mess_id'];
-    }
 
 
 

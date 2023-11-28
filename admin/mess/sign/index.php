@@ -1,5 +1,5 @@
 <?php
-include('../../db/db.php');
+include('../../../db/db.php');
 session_start();
 
 if(isset($_SESSION['user'])){
@@ -7,24 +7,24 @@ if(isset($_SESSION['user'])){
    $_SESSION['unique_id']=$_SESSION['user'];
 
    if(!isset($_SESSION['role'])){
-        header("location:../../login");
+        header("location:../../../login");
    }else{
         if($_SESSION['role']=='teacher'){
-            header("location:../../school/faculty");
+            header("location:../../../school/faculty");
         }elseif($_SESSION['role']=='school'){
-            header("location:../school");
+            header("location:../../school");
         }elseif($_SESSION['role']=='user'){
-            header("location:../../");
+            header("location:../../../");
         }elseif($_SESSION['role']=='manager'){
-            header("location:../../");
+            header("location:../../../");
         }
    }
 
-    if($_SESSION['mess_id']==''){
-        header("location:sign");
-    }else{
-        $mess_id = $_SESSION['mess_id'];
-    }
+    // if($_SESSION['mess_id']==''){
+    //     header("location:sign");
+    // }else{
+    //     $mess_id = $_SESSION['mess_id'];
+    // }
 
 
 
@@ -34,7 +34,7 @@ if(isset($_SESSION['user'])){
 
 
 if(!isset($_SESSION['user'])){
-   header('location:../../login');
+   header('location:../../../login');
 }
 
 

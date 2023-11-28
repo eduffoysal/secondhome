@@ -11,8 +11,8 @@ if(isset($_SESSION['user'])){
    }else{
         if($_SESSION['role']=='teacher'){
             header("location:../../school/faculty");
-        }elseif($_SESSION['role']=='school'){
-            header("location:../school");
+        }elseif($_SESSION['role']=='mess'){
+            header("location:../mess");
         }elseif($_SESSION['role']=='user'){
             header("location:../../");
         }elseif($_SESSION['role']=='manager'){
@@ -20,12 +20,12 @@ if(isset($_SESSION['user'])){
         }
    }
 
-    if($_SESSION['mess_id']==''){
+    if($_SESSION['school_id']==''){
         header("location:sign");
     }else{
-        $mess_id = $_SESSION['mess_id'];
+        $s_id = $_SESSION['school_id'];
+        $mess_id = $_SESSION['mess_id']
     }
-
 
 
 }else{

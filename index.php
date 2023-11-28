@@ -5,7 +5,20 @@ session_start();
 if(isset($_SESSION['user'])){
    $_SESSION['visitor_id']=$_SESSION['user'];
    $_SESSION['unique_id']=$_SESSION['user'];
-   $_SESSION['role']='member';
+
+   if(!isset($_SESSION['role'])){
+        header("location:login");
+   }else{
+        if($_SESSION['role']=='school'){
+            header("location:admin/school");
+        }elseif($_SESSION['role']=='mess'){
+            header("location:admin/mess");
+        }elseif($_SESSION['role']=='teacher'){
+            header("location:school/faculty");
+        }
+   }
+
+
 }else{
    header("location:login");
 }
@@ -19,7 +32,8 @@ if(!isset($_SESSION['user'])){
 
 
 
-?><!DOCTYPE html>
+?>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">

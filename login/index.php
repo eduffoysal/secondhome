@@ -1,9 +1,25 @@
 <?php
+include('../db/db.php');
 session_start();
-if(isset($_SESSION['user'])){
-    header('location:../');
-}
 
+if(isset($_SESSION['user'])){
+   $_SESSION['visitor_id']=$_SESSION['user'];
+   $_SESSION['unique_id']=$_SESSION['user'];
+
+   if(!isset($_SESSION['role'])){
+        header("location:login");
+   }else{
+        if($_SESSION['role']=='school'){
+            header("location:../admin/school");
+        }elseif($_SESSION['role']=='mess'){
+            header("location:../admin/mess");
+        }elseif($_SESSION['role']=='teacher'){
+            header("location:../school/faculty");
+        }
+   }
+
+
+}
 
 
 ?>
@@ -998,7 +1014,7 @@ allTabMenu.forEach(item=> {
 					data: logform,
 					success:function(data){
 						if(data==1){
-                            alert(data);
+                            // alert(data);
                             Swal.fire({
                                 type: 'success',
                                 title: "Mess Admin Successfully Logged In!",
@@ -1019,7 +1035,7 @@ allTabMenu.forEach(item=> {
 							}, 2000);
 						}
 						else{
-                     alert(data);
+                    //  alert(data);
 
                     Swal.fire({
                                 type: 'warning',
