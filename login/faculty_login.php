@@ -15,12 +15,12 @@ html,body{
   height: 100%;
 }
 body{
-  background: url(../image/img28.jpg);
+  background: url(../image/img20.jpg);
   background-size: cover;
 }
 
 .form-signin{
-    background-color: #2F4F4F;
+    background: #253342;
     border-radius: 20px;
     color: #000000;
     padding: 30px;
@@ -30,11 +30,11 @@ body{
 }
 
 .btn-primary{
-  background: #253342;
+  background-color: Slateblue;
   border: 0;
 }
 .btn-primary:hover{
-  background: #5c62D6;
+  background-color: Gray;
 }
 
 .text-color{
@@ -57,32 +57,23 @@ h2,p,h3{
 </head>
 <body class="bg-light">
   <div class="conteiner">
-    <div class="row mt-4">
+    <div class="row mt-5">
       <div class="col-lg-4 form-signin m-auto">
-        <h2 class="text-center pt-3">Join us today!</h2>
-        <p class="text-center pt-1">Sign up now to become a member.</p>
-        <h3 class="text-center pt-2">Sign Up</h3>
+        <h2 class="text-center pt-5">You Are Welcome!</h2>
+        <p class="text-center pt-1">Login for an excited environment!!</p>
+        <h3 class="text-center pt-1">Faculty Log in</h3>
 
         <form action="#">
-          <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="First Name">
-          </div>
-          <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Last Name">
-          </div>
           <div class="input-group mb-3">
             <input type="text" class="form-control" placeholder="Email">
           </div>
           <div class="input-group mb-3">
             <input type="text" class="form-control" placeholder="Enter Password">
           </div>
-          <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Confirm Password">
-          </div>
           <div class="d-grid">
-            <button type="button" class="btn btn-primary">Sign Up</button>
-            <p class="text-center">
-                Already have an account? <a href="login.php" class="text-color"> Login Here</a>
+            <button type="button" class="btn btn-primary">Faculty Log In</button>
+            <p class="text-center py-2">
+                Don't have an account? <a href="faculty_signup.php" class="text-color"> Sign up Here</a>
             </p>
           </div>
         </form>
