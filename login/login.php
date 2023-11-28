@@ -28,7 +28,7 @@ if(isset($_POST['user_melogin'])){
 
 
 
-		$query="SELECT * FROM users WHERE phone='$username' OR user_id='$username' AND (phone_pass='$password' OR password='$password') AND u_type=0 ";
+		$query="SELECT * FROM users WHERE (phone='$username' OR u_name='$username' OR user_id='$username') AND (phone_pass='$password' OR password='$password') AND u_type=1 ";
 
         $queryr=mysqli_query($con,$query);
 
@@ -40,7 +40,8 @@ if(isset($_POST['user_melogin'])){
 			$_SESSION['user_id']=$row['user_id'];
 			$_SESSION['unique_id']=$row['unique_id'];
 			$_SESSION['user_phone']=$row['phone'];
-            $_SESSION['b_id'] = $row['b_id'];
+            $_SESSION['mess_id'] = $row['mess_id'];
+			$_SESSION['school_id'] = $row['school_id'];
 			$_SESSION['role'] = 'admin';
             echo 1;
 		}
@@ -196,7 +197,7 @@ if(isset($_POST['mess_melogin'])){
 
 
 
-		$query="SELECT * FROM users WHERE phone='$username' OR user_id='$username' AND (phone_pass='$password' OR password='$password') AND u_type=2 ";
+		$query="SELECT * FROM users WHERE (phone='$username' OR u_name='$username' OR user_id='$username') AND (phone_pass='$password' OR password='$password') AND u_type=1 ";
 
         $queryr=mysqli_query($con,$query);
 
@@ -208,7 +209,8 @@ if(isset($_POST['mess_melogin'])){
 			$_SESSION['user_id']=$row['user_id'];
 			$_SESSION['unique_id']=$row['unique_id'];
 			$_SESSION['user_phone']=$row['phone'];
-            $_SESSION['b_id'] = $row['b_id'];
+            $_SESSION['mess_id'] = $row['mess_id'];
+			$_SESSION['school_id'] = $row['school_id'];
 			$_SESSION['role'] = 'admin';
             echo 1;
 		}
@@ -365,7 +367,7 @@ if(isset($_POST['school_melogin'])){
 
 
 
-		$query="SELECT * FROM users WHERE phone='$username' OR user_id='$username' AND (phone_pass='$password' OR password='$password') AND u_type=1 ";
+		$query="SELECT * FROM users WHERE (phone='$username' OR u_name='$username' OR user_id='$username') AND (phone_pass='$password' OR password='$password') AND u_type=1 ";
 
         $queryr=mysqli_query($con,$query);
 
@@ -377,7 +379,8 @@ if(isset($_POST['school_melogin'])){
 			$_SESSION['user_id']=$row['user_id'];
 			$_SESSION['unique_id']=$row['unique_id'];
 			$_SESSION['user_phone']=$row['phone'];
-            $_SESSION['b_id'] = $row['b_id'];
+            $_SESSION['mess_id'] = $row['mess_id'];
+			$_SESSION['school_id'] = $row['school_id'];
 			$_SESSION['role'] = 'admin';
             echo 1;
 		}
@@ -533,7 +536,7 @@ if(isset($_POST['teacher_melogin'])){
 
 
 
-		$query="SELECT * FROM users WHERE phone='$username' OR user_id='$username' AND (phone_pass='$password' OR password='$password') AND u_type=3 ";
+		$query="SELECT * FROM users WHERE (phone='$username' OR u_name='$username' OR user_id='$username') AND (phone_pass='$password' OR password='$password') AND u_type=1 ";
 
         $queryr=mysqli_query($con,$query);
 
@@ -545,7 +548,8 @@ if(isset($_POST['teacher_melogin'])){
 			$_SESSION['user_id']=$row['user_id'];
 			$_SESSION['unique_id']=$row['unique_id'];
 			$_SESSION['user_phone']=$row['phone'];
-            $_SESSION['b_id'] = $row['b_id'];
+            $_SESSION['mess_id'] = $row['mess_id'];
+			$_SESSION['school_id'] = $row['school_id'];
 			$_SESSION['role'] = 'admin';
             echo 1;
 		}
