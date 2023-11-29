@@ -24,7 +24,7 @@ if(isset($_SESSION['user'])){
         header("location:sign");
     }else{
         $s_id = $_SESSION['school_id'];
-        $mess_id = $_SESSION['mess_id']
+        $mess_id = $_SESSION['mess_id'];
     }
 
 

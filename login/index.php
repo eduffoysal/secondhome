@@ -15,6 +15,8 @@ if(isset($_SESSION['user'])){
             header("location:../admin/mess");
         }elseif($_SESSION['role']=='teacher'){
             header("location:../school/faculty");
+        }elseif($_SESSION['role']=='user'){
+            header("location:../");
         }
    }
 
