@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 28, 2023 at 09:56 AM
+-- Generation Time: Nov 29, 2023 at 05:52 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -460,6 +460,19 @@ CREATE TABLE `mess` (
   `manager_id` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `mess`
+--
+
+INSERT INTO `mess` (`id`, `unique_id`, `mess_id`, `mess_name`, `mess_desc`, `mess_img`, `mess_cover`, `email`, `phone`, `a_status`, `date_time`, `admin_id`, `admin_phone`, `address`, `location`, `otp`, `num_users`, `manager_id`) VALUES
+(17, '96592D-1701190999-941786850-441366918', '', 'Farhad Foysal', '', '', '', 'mff585855075@gmail.com', '+8801770627875', '0', '0000-00-00', 'U-FF-0000001-01770627875', '01770627875', 'w-1, ইসলামপুর, 100, 45, 2', '', '96592D', 1, ''),
+(18, '70771C-1701191398-1750507709-1437610894', '', 'Farhad Foysal', '', '', '', 'mff585855075@gmail.com', '+8801770627875', '0', '0000-00-00', 'U-FF-0000001-01770627875', '01770627875', ', ইসলামপুর, 100, 45, 2', '', '70771C', 1, ''),
+(19, '14EAEE-1701191452-1256051501-528635243', '', 'Farhad Foysal', '', '', '', 'mff585855075@gmail.com', '+8801770627875', '0', '0000-00-00', 'U-FF-0000001-01770627875', '01770627875', ', , , , ', '', '14EAEE', 1, ''),
+(20, '4CB907-1701191462-2094019621-191494274', '', 'Farhad Foysal', '', '', '', 'mff585855075@gmail.com', '+8801770627875', '0', '0000-00-00', 'U-FF-0000001-01770627875', '01770627875', ', , , , ', '', '4CB907', 1, ''),
+(21, 'ECDC8E-1701191469-1047999947-783396025', '', 'Farhad Foysal', '', '', '', 'mff585855075@gmail.com', '+8801770627875', '0', '0000-00-00', 'U-FF-0000001-01770627875', '01770627875', ', , , , ', '', 'ECDC8E', 1, ''),
+(22, 'DE67EE-1701191706-223032415-926599196', '', 'Farhad Foysal', '', '', '', 'mff585855075@gmail.com', '+8801770627875', '0', '0000-00-00', 'U-FF-0000001-01770627875', '01770627875', ', , , , ', '', 'DE67EE', 1, ''),
+(23, '3757CF-1701191741-695829504-311787001', '', 'Farhad Foysal', '', '', '', 'mff585855075@gmail.com', '+8801770627875', '0', '0000-00-00', 'U-FF-0000001-01770627875', '01770627875', 'w-1, ইসলামপুর, 100, 45, 2', '', '3757CF', 1, '');
+
 -- --------------------------------------------------------
 
 --
@@ -621,7 +634,7 @@ CREATE TABLE `schedule` (
 CREATE TABLE `school` (
   `id` int(11) NOT NULL,
   `sName` varchar(255) DEFAULT NULL,
-  `uniqueId` varchar(255) DEFAULT NULL,
+  `unique_id` varchar(255) DEFAULT NULL,
   `admin_id` varchar(255) NOT NULL,
   `currSessId` varchar(255) DEFAULT NULL,
   `sPhone` varchar(255) DEFAULT NULL,
@@ -649,8 +662,17 @@ CREATE TABLE `school` (
   `sEmpl` int(11) DEFAULT NULL,
   `proPic` blob DEFAULT NULL,
   `sync_status` enum('0','1') DEFAULT '1',
-  `sync_key` varchar(255) DEFAULT NULL
+  `sync_key` varchar(255) DEFAULT NULL,
+  `location` varchar(255) NOT NULL,
+  `s_desc` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `school`
+--
+
+INSERT INTO `school` (`id`, `sName`, `unique_id`, `admin_id`, `currSessId`, `sPhone`, `sPass`, `sEmail`, `sLogo`, `sId`, `sAdrs`, `sEiin`, `sStudent`, `sTeacher`, `sCourse`, `sSec`, `sUser`, `sClass`, `sItp1`, `sItp2`, `sItEmail`, `sWeb`, `sFundsBal`, `sFundsBank`, `sFundsAN`, `sActivate`, `sVerification`, `sEmpl`, `proPic`, `sync_status`, `sync_key`, `location`, `s_desc`) VALUES
+(2, 'Farhad Foysal', '3FB69C-1701233033-1741528352-162749032', 'U-FF-0000001-01770627875', NULL, '+8801770627875', NULL, 'mff585855075@gmail.com', NULL, 'CO-3FB69C-1701233033-1741528352-162749032', 'w-1, ইসলামপুর, 100, 45, 2', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '01770627875', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '3FB69C', 1, NULL, '1', NULL, '', '');
 
 -- --------------------------------------------------------
 
@@ -3804,6 +3826,13 @@ CREATE TABLE `users` (
   `last_login` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `unique_id`, `user_id`, `u_name`, `password`, `phone_pass`, `mess_id`, `school_id`, `u_type`, `a_status`, `email`, `phone`, `otp`, `last_login`) VALUES
+(9, 'U-FF-0000001-01770627875', 'U-FF-0000001', 'Mffoysal', '369725', '0177062787552', '3757CF-1701191741-695829504-311787001', '3FB69C-1701233033-1741528352-162749032', '0', '0', 'mff585855075@gmail.com', '01770627875', '', '2023-11-29 04:47:17');
+
 -- --------------------------------------------------------
 
 --
@@ -3813,7 +3842,7 @@ CREATE TABLE `users` (
 CREATE TABLE `users_profile` (
   `id` int(11) NOT NULL,
   `u_id` varchar(255) DEFAULT NULL,
-  `uniqueId` varchar(255) DEFAULT NULL,
+  `unique_id` varchar(255) DEFAULT NULL,
   `currSessId` varchar(255) DEFAULT NULL,
   `designation` varchar(255) DEFAULT NULL,
   `name` varchar(255) DEFAULT NULL,
@@ -3833,6 +3862,13 @@ CREATE TABLE `users_profile` (
   `sync_status` enum('0','1') DEFAULT '1',
   `sync_key` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `users_profile`
+--
+
+INSERT INTO `users_profile` (`id`, `u_id`, `unique_id`, `currSessId`, `designation`, `name`, `email`, `phone`, `pass`, `bal`, `u_type`, `sId`, `photo`, `picture`, `fingerData`, `stdId`, `major`, `status`, `address`, `sync_status`, `sync_key`) VALUES
+(1, 'U-FF-0000001', 'U-FF-0000001-01770627875', NULL, NULL, 'Farhad Foysal', 'mff585855075@gmail.com', '01770627875', '369725', NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, '1', NULL);
 
 --
 -- Indexes for dumped tables
@@ -4131,7 +4167,7 @@ ALTER TABLE `major`
 -- AUTO_INCREMENT for table `mess`
 --
 ALTER TABLE `mess`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `note`
@@ -4173,7 +4209,7 @@ ALTER TABLE `schedule`
 -- AUTO_INCREMENT for table `school`
 --
 ALTER TABLE `school`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `seat_distribution`
@@ -4233,13 +4269,13 @@ ALTER TABLE `teacher`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `users_profile`
 --
 ALTER TABLE `users_profile`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
