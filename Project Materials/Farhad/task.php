@@ -6,7 +6,6 @@
         <title></title>
         <meta name="description" content="">
         <link rel="stylesheet" href="../../output/./output.css">
-
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -262,7 +261,7 @@ span[class^='badge']{
                             <a href="#" class="navbar-brand">B</a>
                             <ul class="nav-list -translate-x-full lg:translate-x-0 transition-default">
                                 <button class="navbar-hide-btn" type="button">
-                                    <img src="../assets/icons/close-icon.svg" alt="">
+                                    <img src="../../assets/icons/close-icon.svg" alt="">
                                 </button>
                                 <li class="nav-item">
                                     <a href="#" class="nav-link">Starts</a>
@@ -281,34 +280,34 @@ span[class^='badge']{
                                 </li>
                             </ul>
                             <div class="navbar-show-btn" type="button">
-                                <img src="../assets/icons/menu-icon.svg" alt="">
+                                <img src="../../assets/icons/menu-icon.svg" alt="">
                             </div>
                         </div>
 
                         <div class="navbar-r">
                             <div class="nav-icon-btns">
                                 <button class="nav-icon-btn">
-                                    <img src="../assets/icons/search-icon.svg" alt="">
+                                    <img src="../../assets/icons/search-icon.svg" alt="">
                                 </button>
                                 <button class="nav-icon-btn">
-                                    <img src="../assets/icons/grid-icon.svg" alt="">
+                                    <img src="../../assets/icons/grid-icon.svg" alt="">
                                 </button>
                                 <button class="nav-icon-btn">
-                                    <img src="../assets/icons/plus-icon.svg" alt="">
+                                    <img src="../../assets/icons/plus-icon.svg" alt="">
                                 </button>
                                 <button class="nav-icon-btn">
-                                    <img src="../assets/icons/folder-icon.svg" alt="">
+                                    <img src="../../assets/icons/folder-icon.svg" alt="">
                                 </button>
                                 <button class="nav-icon-btn">
-                                    <img src="../assets/icons/bell-icon.svg" alt="">
+                                    <img src="../../assets/icons/bell-icon.svg" alt="">
                                 </button>
                             </div>
 
                             <button class="nav-profile-btn">
                                 <div class="profile-btn-img">
-                                    <img src="../assets/images/avatar.jpg" alt="">
+                                    <img src="../../assets/images/avatar.jpg" alt="">
                                 </div>
-                                <img src="../assets/icons/chevron-down.svg" alt="" class="profile-btn-icon">
+                                <img src="../../assets/icons/chevron-down.svg" alt="" class="profile-btn-icon">
                             </button>
                         </div>
                     </div>
@@ -353,11 +352,11 @@ span[class^='badge']{
 
                             <div class="tab-r">
                                 <button class="tab-r-btn">
-                                    <img src="../assets/icons/maximize-icon.svg" class="tab-r-btn-icon" alt="">
+                                    <img src="../../assets/icons/maximize-icon.svg" class="tab-r-btn-icon" alt="">
                                     <span class="tab-r-btn-text">Full screens</span>
                                 </button>
                                 <button class="tab-r-btn ms-3">
-                                    <img src="../assets/icons/funnel-icon.svg" class="tab-r-btn-icon" alt="">
+                                    <img src="../../assets/icons/funnel-icon.svg" class="tab-r-btn-icon" alt="">
                                     <span class="tab-r-btn-text">Filters</span>
                                 </button>
                             </div>
@@ -369,7 +368,7 @@ span[class^='badge']{
                                 <div class="body-item-head">
                                     <h4 class="body-item-head-title">Research</h4>
                                     <button class="body-item-head-btn group">
-                                        <img src="../assets/icons/plus-icon-alt.svg" alt="" class="group-hover:invert">
+                                        <img src="../../assets/icons/plus-icon-alt.svg" alt="" class="group-hover:invert">
                                     </button>
                                 </div>
                                 <!-- tab body list -->
@@ -385,7 +384,7 @@ span[class^='badge']{
                                                 <p>Company Page</p>
                                             </div>
                                             <button class="item-top-btn">
-                                                <img src="../assets/icons/dots-icon.svg" alt="">
+                                                <img src="../../assets/icons/dots-icon.svg" alt="">
                                             </button>
                                         </div>
                                         <div class="item-body">
@@ -398,12 +397,12 @@ span[class^='badge']{
 
                                             <div class="item-comments">
                                                 <div class="item-avatar">
-                                                    <img src="../assets/images/person-1.jpg" alt="">
-                                                    <img src="../assets/images/person-3.jpg" alt="">
+                                                    <img src="../../assets/images/person-1.jpg" alt="">
+                                                    <img src="../../assets/images/person-3.jpg" alt="">
                                                 </div>
                                                 <div class="item-comments-text">
                                                     <p>14 Comments</p>
-                                                    <img src="../assets/icons/comment-icon.svg" alt="">
+                                                    <img src="../../assets/icons/comment-icon.svg" alt="">
                                                 </div>
                                             </div>
 
@@ -430,7 +429,7 @@ span[class^='badge']{
                                                 <p>Company Page</p>
                                             </div>
                                             <button class="item-top-btn">
-                                                <img src="../assets/icons/dots-icon.svg" alt="">
+                                                <img src="../../assets/icons/dots-icon.svg" alt="">
                                             </button>
                                         </div>
                                         <div class="item-body">
@@ -443,12 +442,12 @@ span[class^='badge']{
 
                                             <div class="item-comments">
                                                 <div class="item-avatar">
-                                                    <img src="../assets/images/person-1.jpg" alt="">
-                                                    <img src="../assets/images/person-3.jpg" alt="">
+                                                    <img src="../../assets/images/person-1.jpg" alt="">
+                                                    <img src="../../assets/images/person-3.jpg" alt="">
                                                 </div>
                                                 <div class="item-comments-text">
                                                     <p>14 Comments</p>
-                                                    <img src="../assets/icons/comment-icon.svg" alt="">
+                                                    <img src="../../assets/icons/comment-icon.svg" alt="">
                                                 </div>
                                             </div>
 
@@ -475,7 +474,7 @@ span[class^='badge']{
                                                 <p>Company Page</p>
                                             </div>
                                             <button class="item-top-btn">
-                                                <img src="../assets/icons/dots-icon.svg" alt="">
+                                                <img src="../../assets/icons/dots-icon.svg" alt="">
                                             </button>
                                         </div>
                                         <div class="item-body">
@@ -488,12 +487,12 @@ span[class^='badge']{
 
                                             <div class="item-comments">
                                                 <div class="item-avatar">
-                                                    <img src="../assets/images/person-1.jpg" alt="">
+                                                    <img src="../../assets/images/person-1.jpg" alt="">
                                                     <img src="../assets/images/person-3.jpg" alt="">
                                                 </div>
                                                 <div class="item-comments-text">
                                                     <p>14 Comments</p>
-                                                    <img src="../assets/icons/comment-icon.svg" alt="">
+                                                    <img src="../../assets/icons/comment-icon.svg" alt="">
                                                 </div>
                                             </div>
 
@@ -519,7 +518,7 @@ span[class^='badge']{
                                 <div class="body-item-head">
                                     <h4 class="body-item-head-title">In Review</h4>
                                     <button class="body-item-head-btn group">
-                                        <img src="../assets/icons/plus-icon-alt.svg" alt="" class="group-hover:invert">
+                                        <img src="../../assets/icons/plus-icon-alt.svg" alt="" class="group-hover:invert">
                                     </button>
                                 </div>
                                 <!-- tab body list -->
@@ -535,7 +534,7 @@ span[class^='badge']{
                                                 <p>Company Page</p>
                                             </div>
                                             <button class="item-top-btn">
-                                                <img src="../assets/icons/dots-icon.svg" alt="">
+                                                <img src="../../assets/icons/dots-icon.svg" alt="">
                                             </button>
                                         </div>
                                         <div class="item-body">
@@ -548,12 +547,12 @@ span[class^='badge']{
 
                                             <div class="item-comments">
                                                 <div class="item-avatar">
-                                                    <img src="../assets/images/person-1.jpg" alt="">
+                                                    <img src="../../assets/images/person-1.jpg" alt="">
                                                     <img src="../assets/images/person-3.jpg" alt="">
                                                 </div>
                                                 <div class="item-comments-text">
                                                     <p>14 Comments</p>
-                                                    <img src="../assets/icons/comment-icon.svg" alt="">
+                                                    <img src="../../assets/icons/comment-icon.svg" alt="">
                                                 </div>
                                             </div>
 
@@ -970,6 +969,6 @@ span[class^='badge']{
         </div>
 
 
-        <script src="../../dist/scripta.js"></script>
+        <script src="../../dist/js/scripta.js"></script>
     </body>
 </html>

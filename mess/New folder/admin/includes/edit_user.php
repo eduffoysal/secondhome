@@ -2,7 +2,7 @@
  <?php
  if(isset($_GET['mem_id'])){
          $the_member = $_GET['mem_id'];
-         $messid=$_SESSION['mess_id'] 
+         $messid=$_SESSION['mess_id'];
  }
  $query = "SELECT * FROM meal_table WHERE mid='{$the_member}' AND mess_id='{$messid}'";
 $select_member = mysqli_query($connection,$query);

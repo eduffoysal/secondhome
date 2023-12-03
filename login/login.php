@@ -44,6 +44,8 @@ if(isset($_POST['user_melogin'])){
             $_SESSION['mess_id'] = $row['mess_id'];
 			$_SESSION['school_id'] = $row['school_id'];
 			$_SESSION['role'] = 'user';
+			$_SESSION['logged_in'] = true;
+			$_SESSION['row'] = $row;
             echo 1;
 		}
 		else{
@@ -212,6 +214,8 @@ if(isset($_POST['mess_melogin'])){
             $_SESSION['mess_id'] = $row['mess_id'];
 			$_SESSION['school_id'] = $row['school_id'];
 			$_SESSION['role'] = 'mess';
+			$_SESSION['logged_in'] = true;
+			$_SESSION['row'] = $row;
             echo 1;
 		}
 		else{
@@ -382,6 +386,8 @@ if(isset($_POST['school_melogin'])){
             $_SESSION['mess_id'] = $row['mess_id'];
 			$_SESSION['school_id'] = $row['school_id'];
 			$_SESSION['role'] = 'school';
+			$_SESSION['logged_in'] = true;
+			$_SESSION['row'] = $row;
             echo 1;
 		}
 		else{
@@ -552,6 +558,8 @@ if(isset($_POST['teacher_melogin'])){
             $_SESSION['mess_id'] = $row['mess_id'];
 			$_SESSION['school_id'] = $row['school_id'];
 			$_SESSION['role'] = 'teacher';
+			$_SESSION['logged_in'] = true;
+			$_SESSION['row'] = $row;
             echo 1;
 		}
 		else{

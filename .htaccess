@@ -42,3 +42,7 @@ RewriteRule . home.php [L]
 # RewriteRule ^uu/(.+)/(.+)/(.+)$ urll?u_id=$1&action=$2&name=$3 [QSA,L]
 # RewriteRule ^urll.php/(.+)/(.+)/(.+)$ urll?u_id=$1&action=$2&name=$3 [QSA,L]
 # RewriteRule ^urll/(.+)/(.+)/(.+)$ urll.php?u_id=$1&action=$2&name=$3 [QSA,L]
+
+
+# ErrorDocument 404 page_not_found
+ErrorDocument 404 /edu/404.php
