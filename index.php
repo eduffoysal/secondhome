@@ -38,7 +38,7 @@ if(!isset($_SESSION['user'])){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>SecondHome</title>
     <link rel="stylesheet" href="./output/output.css">
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -47,35 +47,112 @@ if(!isset($_SESSION['user'])){
 
         <link rel="stylesheet" href="css/stylee.css">
 
+
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+
+
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+<link rel="stylesheet" href="icon/bootstrap-icons.css">
+
+        
+        <!-- <script src="https://kit.fontawesome.com/a076d05399.js"></script> -->
+
+        <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="jquery-3.4.1.js"></script>
+    <!-- <script src="https://kit.fontawesome.com/a076d05399.js"></script> -->
+    <link rel="stylesheet" href="icon/bootstrap-icons.css">
+
+    <!-- <script src="ck/ckeditor.js"></script> -->
+    <!-- <script src="f/admin/ckeditor/ckeditor.js"></script> -->
+
+    <!-- <script src="//cdn.ckeditor.com/4.16.2/full/ckeditor.js"></script> -->
+    <script src="jquery-3.5.1.min.js"></script>
+    <!-- swap -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/5.4.5/css/swiper.css">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+    <!-- swap -->
+
+    <link rel="stylesheet" href="../bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+
+
+    <link rel="stylesheet" href="css/carousel_and_other.css">
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="css/select-menu.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.0/font/bootstrap-icons.css">
+
+
 </head>
 <body>
 
+
+
+<!--  -->
+<div id="navi-1" class="text-center hidden">
+<div id="msg" class="msg" type="button" data-bs-toggle="modal" data-bs-target="#contactmsg">
+    <div class="menu-main">
+      <div class="menu-t"><i class="bi bi-house-fill bihousefill"></i></div>
+      <li style="--i:0;" class="menuList0"> <a href="#"> <i id="moon" class="bi bi-moon"></i> </a> </li>
+      <li style="--i:1;" class="menuList1"> <a href="#"> <i class="bi bi-calendar-event-fill"></i> </a> </li>
+      <li style="--i:2;" class="menuList2" data-bs-toggle="modal" data-bs-target="#user_per_modal"> <a href="#"> <i class="bi bi-pencil-square"></i> </a> </li>
+      <li style="--i:3;" class="menuList3"> <a href="#"> <i class="bi bi-person-lines-fill"></i> </a> </li>
+      <li style="--i:4;" class="menuList4"> <a href="#"> <i class="bi bi-bag-plus-fill"></i> </a> </li>
+      <li style="--i:5;" class="menuList5"> <a href="#"> <i class="bi bi-bag-check-fill"></i> </a> </li>
+      <li style="--i:6;" class="menuList6"> <a href="#"> <i class="bi bi-cart4"></i> </a> </li>
+    </div>
+    <span id="notifications_counter" style="width:20px; height:30px; padding-left:1px; padding-top:2px; text-align: center" class="position-absolute top-0 text-center start-100 translate-middle badge rounded-circle bg-transparent"></span>
+<span class="visually-hidden">U</span></span>
+                            </div>
+</div>
+
+<div class="topheader fixed-bottom">
+    <header class="tophead">
+        <nav class="topnav">
+            <a href="#main" class="btttnu-1"  id="HtmlBtn"><i class="bi bi-house-fill"><span class="topname">HOME</span> <i class="bi bi-share"></i></i></a>
+            <a href="#user" class="btttnu-2"><i class="bi bi-activity"><span class="topname" >MESS</span></i></a>
+            <a href="#others" class="btttnu-3"><i class="bi bi-three-dots"><span class="topname">ROUTINE</span></i></a>
+            <a href="#signup" class="btttnu-4"><i class="bi bi-file-earmark-person-fill"><span class="topname">NOTE</span></i></a>
+            <a href="#login" class="btttnu-5"><i class="bi bi-gear"><span class="topname">EDU </span> <i class="bi bi-person-circle"></i></i></a>
+
+        </nav>
+    </header>
+</div>
+
 <div class="main-wrapper">
             <div class="page-top">
-                <div class="container">
+                <div class="container-fluid">
                     <!-- navbar -->
-                    <div class="navbar">
+                    <div class="navbar sticky-top">
                         <div class="navbar-l">
-                            <a href="#" class="navbar-brand md:hidden">SH</a>
-                            <a href="#" class="navbar-brand hidden md:block">SecondHome</a>
-                            <ul class="nav-list -translate-x-full lg:translate-x-0 transition-default">
+                            <a href="#" class="navbar-brand text-black md:hidden">SH</a>
+                            <a href="#" class="navbar-brand text-black hidden md:block">SecondHome</a>
+                            <ul class="nav-list text-black text-decoration-none m-auto -translate-x-full lg:translate-x-0 transition-default">
                                 <button class="navbar-hide-btn" type="button">
                                     <img src="assets/icons/close-icon.svg" alt="">
                                 </button>
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">Starts</a>
+                                    <a href="#" class="nav-link p-1 text-decoration-none text-black">SCHEDULE</a>
                                 </li>
                                 <li class="nav-item active">
-                                    <a href="#" class="nav-link">Projects</a>
+                                    <a href="#" class="nav-link p-1 text-black">MESS</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">Planning</a>
+                                    <a href="#" class="nav-link p-1 text-black">ROUTINE</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">Teams</a>
+                                    <a href="#" class="nav-link p-1 text-black">NOTE</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">Calendar</a>
+                                    <a href="#" class="nav-link p-1 text-black">EDU</a>
                                 </li>
                             </ul>
                             <div class="navbar-show-btn" type="button">
@@ -114,17 +191,1201 @@ if(!isset($_SESSION['user'])){
                 </div>
             </div>
 
-            <div class="page-content">
-                <div class="container">
-                    <div class="content-head">
-                        <h3 class="content-head-title">Tasks Board</h3>
-                        <button class="content-head-btn">Show Backlog</button>
+            <div class="schedule_container hidden" id="schedule_container">
+
+            
+                <div class="schedule_home" id="schedule_home">
+                        <div class="page-content">
+                        <div class="container-fluid">
+
+                            <div class="content-tab">
+                                <div class="content-tab-head">
+                                    <div class="tab-l">
+                                        <!-- <ul class="tab-btns">
+                                            <li class="tab-btn-item active">
+                                                <button class="tab-btn-link" type="button">Overview</button>
+                                            </li>
+                                            <li class="tab-btn-item">
+                                                <button class="tab-btn-link" type="button">Tasks</button>
+                                            </li>
+                                            <li class="tab-btn-item">
+                                                <button class="tab-btn-link" type="button">Milestones</button>
+                                            </li>
+                                            <li class="tab-btn-item">
+                                                <button class="tab-btn-link" type="button">Messages</button>
+                                            </li>
+                                            <li class="tab-btn-item">
+                                                <button class="tab-btn-link" type="button">Files</button>
+                                            </li>
+                                            <li class="tab-btn-item">
+                                                <button class="tab-btn-link" type="button">Time</button>
+                                            </li>
+                                            <li class="tab-btn-item">
+                                                <button class="tab-btn-link" type="button">Comments</button>
+                                            </li>
+                                        </ul> -->
+
+                                        <ul style="padding-left: 0;" class="hidden text-sm font-medium pl-0 mb-2 text-center text-gray-500 rounded-lg shadow sm:flex dark:divide-gray-700 dark:text-gray-400">
+                                            <li class="w-full active:bg-amber-900">
+                                                <a href="#" class="inline-block text-decoration-none user_btn w-full p-2 text-gray-900 bg-gray-100 border-r border-gray-200 dark:border-gray-700 rounded-s-lg focus:ring-4 focus:ring-blue-300 active focus:outline-none dark:bg-gray-700 dark:text-white" aria-current="page">HOME</a>
+                                            </li>
+                                            <li class="w-full">
+                                                <a href="#" class="inline-block mess_btn text-decoration-none w-full p-2 bg-white border-r border-gray-200 dark:border-gray-700 hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">BAZAR</a>
+                                            </li>
+                                            <li class="w-full">
+                                                <a href="#" class="inline-block school_btn text-decoration-none w-full p-2 bg-white border-r border-gray-200 dark:border-gray-700 hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">FEE</a>
+                                            </li>
+                                            <li class="w-full">
+                                                <a href="#" class="inline-block school_btn text-decoration-none w-full p-2 bg-white border-r border-gray-200 dark:border-gray-700 hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">MESS</a>
+                                            </li>
+                                            <li class="w-full">
+                                                <a href="#" class="inline-block school_btn text-decoration-none w-full p-2 bg-white border-r border-gray-200 dark:border-gray-700 hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">PAYMENT</a>
+                                            </li>
+                                            <li class="w-full">
+                                                <a href="#" class="inline-block school_btn text-decoration-none w-full p-2 bg-white border-r border-gray-200 dark:border-gray-700 hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">INBOX</a>
+                                            </li>
+                                            <li class="w-full">
+                                                <a href="#" class="inline-block w-full text-decoration-none teacher_btn p-2 bg-white border-s-0 border-gray-200 dark:border-gray-700 rounded-e-lg hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">SETTINGS</a>
+                                            </li>
+                                            
+                                        </ul>
+
+                                        <div class="sm:hidden">
+                                            <label for="tabs" class="sr-only">Select any setting option </label>
+                                            <select id="tabs" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                                <option value="user" class="">HOME</option>
+                                                <option value="mess">BAZAR</option>
+                                                <option value="school">FEE</option>
+                                                <option value="teacher">PAYMENT</option>
+                                                <option value="teacher">MESS PROFILE</option>
+                                                <option value="teacher">INBOX</option>
+                                                <option value="teacher">SETTINGS</option>
+                                            </select>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="tab-r">
+                                        <button class="tab-r-btn m-auto">
+                                            <img src="assets/icons/maximize-icon.svg" class="tab-r-btn-icon" alt="">
+                                            <span class="tab-r-btn-text">Full screens</span>
+                                        </button>
+                                        <button class="tab-r-btn ms-3 m-auto">
+                                            <img src="assets/icons/funnel-icon.svg" class="tab-r-btn-icon" alt="">
+                                            <span class="tab-r-btn-text">Filters</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="content-tab-body">
+
+                                    <div class="_space">
+
+                                    </div>
+                                    <div class="_space">
+
+                                    </div>
+                                    <div class="_space">
+
+                                    </div>
+                                    <div class="_space">
+
+                                    </div>
+                                    <div class="_space">
+
+                                    </div>
+                                    <div class="_space">
+
+                                    </div>
+                                    <div class="_space">
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                </div>
+
+
+            </div>
+
+            <div class="mess_container" id="mess_container">
+            
+                <div class="mess_home" id="mess_home">
+                        <div class="page-content">
+                        <div class="container-fluid">
+
+                            <div class="content-tab">
+                                <div class="content-tab-head">
+                                    <div class="tab-l">
+                                        <!-- <ul class="tab-btns">
+                                            <li class="tab-btn-item active">
+                                                <button class="tab-btn-link" type="button">Overview</button>
+                                            </li>
+                                            <li class="tab-btn-item">
+                                                <button class="tab-btn-link" type="button">Tasks</button>
+                                            </li>
+                                            <li class="tab-btn-item">
+                                                <button class="tab-btn-link" type="button">Milestones</button>
+                                            </li>
+                                            <li class="tab-btn-item">
+                                                <button class="tab-btn-link" type="button">Messages</button>
+                                            </li>
+                                            <li class="tab-btn-item">
+                                                <button class="tab-btn-link" type="button">Files</button>
+                                            </li>
+                                            <li class="tab-btn-item">
+                                                <button class="tab-btn-link" type="button">Time</button>
+                                            </li>
+                                            <li class="tab-btn-item">
+                                                <button class="tab-btn-link" type="button">Comments</button>
+                                            </li>
+                                        </ul> -->
+
+                                        <ul style="padding-left: 0;" class="hidden text-sm font-medium pl-0 mb-2 text-center text-gray-500 rounded-lg shadow sm:flex dark:divide-gray-700 dark:text-gray-400">
+                                            <li class="w-full active:bg-amber-900">
+                                                <a href="#" class="inline-block text-decoration-none user_btn w-full p-2 text-gray-900 bg-gray-100 border-r border-gray-200 dark:border-gray-700 rounded-s-lg focus:ring-4 focus:ring-blue-300 active focus:outline-none dark:bg-gray-700 dark:text-white" aria-current="page">HOME</a>
+                                            </li>
+                                            <li class="w-full">
+                                                <a href="#" class="inline-block mess_btn text-decoration-none w-full p-2 bg-white border-r border-gray-200 dark:border-gray-700 hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">BAZAR</a>
+                                            </li>
+                                            <li class="w-full">
+                                                <a href="#" class="inline-block school_btn text-decoration-none w-full p-2 bg-white border-r border-gray-200 dark:border-gray-700 hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">FEE</a>
+                                            </li>
+                                            <li class="w-full">
+                                                <a href="#" class="inline-block school_btn text-decoration-none w-full p-2 bg-white border-r border-gray-200 dark:border-gray-700 hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">MESS</a>
+                                            </li>
+                                            <li class="w-full">
+                                                <a href="#" class="inline-block school_btn text-decoration-none w-full p-2 bg-white border-r border-gray-200 dark:border-gray-700 hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">PAYMENT</a>
+                                            </li>
+                                            <li class="w-full">
+                                                <a href="#" class="inline-block school_btn text-decoration-none w-full p-2 bg-white border-r border-gray-200 dark:border-gray-700 hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">INBOX</a>
+                                            </li>
+                                            <li class="w-full">
+                                                <a href="#" class="inline-block w-full text-decoration-none teacher_btn p-2 bg-white border-s-0 border-gray-200 dark:border-gray-700 rounded-e-lg hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">SETTINGS</a>
+                                            </li>
+                                            
+                                        </ul>
+
+                                        <div class="sm:hidden">
+                                            <label for="tabs" class="sr-only">Select any setting option </label>
+                                            <select id="tabs" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                                <option value="user" class="">HOME</option>
+                                                <option value="mess">BAZAR</option>
+                                                <option value="school">FEE</option>
+                                                <option value="teacher">PAYMENT</option>
+                                                <option value="teacher">MESS PROFILE</option>
+                                                <option value="teacher">INBOX</option>
+                                                <option value="teacher">SETTINGS</option>
+                                            </select>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="tab-r">
+                                        <button class="tab-r-btn m-auto">
+                                            <img src="assets/icons/maximize-icon.svg" class="tab-r-btn-icon" alt="">
+                                            <span class="tab-r-btn-text">Full screens</span>
+                                        </button>
+                                        <button class="tab-r-btn ms-3 m-auto">
+                                            <img src="assets/icons/funnel-icon.svg" class="tab-r-btn-icon" alt="">
+                                            <span class="tab-r-btn-text">Filters</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="content-tab-body">
+
+                                    <div class="_space">
+
+                                    </div>
+                                    <div class="_space">
+
+                                    </div>
+                                    <div class="_space">
+
+                                    </div>
+                                    <div class="_space">
+
+                                    </div>
+                                    <div class="_space">
+
+                                    </div>
+                                    <div class="_space">
+
+                                    </div>
+                                    <div class="_space">
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            
+            <div class="routine_container hidden" id="routine_container">
+            
+                <div class="routine_home" id="routine_home">
+                        <div class="page-content">
+                        <div class="container-fluid">
+
+                            <div class="content-tab">
+                                <div class="content-tab-head">
+                                    <div class="tab-l">
+                                        <!-- <ul class="tab-btns">
+                                            <li class="tab-btn-item active">
+                                                <button class="tab-btn-link" type="button">Overview</button>
+                                            </li>
+                                            <li class="tab-btn-item">
+                                                <button class="tab-btn-link" type="button">Tasks</button>
+                                            </li>
+                                            <li class="tab-btn-item">
+                                                <button class="tab-btn-link" type="button">Milestones</button>
+                                            </li>
+                                            <li class="tab-btn-item">
+                                                <button class="tab-btn-link" type="button">Messages</button>
+                                            </li>
+                                            <li class="tab-btn-item">
+                                                <button class="tab-btn-link" type="button">Files</button>
+                                            </li>
+                                            <li class="tab-btn-item">
+                                                <button class="tab-btn-link" type="button">Time</button>
+                                            </li>
+                                            <li class="tab-btn-item">
+                                                <button class="tab-btn-link" type="button">Comments</button>
+                                            </li>
+                                        </ul> -->
+
+                                        <ul style="padding-left: 0;" class="hidden text-sm font-medium pl-0 mb-2 text-center text-gray-500 rounded-lg shadow sm:flex dark:divide-gray-700 dark:text-gray-400">
+                                            <li class="w-full active:bg-amber-900">
+                                                <a href="#" class="inline-block text-decoration-none user_btn w-full p-2 text-gray-900 bg-gray-100 border-r border-gray-200 dark:border-gray-700 rounded-s-lg focus:ring-4 focus:ring-blue-300 active focus:outline-none dark:bg-gray-700 dark:text-white" aria-current="page">HOME</a>
+                                            </li>
+                                            <li class="w-full">
+                                                <a href="#" class="inline-block mess_btn text-decoration-none w-full p-2 bg-white border-r border-gray-200 dark:border-gray-700 hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">BAZAR</a>
+                                            </li>
+                                            <li class="w-full">
+                                                <a href="#" class="inline-block school_btn text-decoration-none w-full p-2 bg-white border-r border-gray-200 dark:border-gray-700 hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">FEE</a>
+                                            </li>
+                                            <li class="w-full">
+                                                <a href="#" class="inline-block school_btn text-decoration-none w-full p-2 bg-white border-r border-gray-200 dark:border-gray-700 hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">MESS</a>
+                                            </li>
+                                            <li class="w-full">
+                                                <a href="#" class="inline-block school_btn text-decoration-none w-full p-2 bg-white border-r border-gray-200 dark:border-gray-700 hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">PAYMENT</a>
+                                            </li>
+                                            <li class="w-full">
+                                                <a href="#" class="inline-block school_btn text-decoration-none w-full p-2 bg-white border-r border-gray-200 dark:border-gray-700 hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">INBOX</a>
+                                            </li>
+                                            <li class="w-full">
+                                                <a href="#" class="inline-block w-full text-decoration-none teacher_btn p-2 bg-white border-s-0 border-gray-200 dark:border-gray-700 rounded-e-lg hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">SETTINGS</a>
+                                            </li>
+                                            
+                                        </ul>
+
+                                        <div class="sm:hidden">
+                                            <label for="tabs" class="sr-only">Select any setting option </label>
+                                            <select id="tabs" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                                <option value="user" class="">HOME</option>
+                                                <option value="mess">BAZAR</option>
+                                                <option value="school">FEE</option>
+                                                <option value="teacher">PAYMENT</option>
+                                                <option value="teacher">MESS PROFILE</option>
+                                                <option value="teacher">INBOX</option>
+                                                <option value="teacher">SETTINGS</option>
+                                            </select>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="tab-r">
+                                        <button class="tab-r-btn m-auto">
+                                            <img src="assets/icons/maximize-icon.svg" class="tab-r-btn-icon" alt="">
+                                            <span class="tab-r-btn-text">Full screens</span>
+                                        </button>
+                                        <button class="tab-r-btn ms-3 m-auto">
+                                            <img src="assets/icons/funnel-icon.svg" class="tab-r-btn-icon" alt="">
+                                            <span class="tab-r-btn-text">Filters</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="content-tab-body">
+
+                                    <div class="_space">
+
+                                    </div>
+                                    <div class="_space">
+
+                                    </div>
+                                    <div class="_space">
+
+                                    </div>
+                                    <div class="_space">
+
+                                    </div>
+                                    <div class="_space">
+
+                                    </div>
+                                    <div class="_space">
+
+                                    </div>
+                                    <div class="_space">
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="note_container" id="note_container">
+               
+            
+                <div class="note_home" id="note_home">
+                        <div class="page-content">
+                        <div class="container-fluid">
+
+                            <div class="content-tab">
+                                <div class="content-tab-head">
+                                    <div class="tab-l">
+                                        <!-- <ul class="tab-btns">
+                                            <li class="tab-btn-item active">
+                                                <button class="tab-btn-link" type="button">Overview</button>
+                                            </li>
+                                            <li class="tab-btn-item">
+                                                <button class="tab-btn-link" type="button">Tasks</button>
+                                            </li>
+                                            <li class="tab-btn-item">
+                                                <button class="tab-btn-link" type="button">Milestones</button>
+                                            </li>
+                                            <li class="tab-btn-item">
+                                                <button class="tab-btn-link" type="button">Messages</button>
+                                            </li>
+                                            <li class="tab-btn-item">
+                                                <button class="tab-btn-link" type="button">Files</button>
+                                            </li>
+                                            <li class="tab-btn-item">
+                                                <button class="tab-btn-link" type="button">Time</button>
+                                            </li>
+                                            <li class="tab-btn-item">
+                                                <button class="tab-btn-link" type="button">Comments</button>
+                                            </li>
+                                        </ul> -->
+
+                                        <ul style="padding-left: 0;" class="hidden text-sm font-medium pl-0 mb-2 text-center text-gray-500 rounded-lg shadow sm:flex dark:divide-gray-700 dark:text-gray-400">
+                                            <li class="w-full active:bg-amber-900">
+                                                <a href="#" class="inline-block text-decoration-none user_btn w-full p-2 text-gray-900 bg-gray-100 border-r border-gray-200 dark:border-gray-700 rounded-s-lg focus:ring-4 focus:ring-blue-300 active focus:outline-none dark:bg-gray-700 dark:text-white" aria-current="page">HOME</a>
+                                            </li>
+                                            <li class="w-full">
+                                                <a href="#" class="inline-block mess_btn text-decoration-none w-full p-2 bg-white border-r border-gray-200 dark:border-gray-700 hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">BAZAR</a>
+                                            </li>
+                                            <li class="w-full">
+                                                <a href="#" class="inline-block school_btn text-decoration-none w-full p-2 bg-white border-r border-gray-200 dark:border-gray-700 hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">FEE</a>
+                                            </li>
+                                            <li class="w-full">
+                                                <a href="#" class="inline-block school_btn text-decoration-none w-full p-2 bg-white border-r border-gray-200 dark:border-gray-700 hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">MESS</a>
+                                            </li>
+                                            <li class="w-full">
+                                                <a href="#" class="inline-block school_btn text-decoration-none w-full p-2 bg-white border-r border-gray-200 dark:border-gray-700 hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">PAYMENT</a>
+                                            </li>
+                                            <li class="w-full">
+                                                <a href="#" class="inline-block school_btn text-decoration-none w-full p-2 bg-white border-r border-gray-200 dark:border-gray-700 hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">INBOX</a>
+                                            </li>
+                                            <li class="w-full">
+                                                <a href="#" class="inline-block w-full text-decoration-none teacher_btn p-2 bg-white border-s-0 border-gray-200 dark:border-gray-700 rounded-e-lg hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">SETTINGS</a>
+                                            </li>
+                                            
+                                        </ul>
+
+                                        <div class="sm:hidden">
+                                            <label for="tabs" class="sr-only">Select any setting option </label>
+                                            <select id="tabs" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                                <option value="user" class="">HOME</option>
+                                                <option value="mess">BAZAR</option>
+                                                <option value="school">FEE</option>
+                                                <option value="teacher">PAYMENT</option>
+                                                <option value="teacher">MESS PROFILE</option>
+                                                <option value="teacher">INBOX</option>
+                                                <option value="teacher">SETTINGS</option>
+                                            </select>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="tab-r">
+                                        <button class="tab-r-btn m-auto">
+                                            <img src="assets/icons/maximize-icon.svg" class="tab-r-btn-icon" alt="">
+                                            <span class="tab-r-btn-text">Full screens</span>
+                                        </button>
+                                        <button class="tab-r-btn ms-3 m-auto">
+                                            <img src="assets/icons/funnel-icon.svg" class="tab-r-btn-icon" alt="">
+                                            <span class="tab-r-btn-text">Filters</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="content-tab-body">
+
+                                    <div class="_space">
+
+                                    </div>
+                                    <div class="_space">
+
+                                    </div>
+                                    <div class="_space">
+
+                                    </div>
+                                    <div class="_space">
+
+                                    </div>
+                                    <div class="_space">
+
+                                    </div>
+                                    <div class="_space">
+
+                                    </div>
+                                    <div class="_space">
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            
+            </div>
+
+            
+            <div class="edu_container" id="edu_container">
+
+            
+                <div class="edu_home" id="edu_home">
+                        <div class="page-content">
+                        <div class="container-fluid">
+
+                            <div class="content-tab">
+                                <div class="content-tab-head">
+                                    <div class="tab-l">
+                                        <!-- <ul class="tab-btns">
+                                            <li class="tab-btn-item active">
+                                                <button class="tab-btn-link" type="button">Overview</button>
+                                            </li>
+                                            <li class="tab-btn-item">
+                                                <button class="tab-btn-link" type="button">Tasks</button>
+                                            </li>
+                                            <li class="tab-btn-item">
+                                                <button class="tab-btn-link" type="button">Milestones</button>
+                                            </li>
+                                            <li class="tab-btn-item">
+                                                <button class="tab-btn-link" type="button">Messages</button>
+                                            </li>
+                                            <li class="tab-btn-item">
+                                                <button class="tab-btn-link" type="button">Files</button>
+                                            </li>
+                                            <li class="tab-btn-item">
+                                                <button class="tab-btn-link" type="button">Time</button>
+                                            </li>
+                                            <li class="tab-btn-item">
+                                                <button class="tab-btn-link" type="button">Comments</button>
+                                            </li>
+                                        </ul> -->
+
+                                        <ul style="padding-left: 0;" class="hidden text-sm font-medium pl-0 mb-2 text-center text-gray-500 rounded-lg shadow sm:flex dark:divide-gray-700 dark:text-gray-400">
+                                            <li class="w-full active:bg-amber-900">
+                                                <a href="#" class="inline-block text-decoration-none user_btn w-full p-2 text-gray-900 bg-gray-100 border-r border-gray-200 dark:border-gray-700 rounded-s-lg focus:ring-4 focus:ring-blue-300 active focus:outline-none dark:bg-gray-700 dark:text-white" aria-current="page">HOME</a>
+                                            </li>
+                                            <li class="w-full">
+                                                <a href="#" class="inline-block mess_btn text-decoration-none w-full p-2 bg-white border-r border-gray-200 dark:border-gray-700 hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">BAZAR</a>
+                                            </li>
+                                            <li class="w-full">
+                                                <a href="#" class="inline-block school_btn text-decoration-none w-full p-2 bg-white border-r border-gray-200 dark:border-gray-700 hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">FEE</a>
+                                            </li>
+                                            <li class="w-full">
+                                                <a href="#" class="inline-block school_btn text-decoration-none w-full p-2 bg-white border-r border-gray-200 dark:border-gray-700 hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">MESS</a>
+                                            </li>
+                                            <li class="w-full">
+                                                <a href="#" class="inline-block school_btn text-decoration-none w-full p-2 bg-white border-r border-gray-200 dark:border-gray-700 hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">PAYMENT</a>
+                                            </li>
+                                            <li class="w-full">
+                                                <a href="#" class="inline-block school_btn text-decoration-none w-full p-2 bg-white border-r border-gray-200 dark:border-gray-700 hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">INBOX</a>
+                                            </li>
+                                            <li class="w-full">
+                                                <a href="#" class="inline-block w-full text-decoration-none teacher_btn p-2 bg-white border-s-0 border-gray-200 dark:border-gray-700 rounded-e-lg hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">SETTINGS</a>
+                                            </li>
+                                            
+                                        </ul>
+
+                                        <div class="sm:hidden">
+                                            <label for="tabs" class="sr-only">Select any setting option </label>
+                                            <select id="tabs" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                                <option value="user" class="">HOME</option>
+                                                <option value="mess">BAZAR</option>
+                                                <option value="school">FEE</option>
+                                                <option value="teacher">PAYMENT</option>
+                                                <option value="teacher">MESS PROFILE</option>
+                                                <option value="teacher">INBOX</option>
+                                                <option value="teacher">SETTINGS</option>
+                                            </select>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="tab-r">
+                                        <button class="tab-r-btn m-auto">
+                                            <img src="assets/icons/maximize-icon.svg" class="tab-r-btn-icon" alt="">
+                                            <span class="tab-r-btn-text">Full screens</span>
+                                        </button>
+                                        <button class="tab-r-btn ms-3 m-auto">
+                                            <img src="assets/icons/funnel-icon.svg" class="tab-r-btn-icon" alt="">
+                                            <span class="tab-r-btn-text">Filters</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="content-tab-body">
+
+                                    <div class="_space">
+
+                                    </div>
+                                    <div class="_space">
+
+                                    </div>
+                                    <div class="_space">
+
+                                    </div>
+                                    <div class="_space">
+
+                                    </div>
+                                    <div class="_space">
+
+                                    </div>
+                                    <div class="_space">
+
+                                    </div>
+                                    <div class="_space">
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="other_container" id="other_container">
+                
+            
+                <div class="other_home" id="other_home">
+                        <div class="page-content">
+                        <div class="container-fluid">
+
+                            <div class="content-tab">
+                                <div class="content-tab-head">
+                                    <div class="tab-l">
+                                        <!-- <ul class="tab-btns">
+                                            <li class="tab-btn-item active">
+                                                <button class="tab-btn-link" type="button">Overview</button>
+                                            </li>
+                                            <li class="tab-btn-item">
+                                                <button class="tab-btn-link" type="button">Tasks</button>
+                                            </li>
+                                            <li class="tab-btn-item">
+                                                <button class="tab-btn-link" type="button">Milestones</button>
+                                            </li>
+                                            <li class="tab-btn-item">
+                                                <button class="tab-btn-link" type="button">Messages</button>
+                                            </li>
+                                            <li class="tab-btn-item">
+                                                <button class="tab-btn-link" type="button">Files</button>
+                                            </li>
+                                            <li class="tab-btn-item">
+                                                <button class="tab-btn-link" type="button">Time</button>
+                                            </li>
+                                            <li class="tab-btn-item">
+                                                <button class="tab-btn-link" type="button">Comments</button>
+                                            </li>
+                                        </ul> -->
+
+                                        <ul style="padding-left: 0;" class="hidden text-sm font-medium pl-0 mb-2 text-center text-gray-500 rounded-lg shadow sm:flex dark:divide-gray-700 dark:text-gray-400">
+                                            <li class="w-full active:bg-amber-900">
+                                                <a href="#" class="inline-block text-decoration-none user_btn w-full p-2 text-gray-900 bg-gray-100 border-r border-gray-200 dark:border-gray-700 rounded-s-lg focus:ring-4 focus:ring-blue-300 active focus:outline-none dark:bg-gray-700 dark:text-white" aria-current="page">HOME</a>
+                                            </li>
+                                            <li class="w-full">
+                                                <a href="#" class="inline-block mess_btn text-decoration-none w-full p-2 bg-white border-r border-gray-200 dark:border-gray-700 hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">BAZAR</a>
+                                            </li>
+                                            <li class="w-full">
+                                                <a href="#" class="inline-block school_btn text-decoration-none w-full p-2 bg-white border-r border-gray-200 dark:border-gray-700 hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">FEE</a>
+                                            </li>
+                                            <li class="w-full">
+                                                <a href="#" class="inline-block school_btn text-decoration-none w-full p-2 bg-white border-r border-gray-200 dark:border-gray-700 hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">MESS</a>
+                                            </li>
+                                            <li class="w-full">
+                                                <a href="#" class="inline-block school_btn text-decoration-none w-full p-2 bg-white border-r border-gray-200 dark:border-gray-700 hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">PAYMENT</a>
+                                            </li>
+                                            <li class="w-full">
+                                                <a href="#" class="inline-block school_btn text-decoration-none w-full p-2 bg-white border-r border-gray-200 dark:border-gray-700 hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">INBOX</a>
+                                            </li>
+                                            <li class="w-full">
+                                                <a href="#" class="inline-block w-full text-decoration-none teacher_btn p-2 bg-white border-s-0 border-gray-200 dark:border-gray-700 rounded-e-lg hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">SETTINGS</a>
+                                            </li>
+                                            
+                                        </ul>
+
+                                        <div class="sm:hidden">
+                                            <label for="tabs" class="sr-only">Select any setting option </label>
+                                            <select id="tabs" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                                <option value="user" class="">HOME</option>
+                                                <option value="mess">BAZAR</option>
+                                                <option value="school">FEE</option>
+                                                <option value="teacher">PAYMENT</option>
+                                                <option value="teacher">MESS PROFILE</option>
+                                                <option value="teacher">INBOX</option>
+                                                <option value="teacher">SETTINGS</option>
+                                            </select>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="tab-r">
+                                        <button class="tab-r-btn m-auto">
+                                            <img src="assets/icons/maximize-icon.svg" class="tab-r-btn-icon" alt="">
+                                            <span class="tab-r-btn-text">Full screens</span>
+                                        </button>
+                                        <button class="tab-r-btn ms-3 m-auto">
+                                            <img src="assets/icons/funnel-icon.svg" class="tab-r-btn-icon" alt="">
+                                            <span class="tab-r-btn-text">Filters</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="content-tab-body">
+
+                                    <div class="_space">
+
+                                    </div>
+                                    <div class="_space">
+
+                                    </div>
+                                    <div class="_space">
+
+                                    </div>
+                                    <div class="_space">
+
+                                    </div>
+                                    <div class="_space">
+
+                                    </div>
+                                    <div class="_space">
+
+                                    </div>
+                                    <div class="_space">
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="notice_container" id="notice_container">
+                
+            
+                <div class="notice_home" id="notice_home">
+                        <div class="page-content">
+                        <div class="container-fluid">
+
+                            <div class="content-tab">
+                                <div class="content-tab-head">
+                                    <div class="tab-l">
+                                        <!-- <ul class="tab-btns">
+                                            <li class="tab-btn-item active">
+                                                <button class="tab-btn-link" type="button">Overview</button>
+                                            </li>
+                                            <li class="tab-btn-item">
+                                                <button class="tab-btn-link" type="button">Tasks</button>
+                                            </li>
+                                            <li class="tab-btn-item">
+                                                <button class="tab-btn-link" type="button">Milestones</button>
+                                            </li>
+                                            <li class="tab-btn-item">
+                                                <button class="tab-btn-link" type="button">Messages</button>
+                                            </li>
+                                            <li class="tab-btn-item">
+                                                <button class="tab-btn-link" type="button">Files</button>
+                                            </li>
+                                            <li class="tab-btn-item">
+                                                <button class="tab-btn-link" type="button">Time</button>
+                                            </li>
+                                            <li class="tab-btn-item">
+                                                <button class="tab-btn-link" type="button">Comments</button>
+                                            </li>
+                                        </ul> -->
+
+                                        <ul style="padding-left: 0;" class="hidden text-sm font-medium pl-0 mb-2 text-center text-gray-500 rounded-lg shadow sm:flex dark:divide-gray-700 dark:text-gray-400">
+                                            <li class="w-full active:bg-amber-900">
+                                                <a href="#" class="inline-block text-decoration-none user_btn w-full p-2 text-gray-900 bg-gray-100 border-r border-gray-200 dark:border-gray-700 rounded-s-lg focus:ring-4 focus:ring-blue-300 active focus:outline-none dark:bg-gray-700 dark:text-white" aria-current="page">HOME</a>
+                                            </li>
+                                            <li class="w-full">
+                                                <a href="#" class="inline-block mess_btn text-decoration-none w-full p-2 bg-white border-r border-gray-200 dark:border-gray-700 hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">BAZAR</a>
+                                            </li>
+                                            <li class="w-full">
+                                                <a href="#" class="inline-block school_btn text-decoration-none w-full p-2 bg-white border-r border-gray-200 dark:border-gray-700 hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">FEE</a>
+                                            </li>
+                                            <li class="w-full">
+                                                <a href="#" class="inline-block school_btn text-decoration-none w-full p-2 bg-white border-r border-gray-200 dark:border-gray-700 hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">MESS</a>
+                                            </li>
+                                            <li class="w-full">
+                                                <a href="#" class="inline-block school_btn text-decoration-none w-full p-2 bg-white border-r border-gray-200 dark:border-gray-700 hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">PAYMENT</a>
+                                            </li>
+                                            <li class="w-full">
+                                                <a href="#" class="inline-block school_btn text-decoration-none w-full p-2 bg-white border-r border-gray-200 dark:border-gray-700 hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">INBOX</a>
+                                            </li>
+                                            <li class="w-full">
+                                                <a href="#" class="inline-block w-full text-decoration-none teacher_btn p-2 bg-white border-s-0 border-gray-200 dark:border-gray-700 rounded-e-lg hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">SETTINGS</a>
+                                            </li>
+                                            
+                                        </ul>
+
+                                        <div class="sm:hidden">
+                                            <label for="tabs" class="sr-only">Select any setting option </label>
+                                            <select id="tabs" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                                <option value="user" class="">HOME</option>
+                                                <option value="mess">BAZAR</option>
+                                                <option value="school">FEE</option>
+                                                <option value="teacher">PAYMENT</option>
+                                                <option value="teacher">MESS PROFILE</option>
+                                                <option value="teacher">INBOX</option>
+                                                <option value="teacher">SETTINGS</option>
+                                            </select>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="tab-r">
+                                        <button class="tab-r-btn m-auto">
+                                            <img src="assets/icons/maximize-icon.svg" class="tab-r-btn-icon" alt="">
+                                            <span class="tab-r-btn-text">Full screens</span>
+                                        </button>
+                                        <button class="tab-r-btn ms-3 m-auto">
+                                            <img src="assets/icons/funnel-icon.svg" class="tab-r-btn-icon" alt="">
+                                            <span class="tab-r-btn-text">Filters</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="content-tab-body">
+
+                                    <div class="_space">
+
+                                    </div>
+                                    <div class="_space">
+
+                                    </div>
+                                    <div class="_space">
+
+                                    </div>
+                                    <div class="_space">
+
+                                    </div>
+                                    <div class="_space">
+
+                                    </div>
+                                    <div class="_space">
+
+                                    </div>
+                                    <div class="_space">
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="msg_container" id="msg_container">
+                
+            
+                <div class="msg_home" id="msg_home">
+                        <div class="page-content">
+                        <div class="container-fluid">
+
+                            <div class="content-tab">
+                                <div class="content-tab-head">
+                                    <div class="tab-l">
+                                        <!-- <ul class="tab-btns">
+                                            <li class="tab-btn-item active">
+                                                <button class="tab-btn-link" type="button">Overview</button>
+                                            </li>
+                                            <li class="tab-btn-item">
+                                                <button class="tab-btn-link" type="button">Tasks</button>
+                                            </li>
+                                            <li class="tab-btn-item">
+                                                <button class="tab-btn-link" type="button">Milestones</button>
+                                            </li>
+                                            <li class="tab-btn-item">
+                                                <button class="tab-btn-link" type="button">Messages</button>
+                                            </li>
+                                            <li class="tab-btn-item">
+                                                <button class="tab-btn-link" type="button">Files</button>
+                                            </li>
+                                            <li class="tab-btn-item">
+                                                <button class="tab-btn-link" type="button">Time</button>
+                                            </li>
+                                            <li class="tab-btn-item">
+                                                <button class="tab-btn-link" type="button">Comments</button>
+                                            </li>
+                                        </ul> -->
+
+                                        <ul style="padding-left: 0;" class="hidden text-sm font-medium pl-0 mb-2 text-center text-gray-500 rounded-lg shadow sm:flex dark:divide-gray-700 dark:text-gray-400">
+                                            <li class="w-full active:bg-amber-900">
+                                                <a href="#" class="inline-block text-decoration-none user_btn w-full p-2 text-gray-900 bg-gray-100 border-r border-gray-200 dark:border-gray-700 rounded-s-lg focus:ring-4 focus:ring-blue-300 active focus:outline-none dark:bg-gray-700 dark:text-white" aria-current="page">HOME</a>
+                                            </li>
+                                            <li class="w-full">
+                                                <a href="#" class="inline-block mess_btn text-decoration-none w-full p-2 bg-white border-r border-gray-200 dark:border-gray-700 hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">BAZAR</a>
+                                            </li>
+                                            <li class="w-full">
+                                                <a href="#" class="inline-block school_btn text-decoration-none w-full p-2 bg-white border-r border-gray-200 dark:border-gray-700 hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">FEE</a>
+                                            </li>
+                                            <li class="w-full">
+                                                <a href="#" class="inline-block school_btn text-decoration-none w-full p-2 bg-white border-r border-gray-200 dark:border-gray-700 hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">MESS</a>
+                                            </li>
+                                            <li class="w-full">
+                                                <a href="#" class="inline-block school_btn text-decoration-none w-full p-2 bg-white border-r border-gray-200 dark:border-gray-700 hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">PAYMENT</a>
+                                            </li>
+                                            <li class="w-full">
+                                                <a href="#" class="inline-block school_btn text-decoration-none w-full p-2 bg-white border-r border-gray-200 dark:border-gray-700 hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">INBOX</a>
+                                            </li>
+                                            <li class="w-full">
+                                                <a href="#" class="inline-block w-full text-decoration-none teacher_btn p-2 bg-white border-s-0 border-gray-200 dark:border-gray-700 rounded-e-lg hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">SETTINGS</a>
+                                            </li>
+                                            
+                                        </ul>
+
+                                        <div class="sm:hidden">
+                                            <label for="tabs" class="sr-only">Select any setting option </label>
+                                            <select id="tabs" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                                <option value="user" class="">HOME</option>
+                                                <option value="mess">BAZAR</option>
+                                                <option value="school">FEE</option>
+                                                <option value="teacher">PAYMENT</option>
+                                                <option value="teacher">MESS PROFILE</option>
+                                                <option value="teacher">INBOX</option>
+                                                <option value="teacher">SETTINGS</option>
+                                            </select>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="tab-r">
+                                        <button class="tab-r-btn m-auto">
+                                            <img src="assets/icons/maximize-icon.svg" class="tab-r-btn-icon" alt="">
+                                            <span class="tab-r-btn-text">Full screens</span>
+                                        </button>
+                                        <button class="tab-r-btn ms-3 m-auto">
+                                            <img src="assets/icons/funnel-icon.svg" class="tab-r-btn-icon" alt="">
+                                            <span class="tab-r-btn-text">Filters</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="content-tab-body">
+
+                                    <div class="_space">
+
+                                    </div>
+                                    <div class="_space">
+
+                                    </div>
+                                    <div class="_space">
+
+                                    </div>
+                                    <div class="_space">
+
+                                    </div>
+                                    <div class="_space">
+
+                                    </div>
+                                    <div class="_space">
+
+                                    </div>
+                                    <div class="_space">
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+    
+            <div class="workspace_container" id="workspace_container">
+                
+            
+                <div class="workspace_home" id="workspace_home">
+                        <div class="page-content">
+                        <div class="container-fluid">
+
+                            <div class="content-tab">
+                                <div class="content-tab-head">
+                                    <div class="tab-l">
+                                        <!-- <ul class="tab-btns">
+                                            <li class="tab-btn-item active">
+                                                <button class="tab-btn-link" type="button">Overview</button>
+                                            </li>
+                                            <li class="tab-btn-item">
+                                                <button class="tab-btn-link" type="button">Tasks</button>
+                                            </li>
+                                            <li class="tab-btn-item">
+                                                <button class="tab-btn-link" type="button">Milestones</button>
+                                            </li>
+                                            <li class="tab-btn-item">
+                                                <button class="tab-btn-link" type="button">Messages</button>
+                                            </li>
+                                            <li class="tab-btn-item">
+                                                <button class="tab-btn-link" type="button">Files</button>
+                                            </li>
+                                            <li class="tab-btn-item">
+                                                <button class="tab-btn-link" type="button">Time</button>
+                                            </li>
+                                            <li class="tab-btn-item">
+                                                <button class="tab-btn-link" type="button">Comments</button>
+                                            </li>
+                                        </ul> -->
+
+                                        <ul style="padding-left: 0;" class="hidden text-sm font-medium pl-0 mb-2 text-center text-gray-500 rounded-lg shadow sm:flex dark:divide-gray-700 dark:text-gray-400">
+                                            <li class="w-full active:bg-amber-900">
+                                                <a href="#" class="inline-block text-decoration-none user_btn w-full p-2 text-gray-900 bg-gray-100 border-r border-gray-200 dark:border-gray-700 rounded-s-lg focus:ring-4 focus:ring-blue-300 active focus:outline-none dark:bg-gray-700 dark:text-white" aria-current="page">HOME</a>
+                                            </li>
+                                            <li class="w-full">
+                                                <a href="#" class="inline-block mess_btn text-decoration-none w-full p-2 bg-white border-r border-gray-200 dark:border-gray-700 hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">BAZAR</a>
+                                            </li>
+                                            <li class="w-full">
+                                                <a href="#" class="inline-block school_btn text-decoration-none w-full p-2 bg-white border-r border-gray-200 dark:border-gray-700 hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">FEE</a>
+                                            </li>
+                                            <li class="w-full">
+                                                <a href="#" class="inline-block school_btn text-decoration-none w-full p-2 bg-white border-r border-gray-200 dark:border-gray-700 hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">MESS</a>
+                                            </li>
+                                            <li class="w-full">
+                                                <a href="#" class="inline-block school_btn text-decoration-none w-full p-2 bg-white border-r border-gray-200 dark:border-gray-700 hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">PAYMENT</a>
+                                            </li>
+                                            <li class="w-full">
+                                                <a href="#" class="inline-block school_btn text-decoration-none w-full p-2 bg-white border-r border-gray-200 dark:border-gray-700 hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">INBOX</a>
+                                            </li>
+                                            <li class="w-full">
+                                                <a href="#" class="inline-block w-full text-decoration-none teacher_btn p-2 bg-white border-s-0 border-gray-200 dark:border-gray-700 rounded-e-lg hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">SETTINGS</a>
+                                            </li>
+                                            
+                                        </ul>
+
+                                        <div class="sm:hidden">
+                                            <label for="tabs" class="sr-only">Select any setting option </label>
+                                            <select id="tabs" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                                <option value="user" class="">HOME</option>
+                                                <option value="mess">BAZAR</option>
+                                                <option value="school">FEE</option>
+                                                <option value="teacher">PAYMENT</option>
+                                                <option value="teacher">MESS PROFILE</option>
+                                                <option value="teacher">INBOX</option>
+                                                <option value="teacher">SETTINGS</option>
+                                            </select>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="tab-r">
+                                        <button class="tab-r-btn m-auto">
+                                            <img src="assets/icons/maximize-icon.svg" class="tab-r-btn-icon" alt="">
+                                            <span class="tab-r-btn-text">Full screens</span>
+                                        </button>
+                                        <button class="tab-r-btn ms-3 m-auto">
+                                            <img src="assets/icons/funnel-icon.svg" class="tab-r-btn-icon" alt="">
+                                            <span class="tab-r-btn-text">Filters</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="content-tab-body">
+
+                                    <div class="_space">
+
+                                    </div>
+                                    <div class="_space">
+
+                                    </div>
+                                    <div class="_space">
+
+                                    </div>
+                                    <div class="_space">
+
+                                    </div>
+                                    <div class="_space">
+
+                                    </div>
+                                    <div class="_space">
+
+                                    </div>
+                                    <div class="_space">
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="task_container" id="task_container">
+                
+            
+                <div class="task_home" id="task_home">
+                        <div class="page-content">
+                        <div class="container-fluid">
+
+                            <div class="content-tab">
+                                <div class="content-tab-head">
+                                    <div class="tab-l">
+                                        <!-- <ul class="tab-btns">
+                                            <li class="tab-btn-item active">
+                                                <button class="tab-btn-link" type="button">Overview</button>
+                                            </li>
+                                            <li class="tab-btn-item">
+                                                <button class="tab-btn-link" type="button">Tasks</button>
+                                            </li>
+                                            <li class="tab-btn-item">
+                                                <button class="tab-btn-link" type="button">Milestones</button>
+                                            </li>
+                                            <li class="tab-btn-item">
+                                                <button class="tab-btn-link" type="button">Messages</button>
+                                            </li>
+                                            <li class="tab-btn-item">
+                                                <button class="tab-btn-link" type="button">Files</button>
+                                            </li>
+                                            <li class="tab-btn-item">
+                                                <button class="tab-btn-link" type="button">Time</button>
+                                            </li>
+                                            <li class="tab-btn-item">
+                                                <button class="tab-btn-link" type="button">Comments</button>
+                                            </li>
+                                        </ul> -->
+
+                                        <ul style="padding-left: 0;" class="hidden text-sm font-medium pl-0 mb-2 text-center text-gray-500 rounded-lg shadow sm:flex dark:divide-gray-700 dark:text-gray-400">
+                                            <li class="w-full active:bg-amber-900">
+                                                <a href="#" class="inline-block text-decoration-none user_btn w-full p-2 text-gray-900 bg-gray-100 border-r border-gray-200 dark:border-gray-700 rounded-s-lg focus:ring-4 focus:ring-blue-300 active focus:outline-none dark:bg-gray-700 dark:text-white" aria-current="page">HOME</a>
+                                            </li>
+                                            <li class="w-full">
+                                                <a href="#" class="inline-block mess_btn text-decoration-none w-full p-2 bg-white border-r border-gray-200 dark:border-gray-700 hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">BAZAR</a>
+                                            </li>
+                                            <li class="w-full">
+                                                <a href="#" class="inline-block school_btn text-decoration-none w-full p-2 bg-white border-r border-gray-200 dark:border-gray-700 hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">FEE</a>
+                                            </li>
+                                            <li class="w-full">
+                                                <a href="#" class="inline-block school_btn text-decoration-none w-full p-2 bg-white border-r border-gray-200 dark:border-gray-700 hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">MESS</a>
+                                            </li>
+                                            <li class="w-full">
+                                                <a href="#" class="inline-block school_btn text-decoration-none w-full p-2 bg-white border-r border-gray-200 dark:border-gray-700 hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">PAYMENT</a>
+                                            </li>
+                                            <li class="w-full">
+                                                <a href="#" class="inline-block school_btn text-decoration-none w-full p-2 bg-white border-r border-gray-200 dark:border-gray-700 hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">INBOX</a>
+                                            </li>
+                                            <li class="w-full">
+                                                <a href="#" class="inline-block w-full text-decoration-none teacher_btn p-2 bg-white border-s-0 border-gray-200 dark:border-gray-700 rounded-e-lg hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">SETTINGS</a>
+                                            </li>
+                                            
+                                        </ul>
+
+                                        <div class="sm:hidden">
+                                            <label for="tabs" class="sr-only">Select any setting option </label>
+                                            <select id="tabs" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                                <option value="user" class="">HOME</option>
+                                                <option value="mess">BAZAR</option>
+                                                <option value="school">FEE</option>
+                                                <option value="teacher">PAYMENT</option>
+                                                <option value="teacher">MESS PROFILE</option>
+                                                <option value="teacher">INBOX</option>
+                                                <option value="teacher">SETTINGS</option>
+                                            </select>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="tab-r">
+                                        <button class="tab-r-btn m-auto">
+                                            <img src="assets/icons/maximize-icon.svg" class="tab-r-btn-icon" alt="">
+                                            <span class="tab-r-btn-text">Full screens</span>
+                                        </button>
+                                        <button class="tab-r-btn ms-3 m-auto">
+                                            <img src="assets/icons/funnel-icon.svg" class="tab-r-btn-icon" alt="">
+                                            <span class="tab-r-btn-text">Filters</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="content-tab-body">
+
+                                    <div class="_space">
+
+                                    </div>
+                                    <div class="_space">
+
+                                    </div>
+                                    <div class="_space">
+
+                                    </div>
+                                    <div class="_space">
+
+                                    </div>
+                                    <div class="_space">
+
+                                    </div>
+                                    <div class="_space">
+
+                                    </div>
+                                    <div class="_space">
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="page-content hidden">
+                <div class="container-fluid">
 
                     <div class="content-tab">
                         <div class="content-tab-head">
                             <div class="tab-l">
-                                <ul class="tab-btns">
+                                <!-- <ul class="tab-btns">
                                     <li class="tab-btn-item active">
                                         <button class="tab-btn-link" type="button">Overview</button>
                                     </li>
@@ -146,7 +1407,33 @@ if(!isset($_SESSION['user'])){
                                     <li class="tab-btn-item">
                                         <button class="tab-btn-link" type="button">Comments</button>
                                     </li>
+                                </ul> -->
+
+                                <ul class="hidden text-sm font-medium text-center text-gray-500 rounded-lg shadow sm:flex dark:divide-gray-700 dark:text-gray-400">
+                                    <li class="w-full active:bg-amber-900">
+                                        <a href="#" class="inline-block user_btn w-full p-4 text-gray-900 bg-gray-100 border-r border-gray-200 dark:border-gray-700 rounded-s-lg focus:ring-4 focus:ring-blue-300 active focus:outline-none dark:bg-gray-700 dark:text-white" aria-current="page">User</a>
+                                    </li>
+                                    <li class="w-full">
+                                        <a href="#" class="inline-block mess_btn w-full p-4 bg-white border-r border-gray-200 dark:border-gray-700 hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">Mess</a>
+                                    </li>
+                                    <li class="w-full">
+                                        <a href="#" class="inline-block school_btn w-full p-4 bg-white border-r border-gray-200 dark:border-gray-700 hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">Organizer</a>
+                                    </li>
+                                    <li class="w-full">
+                                        <a href="#" class="inline-block w-full teacher_btn p-4 bg-white border-s-0 border-gray-200 dark:border-gray-700 rounded-e-lg hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">Teacher</a>
+                                    </li>
                                 </ul>
+
+                                <div class="sm:hidden">
+                                    <label for="tabs" class="sr-only">Login OR Sign Up with </label>
+                                    <select id="tabs" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                        <option value="user" class="">User</option>
+                                        <option value="mess">Mess Admin</option>
+                                        <option value="school">Class Organizer Admin</option>
+                                        <option value="teacher">Teacher</option>
+                                    </select>
+                                </div>
+
                             </div>
 
                             <div class="tab-r">
@@ -765,7 +2052,30 @@ if(!isset($_SESSION['user'])){
                     </div>
                 </div>
             </div>
+
+
         </div>
         <script src="dist/js/scripta.js"></script>
 </body>
 </html>
+
+<script>
+  const nav = document.querySelector(".topheader");
+  let lastScrollY = window.scrollY;
+
+  window.addEventListener("scroll", () => {
+
+    if(lastScrollY < window.scrollY){
+      nav.classList.add("nav-hidden");
+      // console.log("we are going down");
+
+    }else{
+      nav.classList.remove("nav-hidden");
+      // console.log("we are going up");
+    }
+
+    lastScrollY = window.scrollY;
+  });
+
+
+</script>

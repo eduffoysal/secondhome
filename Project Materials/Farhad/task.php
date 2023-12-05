@@ -13,7 +13,7 @@
         <link rel="stylesheet" href="../../output/./output.css">
         <link rel="stylesheet" href="stylee.css">
 
-<style>
+<!-- <style>
 
 .container{
     @apply max-w-[1480px] mx-auto px-3;
@@ -247,7 +247,7 @@ span[class^='badge']{
     @apply ms-4;
 }
 
-</style>
+</style> -->
 
     </head>
     <body>

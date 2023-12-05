@@ -821,8 +821,8 @@ video {
   min-height: calc(100vh - 60px);
   --tw-bg-opacity: 1;
   background-color: rgb(250 252 255 / var(--tw-bg-opacity));
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 1rem;
   padding-left: 0.25rem;
   padding-right: 0.25rem;
 }
@@ -844,8 +844,8 @@ video {
 }
 
 .content-head-title {
-  font-size: 1.875rem;
-  line-height: 2.25rem;
+  font-size: 1rem;
+  line-height: 2rem;
   font-weight: 700;
   --tw-text-opacity: 1;
   color: rgb(27 35 44 / var(--tw-text-opacity));
@@ -1001,7 +1001,7 @@ video {
 }
 
 .content-tab-body {
-  margin-top: 1.25rem;
+  margin-top: 0.25rem;
   display: grid;
 }
 

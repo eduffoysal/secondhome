@@ -5092,6 +5092,10 @@ input[type="range"]:active::-webkit-slider-thumb {
   padding-bottom: 5px;
 }
 
+.pl-0 {
+  padding-left: 0px;
+}
+
 .pl-1 {
   padding-left: 0.25rem;
 }
@@ -5822,6 +5826,11 @@ input[type="range"]:active::-webkit-slider-thumb {
 
 .text-white\/70 {
   color: rgb(255 255 255 / 0.7);
+}
+
+.text-gray-950 {
+  --tw-text-opacity: 1;
+  color: rgb(3 7 18 / var(--tw-text-opacity));
 }
 
 .underline {
@@ -7680,6 +7689,11 @@ input[type="range"]:active::-webkit-slider-thumb {
 .active\:bg-\[\#cacfd1\]:active {
   --tw-bg-opacity: 1;
   background-color: rgb(202 207 209 / var(--tw-bg-opacity));
+}
+
+.active\:bg-amber-900:active {
+  --tw-bg-opacity: 1;
+  background-color: rgb(120 53 15 / var(--tw-bg-opacity));
 }
 
 .active\:bg-primary-700:active {
