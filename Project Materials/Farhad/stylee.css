@@ -878,7 +878,7 @@ video {
   border-bottom-width: 1px;
   border-style: solid;
   border-color: rgb(0 0 0 / 0.1);
-  padding-bottom: 1rem;
+  padding-bottom: 0.25rem;
 }
 
 @media (min-width: 992px) {

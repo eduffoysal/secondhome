@@ -42,13 +42,13 @@ if(!isset($_SESSION['user'])){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SecondHome</title>
-    <link rel="stylesheet" href="../.././output/output.css">
+    <link rel="stylesheet" href="./output/output.css">
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lilita+One&display=swap" rel="stylesheet">
 
-        <link rel="stylesheet" href="../../css/stylee.css">
+        <link rel="stylesheet" href="css/stylee.css">
 
 
 <script src="https://kit.fontawesome.com/a076d05399.js"></script>
@@ -57,40 +57,40 @@ if(!isset($_SESSION['user'])){
 
 
 <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-<link rel="stylesheet" href="../../icon/bootstrap-icons.css">
+<link rel="stylesheet" href="icon/bootstrap-icons.css">
 
         
         <!-- <script src="https://kit.fontawesome.com/a076d05399.js"></script> -->
 
         <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-    <script src="../../jquery-3.4.1.js"></script>
+    <script src="jquery-3.4.1.js"></script>
     <!-- <script src="https://kit.fontawesome.com/a076d05399.js"></script> -->
-    <link rel="stylesheet" href="../../icon/bootstrap-icons.css">
+    <link rel="stylesheet" href="icon/bootstrap-icons.css">
 
     <!-- <script src="ck/ckeditor.js"></script> -->
     <!-- <script src="f/admin/ckeditor/ckeditor.js"></script> -->
 
     <!-- <script src="//cdn.ckeditor.com/4.16.2/full/ckeditor.js"></script> -->
-    <script src="../../jquery-3.5.1.min.js"></script>
+    <script src="jquery-3.5.1.min.js"></script>
     <!-- swap -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/5.4.5/css/swiper.css">
   <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
     <!-- swap -->
 
-    <link rel="stylesheet" href="../../bootstrap.min.css">
+    <link rel="stylesheet" href="../bootstrap.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
 
 
-    <link rel="stylesheet" href="../../css/carousel_and_other.css">
+    <link rel="stylesheet" href="css/carousel_and_other.css">
 
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
 
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="../../css/select-menu.css">
+    <link rel="stylesheet" href="css/select-menu.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.0/font/bootstrap-icons.css">
 
 
@@ -142,19 +142,19 @@ if(!isset($_SESSION['user'])){
                                 <button class="navbar-hide-btn" type="button">
                                     <img src="assets/icons/close-icon.svg" alt="">
                                 </button>
-                                <li class="nav-item">
+                                <li class="nav-item schedule_btn">
                                     <a href="#" class="nav-link p-1 text-decoration-none text-black">SCHEDULE</a>
                                 </li>
-                                <li class="nav-item active">
+                                <li class="nav-item active mess_btn">
                                     <a href="#" class="nav-link p-1 text-black">MESS</a>
                                 </li>
-                                <li class="nav-item">
+                                <li class="nav-item routine_btn">
                                     <a href="#" class="nav-link p-1 text-black">ROUTINE</a>
                                 </li>
-                                <li class="nav-item">
+                                <li class="nav-item note_btn">
                                     <a href="#" class="nav-link p-1 text-black">NOTE</a>
                                 </li>
-                                <li class="nav-item">
+                                <li class="nav-item edu_btn">
                                     <a href="#" class="nav-link p-1 text-black">EDU</a>
                                 </li>
                             </ul>
@@ -348,39 +348,39 @@ if(!isset($_SESSION['user'])){
 
                                         <ul style="padding-left: 0;" class="hidden text-sm font-medium pl-0 mb-2 text-center text-gray-500 rounded-lg shadow sm:flex dark:divide-gray-700 dark:text-gray-400">
                                             <li class="w-full active:bg-amber-900">
-                                                <a href="#" class="inline-block text-decoration-none user_btn w-full p-2 text-gray-900 bg-gray-100 border-r border-gray-200 dark:border-gray-700 rounded-s-lg focus:ring-4 focus:ring-blue-300 active focus:outline-none dark:bg-gray-700 dark:text-white" aria-current="page">HOME</a>
+                                                <a href="#" class="inline-block text-decoration-none mess_home_btn w-full p-2 text-gray-900 bg-gray-100 border-r border-gray-200 dark:border-gray-700 rounded-s-lg focus:ring-4 focus:ring-blue-300 active focus:outline-none dark:bg-gray-700 dark:text-white" aria-current="page">HOME</a>
+                                            </li>
+                                            <li class="w-full active">
+                                                <a href="#" class="inline-block mess_bazar_btn text-decoration-none w-full p-2 bg-white border-r border-gray-200 dark:border-gray-700 hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">BAZAR</a>
                                             </li>
                                             <li class="w-full">
-                                                <a href="#" class="inline-block mess_btn text-decoration-none w-full p-2 bg-white border-r border-gray-200 dark:border-gray-700 hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">BAZAR</a>
+                                                <a href="#" class="inline-block mess_fee_btn text-decoration-none w-full p-2 bg-white border-r border-gray-200 dark:border-gray-700 hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">FEE</a>
                                             </li>
                                             <li class="w-full">
-                                                <a href="#" class="inline-block school_btn text-decoration-none w-full p-2 bg-white border-r border-gray-200 dark:border-gray-700 hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">FEE</a>
+                                                <a href="#" class="inline-block mess_mess_btn text-decoration-none w-full p-2 bg-white border-r border-gray-200 dark:border-gray-700 hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">MESS</a>
                                             </li>
                                             <li class="w-full">
-                                                <a href="#" class="inline-block school_btn text-decoration-none w-full p-2 bg-white border-r border-gray-200 dark:border-gray-700 hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">MESS</a>
+                                                <a href="#" class="inline-block mess_payment_btn text-decoration-none w-full p-2 bg-white border-r border-gray-200 dark:border-gray-700 hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">PAYMENT</a>
                                             </li>
                                             <li class="w-full">
-                                                <a href="#" class="inline-block school_btn text-decoration-none w-full p-2 bg-white border-r border-gray-200 dark:border-gray-700 hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">PAYMENT</a>
+                                                <a href="#" class="inline-block mess_inbox_btn text-decoration-none w-full p-2 bg-white border-r border-gray-200 dark:border-gray-700 hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">INBOX</a>
                                             </li>
                                             <li class="w-full">
-                                                <a href="#" class="inline-block school_btn text-decoration-none w-full p-2 bg-white border-r border-gray-200 dark:border-gray-700 hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">INBOX</a>
-                                            </li>
-                                            <li class="w-full">
-                                                <a href="#" class="inline-block w-full text-decoration-none teacher_btn p-2 bg-white border-s-0 border-gray-200 dark:border-gray-700 rounded-e-lg hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">SETTINGS</a>
+                                                <a href="#" class="inline-block w-full text-decoration-none mess_setting_btn p-2 bg-white border-s-0 border-gray-200 dark:border-gray-700 rounded-e-lg hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">SETTINGS</a>
                                             </li>
                                             
                                         </ul>
 
                                         <div class="sm:hidden">
-                                            <label for="tabs" class="sr-only">Select any setting option </label>
-                                            <select id="tabs" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                                                <option value="user" class="">HOME</option>
-                                                <option value="mess">BAZAR</option>
-                                                <option value="school">FEE</option>
-                                                <option value="teacher">PAYMENT</option>
-                                                <option value="teacher">MESS PROFILE</option>
-                                                <option value="teacher">INBOX</option>
-                                                <option value="teacher">SETTINGS</option>
+                                            <label for="mess_tabs" class="sr-only">Select any setting option </label>
+                                            <select id="mess_tabs" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                                <option value="home" class="">HOME</option>
+                                                <option value="bazar">BAZAR</option>
+                                                <option value="fee">FEE</option>
+                                                <option value="payment">PAYMENT</option>
+                                                <option value="mess">MESS PROFILE</option>
+                                                <option value="inbox">INBOX</option>
+                                                <option value="setting">SETTINGS</option>
                                             </select>
                                         </div>
 
@@ -400,25 +400,25 @@ if(!isset($_SESSION['user'])){
 
                                 <div class="content-tab-body">
 
-                                    <div class="_space">
+                                    <div class="mess_home__space">
 
                                     </div>
-                                    <div class="_space">
+                                    <div class="mess_fee_space">
 
                                     </div>
-                                    <div class="_space">
+                                    <div class="mess_mess_space">
 
                                     </div>
-                                    <div class="_space">
+                                    <div class="mess_inbox_space">
 
                                     </div>
-                                    <div class="_space">
+                                    <div class="mess_bazar_space">
 
                                     </div>
-                                    <div class="_space">
+                                    <div class="mess_payment_space">
 
                                     </div>
-                                    <div class="_space">
+                                    <div class="mess_setting_space">
 
                                     </div>
 
@@ -548,7 +548,7 @@ if(!isset($_SESSION['user'])){
 
             </div>
 
-            <div class="note_container" id="note_container">
+            <div class="note_container hidden" id="note_container">
                
             
                 <div class="note_home" id="note_home">
@@ -668,7 +668,7 @@ if(!isset($_SESSION['user'])){
             </div>
 
             
-            <div class="edu_container" id="edu_container">
+            <div class="edu_container hidden" id="edu_container">
 
             
                 <div class="edu_home" id="edu_home">
@@ -787,7 +787,7 @@ if(!isset($_SESSION['user'])){
 
             </div>
 
-            <div class="other_container" id="other_container">
+            <div class="other_container hidden" id="other_container">
                 
             
                 <div class="other_home" id="other_home">
@@ -906,7 +906,7 @@ if(!isset($_SESSION['user'])){
 
             </div>
 
-            <div class="notice_container" id="notice_container">
+            <div class="notice_container hidden" id="notice_container">
                 
             
                 <div class="notice_home" id="notice_home">
@@ -1025,7 +1025,7 @@ if(!isset($_SESSION['user'])){
 
             </div>
 
-            <div class="msg_container" id="msg_container">
+            <div class="msg_container hidden" id="msg_container">
                 
             
                 <div class="msg_home" id="msg_home">
@@ -1144,7 +1144,7 @@ if(!isset($_SESSION['user'])){
 
             </div>
     
-            <div class="workspace_container" id="workspace_container">
+            <div class="workspace_container hidden" id="workspace_container">
                 
             
                 <div class="workspace_home" id="workspace_home">
@@ -1263,7 +1263,7 @@ if(!isset($_SESSION['user'])){
 
             </div>
 
-            <div class="task_container" id="task_container">
+            <div class="task_container hidden" id="task_container">
                 
             
                 <div class="task_home" id="task_home">
@@ -2057,8 +2057,16 @@ if(!isset($_SESSION['user'])){
             </div>
 
 
-        </div>
-        <script src="../../dist/js/scripta.js"></script>
+</div>
+
+
+<div class="container bottom_menu m-auto">
+    <?php
+        include('menu.php');
+    ?>
+</div>
+
+        <script src="dist/js/scripta.js"></script>
 </body>
 </html>
 
@@ -2082,3 +2090,197 @@ if(!isset($_SESSION['user'])){
 
 
 </script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.schedule_btn').click(function(){
+            $('.schedule_container').removeClass('hidden');
+            $('.mess_container').addClass('hidden');
+            $('.routine_container').addClass('hidden');
+            $('.note_container').addClass('hidden');
+            $('.edu_container').addClass('hidden');
+            $('.schedule_btn').addClass('active');
+            $('.mess_btn, .routine_btn, .note_btn, .edu_btn').removeClass('active');
+        });
+    });
+</script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.mess_btn').click(function(){
+            $('.mess_container').removeClass('hidden');
+            $('.schedule_container').addClass('hidden');
+            $('.routine_container').addClass('hidden');
+            $('.note_container').addClass('hidden');
+            $('.edu_container').addClass('hidden');
+            $('.mess_btn').addClass('active');
+            $('.schedule_btn, .routine_btn, .note_btn, .edu_btn').removeClass('active');
+        });
+    });
+</script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.routine_btn').click(function(){
+            $('.routine_container').removeClass('hidden');
+            $('.mess_container').addClass('hidden');
+            $('.schedule_container').addClass('hidden');
+            $('.note_container').addClass('hidden');
+            $('.edu_container').addClass('hidden');
+
+            $('.routine_btn').addClass('active');
+            $('.mess_btn, .schedule_btn, .note_btn, .edu_btn').removeClass('active');
+
+        });
+    });
+</script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.note_btn').click(function(){
+            $('.note_container').removeClass('hidden');
+            $('.mess_container').addClass('hidden');
+            $('.routine_container').addClass('hidden');
+            $('.schedule_container').addClass('hidden');
+            $('.edu_container').addClass('hidden');
+
+            $('.note_btn').addClass('active');
+            $('.mess_btn, .schedule_btn, .routine_btn, .edu_btn').removeClass('active');
+
+        });
+    });
+</script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.edu_btn').click(function(){
+            $('.edu_container').removeClass('hidden');
+            $('.mess_container').addClass('hidden');
+            $('.routine_container').addClass('hidden');
+            $('.note_container').addClass('hidden');
+            $('.schedule_container').addClass('hidden');
+
+            $('.edu_btn').addClass('active');
+            $('.mess_btn, .schedule_btn, .note_btn, .routine_btn').removeClass('active');
+
+        });
+    });
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.mess_home_btn').click(function(){
+            $('.mess_home_space').removeClass('hidden');
+            $('.fee_mess_space, .bazar_mess_space, .inbox_mess_space, .setting_mess_space, .payment_mess_space, .mess_mess_space').addClass('hidden');
+        });
+
+        $('.mess_fee_btn').click(function(){
+            $('.mess_fee_space').removeClass('hidden');
+            $('.home_mess_space, .bazar_mess_space, .inbox_mess_space, .setting_mess_space, .payment_mess_space, .mess_mess_space').addClass('hidden');
+        });
+        $('.mess_mess_btn').click(function(){
+            $('.mess_mess_space').removeClass('hidden');
+            $('.fee_mess_space, .bazar_mess_space, .inbox_mess_space, .setting_mess_space, .payment_mess_space, .home_mess_space').addClass('hidden');
+        });
+        $('.mess_bazar_btn').click(function(){
+            $('.mess_bazar_space').removeClass('hidden');
+            $('.fee_mess_space, .home_mess_space, .inbox_mess_space, .setting_mess_space, .payment_mess_space, .mess_mess_space').addClass('hidden');
+        });
+        $('.mess_payment_btn').click(function(){
+            $('.mess_payment_space').removeClass('hidden');
+            $('.fee_mess_space, .bazar_mess_space, .inbox_mess_space, .setting_mess_space, .home_mess_space, .mess_mess_space').addClass('hidden');
+        });
+        $('.mess_inbox_btn').click(function(){
+            $('.mess_inbox_space').removeClass('hidden');
+            $('.fee_mess_space, .bazar_mess_space, .home_mess_space, .setting_mess_space, .payment_mess_space, .mess_mess_space').addClass('hidden');
+        });
+        $('.mess_setting_btn').click(function(){
+            $('.mess_setting_space').removeClass('hidden');
+            $('.fee_mess_space, .bazar_mess_space, .inbox_mess_space, .home_mess_space, .payment_mess_space, .mess_mess_space').addClass('hidden');
+        });
+
+    });
+</script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.user_l_btn').click(function(){
+            $('.user_login_box').removeClass('hidden');
+            $('.user_create_box').addClass('hidden');
+        });
+    });
+</script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.mess_c_btn').click(function(){
+            $('.mess_create_box').removeClass('hidden');
+            $('.mess_login_box').addClass('hidden');
+        });
+    });
+</script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.mess_l_btn').click(function(){
+            $('.mess_login_box').removeClass('hidden');
+            $('.mess_create_box').addClass('hidden');
+        });
+    });
+</script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.school_c_btn').click(function(){
+            $('.school_create_box').removeClass('hidden');
+            $('.school_login_box').addClass('hidden');
+        });
+    });
+</script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.school_l_btn').click(function(){
+            $('.school_login_box').removeClass('hidden');
+            $('.school_create_box').addClass('hidden');
+        });
+    });
+</script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.teacher_c_btn').click(function(){
+            $('.teacher_create_box').removeClass('hidden');
+            $('.teacher_login_box').addClass('hidden');
+        });
+    });
+</script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.teacher_l_btn').click(function(){
+            $('.teacher_login_box').removeClass('hidden');
+            $('.teacher_create_box').addClass('hidden');
+        });
+    });
+</script>
+<script>
+        $(document).ready(function(){
+            $('#mess_tabs').click(function(){
+                var op = $('#tabs').val();
+                // alert('Selected Value: ' + op);
+                if(op=='home'){
+                    $('.mess_home_space').removeClass('hidden');
+                    $('.fee_mess_space, .bazar_mess_space, .inbox_mess_space, .setting_mess_space, .payment_mess_space, .mess_mess_space').addClass('hidden');
+
+                }else if(op=='mess'){
+                    $('.mess_mess_space').removeClass('hidden');
+                    $('.fee_mess_space, .bazar_mess_space, .inbox_mess_space, .setting_mess_space, .payment_mess_space, .home_mess_space').addClass('hidden');
+                }else if(op=='bazar'){
+                    $('.mess_bazar_space').removeClass('hidden');
+                    $('.fee_mess_space, .home_mess_space, .inbox_mess_space, .setting_mess_space, .payment_mess_space, .mess_mess_space').addClass('hidden');
+                }else if(op=='fee'){
+                    $('.mess_fee_space').removeClass('hidden');
+                    $('.home_mess_space, .bazar_mess_space, .inbox_mess_space, .setting_mess_space, .payment_mess_space, .mess_mess_space').addClass('hidden');
+                }else if(op=='inbox'){
+                    $('.mess_inbox_space').removeClass('hidden');
+                    $('.fee_mess_space, .bazar_mess_space, .home_mess_space, .setting_mess_space, .payment_mess_space, .mess_mess_space').addClass('hidden');
+                }else if(op=='payment'){
+                    $('.mess_payment_space').removeClass('hidden');
+                    $('.fee_mess_space, .bazar_mess_space, .inbox_mess_space, .setting_mess_space, .home_mess_space, .mess_mess_space').addClass('hidden');
+                }else if(op=='setting'){
+                    $('.mess_setting_space').removeClass('hidden');
+                    $('.fee_mess_space, .bazar_mess_space, .inbox_mess_space, .home_mess_space, .payment_mess_space, .mess_mess_space').addClass('hidden');
+                }
+
+            });
+        });
+    </script>
