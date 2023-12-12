@@ -84,7 +84,7 @@ if(!isset($_SESSION['user'])){
   <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
     <!-- swap -->
 
-    <link rel="stylesheet" href="../../bootstrap.min.css">
+    <link rel="stylesheet" href="../bootstrap.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
 
@@ -146,7 +146,7 @@ if(!isset($_SESSION['user'])){
                             <a href="#" class="navbar-brand text-black hidden md:block">SecondHome</a>
                             <ul class="nav-list text-black text-decoration-none m-auto -translate-x-full lg:translate-x-0 transition-default">
                                 <button class="navbar-hide-btn" type="button">
-                                    <img src="assets/icons/close-icon.svg" alt="">
+                                    <img src="../../assets/icons/close-icon.svg" alt="">
                                 </button>
                                 <li class="nav-item schedule_btn">
                                     <a href="#" class="nav-link p-1 text-decoration-none text-black">SCHEDULE</a>
@@ -165,34 +165,34 @@ if(!isset($_SESSION['user'])){
                                 </li>
                             </ul>
                             <div class="navbar-show-btn" type="button">
-                                <img src="assets/icons/menu-icon.svg" alt="">
+                                <img src="../../assets/icons/menu-icon.svg" alt="">
                             </div>
                         </div>
 
                         <div class="navbar-r">
                             <div class="nav-icon-btns">
                                 <button class="nav-icon-btn">
-                                    <img src="assets/icons/search-icon.svg" alt="">
+                                    <img src="../../assets/icons/search-icon.svg" alt="">
                                 </button>
                                 <button class="nav-icon-btn">
-                                    <img src="assets/icons/grid-icon.svg" alt="">
+                                    <img src="../../assets/icons/grid-icon.svg" alt="">
                                 </button>
                                 <button class="nav-icon-btn">
-                                    <img src="assets/icons/plus-icon.svg" alt="">
+                                    <img src="../../assets/icons/plus-icon.svg" alt="">
                                 </button>
                                 <button class="nav-icon-btn">
-                                    <img src="assets/icons/folder-icon.svg" alt="">
+                                    <img src="../../assets/icons/folder-icon.svg" alt="">
                                 </button>
                                 <button class="nav-icon-btn">
-                                    <img src="assets/icons/bell-icon.svg" alt="">
+                                    <img src="../../assets/icons/bell-icon.svg" alt="">
                                 </button>
                             </div>
 
                             <button class="nav-profile-btn">
                                 <div class="profile-btn-img">
-                                    <img src="assets/images/avatar.jpg" alt="">
+                                    <img src="../../assets/images/avatar.jpg" alt="">
                                 </div>
-                                <img src="assets/icons/chevron-down.svg" alt="" class="profile-btn-icon">
+                                <img src="../../assets/icons/chevron-down.svg" alt="" class="profile-btn-icon">
                             </button>
                         </div>
                     </div>
@@ -276,11 +276,11 @@ if(!isset($_SESSION['user'])){
 
                                     <div class="tab-r">
                                         <button class="tab-r-btn m-auto">
-                                            <img src="assets/icons/maximize-icon.svg" class="tab-r-btn-icon" alt="">
+                                            <img src="../../assets/icons/maximize-icon.svg" class="tab-r-btn-icon" alt="">
                                             <span class="tab-r-btn-text">Full screens</span>
                                         </button>
                                         <button class="tab-r-btn ms-3 m-auto">
-                                            <img src="assets/icons/funnel-icon.svg" class="tab-r-btn-icon" alt="">
+                                            <img src="../../assets/icons/funnel-icon.svg" class="tab-r-btn-icon" alt="">
                                             <span class="tab-r-btn-text">Filters</span>
                                         </button>
                                     </div>
@@ -394,11 +394,11 @@ if(!isset($_SESSION['user'])){
 
                                     <div class="tab-r">
                                         <button class="tab-r-btn m-auto">
-                                            <img src="assets/icons/maximize-icon.svg" class="tab-r-btn-icon" alt="">
+                                            <img src="../../assets/icons/maximize-icon.svg" class="tab-r-btn-icon" alt="">
                                             <span class="tab-r-btn-text">Full screens</span>
                                         </button>
                                         <button class="tab-r-btn ms-3 m-auto">
-                                            <img src="assets/icons/funnel-icon.svg" class="tab-r-btn-icon" alt="">
+                                            <img src="../../assets/icons/funnel-icon.svg" class="tab-r-btn-icon" alt="">
                                             <span class="tab-r-btn-text">Filters</span>
                                         </button>
                                     </div>
@@ -512,11 +512,11 @@ if(!isset($_SESSION['user'])){
 
                                     <div class="tab-r">
                                         <button class="tab-r-btn m-auto">
-                                            <img src="assets/icons/maximize-icon.svg" class="tab-r-btn-icon" alt="">
+                                            <img src="../../assets/icons/maximize-icon.svg" class="tab-r-btn-icon" alt="">
                                             <span class="tab-r-btn-text">Full screens</span>
                                         </button>
                                         <button class="tab-r-btn ms-3 m-auto">
-                                            <img src="assets/icons/funnel-icon.svg" class="tab-r-btn-icon" alt="">
+                                            <img src="../../assets/icons/funnel-icon.svg" class="tab-r-btn-icon" alt="">
                                             <span class="tab-r-btn-text">Filters</span>
                                         </button>
                                     </div>
@@ -630,11 +630,11 @@ if(!isset($_SESSION['user'])){
 
                                     <div class="tab-r">
                                         <button class="tab-r-btn m-auto">
-                                            <img src="assets/icons/maximize-icon.svg" class="tab-r-btn-icon" alt="">
+                                            <img src="../../assets/icons/maximize-icon.svg" class="tab-r-btn-icon" alt="">
                                             <span class="tab-r-btn-text">Full screens</span>
                                         </button>
                                         <button class="tab-r-btn ms-3 m-auto">
-                                            <img src="assets/icons/funnel-icon.svg" class="tab-r-btn-icon" alt="">
+                                            <img src="../../assets/icons/funnel-icon.svg" class="tab-r-btn-icon" alt="">
                                             <span class="tab-r-btn-text">Filters</span>
                                         </button>
                                     </div>
@@ -750,11 +750,11 @@ if(!isset($_SESSION['user'])){
 
                                     <div class="tab-r">
                                         <button class="tab-r-btn m-auto">
-                                            <img src="assets/icons/maximize-icon.svg" class="tab-r-btn-icon" alt="">
+                                            <img src="../../assets/icons/maximize-icon.svg" class="tab-r-btn-icon" alt="">
                                             <span class="tab-r-btn-text">Full screens</span>
                                         </button>
                                         <button class="tab-r-btn ms-3 m-auto">
-                                            <img src="assets/icons/funnel-icon.svg" class="tab-r-btn-icon" alt="">
+                                            <img src="../../assets/icons/funnel-icon.svg" class="tab-r-btn-icon" alt="">
                                             <span class="tab-r-btn-text">Filters</span>
                                         </button>
                                     </div>
@@ -869,11 +869,11 @@ if(!isset($_SESSION['user'])){
 
                                     <div class="tab-r">
                                         <button class="tab-r-btn m-auto">
-                                            <img src="assets/icons/maximize-icon.svg" class="tab-r-btn-icon" alt="">
+                                            <img src="../../assets/icons/maximize-icon.svg" class="tab-r-btn-icon" alt="">
                                             <span class="tab-r-btn-text">Full screens</span>
                                         </button>
                                         <button class="tab-r-btn ms-3 m-auto">
-                                            <img src="assets/icons/funnel-icon.svg" class="tab-r-btn-icon" alt="">
+                                            <img src="../../assets/icons/funnel-icon.svg" class="tab-r-btn-icon" alt="">
                                             <span class="tab-r-btn-text">Filters</span>
                                         </button>
                                     </div>
@@ -988,11 +988,11 @@ if(!isset($_SESSION['user'])){
 
                                     <div class="tab-r">
                                         <button class="tab-r-btn m-auto">
-                                            <img src="assets/icons/maximize-icon.svg" class="tab-r-btn-icon" alt="">
+                                            <img src="../../assets/icons/maximize-icon.svg" class="tab-r-btn-icon" alt="">
                                             <span class="tab-r-btn-text">Full screens</span>
                                         </button>
                                         <button class="tab-r-btn ms-3 m-auto">
-                                            <img src="assets/icons/funnel-icon.svg" class="tab-r-btn-icon" alt="">
+                                            <img src="../../assets/icons/funnel-icon.svg" class="tab-r-btn-icon" alt="">
                                             <span class="tab-r-btn-text">Filters</span>
                                         </button>
                                     </div>
@@ -1107,11 +1107,11 @@ if(!isset($_SESSION['user'])){
 
                                     <div class="tab-r">
                                         <button class="tab-r-btn m-auto">
-                                            <img src="assets/icons/maximize-icon.svg" class="tab-r-btn-icon" alt="">
+                                            <img src="../../assets/icons/maximize-icon.svg" class="tab-r-btn-icon" alt="">
                                             <span class="tab-r-btn-text">Full screens</span>
                                         </button>
                                         <button class="tab-r-btn ms-3 m-auto">
-                                            <img src="assets/icons/funnel-icon.svg" class="tab-r-btn-icon" alt="">
+                                            <img src="../../assets/icons/funnel-icon.svg" class="tab-r-btn-icon" alt="">
                                             <span class="tab-r-btn-text">Filters</span>
                                         </button>
                                     </div>
@@ -1226,11 +1226,11 @@ if(!isset($_SESSION['user'])){
 
                                     <div class="tab-r">
                                         <button class="tab-r-btn m-auto">
-                                            <img src="assets/icons/maximize-icon.svg" class="tab-r-btn-icon" alt="">
+                                            <img src="../../assets/icons/maximize-icon.svg" class="tab-r-btn-icon" alt="">
                                             <span class="tab-r-btn-text">Full screens</span>
                                         </button>
                                         <button class="tab-r-btn ms-3 m-auto">
-                                            <img src="assets/icons/funnel-icon.svg" class="tab-r-btn-icon" alt="">
+                                            <img src="../../assets/icons/funnel-icon.svg" class="tab-r-btn-icon" alt="">
                                             <span class="tab-r-btn-text">Filters</span>
                                         </button>
                                     </div>
@@ -1345,11 +1345,11 @@ if(!isset($_SESSION['user'])){
 
                                     <div class="tab-r">
                                         <button class="tab-r-btn m-auto">
-                                            <img src="assets/icons/maximize-icon.svg" class="tab-r-btn-icon" alt="">
+                                            <img src="../../assets/icons/maximize-icon.svg" class="tab-r-btn-icon" alt="">
                                             <span class="tab-r-btn-text">Full screens</span>
                                         </button>
                                         <button class="tab-r-btn ms-3 m-auto">
-                                            <img src="assets/icons/funnel-icon.svg" class="tab-r-btn-icon" alt="">
+                                            <img src="../../assets/icons/funnel-icon.svg" class="tab-r-btn-icon" alt="">
                                             <span class="tab-r-btn-text">Filters</span>
                                         </button>
                                     </div>
@@ -1447,11 +1447,11 @@ if(!isset($_SESSION['user'])){
 
                             <div class="tab-r">
                                 <button class="tab-r-btn">
-                                    <img src="assets/icons/maximize-icon.svg" class="tab-r-btn-icon" alt="">
+                                    <img src="../../assets/icons/maximize-icon.svg" class="tab-r-btn-icon" alt="">
                                     <span class="tab-r-btn-text">Full screens</span>
                                 </button>
                                 <button class="tab-r-btn ms-3">
-                                    <img src="assets/icons/funnel-icon.svg" class="tab-r-btn-icon" alt="">
+                                    <img src="../../assets/icons/funnel-icon.svg" class="tab-r-btn-icon" alt="">
                                     <span class="tab-r-btn-text">Filters</span>
                                 </button>
                             </div>
@@ -1463,7 +1463,7 @@ if(!isset($_SESSION['user'])){
                                 <div class="body-item-head">
                                     <h4 class="body-item-head-title">Research</h4>
                                     <button class="body-item-head-btn group">
-                                        <img src="assets/icons/plus-icon-alt.svg" alt="" class="group-hover:invert">
+                                        <img src="../../assets/icons/plus-icon-alt.svg" alt="" class="group-hover:invert">
                                     </button>
                                 </div>
                                 <!-- tab body list -->
@@ -1479,7 +1479,7 @@ if(!isset($_SESSION['user'])){
                                                 <p>Company Page</p>
                                             </div>
                                             <button class="item-top-btn">
-                                                <img src="assets/icons/dots-icon.svg" alt="">
+                                                <img src="../../assets/icons/dots-icon.svg" alt="">
                                             </button>
                                         </div>
                                         <div class="item-body">
@@ -1492,12 +1492,12 @@ if(!isset($_SESSION['user'])){
 
                                             <div class="item-comments">
                                                 <div class="item-avatar">
-                                                    <img src="assets/images/person-1.jpg" alt="">
-                                                    <img src="assets/images/person-3.jpg" alt="">
+                                                    <img src="../../assets/images/person-1.jpg" alt="">
+                                                    <img src="../../assets/images/person-3.jpg" alt="">
                                                 </div>
                                                 <div class="item-comments-text">
                                                     <p>14 Comments</p>
-                                                    <img src="assets/icons/comment-icon.svg" alt="">
+                                                    <img src="../../assets/icons/comment-icon.svg" alt="">
                                                 </div>
                                             </div>
 
@@ -1524,7 +1524,7 @@ if(!isset($_SESSION['user'])){
                                                 <p>Company Page</p>
                                             </div>
                                             <button class="item-top-btn">
-                                                <img src="assets/icons/dots-icon.svg" alt="">
+                                                <img src="../../assets/icons/dots-icon.svg" alt="">
                                             </button>
                                         </div>
                                         <div class="item-body">
@@ -1537,12 +1537,12 @@ if(!isset($_SESSION['user'])){
 
                                             <div class="item-comments">
                                                 <div class="item-avatar">
-                                                    <img src="assets/images/person-1.jpg" alt="">
-                                                    <img src="assets/images/person-3.jpg" alt="">
+                                                    <img src="../../assets/images/person-1.jpg" alt="">
+                                                    <img src="../../assets/images/person-3.jpg" alt="">
                                                 </div>
                                                 <div class="item-comments-text">
                                                     <p>14 Comments</p>
-                                                    <img src="assets/icons/comment-icon.svg" alt="">
+                                                    <img src="../../assets/icons/comment-icon.svg" alt="">
                                                 </div>
                                             </div>
 
@@ -1569,7 +1569,7 @@ if(!isset($_SESSION['user'])){
                                                 <p>Company Page</p>
                                             </div>
                                             <button class="item-top-btn">
-                                                <img src="assets/icons/dots-icon.svg" alt="">
+                                                <img src="../../assets/icons/dots-icon.svg" alt="">
                                             </button>
                                         </div>
                                         <div class="item-body">
@@ -1582,12 +1582,12 @@ if(!isset($_SESSION['user'])){
 
                                             <div class="item-comments">
                                                 <div class="item-avatar">
-                                                    <img src="assets/images/person-1.jpg" alt="">
-                                                    <img src="assets/images/person-3.jpg" alt="">
+                                                    <img src="../../assets/images/person-1.jpg" alt="">
+                                                    <img src="../../assets/images/person-3.jpg" alt="">
                                                 </div>
                                                 <div class="item-comments-text">
                                                     <p>14 Comments</p>
-                                                    <img src="assets/icons/comment-icon.svg" alt="">
+                                                    <img src="../../assets/icons/comment-icon.svg" alt="">
                                                 </div>
                                             </div>
 
@@ -1613,7 +1613,7 @@ if(!isset($_SESSION['user'])){
                                 <div class="body-item-head">
                                     <h4 class="body-item-head-title">In Review</h4>
                                     <button class="body-item-head-btn group">
-                                        <img src="assets/icons/plus-icon-alt.svg" alt="" class="group-hover:invert">
+                                        <img src="../../assets/icons/plus-icon-alt.svg" alt="" class="group-hover:invert">
                                     </button>
                                 </div>
                                 <!-- tab body list -->
@@ -1629,7 +1629,7 @@ if(!isset($_SESSION['user'])){
                                                 <p>Company Page</p>
                                             </div>
                                             <button class="item-top-btn">
-                                                <img src="assets/icons/dots-icon.svg" alt="">
+                                                <img src="../../assets/icons/dots-icon.svg" alt="">
                                             </button>
                                         </div>
                                         <div class="item-body">
@@ -1642,12 +1642,12 @@ if(!isset($_SESSION['user'])){
 
                                             <div class="item-comments">
                                                 <div class="item-avatar">
-                                                    <img src="assets/images/person-1.jpg" alt="">
-                                                    <img src="assets/images/person-3.jpg" alt="">
+                                                    <img src="../../assets/images/person-1.jpg" alt="">
+                                                    <img src="../../assets/images/person-3.jpg" alt="">
                                                 </div>
                                                 <div class="item-comments-text">
                                                     <p>14 Comments</p>
-                                                    <img src="assets/icons/comment-icon.svg" alt="">
+                                                    <img src="../../assets/icons/comment-icon.svg" alt="">
                                                 </div>
                                             </div>
 
@@ -1674,7 +1674,7 @@ if(!isset($_SESSION['user'])){
                                                 <p>Company Page</p>
                                             </div>
                                             <button class="item-top-btn">
-                                                <img src="assets/icons/dots-icon.svg" alt="">
+                                                <img src="../../assets/icons/dots-icon.svg" alt="">
                                             </button>
                                         </div>
                                         <div class="item-body">
@@ -1687,12 +1687,12 @@ if(!isset($_SESSION['user'])){
 
                                             <div class="item-comments">
                                                 <div class="item-avatar">
-                                                    <img src="assets/images/person-1.jpg" alt="">
-                                                    <img src="assets/images/person-3.jpg" alt="">
+                                                    <img src="../../assets/images/person-1.jpg" alt="">
+                                                    <img src="../../assets/images/person-3.jpg" alt="">
                                                 </div>
                                                 <div class="item-comments-text">
                                                     <p>14 Comments</p>
-                                                    <img src="assets/icons/comment-icon.svg" alt="">
+                                                    <img src="../../assets/icons/comment-icon.svg" alt="">
                                                 </div>
                                             </div>
 
@@ -1719,7 +1719,7 @@ if(!isset($_SESSION['user'])){
                                                 <p>Company Page</p>
                                             </div>
                                             <button class="item-top-btn">
-                                                <img src="assets/icons/dots-icon.svg" alt="">
+                                                <img src="../../assets/icons/dots-icon.svg" alt="">
                                             </button>
                                         </div>
                                         <div class="item-body">
@@ -1732,12 +1732,12 @@ if(!isset($_SESSION['user'])){
 
                                             <div class="item-comments">
                                                 <div class="item-avatar">
-                                                    <img src="assets/images/person-1.jpg" alt="">
-                                                    <img src="assets/images/person-3.jpg" alt="">
+                                                    <img src="../../assets/images/person-1.jpg" alt="">
+                                                    <img src="../../assets/images/person-3.jpg" alt="">
                                                 </div>
                                                 <div class="item-comments-text">
                                                     <p>14 Comments</p>
-                                                    <img src="assets/icons/comment-icon.svg" alt="">
+                                                    <img src="../../assets/icons/comment-icon.svg" alt="">
                                                 </div>
                                             </div>
 
@@ -1763,7 +1763,7 @@ if(!isset($_SESSION['user'])){
                                 <div class="body-item-head">
                                     <h4 class="body-item-head-title">Development</h4>
                                     <button class="body-item-head-btn group">
-                                        <img src="assets/icons/plus-icon-alt.svg" alt="" class="group-hover:invert">
+                                        <img src="../../assets/icons/plus-icon-alt.svg" alt="" class="group-hover:invert">
                                     </button>
                                 </div>
                                 <!-- tab body list -->
@@ -1779,7 +1779,7 @@ if(!isset($_SESSION['user'])){
                                                 <p>Company Page</p>
                                             </div>
                                             <button class="item-top-btn">
-                                                <img src="assets/icons/dots-icon.svg" alt="">
+                                                <img src="../../assets/icons/dots-icon.svg" alt="">
                                             </button>
                                         </div>
                                         <div class="item-body">
@@ -1792,12 +1792,12 @@ if(!isset($_SESSION['user'])){
 
                                             <div class="item-comments">
                                                 <div class="item-avatar">
-                                                    <img src="assets/images/person-1.jpg" alt="">
-                                                    <img src="assets/images/person-3.jpg" alt="">
+                                                    <img src="../../assets/images/person-1.jpg" alt="">
+                                                    <img src="../../assets/images/person-3.jpg" alt="">
                                                 </div>
                                                 <div class="item-comments-text">
                                                     <p>14 Comments</p>
-                                                    <img src="assets/icons/comment-icon.svg" alt="">
+                                                    <img src="../../assets/icons/comment-icon.svg" alt="">
                                                 </div>
                                             </div>
 
@@ -1824,7 +1824,7 @@ if(!isset($_SESSION['user'])){
                                                 <p>Company Page</p>
                                             </div>
                                             <button class="item-top-btn">
-                                                <img src="assets/icons/dots-icon.svg" alt="">
+                                                <img src="../../assets/icons/dots-icon.svg" alt="">
                                             </button>
                                         </div>
                                         <div class="item-body">
@@ -1837,12 +1837,12 @@ if(!isset($_SESSION['user'])){
 
                                             <div class="item-comments">
                                                 <div class="item-avatar">
-                                                    <img src="assets/images/person-1.jpg" alt="">
-                                                    <img src="assets/images/person-3.jpg" alt="">
+                                                    <img src="../../assets/images/person-1.jpg" alt="">
+                                                    <img src="../../assets/images/person-3.jpg" alt="">
                                                 </div>
                                                 <div class="item-comments-text">
                                                     <p>14 Comments</p>
-                                                    <img src="assets/icons/comment-icon.svg" alt="">
+                                                    <img src="../../assets/icons/comment-icon.svg" alt="">
                                                 </div>
                                             </div>
 
@@ -1869,7 +1869,7 @@ if(!isset($_SESSION['user'])){
                                                 <p>Company Page</p>
                                             </div>
                                             <button class="item-top-btn">
-                                                <img src="assets/icons/dots-icon.svg" alt="">
+                                                <img src="../../assets/icons/dots-icon.svg" alt="">
                                             </button>
                                         </div>
                                         <div class="item-body">
@@ -1882,12 +1882,12 @@ if(!isset($_SESSION['user'])){
 
                                             <div class="item-comments">
                                                 <div class="item-avatar">
-                                                    <img src="assets/images/person-1.jpg" alt="">
-                                                    <img src="assets/images/person-3.jpg" alt="">
+                                                    <img src="../../assets/images/person-1.jpg" alt="">
+                                                    <img src="../../assets/images/person-3.jpg" alt="">
                                                 </div>
                                                 <div class="item-comments-text">
                                                     <p>14 Comments</p>
-                                                    <img src="assets/icons/comment-icon.svg" alt="">
+                                                    <img src="../../assets/icons/comment-icon.svg" alt="">
                                                 </div>
                                             </div>
 
@@ -1913,7 +1913,7 @@ if(!isset($_SESSION['user'])){
                                 <div class="body-item-head">
                                     <h4 class="body-item-head-title">Design</h4>
                                     <button class="body-item-head-btn group">
-                                        <img src="assets/icons/plus-icon-alt.svg" alt="" class="group-hover:invert">
+                                        <img src="../../assets/icons/plus-icon-alt.svg" alt="" class="group-hover:invert">
                                     </button>
                                 </div>
                                 <!-- tab body list -->
@@ -1929,7 +1929,7 @@ if(!isset($_SESSION['user'])){
                                                 <p>Company Page</p>
                                             </div>
                                             <button class="item-top-btn">
-                                                <img src="assets/icons/dots-icon.svg" alt="">
+                                                <img src="../../assets/icons/dots-icon.svg" alt="">
                                             </button>
                                         </div>
                                         <div class="item-body">
@@ -1942,12 +1942,12 @@ if(!isset($_SESSION['user'])){
 
                                             <div class="item-comments">
                                                 <div class="item-avatar">
-                                                    <img src="assets/images/person-1.jpg" alt="">
-                                                    <img src="assets/images/person-3.jpg" alt="">
+                                                    <img src="../../assets/images/person-1.jpg" alt="">
+                                                    <img src="../../assets/images/person-3.jpg" alt="">
                                                 </div>
                                                 <div class="item-comments-text">
                                                     <p>14 Comments</p>
-                                                    <img src="assets/icons/comment-icon.svg" alt="">
+                                                    <img src="../../assets/icons/comment-icon.svg" alt="">
                                                 </div>
                                             </div>
 
@@ -1974,7 +1974,7 @@ if(!isset($_SESSION['user'])){
                                                 <p>Company Page</p>
                                             </div>
                                             <button class="item-top-btn">
-                                                <img src="assets/icons/dots-icon.svg" alt="">
+                                                <img src="../../assets/icons/dots-icon.svg" alt="">
                                             </button>
                                         </div>
                                         <div class="item-body">
@@ -1987,12 +1987,12 @@ if(!isset($_SESSION['user'])){
 
                                             <div class="item-comments">
                                                 <div class="item-avatar">
-                                                    <img src="assets/images/person-1.jpg" alt="">
-                                                    <img src="assets/images/person-3.jpg" alt="">
+                                                    <img src="../../assets/images/person-1.jpg" alt="">
+                                                    <img src="../../assets/images/person-3.jpg" alt="">
                                                 </div>
                                                 <div class="item-comments-text">
                                                     <p>14 Comments</p>
-                                                    <img src="assets/icons/comment-icon.svg" alt="">
+                                                    <img src="../../assets/icons/comment-icon.svg" alt="">
                                                 </div>
                                             </div>
 
@@ -2019,7 +2019,7 @@ if(!isset($_SESSION['user'])){
                                                 <p>Company Page</p>
                                             </div>
                                             <button class="item-top-btn">
-                                                <img src="assets/icons/dots-icon.svg" alt="">
+                                                <img src="../../assets/icons/dots-icon.svg" alt="">
                                             </button>
                                         </div>
                                         <div class="item-body">
@@ -2032,12 +2032,12 @@ if(!isset($_SESSION['user'])){
 
                                             <div class="item-comments">
                                                 <div class="item-avatar">
-                                                    <img src="assets/images/person-1.jpg" alt="">
-                                                    <img src="assets/images/person-3.jpg" alt="">
+                                                    <img src="../../assets/images/person-1.jpg" alt="">
+                                                    <img src="../../assets/images/person-3.jpg" alt="">
                                                 </div>
                                                 <div class="item-comments-text">
                                                     <p>14 Comments</p>
-                                                    <img src="assets/icons/comment-icon.svg" alt="">
+                                                    <img src="../../assets/icons/comment-icon.svg" alt="">
                                                 </div>
                                             </div>
 
