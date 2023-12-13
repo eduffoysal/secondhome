@@ -2,8 +2,8 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Nov 29, 2023 at 05:52 AM
+-- Host: 127.0.0.1:3306
+-- Generation Time: Dec 13, 2023 at 06:57 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -121,6 +121,43 @@ CREATE TABLE `calendar` (
   `done` enum('0','1') DEFAULT '0',
   `sync_status` enum('0','1') DEFAULT '1',
   `sync_key` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `candidate`
+--
+
+CREATE TABLE `candidate` (
+  `id` int(11) NOT NULL,
+  `unique_id` varchar(255) NOT NULL,
+  `sId` varchar(255) NOT NULL,
+  `user_id` varchar(255) NOT NULL,
+  `class_id` varchar(255) NOT NULL,
+  `session_id` varchar(255) NOT NULL,
+  `std_id` varchar(50) NOT NULL,
+  `serial_code` varchar(20) NOT NULL,
+  `selected` enum('1','0','3') NOT NULL DEFAULT '0',
+  `gender` enum('male','female') NOT NULL DEFAULT 'female',
+  `submitted_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `class`
+--
+
+CREATE TABLE `class` (
+  `id` int(11) NOT NULL,
+  `unique_id` varchar(255) NOT NULL,
+  `sId` varchar(255) NOT NULL,
+  `class_name` varchar(50) NOT NULL,
+  `class_code` varchar(50) NOT NULL,
+  `section_num` int(11) NOT NULL,
+  `day_bangla` varchar(50) NOT NULL,
+  `status` enum('0','1') NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -740,6 +777,21 @@ CREATE TABLE `sections` (
   `aStatus` enum('0','1') DEFAULT '1',
   `sync_status` enum('0','1') DEFAULT '1',
   `sync_key` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `session`
+--
+
+CREATE TABLE `session` (
+  `id` int(11) NOT NULL,
+  `unique_id` varchar(255) NOT NULL,
+  `sId` varchar(255) NOT NULL,
+  `start` date NOT NULL,
+  `end` date NOT NULL,
+  `session_name` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -3818,7 +3870,7 @@ CREATE TABLE `users` (
   `phone_pass` varchar(255) NOT NULL,
   `mess_id` varchar(255) NOT NULL,
   `school_id` varchar(255) NOT NULL,
-  `u_type` enum('0','1','2','3','4') NOT NULL DEFAULT '0',
+  `u_type` enum('0','1','2','3','4','5') NOT NULL DEFAULT '0',
   `a_status` enum('0','1') NOT NULL DEFAULT '0',
   `email` varchar(255) NOT NULL,
   `phone` varchar(20) NOT NULL,
@@ -3831,7 +3883,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `unique_id`, `user_id`, `u_name`, `password`, `phone_pass`, `mess_id`, `school_id`, `u_type`, `a_status`, `email`, `phone`, `otp`, `last_login`) VALUES
-(9, 'U-FF-0000001-01770627875', 'U-FF-0000001', 'Mffoysal', '369725', '0177062787552', '3757CF-1701191741-695829504-311787001', '3FB69C-1701233033-1741528352-162749032', '0', '0', 'mff585855075@gmail.com', '01770627875', '', '2023-11-29 04:47:17');
+(9, 'U-FF-0000001-01770627875', 'U-FF-0000001', 'Mffoysal', '369725', '0177062787552', '3757CF-1701191741-695829504-311787001', '3FB69C-1701233033-1741528352-162749032', '1', '0', 'mff585855075@gmail.com', '01770627875', '', '2023-12-12 16:07:15');
 
 -- --------------------------------------------------------
 
@@ -3896,6 +3948,18 @@ ALTER TABLE `ayear`
 -- Indexes for table `calendar`
 --
 ALTER TABLE `calendar`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `candidate`
+--
+ALTER TABLE `candidate`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `class`
+--
+ALTER TABLE `class`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -4026,6 +4090,12 @@ ALTER TABLE `sections`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `session`
+--
+ALTER TABLE `session`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `students`
 --
 ALTER TABLE `students`
@@ -4113,6 +4183,18 @@ ALTER TABLE `ayear`
 -- AUTO_INCREMENT for table `calendar`
 --
 ALTER TABLE `calendar`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `candidate`
+--
+ALTER TABLE `candidate`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `class`
+--
+ALTER TABLE `class`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
@@ -4227,6 +4309,12 @@ ALTER TABLE `secassigned`
 -- AUTO_INCREMENT for table `sections`
 --
 ALTER TABLE `sections`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `session`
+--
+ALTER TABLE `session`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
