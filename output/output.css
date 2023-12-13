@@ -5828,11 +5828,6 @@ input[type="range"]:active::-webkit-slider-thumb {
   color: rgb(255 255 255 / 0.7);
 }
 
-.text-gray-950 {
-  --tw-text-opacity: 1;
-  color: rgb(3 7 18 / var(--tw-text-opacity));
-}
-
 .underline {
   text-decoration-line: underline;
 }

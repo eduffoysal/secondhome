@@ -55,6 +55,7 @@ if(!isset($_SESSION['user'])){
         <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lilita+One&display=swap" rel="stylesheet">
 
         <link rel="stylesheet" href="../../css/stylee.css">
+        <link rel="stylesheet" href="../../css/table.css">
 
 
 <script src="https://kit.fontawesome.com/a076d05399.js"></script>
@@ -158,7 +159,7 @@ if(!isset($_SESSION['user'])){
                                     <a href="#" class="nav-link p-1 text-black">ROUTINE</a>
                                 </li>
                                 <li class="nav-item note_btn">
-                                    <a href="#" class="nav-link p-1 text-black">NOTE</a>
+                                    <a href="#" class="nav-link p-1 text-black">ADMISSION</a>
                                 </li>
                                 <li class="nav-item edu_btn">
                                     <a href="#" class="nav-link p-1 text-black">EDU</a>
@@ -590,39 +591,39 @@ if(!isset($_SESSION['user'])){
 
                                         <ul style="padding-left: 0;" class="hidden text-sm font-medium pl-0 mb-2 text-center text-gray-500 rounded-lg shadow sm:flex dark:divide-gray-700 dark:text-gray-400">
                                             <li class="w-full active:bg-amber-900">
-                                                <a href="#" class="inline-block text-decoration-none user_btn w-full p-2 text-gray-900 bg-gray-100 border-r border-gray-200 dark:border-gray-700 rounded-s-lg focus:ring-4 focus:ring-blue-300 active focus:outline-none dark:bg-gray-700 dark:text-white" aria-current="page">HOME</a>
+                                                <a href="#" class="inline-block text-decoration-none admission_home_btn w-full p-2 text-gray-900 bg-gray-100 border-r border-gray-200 dark:border-gray-700 rounded-s-lg focus:ring-4 focus:ring-blue-300 active focus:outline-none dark:bg-gray-700 dark:text-white" aria-current="page">HOME</a>
                                             </li>
                                             <li class="w-full">
-                                                <a href="#" class="inline-block mess_btn text-decoration-none w-full p-2 bg-white border-r border-gray-200 dark:border-gray-700 hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">BAZAR</a>
+                                                <a href="#" class="inline-block candidate_btn text-decoration-none w-full p-2 bg-white border-r border-gray-200 dark:border-gray-700 hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">CANDIDATE</a>
                                             </li>
                                             <li class="w-full">
-                                                <a href="#" class="inline-block school_btn text-decoration-none w-full p-2 bg-white border-r border-gray-200 dark:border-gray-700 hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">FEE</a>
+                                                <a href="#" class="inline-block admission_fee_btn text-decoration-none w-full p-2 bg-white border-r border-gray-200 dark:border-gray-700 hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">FEE</a>
                                             </li>
                                             <li class="w-full">
-                                                <a href="#" class="inline-block school_btn text-decoration-none w-full p-2 bg-white border-r border-gray-200 dark:border-gray-700 hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">MESS</a>
+                                                <a href="#" class="inline-block class_admission_btn text-decoration-none w-full p-2 bg-white border-r border-gray-200 dark:border-gray-700 hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">CLASS</a>
                                             </li>
                                             <li class="w-full">
-                                                <a href="#" class="inline-block school_btn text-decoration-none w-full p-2 bg-white border-r border-gray-200 dark:border-gray-700 hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">PAYMENT</a>
+                                                <a href="#" class="inline-block session_admission_btn text-decoration-none w-full p-2 bg-white border-r border-gray-200 dark:border-gray-700 hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">SESSION</a>
                                             </li>
                                             <li class="w-full">
-                                                <a href="#" class="inline-block school_btn text-decoration-none w-full p-2 bg-white border-r border-gray-200 dark:border-gray-700 hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">INBOX</a>
+                                                <a href="#" class="inline-block selected_candidate_btn text-decoration-none w-full p-2 bg-white border-r border-gray-200 dark:border-gray-700 hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">SELECTED</a>
                                             </li>
                                             <li class="w-full">
-                                                <a href="#" class="inline-block w-full text-decoration-none teacher_btn p-2 bg-white border-s-0 border-gray-200 dark:border-gray-700 rounded-e-lg hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">SETTINGS</a>
+                                                <a href="#" class="inline-block w-full text-decoration-none admission_setting_btn p-2 bg-white border-s-0 border-gray-200 dark:border-gray-700 rounded-e-lg hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">SETTINGS</a>
                                             </li>
                                             
                                         </ul>
 
                                         <div class="sm:hidden">
-                                            <label for="tabs" class="sr-only">Select any setting option </label>
-                                            <select id="tabs" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                                                <option value="user" class="">HOME</option>
-                                                <option value="mess">BAZAR</option>
-                                                <option value="school">FEE</option>
-                                                <option value="teacher">PAYMENT</option>
-                                                <option value="teacher">MESS PROFILE</option>
-                                                <option value="teacher">INBOX</option>
-                                                <option value="teacher">SETTINGS</option>
+                                            <label for="admission_tabs" class="sr-only">Select any setting option </label>
+                                            <select id="admission_tabs" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                                <option value="home" class="">HOME</option>
+                                                <option value="candidate">CANDIDATE</option>
+                                                <option value="fee">FEE</option>
+                                                <option value="class">CLASS</option>
+                                                <option value="session">SESSION</option>
+                                                <option value="selected">SELECTED</option>
+                                                <option value="setting">SETTINGS</option>
                                             </select>
                                         </div>
 
@@ -642,25 +643,89 @@ if(!isset($_SESSION['user'])){
 
                                 <div class="content-tab-body">
 
-                                    <div class="_space">
+                                    <div class="home_adm_space hidden">
 
                                     </div>
-                                    <div class="_space">
+                                    <div class="candidate_adm_space hiddenn w-full text-centerr">
+
+<div class="table-section w-full m-auto">
+  <div class="container">
+    <h1 class="table-title">Table Resize</h1>
+    <div class="table-wrapper">
+      <table class="table">
+        <thead>
+          <tr>
+            <th style="width: 140px;">Client ID</th>
+            <th style="width: 140px;">Client Name</th>
+            <th style="width: 140px;">Email Address</th>
+            <th style="width: 140px;">Phone Number</th>
+            <th style="width: 140px;">Project Name</th>
+            <th style="width: 140px;">Project Budget</th>
+            <th style="width: 140px;">Estimate Time</th>
+            <th style="width: 140px;">Status</th>
+            <th style="width: 140px;">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="width: 140px;">FS-34856</td>
+            <td style="width: 140px;">John Doe</td>
+            <td style="width: 140px;">johndoe@gmail.com</td>
+            <td style="width: 140px;">+348758464</td>
+            <td style="width: 140px;">Ecommerce Website</td>
+            <td style="width: 140px;">&dollar;1,568</td>
+            <td style="width: 140px;">5 days</td>
+            <td style="width: 140px;">Pending</td>
+            <td style="width: 140px;">
+              <a href="#" class="table-link">View Details</a>
+            </td>
+          </tr>
+          <tr>
+            <td style="width: 140px;">FS-34856</td>
+            <td style="width: 140px;">John Doe</td>
+            <td style="width: 140px;">johndoe@gmail.com</td>
+            <td style="width: 140px;">+348758464</td>
+            <td style="width: 140px;">Ecommerce Website</td>
+            <td style="width: 140px;">&dollar;1,568</td>
+            <td style="width: 140px;">5 days</td>
+            <td style="width: 140px;">Pending</td>
+            <td style="width: 140px;">
+              <a href="#" class="table-link">View Details</a>
+            </td>
+          </tr>
+          <tr>
+            <td style="width: 140px;">FS-34856</td>
+            <td style="width: 140px;">John Doe</td>
+            <td style="width: 140px;">johndoe@gmail.com</td>
+            <td style="width: 140px;">+348758464</td>
+            <td style="width: 140px;">Ecommerce Website</td>
+            <td style="width: 140px;">&dollar;1,568</td>
+            <td style="width: 140px;">5 days</td>
+            <td style="width: 140px;">Pending</td>
+            <td style="width: 140px;">
+              <a href="#" class="table-link">View Details</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
 
                                     </div>
-                                    <div class="_space">
+                                    <div class="class_adm_space hidden">
 
                                     </div>
-                                    <div class="_space">
+                                    <div class="_space hidden">
 
                                     </div>
-                                    <div class="_space">
+                                    <div class="_space hidden">
 
                                     </div>
-                                    <div class="_space">
+                                    <div class="_space hidden">
 
                                     </div>
-                                    <div class="_space">
+                                    <div class="_space hidden">
 
                                     </div>
 
@@ -2290,3 +2355,4 @@ if(!isset($_SESSION['user'])){
             });
         });
     </script>
+    <script src="../../dist/js/table.js"></script>

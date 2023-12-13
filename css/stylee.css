@@ -999,10 +999,10 @@ video {
   color: rgb(74 78 85 / var(--tw-text-opacity));
 }
 
-.content-tab-body {
+/* .content-tab-body {
   margin-top: 0.1rem;
   display: grid;
-}
+} */
 
 @media (min-width: 1200px) {
   .content-tab-body {
