@@ -101,6 +101,10 @@ if(!isset($_SESSION['user'])){
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.0/font/bootstrap-icons.css">
 
 
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+
 </head>
 <body>
 
@@ -650,9 +654,19 @@ if(!isset($_SESSION['user'])){
 
 <div class="table-section w-full m-auto">
   <div class="container">
-    <h1 class="table-title">Table Resize</h1>
+    <div class="row">
+        <div class="col-md-6">
+            <h1 class="table-title">CANDIDATEs</h1>
+        </div>
+        <div class="col-md-6 text-end">
+            <button class="btn btn-warning new_candidate_btn" data-bs-toggle="modal" data-bs-target="#my_modal" data-bs-whatever="@mdo">
+                New
+            </button>
+        </div>
+    </div>
+
     <div class="table-wrapper">
-      <table class="table">
+      <table class="table tablec">
         <thead>
           <tr>
             <th style="width: 140px;">Client ID</th>
@@ -713,11 +727,74 @@ if(!isset($_SESSION['user'])){
 </div>
 
                                     </div>
-                                    <div class="class_adm_space hidden">
+                                    <div class="class_adm_space hiddenn">
 
                                     </div>
-                                    <div class="_space hidden">
-
+                                    <div class="session_space hiddenn">
+<div class="table-section w-full m-auto">
+  <div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <h1 class="table-title">SESSIONs</h1>
+        </div>
+        <div class="col-md-6 text-end">
+            <button class="btn btn-warning new_session_btn" data-bs-toggle="modal" data-bs-target="#my_modal" data-bs-whatever="@mdo">
+                New
+            </button>
+        </div>
+    </div>
+    <div class="table-wrapper">
+      <table class="table tables">
+        <thead>
+          <tr>
+            <th style="width: 140px;">SI#</th>
+            <th style="width: 140px;">session Name</th>
+            <th style="width: 140px;">From</th>
+            <th style="width: 140px;">To</th>
+            <th style="width: 140px;">Year</th>
+            <th style="width: 140px;">Status</th>
+            <th style="width: 140px;">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="width: 140px;">FS-34856</td>
+            <td style="width: 140px;">John Doe</td>
+            <td style="width: 140px;">johndoe@gmail.com</td>
+            <td style="width: 140px;">+348758464</td>
+            <td style="width: 140px;">Ecommerce Website</td>
+            <td style="width: 140px;">&dollar;1,568</td>
+            <td style="width: 140px;">
+              <a href="#" class="table-link">View Details</a>
+            </td>
+          </tr>
+          <tr>
+            <td style="width: 140px;">FS-34856</td>
+            <td style="width: 140px;">John Doe</td>
+            <td style="width: 140px;">johndoe@gmail.com</td>
+            <td style="width: 140px;">+348758464</td>
+            <td style="width: 140px;">Ecommerce Website</td>
+            <td style="width: 140px;">&dollar;1,568</td>
+            <td style="width: 140px;">
+              <a href="#" class="table-link">View Details</a>
+            </td>
+          </tr>
+          <tr>
+            <td style="width: 140px;">FS-34856</td>
+            <td style="width: 140px;">John Doe</td>
+            <td style="width: 140px;">johndoe@gmail.com</td>
+            <td style="width: 140px;">+348758464</td>
+            <td style="width: 140px;">Ecommerce Website</td>
+            <td style="width: 140px;">&dollar;1,568</td>
+            <td style="width: 140px;">
+              <a href="#" class="table-link">View Details</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
                                     </div>
                                     <div class="_space hidden">
 
@@ -2130,6 +2207,154 @@ if(!isset($_SESSION['user'])){
 
 </div>
 
+<div class="container modal_part">
+<div class="modal fade" id="my_modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticmy_modal" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-scrollable modal-dialog-centeredd">
+    <div class="modal-content">
+      <div class="modal-header">
+      <div id="myalert_mmmm" style="display:none;">
+        <div class="container col-md-offset-4">
+          <div class="alert alert-info">
+            <center><span id="alerttext_mmmm"></span></center>
+          </div>
+        </div>
+      </div> 
+
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body modal_data" id="modal_data">
+
+
+        <!-- <form action="" id="manage-course">
+    <input type="hidden" name="id" value="<?php echo isset($unique_id) ? $unique_id : '' ?>">
+    <div class="row">
+    <div id="bazar_msg" class="form-group"></div>
+    
+    <div class="col">
+        <div class="row">
+
+<div class=" justify-center">
+<div>
+<div class="form-floating mb-1 md:w-100 xl:w-100">
+  <input type="text" class="form-control
+  block
+  w-full
+  px-3
+  py-1.5
+  text-base
+  font-normal
+  text-gray-700
+  bg-white bg-clip-padding
+  border border-solid border-gray-300
+  rounded
+  transition
+  ease-in-out
+  m-0
+  focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="ft" placeholder="name@example.com">
+  <label for="ft" class="text-gray-700">Fee Type</label>
+</div>
+<div class="form-floating mb-3 xl:w-100">
+  <input type="number" class="form-control
+  block
+  w-full
+  px-3
+  py-1.5
+  text-base
+  font-normal
+  text-gray-700
+  bg-white bg-clip-padding
+  border border-solid border-gray-300
+  rounded
+  transition
+  ease-in-out
+  m-0
+  focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" step="any" min="0" id="amount" placeholder="Amount">
+  <label for="floatingPassword" class="text-gray-700">Amount</label>
+</div>
+</div>
+</div>
+
+             <div class="form-group">
+
+  <button type="button" id="add_fee" class="
+  w-full
+  px-6
+  py-2.5
+  bg-blue-600
+  text-white
+  font-medium
+  text-xs
+  leading-tight
+  uppercase
+  rounded
+  shadow-md
+  hover:bg-blue-700 hover:shadow-lg
+  focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0
+  active:bg-blue-800 active:shadow-lg
+  transition
+  duration-150
+  ease-in-out">Add to List</button>
+
+                
+            </div>
+
+        </div>
+        <hr>
+        <table class="table table-condensed" id="fee-list">
+            <thead>
+                <tr>
+                    <th width="5%"></th>
+                    <th width="50%">Type</th>
+                    <th width="45%">Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+
+
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th colspan="2" class="text-center">Total</th>
+                    <th class="text-right">
+                        <input type="hidden" name="total_amount" value="<?php  ?>">
+                        <span class="tamount"><?php  ?></span>
+                    </th>
+                </tr>
+            </tfoot>
+        </table>
+        
+  <button type="submit" id="add_bazar" class="
+  mt-1
+  w-full
+  px-6
+  py-2.5
+  bg-danger
+  text-white
+  font-medium
+  text-xs
+  leading-tight
+  uppercase
+  rounded
+  shadow-md
+  hover:bg-blue-700 hover:shadow-lg
+  focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0
+  active:bg-blue-800 active:shadow-lg
+  transition
+  duration-150
+  ease-in-out">Submit Bazar List</button>
+    </div>
+    </div>
+        </form> -->
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
 
 <div class="container bottom_menu m-auto">
     <?php
@@ -2160,6 +2385,25 @@ if(!isset($_SESSION['user'])){
   });
 
 
+</script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.new_session_btn').click(function(){
+
+            $.ajax({
+                url:'../../data/modal_data.php',
+                type:'post',
+                data: {
+                    new_session: true
+                },
+                success: function(response){
+                    $('#modal_data').html(response);
+
+                }
+                }); 
+
+        });
+    });
 </script>
 <script type="text/javascript">
     $(document).ready(function(){
