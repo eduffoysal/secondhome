@@ -452,63 +452,130 @@ if(isset($_POST['select_session'])){
 }
 
 if(isset($_POST['select_class_session_candidate'])){
-    if($_POST['class_id']!= '0' || $_POST['class_id']!=null){
-        $id = $_POST['class_id'];
-        $sql = "SELECT c.*, s.*, c.id as c_id, s.id as s_id, c.unique_id as cuid, s.uniqueId as suid FROM candidate c LEFT JOIN class_data cd ON c.class_id=cd.id LEFT JOIN students s ON c.user_id=s.uId  WHERE c.sId='$school_id' AND c.id='$id' GROUP BY c.id ORDER BY s.stdName ASC ";
-
-        $i=0;
-            $result = mysqli_query($con, $sql);
-            if(mysqli_num_rows($result)> 0){
-                while($row = mysqli_fetch_assoc($result)){
-                    $id = $row["c_id"];
-                    ?>
-                                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600" id="<?=$id?>">
-                                    <td class="w-4 p-4">
-                                        <div class="flex items-center">
-                                            <input id="checkbox-table-search-1" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                            <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
-                                        </div>
-                                    </td>
-                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                        <?=$i?>#
-                                    </th>
-                                    <td class="px-6 py-4">
-                                        <?=$row['std_id']?>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <?=$row['stdName']?>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <?=$row['gender']?>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                    <?=$row['selected']?>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                    <?=$row['programme']?>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                    <?=$row['class_name']?>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                    <?=$row['serial_code']?>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                    <?=$row['stdPhone']?>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                    <?=$row['stdEmail']?>
-                                    </td>
-                                    <td class="flex items-center px-6 py-4">
-                                        <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                                        <a href="#" class="font-medium text-red-600 dark:text-red-500 hover:underline ms-3">Remove</a>
-                                    </td>
-                                </tr>
-                    <?php
-
+    if(isset($_POST['class_id'])){
+        if($_POST['class_id']!= '0' || $_POST['class_id']!=null){
+            $id = $_POST['class_id'];
+            $sql = "SELECT c.*, s.*, c.id as c_id, s.id as s_id, c.unique_id as cuid, s.uniqueId as suid FROM candidate c LEFT JOIN class_data cd ON c.class_id=cd.id LEFT JOIN students s ON c.user_id=s.uId  WHERE c.sId='$school_id' AND c.id='$id' GROUP BY c.id ORDER BY s.stdName ASC ";
+    
+            $i=0;
+                $result = mysqli_query($con, $sql);
+                if(mysqli_num_rows($result)> 0){
+                    while($row = mysqli_fetch_assoc($result)){
+                        $id = $row["c_id"];
+                        ?>
+                                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600" id="<?=$id?>">
+                                        <td class="w-4 p-4">
+                                            <div class="flex items-center">
+                                                <input id="checkbox-table-search-1" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                                <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
+                                            </div>
+                                        </td>
+                                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                            <?=$i?>#
+                                        </th>
+                                        <td class="px-6 py-4">
+                                            <?=$row['std_id']?>
+                                        </td>
+                                        <td class="px-6 py-4">
+                                            <?=$row['stdName']?>
+                                        </td>
+                                        <td class="px-6 py-4">
+                                            <?=$row['gender']?>
+                                        </td>
+                                        <td class="px-6 py-4">
+                                        <?=$row['selected']?>
+                                        </td>
+                                        <td class="px-6 py-4">
+                                        <?=$row['programme']?>
+                                        </td>
+                                        <td class="px-6 py-4">
+                                        <?=$row['class_name']?>
+                                        </td>
+                                        <td class="px-6 py-4">
+                                        <?=$row['serial_code']?>
+                                        </td>
+                                        <td class="px-6 py-4">
+                                        <?=$row['stdPhone']?>
+                                        </td>
+                                        <td class="px-6 py-4">
+                                        <?=$row['stdEmail']?>
+                                        </td>
+                                        <td class="flex items-center px-6 py-4">
+                                            <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                                            <a href="#" class="font-medium text-red-600 dark:text-red-500 hover:underline ms-3">Remove</a>
+                                        </td>
+                                    </tr>
+                        <?php
+    
+                    }
                 }
-            }
+    
+        }
+    }else{
 
+    }
+}
+
+if(isset($_POST['select_class_session_candidate2'])){
+    if(isset($_POST['class_id'])){
+        if($_POST['class_id']!= '0' || $_POST['class_id']!=null){
+            $id = $_POST['class_id'];
+            $sql = "SELECT c.*, s.*, c.id as c_id, s.id as s_id, c.unique_id as cuid, s.uniqueId as suid FROM candidate c LEFT JOIN class_data cd ON c.class_id=cd.id LEFT JOIN students s ON c.user_id=s.uId  WHERE c.sId='$school_id' AND c.id='$id' GROUP BY c.id ORDER BY s.stdName ASC ";
+
+            $i=0;
+                $result = mysqli_query($con, $sql);
+                if(mysqli_num_rows($result)> 0){
+                    while($row = mysqli_fetch_assoc($result)){
+                        $id = $row["c_id"];
+                        ?>
+                                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600" id="<?=$id?>">
+                                        <td class="w-4 p-4">
+                                            <div class="flex items-center">
+                                                <input id="checkbox-table-search-1" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                                <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
+                                            </div>
+                                        </td>
+                                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                            <?=$i?>#
+                                        </th>
+                                        <td class="px-6 py-4">
+                                            <?=$row['std_id']?>
+                                        </td>
+                                        <td class="px-6 py-4">
+                                            <?=$row['stdName']?>
+                                        </td>
+                                        <td class="px-6 py-4">
+                                            <?=$row['gender']?>
+                                        </td>
+                                        <td class="px-6 py-4">
+                                        <?=$row['selected']?>
+                                        </td>
+                                        <td class="px-6 py-4">
+                                        <?=$row['serial_code']?>
+                                        </td>
+                                        <td class="px-6 py-4">
+                                        <?=$row['stdPhone']?>
+                                        </td>
+                                        <td class="flex items-center px-6 py-4">
+                                            <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                                            <a href="#" class="font-medium text-red-600 dark:text-red-500 hover:underline ms-3">Remove</a>
+                                        </td>
+                                    </tr>
+                        <?php
+
+                    }
+                }
+
+        }
+    }else{
+
+    }    
+}
+
+
+if(isset($_POST['lottery_submit_form_data'])){
+    if(isset($_POST['select_class_session2'])){
+        
     }
 }
 

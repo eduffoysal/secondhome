@@ -26,6 +26,7 @@ if(isset($_POST['mess_application'])){
       $union =$_POST['union'];
       $ward =$_POST['ward'];
       $map =$_POST['location'];
+      $s_name = $_POST['u_mess_name'];
 
 
       $address = $ward.', '.$union.', '.$upazila.', '.$zila.', '.$division;
@@ -44,7 +45,7 @@ if(isset($_POST['mess_application'])){
       
       $empl = 1;
     
-      $sql = "INSERT INTO school(sId, unique_id, sName, s_desc, sEmail, sPhone, location, sAdrs, admin_id, sItp1, sEmpl, sVerification) VALUES('$sId','$unique_id','$name','$about','$email','$phone', '$map', '$address', '$admin_id', '$admin_phone', '$empl', '$unique')";
+      $sql = "INSERT INTO school(sId, unique_id, sName, s_desc, sEmail, sPhone, location, sAdrs, admin_id, sItp1, sEmpl, sVerification, s_s_name) VALUES('$sId','$unique_id','$name','$about','$email','$phone', '$map', '$address', '$admin_id', '$admin_phone', '$empl', '$unique', '$s_name')";
 
       if ($con->query($sql)) {
 

@@ -62,6 +62,15 @@ if(!isset($_SESSION['user'])){
 
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 
+<!-- <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.3/dist/flowbite.min.css" /> -->
+<script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
+<script src="./TW-ELEMENTS-PATH/dist/js/index.min.js"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script> -->
+
+<link rel="stylesheet" href="node_modules/tw-elements/dist/css/index.min.css" />
+<!-- <script src="node_modules/tw-elements/dist/js/index.min.js"></script> -->
+<script src="node_modules/flowbite/dist/flowbite.js"></script>
+
 
 <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 <link rel="stylesheet" href="../../icon/bootstrap-icons.css">
@@ -91,6 +100,10 @@ if(!isset($_SESSION['user'])){
 
 
     <link rel="stylesheet" href="../../css/carousel_and_other.css">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
@@ -101,11 +114,9 @@ if(!isset($_SESSION['user'])){
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.0/font/bootstrap-icons.css">
 
 
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 
 
 
@@ -208,7 +219,13 @@ if(!isset($_SESSION['user'])){
                     <!-- end of navbar -->
                 </div>
             </div>
-
+    <div id="myalert_l" style="display:none;">
+            <div class="container col-md-offset-4">
+            <div class="alert alert-info">
+                <center><span id="alerttext_l"></span></center>
+            </div>
+            </div>
+    </div>
             <div class="schedule_container hidden" id="schedule_container">
 
             
@@ -665,29 +682,61 @@ if(!isset($_SESSION['user'])){
             <div class="accordion-item">
                     <h2 style="font-size:15px" class="accordion-button" data-bs-target="#lotery_system" data-bs-toggle="collapse">Lottery System</h2>
                     
-                    <div id="lotery_system" class="accordion-collapse collapse show">
+                    <div id="lotery_system" class="accordion-collapse collapse:visible visibility: visible show">
                         <div class="accordion-body text-dark">
+                        <form action="#" role="form" id="lottery_form_data">
+                            <div class="container-fluidd">
+                            <div class="row" id="class_session_selection2">
+                                <div class="col-md-6">
+                                    <div class="sm:hiddenn" id="select_class_session_div2">
+                                        <label for="select_class_session_d2" class="sr-only">Select a Class</label>
+                                        <select id="select_class_session_d2" name="select_class_session2" class="select_class_session bg-gray-50 border-0 border-b border-gray-200 text-gray-900 sm:text-sm rounded-t-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" data-tabs-toggle="#class2" role="tabClass2">
 
-                        <div class="table-wrapper">
-                        <div class="row" id="class_session_selection2">
-                            <div class="col-md-6">
-                                <div class="sm:hiddenn" id="select_class_session_div2">
-                                    <label for="select_class_session_d2" class="sr-only">Select a Class</label>
-                                    <select id="select_class_session_d2" name="select_class_session2" class="select_class_session bg-gray-50 border-0 border-b border-gray-200 text-gray-900 sm:text-sm rounded-t-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" data-tabs-toggle="#class2" role="tabClass2">
-
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6">
-                                <div class="sm:hiddenn" id="select_session_div2">
-                                    <label for="select_session_d2" class="sr-only">Select a Session</label>
-                                        <select id="select_session_d2" name="select_session2" class="select_session2 bg-gray-50 border-0 border-b border-gray-200 text-gray-900 sm:text-sm rounded-t-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" data-tabs-toggle="#session2" role="tabSession2">
                                         </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="sm:hiddenn" id="select_session_div2">
+                                        <label for="select_session_d2" class="sr-only">Select a Session</label>
+                                            <select id="select_session_d2" name="select_session2" class="select_session2 bg-gray-50 border-0 border-b border-gray-200 text-gray-900 sm:text-sm rounded-t-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" data-tabs-toggle="#session2" role="tabSession2">
+                                            </select>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        </div>
+                            </div>
+                            <div class="form-floating pt-1">
+                                <input type="number" class="input-1 form-control form-floating" placeholder="Please Enter Session Name" name="selection_male" id="selection_male">
+                                <label class="" for="">Selection Number of Male</label>
+                            </div>
+                            <div class="form-floating">
+                                <input type="number" class="input-1 form-control form-floating" placeholder="Please Enter Session Name" name="selection_female" id="selection_female">
+                                <label class="" for="">Selection Number of Female</label>
+                            </div>
+                            <div class="form-floating">
+                                <input type="number" class="input-1 form-control form-floating" placeholder="Please Enter Session Name" name="waiting_male" id="waiting_male">
+                                <label class="" for="">Waiting Number of Male</label>
+                            </div>
+                            <div class="form-floating">
+                                <input type="number" class="input-1 form-control form-floating" placeholder="Please Enter Session Name" id="waiting_female" name="waiting_female">
+                                <label class="" for="">Witing Number of Female</label>
+                            </div>
+                            <div class="text-center m-auto">
+                                <button
+                                type="button"
+                                class="inline-block lottery_check_result_btn rounded-full border-2 border-info px-6 pb-[6px] pt-2 text-xs font-medium uppercase leading-normal text-info transition duration-150 ease-in-out hover:border-info-600 hover:bg-neutral-500 hover:bg-opacity-10 hover:text-info-600 focus:border-info-600 focus:text-info-600 focus:outline-none focus:ring-0 active:border-info-700 active:text-info-700 dark:hover:bg-neutral-100 dark:hover:bg-opacity-10"
+                                data-te-ripple-init>
+                                Check Result
+                                </button>
+                                <input type="hidden" name="lottery_submit_form_data">
+                                <button
+                                type="button"
+                                class="inline-block lottery_submit_btn mt-1 m-auto rounded-full bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]" id="lottery_submit_btn">
+                                Submit
+                                </button>
+                            </div>
+
+                        </form>
 
 
 
@@ -695,25 +744,116 @@ if(!isset($_SESSION['user'])){
                     </div>
             </div>
             </div>
+
         </div>
         <div class="col-md-8">
             <div class="accordion">
             <div class="accordion-item">
                     <h2 style="font-size:15px" class="accordion-button" data-bs-target="#candidate_table" data-bs-toggle="collapse">Candidate Table(Selected|Waiting)</h2>
                     <div class="others_fees_list_hh"></div>
-                    <div id="candidate_table" class="accordion-collapse collapse show">
+                    <div id="candidate_table" class="accordion-collapse collapse:visible visibility: visible show">
                         <div class="accordion-body">
 
+                            <div class="lottery_candidate">
+                                <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
 
+                                    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                            <tr>
+                                                <th scope="col" class="p-4">
+                                                    <div class="flex items-center">
+                                                        <input id="checkbox-all-search" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                                        <label for="checkbox-all-search" class="sr-only">checkbox</label>
+                                                    </div>
+                                                </th>
+                                                <th scope="col" class="px-6 py-3">
+                                                    #
+                                                </th>
+                                                <th scope="col" class="px-6 py-3">
+                                                    Roll|SID
+                                                </th>
+                                                <th scope="col" class="px-6 py-3">
+                                                    Name
+                                                </th>
+                                                <th scope="col" class="px-6 py-3">
+                                                    Gender
+                                                </th>
+                                                <th scope="col" class="px-6 py-3">
+                                                    Status
+                                                </th>
+                                                <th scope="col" class="px-6 py-3">
+                                                    Serial
+                                                </th>
+                                                <th scope="col" class="px-6 py-3">
+                                                    Phone
+                                                </th>
+                                                <th scope="col" class="px-6 py-3">
+                                                    Action
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="lottery_candidates_data_row">
+                                            <!-- <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                                <td class="w-4 p-4">
+                                                    <div class="flex items-center">
+                                                        <input id="checkbox-table-search-1" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                                        <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
+                                                    </div>
+                                                </td>
+                                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                    Apple MacBook Pro 17"
+                                                </th>
+                                                <td class="px-6 py-4">
+                                                    Silver
+                                                </td>
+                                                <td class="px-6 py-4">
+                                                    Laptop
+                                                </td>
+                                                <td class="px-6 py-4">
+                                                    Yes
+                                                </td>
+                                                <td class="px-6 py-4">
+                                                    Yes
+                                                </td>
+                                                <td class="px-6 py-4">
+                                                    $2999
+                                                </td>
+                                                <td class="flex items-center px-6 py-4">
+                                                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                                                    <a href="#" class="font-medium text-red-600 dark:text-red-500 hover:underline ms-3">Remove</a>
+                                                </td>
+                                            </tr> -->
 
-                        <div class="others_fees_list_h" id="others_fees_list_h">
+                                        </tbody>
+                                    </table>
+                                    <nav class="flex items-center flex-column flex-wrap md:flex-row justify-between pt-4" aria-label="Table navigation">
 
-
-
-
-
-
-                        </div>
+                                        <ul class="inline-flex -space-x-px rtl:space-x-reverse text-sm h-8">
+                                            <li>
+                                                <a href="#" class="flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Previous</a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">1</a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">2</a>
+                                            </li>
+                                            <li>
+                                                <a href="#" aria-current="page" class="flex items-center justify-center px-3 h-8 text-blue-600 border border-gray-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white">3</a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">4</a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">5</a>
+                                            </li>
+                                            <li>
+                                        <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Next</a>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                    </div>
+                            </div>
 
                         </div>
                     </div>
@@ -2665,6 +2805,154 @@ if(!isset($_SESSION['user'])){
 </script>
 <script>
 $(document).ready(function(){
+
+
+    $(document).on('click', '#lottery_submit_btn', function(){
+		if($('#select_class_session2').val()!='' && $('#waiting_female').val()!=''){
+            var c = $('#select_class_session_d2').val();
+            // alert($('#session_s_date').val());
+			$('#lottery_submit_btn').val('Saving...');
+			$('#myalert_l').slideUp();
+			var session_form = $('#lottery_form_data').serialize();
+			$.ajax({
+				method: 'POST',
+				url: './school_admin.php',
+				data: session_form,
+
+				success:function(data){
+                    if(data==1){
+                        Swal.fire({
+                                type: 'success',
+                                title: "Selection Successfully Completed!",
+                                text: "THank you Admin! ",
+                                icon: "success",
+                                button: false,
+                                dangerMode: true,
+                                timer: 3000,
+                            
+                            });
+                            candidate_data(c);
+                        setTimeout(function(){
+                        $('#myalert_l').slideDown();
+                        $('#alerttext_l').html("Selection Successfully Completed");
+                        $('#lottery_submit_btn').val('Submit');
+                        $('#lottery_form_data')[0].reset();
+                        }, 2000);
+                        setTimeout(function(){
+                            $('#myalert_l').slideUp();
+                        }, 3000);
+                    }else{
+                        Swal.fire({
+                                type: 'warning',
+                                title: "Please Try Again!",
+                                text: "THank you Admin! "+data,
+                                icon: "warning",
+                                button: false,
+                                dangerMode: true,
+                                timer: 3000,
+                            
+                            });
+                            // candidate_data(c);
+                        setTimeout(function(){
+                        $('#myalert_l').slideDown();
+                        $('#alerttext_l').html(data);
+                        $('#lottery_submit_btn').val('Try Again Session');
+                        $('#lottery_form_data')[0].reset();
+                        }, 2000);
+                        setTimeout(function(){
+                            $('#myalert_l').slideUp();
+                        }, 3000);
+                    }
+                   
+				}
+			});
+		}
+		else{
+			alert('Please input all fields');
+		}
+	});
+
+
+
+
+
+    function candidate_data(id){
+        $('#lottery_candidates_data_row').html('<div class="container text-center m-auto"><h3><span>Please Wait One Second</span></h3></div>');
+
+            $.ajax({
+                url:'./school_admin.php',
+                type:'post',
+                data: {
+                    class_id : id,
+                    select_class_session_candidate2: true
+                },
+                success: function(response){
+                    $('#lottery_candidates_data_row').html(response);
+                    // $('#lottery_candidates_data_row').html('<div class="container text-center m-auto"><h3><span>Please Wait One Second</span></h3></div>');
+                }
+            });
+    }
+
+
+        $('#select_class_session_d2').click(function(){
+            var c = $('#select_class_session_d2').val();
+            // alert(""+c);
+            if(c!='0'){
+                // alert(c);
+                $('#lottery_candidates_data_row').html('<div class="container text-center m-auto"><h3><span>Please Wait One Second</span></h3></div>');
+            $.ajax({
+                url:'./school_admin.php',
+                type:'post',
+                data: {
+                    class_id : c,
+                    select_class_session_candidate2: true
+                },
+                success: function(response){
+                    $('#lottery_candidates_data_row').html(response);
+                    // $('#candidates_data_row').html('<div class="container text-center m-auto"><h3><span>Please Wait One Second</span></h3></div>');
+                }
+            });
+            }
+
+
+        });
+        $('#select_session_d2').click(function(){
+            // alert("dsaf");
+            var s = $('#select_session_d2').val();
+            var c = $('#select_class_session_d2').val();
+
+            if(c==null || c=='0'){
+                $('#lottery_candidates_data_row').html('<div class="container text-center m-auto"><h3><span>Please Wait One Second</span></h3></div>');
+            $.ajax({
+                url:'./school_admin.php',
+                type:'post',
+                data: {
+                    s_id : s,
+                    select_class_session_candidate2: true
+                },
+                success: function(response){
+                    $('#lottery_candidates_data_row').html(response);
+                    // $('#candidates_data_row').html('<div class="container text-center m-auto"><h3><span>Please Wait One Second</span></h3></div>');
+                }
+            });
+            }else{
+                $('#lottery_candidates_data_row').html('<div class="container text-center m-auto"><h3><span>Please Wait One Second</span></h3></div>');
+            $.ajax({
+                url:'./school_admin.php',
+                type:'post',
+                data: {
+                    class_id : c,
+                    s_id : s,
+                    select_class_session_candidate2: true
+                },
+                success: function(response){
+                    $('#lottery_candidates_data_row').html(response);
+                    // $('#candidates_data_row').html('<div class="container text-center m-auto"><h3><span>Please Wait One Second</span></h3></div>');
+                }
+            });
+            }
+
+        });
 
 
     $('#select_class_session_d').click(function(){

@@ -1,38 +1,59 @@
 <?php
-include('../../../db/db.php');
+include('../db/db.php');
 session_start();
 
-if(isset($_SESSION['user'])){
-   $_SESSION['visitor_id']=$_SESSION['user'];
-   $_SESSION['unique_id']=$_SESSION['user'];
+$row;
+if (isset($_REQUEST['id'])) {
 
-   if(!isset($_SESSION['role'])){
-        header("location:../../../login");
-   }else{
-        if($_SESSION['role']=='teacher'){
-            header("location:../../../school/faculty");
-        }elseif($_SESSION['role']=='mess'){
-            header("location:../../mess");
-        }elseif($_SESSION['role']=='user'){
-            header("location:../../../");
-        }elseif($_SESSION['role']=='manager'){
-            header("location:../../../");
-        }
-   }
+    $id = $_REQUEST['id'];
 
-    if($_SESSION['school_id']!=''){
-        header("location:../");
+    $sId = "CO-".$id;
+
+    $sql = "SELECT * FROM school WHERE sPhone='$id' OR (sId='$sId' AND unique_id='$id') ";
+    $result = mysqli_query($con,$sql);
+    
+    if(mysqli_num_rows($result) == 1){
+        $_SESSION['school_id'] = $_REQUEST['id'];
+
+        $row = mysqli_fetch_array($result);
+
+    }else{
+        header("location:./");
     }
 
-
-}else{
-   header("location:../../../login");
 }
 
+// if(isset($_SESSION['user'])){
+//    $_SESSION['visitor_id']=$_SESSION['user'];
+//    $_SESSION['unique_id']=$_SESSION['user'];
 
-if(!isset($_SESSION['user'])){
-   header('location:../../../login');
-}
+//    if(!isset($_SESSION['role'])){
+//         header("location:../../../login");
+//    }else{
+//         if($_SESSION['role']=='teacher'){
+//             header("location:../../../school/faculty");
+//         }elseif($_SESSION['role']=='mess'){
+//             header("location:../../mess");
+//         }elseif($_SESSION['role']=='user'){
+//             header("location:../../../");
+//         }elseif($_SESSION['role']=='manager'){
+//             header("location:../../../");
+//         }
+//    }
+
+//     if($_SESSION['school_id']!=''){
+//         header("location:../");
+//     }
+
+
+// }else{
+//    header("location:../../../login");
+// }
+
+
+// if(!isset($_SESSION['user'])){
+//    header('location:../../../login');
+// }
 
 
 
@@ -44,7 +65,7 @@ if(!isset($_SESSION['user'])){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Class Organizer Profile Registration</title>
+    <title>EduBox Admission System, Registration Form</title>
      <!-- <script src="https://kit.fontawesome.com/a076d05399.js"></script> -->
 
      <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
@@ -67,40 +88,57 @@ if(!isset($_SESSION['user'])){
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="../../../js/jquery-3.5.1.min.js"></script>
+    <script src="../js/jquery-3.5.1.min.js"></script>
 
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 
-    <link rel="stylesheet" href="../../../output/./output.css">
-    <link rel="stylesheet" href="../../../css/mess_sign.css">
+    <link rel="stylesheet" href="../output/./output.css">
+    <link rel="stylesheet" href="../css/mess_sign.css">
 </head>
 <body>
     
 <div class="container">
-        <header>Class Organizer Registration</header>
+        <header>Candidate Registration Form</header>
 
         <form action="#" class="mess_signup" role="form" id="mess_signform">
         <input class="form-control" placeholder="Phone/Student ID" name="mess_application" id="mess_application" type="hidden">
             <div class="form first">
                 <div class="details personal">
-                    <span class="title">School|University Details</span>
+                    <span class="title">Candidate Registration Form</span>
 
                     <div class="fields">
-                        <div class="input-field">
-                            <label>School Full Name</label>
-                            <input type="text" name="mess_name" id="mess_name" placeholder="Enter School name" required>
+                    <div class="input-field">
+                            <label>Apply for Class:-</label>
+                            <select required>
+                                <option disabled selected>Select a Class</option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                            </select>
                         </div>
                         <div class="input-field">
-                            <label>Abbreviation of School Name</label>
-                            <input type="text" name="u_mess_name" id="mess_name" placeholder="Enter School Shortend name" required>
+                            <label>Applicant's Full Name</label>
+                            <input type="text" name="mess_name" id="mess_name" placeholder="Enter Student name" required>
                         </div>
                         <div class="input-field">
-                            <label>Application Date</label>
+                            <label>Applicant's Birth Registration/NID</label>
+                            <input type="text" name="u_mess_name" id="mess_name" placeholder="Enter Student NID/Birth Regisration No" required>
+                        </div>
+                        <div class="input-field">
+                            <label>Applicant's Birth Date</label>
                             <input type="date" name="date" id="date" placeholder="Enter birth date" >
                         </div>
-
                         <div class="input-field">
-                            <label>School Email</label>
+                            <label>Gender</label>
+                            <select required>
+                                <option disabled selected>Select gender</option>
+                                <option>Male</option>
+                                <option>Female</option>
+                                <option>Others</option>
+                            </select>
+                        </div>
+                        <div class="input-field">
+                            <label>Applicant's Email</label>
                             <input type="text" name="email" id="email" placeholder="Enter your email" >
                         </div>
 
@@ -109,15 +147,28 @@ if(!isset($_SESSION['user'])){
                             <input type="phone" name="phone" id="phone" placeholder="Enter mobile number" >
                         </div>
                         <div class="input-field">
-                            <label>Location URL</label>
-                            <input type="text" name="location" id="location" placeholder="Enter map Location URL" >
+                            <label>Father's Name</label>
+                            <input type="text" name="location" id="location" placeholder="Enter Father Name" >
                         </div>
 
                         <div class="input-field">
-                            <label>School Description</label>
-                            <textarea type="text" name="about" id="about" placeholder="Enter Description" ></textarea>
+                            <label>Father's NID</label>
+                            <input type="text" name="about" id="about" placeholder="Enter Father's NID No" ></input>
                         </div>
 
+                        <div class="input-field">
+                            <label>Mother's Name</label>
+                            <input type="text" name="location" id="location" placeholder="Enter Mother's Name" >
+                        </div>
+
+                        <div class="input-field">
+                            <label>Mother's NID</label>
+                            <input type="text" name="about" id="about" placeholder="Enter MOther's NID No" ></input>
+                        </div>
+                        <div class="input-field">
+                            <label>Gurdian's Mobile Number</label>
+                            <input type="phone" name="phone" id="phone" placeholder="Enter mobile number" >
+                        </div>
 
                     </div>
                 </div>
@@ -234,7 +285,7 @@ if(!isset($_SESSION['user'])){
             var divisionId=$(this).val();
             $.ajax({
                 method:"POST",
-                url:"../../../action.php",
+                url:"../action.php",
                 data:{idd:divisionId},
                 // dataType:"html",
                 success:function(data){
@@ -246,7 +297,7 @@ if(!isset($_SESSION['user'])){
             var districtId=$(this).val();
             $.ajax({
                 method:"POST",
-                url:"../../../action.php",
+                url:"../action.php",
                 data:{iddi:districtId},
                 // dataType:"html",
                 success:function(data){
@@ -258,7 +309,7 @@ if(!isset($_SESSION['user'])){
             var upazila=$(this).val();
             $.ajax({
                 method:"POST",
-                url:"../../../action.php",
+                url:"../action.php",
                 data:{thana:upazila},
                 // dataType:"html",
                 success:function(data){
@@ -313,10 +364,10 @@ if(!isset($_SESSION['user'])){
 
     });
 </script>
-<script src="../../../js/jquery-3.5.1.min.js"></script>
+<script src="../js/jquery-3.5.1.min.js"></script>
 
-<script src="../../../dist/js/mess_sign.js"></script>
-<script src="../../../js/sweetalert.min.js"></script>
-<script src="../../../js/sweetalert2.all.min.js"></script>
+<script src="../dist/js/mess_sign.js"></script>
+<script src="../js/sweetalert.min.js"></script>
+<script src="../js/sweetalert2.all.min.js"></script>
 </body>
 </html>
