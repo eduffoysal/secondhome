@@ -457,7 +457,7 @@ if(isset($_POST['select_class_session_candidate'])){
             $id = $_POST['class_id'];
             $sql = "SELECT c.*, s.*, cd.*, c.id as c_id, s.id as s_id, c.unique_id as cuid, s.uniqueId as suid FROM candidate c LEFT JOIN class_data cd ON c.class_id=cd.id LEFT JOIN students s ON c.user_id=s.uId  WHERE c.sId='$school_id' AND c.class_id='$id' AND cd.id='$id' GROUP BY c.id ORDER BY s.stdName ASC ";
     
-            $i=0;
+            $i=1;
                 $result = mysqli_query($con, $sql);
                 if(mysqli_num_rows($result)> 0){
                     while($row = mysqli_fetch_assoc($result)){
@@ -524,7 +524,7 @@ if(isset($_POST['select_class_session_candidate2'])){
             $id = $_POST['class_id'];
             $sql = "SELECT c.*, s.*, cd.*, c.id as c_id, s.id as s_id, c.unique_id as cuid, s.uniqueId as suid FROM candidate c LEFT JOIN class_data cd ON c.class_id=cd.id LEFT JOIN students s ON c.user_id=s.uId  WHERE c.sId='$school_id' AND c.class_id='$id' AND cd.id='$id' GROUP BY c.id ORDER BY s.stdName ASC ";
 
-            $i=0;
+            $i=1;
                 $result = mysqli_query($con, $sql);
                 // print_r($result);
                 if(mysqli_num_rows($result)> 0){
@@ -583,5 +583,7 @@ if(isset($_POST['lottery_submit_form_data'])){
         
     }
 }
+
+
 
 ?>

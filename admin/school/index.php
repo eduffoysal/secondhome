@@ -678,71 +678,148 @@ if(!isset($_SESSION['user'])){
         </div>
         <div class="col-md-4">
             
-            <div class="accordion">
-            <div class="accordion-item">
-                    <h2 style="font-size:15px" class="accordion-button" data-bs-target="#lotery_system" data-bs-toggle="collapse">Lottery System</h2>
-                    
-                    <div id="lotery_system" class="accordion-collapse collapse:visible visibility: visible show">
-                        <div class="accordion-body text-dark">
-                        <form action="#" role="form" id="lottery_form_data">
-                            <div class="container-fluidd">
-                            <div class="row" id="class_session_selection2">
-                                <div class="col-md-6">
-                                    <div class="sm:hiddenn" id="select_class_session_div2">
-                                        <label for="select_class_session_d2" class="sr-only">Select a Class</label>
-                                        <select id="select_class_session_d2" name="select_class_session2" class="select_class_session bg-gray-50 border-0 border-b border-gray-200 text-gray-900 sm:text-sm rounded-t-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" data-tabs-toggle="#class2" role="tabClass2">
+            <div class="row">
+                <div class="accordion">
+                <div class="accordion-item">
+                        <h2 style="font-size:15px" class="accordion-button" data-bs-target="#lotery_system" data-bs-toggle="collapse">Lottery System</h2>
+                        
+                        <div id="lotery_system" class="accordion-collapse collapse:visible visibility: visible show">
+                            <div class="accordion-body text-dark">
+                            <form action="#" role="form" id="lottery_form_data">
+                                <div class="container-fluidd">
+                                <div class="row" id="class_session_selection2">
+                                    <div class="col-md-6">
+                                        <div class="sm:hiddenn" id="select_class_session_div2">
+                                            <label for="select_class_session_d2" class="sr-only">Select a Class</label>
+                                            <select id="select_class_session_d2" name="select_class_session2" class="select_class_session bg-gray-50 border-0 border-b border-gray-200 text-gray-900 sm:text-sm rounded-t-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" data-tabs-toggle="#class2" role="tabClass2">
 
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6">
-                                    <div class="sm:hiddenn" id="select_session_div2">
-                                        <label for="select_session_d2" class="sr-only">Select a Session</label>
-                                            <select id="select_session_d2" name="select_session2" class="select_session2 bg-gray-50 border-0 border-b border-gray-200 text-gray-900 sm:text-sm rounded-t-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" data-tabs-toggle="#session2" role="tabSession2">
                                             </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="sm:hiddenn" id="select_session_div2">
+                                            <label for="select_session_d2" class="sr-only">Select a Session</label>
+                                                <select id="select_session_d2" name="select_session2" class="select_session2 bg-gray-50 border-0 border-b border-gray-200 text-gray-900 sm:text-sm rounded-t-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" data-tabs-toggle="#session2" role="tabSession2">
+                                                </select>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            </div>
-                            <div class="form-floating pt-1">
-                                <input type="number" class="input-1 form-control form-floating" placeholder="Please Enter Session Name" name="selection_male" id="selection_male">
-                                <label class="" for="">Selection Number of Male</label>
-                            </div>
-                            <div class="form-floating">
-                                <input type="number" class="input-1 form-control form-floating" placeholder="Please Enter Session Name" name="selection_female" id="selection_female">
-                                <label class="" for="">Selection Number of Female</label>
-                            </div>
-                            <div class="form-floating">
-                                <input type="number" class="input-1 form-control form-floating" placeholder="Please Enter Session Name" name="waiting_male" id="waiting_male">
-                                <label class="" for="">Waiting Number of Male</label>
-                            </div>
-                            <div class="form-floating">
-                                <input type="number" class="input-1 form-control form-floating" placeholder="Please Enter Session Name" id="waiting_female" name="waiting_female">
-                                <label class="" for="">Witing Number of Female</label>
-                            </div>
-                            <div class="text-center m-auto">
-                                <button
-                                type="button"
-                                class="inline-block lottery_check_result_btn rounded-full border-2 border-info px-6 pb-[6px] pt-2 text-xs font-medium uppercase leading-normal text-info transition duration-150 ease-in-out hover:border-info-600 hover:bg-neutral-500 hover:bg-opacity-10 hover:text-info-600 focus:border-info-600 focus:text-info-600 focus:outline-none focus:ring-0 active:border-info-700 active:text-info-700 dark:hover:bg-neutral-100 dark:hover:bg-opacity-10"
-                                data-te-ripple-init>
-                                Check Result
-                                </button>
-                                <input type="hidden" name="lottery_submit_form_data">
-                                <button
-                                type="button"
-                                class="inline-block lottery_submit_btn mt-1 m-auto rounded-full bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]" id="lottery_submit_btn">
-                                Submit
-                                </button>
-                            </div>
+                                </div>
+                                <div class="form-floating pt-1">
+                                    <input type="number" class="input-1 form-control form-floating" placeholder="Please Enter Number Of Selection" name="selection_male" id="selection_male">
+                                    <label class="" for="">Selection Number of Male</label>
+                                </div>
+                                <div class="form-floating">
+                                    <input type="number" class="input-1 form-control form-floating" placeholder="Please Enter Number Of Selection" name="selection_female" id="selection_female">
+                                    <label class="" for="">Selection Number of Female</label>
+                                </div>
+                                <div class="form-floating">
+                                    <input type="number" class="input-1 form-control form-floating" placeholder="Please Enter Number Of Selection" name="waiting_male" id="waiting_male">
+                                    <label class="" for="">Waiting Number of Male</label>
+                                </div>
+                                <div class="form-floating">
+                                    <input type="number" class="input-1 form-control form-floating" placeholder="Please Enter Number Of Selection" id="waiting_female" name="waiting_female">
+                                    <label class="" for="">Witing Number of Female</label>
+                                </div>
+                                <div class="text-center m-auto">
+                                    <button
+                                    type="button"
+                                    class="inline-block lottery_check_result_btn rounded-full border-2 border-info px-6 pb-[6px] pt-2 text-xs font-medium uppercase leading-normal text-info transition duration-150 ease-in-out hover:border-info-600 hover:bg-neutral-500 hover:bg-opacity-10 hover:text-info-600 focus:border-info-600 focus:text-info-600 focus:outline-none focus:ring-0 active:border-info-700 active:text-info-700 dark:hover:bg-neutral-100 dark:hover:bg-opacity-10"
+                                    data-te-ripple-init>
+                                    Check Result
+                                    </button>
+                                    <input type="hidden" name="lottery_submit_form_data">
+                                    <button
+                                    type="button"
+                                    class="inline-block lottery_submit_btn mt-1 m-auto rounded-full bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]" id="lottery_submit_btn">
+                                    Submit
+                                    </button>
+                                </div>
 
-                        </form>
-
+                            </form>
 
 
+
+                            </div>
                         </div>
-                    </div>
+                </div>
+                </div>
             </div>
+            <div class="row">
+                <div class="accordion">
+                <div class="accordion-item">
+                        <h2 style="font-size:15px" class="accordion-button" data-bs-target="#lotery_system2" data-bs-toggle="collapse">Lottery System With Remarks Key</h2>
+                        
+                        <div id="lotery_system2" class="accordion-collapse collapse:visible visibility: visible show">
+                            <div class="accordion-body text-dark">
+                            <form action="#" role="form" id="lottery_form_data2">
+                                <div class="container-fluidd">
+                                <div class="row" id="class_session_selection22">
+                                    <div class="col-md-6">
+                                        <div class="sm:hiddenn" id="select_class_session_div22">
+                                            <label for="select_class_session_d22" class="sr-only">Select a Class</label>
+                                            <select id="select_class_session_d22" name="select_class_session22" class="select_class_session bg-gray-50 border-0 border-b border-gray-200 text-gray-900 sm:text-sm rounded-t-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" data-tabs-toggle="#class2" role="tabClass2">
+
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="sm:hiddenn" id="select_session_div22">
+                                            <label for="select_session_d22" class="sr-only">Select a Session</label>
+                                                <select id="select_session_d22" name="select_session22" class="select_session2 bg-gray-50 border-0 border-b border-gray-200 text-gray-900 sm:text-sm rounded-t-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" data-tabs-toggle="#session2" role="tabSession2">
+
+                                                    <option value="0" selected disabled>Select Remark Key</option>
+
+                                                </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+                                <div class="form-floating pt-1">
+                                    <input type="number" class="input-1 form-control form-floating" placeholder="Please Enter Number Of Selection" name="selection_remark" id="selection_remarkd">
+                                    <label class="" for="">Selection Number of Remark Key</label>
+                                </div>
+                                <div class="form-floating pt-1">
+                                    <input type="number" class="input-1 form-control form-floating" placeholder="Please Enter Number Of Selection" name="selection_male" id="selection_male2">
+                                    <label class="" for="">Selection Number of Male</label>
+                                </div>
+                                <div class="form-floating">
+                                    <input type="number" class="input-1 form-control form-floating" placeholder="Please Enter Number Of Selection" name="selection_female" id="selection_female2">
+                                    <label class="" for="">Selection Number of Female</label>
+                                </div>
+                                <div class="form-floating">
+                                    <input type="number" class="input-1 form-control form-floating" placeholder="Please Enter Number Of Selection" name="waiting_male" id="waiting_male2">
+                                    <label class="" for="">Waiting Number of Male</label>
+                                </div>
+                                <div class="form-floating">
+                                    <input type="number" class="input-1 form-control form-floating" placeholder="Please Enter Number Of Selection" id="waiting_female2" name="waiting_female">
+                                    <label class="" for="">Witing Number of Female</label>
+                                </div>
+                                <div class="text-center m-auto">
+                                    <button
+                                    type="button"
+                                    class="inline-block lottery_check_result_btn2 rounded-full border-2 border-info px-6 pb-[6px] pt-2 text-xs font-medium uppercase leading-normal text-info transition duration-150 ease-in-out hover:border-info-600 hover:bg-neutral-500 hover:bg-opacity-10 hover:text-info-600 focus:border-info-600 focus:text-info-600 focus:outline-none focus:ring-0 active:border-info-700 active:text-info-700 dark:hover:bg-neutral-100 dark:hover:bg-opacity-10"
+                                    data-te-ripple-init>
+                                    Check Result
+                                    </button>
+                                    <input type="hidden" name="lottery_submit_form_data2">
+                                    <button
+                                    type="button"
+                                    class="inline-block lottery_submit_btn2 mt-1 m-auto rounded-full bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]" id="lottery_submit_btn2">
+                                    Submit
+                                    </button>
+                                </div>
+
+                            </form>
+
+
+
+                            </div>
+                        </div>
+                </div>
+                </div>
             </div>
 
         </div>
@@ -3205,6 +3282,7 @@ $.ajax({
   },
   success: function(response){
     $('#select_class_session_d2').html(response);
+    $('#select_class_session_d22').html(response);
 
   }
 });
@@ -3234,7 +3312,7 @@ $('#class_session_selection').ready(function(){
       success: function(response){
         $('#select_class_session_d').html(response);
         $('#select_class_session_d2').html(response);
-
+        $('#select_class_session_d2').html(response);
       }
     });
 
