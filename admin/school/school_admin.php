@@ -455,7 +455,7 @@ if(isset($_POST['select_class_session_candidate'])){
     if(isset($_POST['class_id'])){
         if($_POST['class_id']!= '0' || $_POST['class_id']!=null){
             $id = $_POST['class_id'];
-            $sql = "SELECT c.*, s.*, c.id as c_id, s.id as s_id, c.unique_id as cuid, s.uniqueId as suid FROM candidate c LEFT JOIN class_data cd ON c.class_id=cd.id LEFT JOIN students s ON c.user_id=s.uId  WHERE c.sId='$school_id' AND c.id='$id' GROUP BY c.id ORDER BY s.stdName ASC ";
+            $sql = "SELECT c.*, s.*, cd.*, c.id as c_id, s.id as s_id, c.unique_id as cuid, s.uniqueId as suid FROM candidate c LEFT JOIN class_data cd ON c.class_id=cd.id LEFT JOIN students s ON c.user_id=s.uId  WHERE c.sId='$school_id' AND c.class_id='$id' AND cd.id='$id' GROUP BY c.id ORDER BY s.stdName ASC ";
     
             $i=0;
                 $result = mysqli_query($con, $sql);
@@ -508,6 +508,8 @@ if(isset($_POST['select_class_session_candidate'])){
                         <?php
     
                     }
+                }else{
+                    echo "NOT FOUND";
                 }
     
         }
@@ -520,10 +522,11 @@ if(isset($_POST['select_class_session_candidate2'])){
     if(isset($_POST['class_id'])){
         if($_POST['class_id']!= '0' || $_POST['class_id']!=null){
             $id = $_POST['class_id'];
-            $sql = "SELECT c.*, s.*, c.id as c_id, s.id as s_id, c.unique_id as cuid, s.uniqueId as suid FROM candidate c LEFT JOIN class_data cd ON c.class_id=cd.id LEFT JOIN students s ON c.user_id=s.uId  WHERE c.sId='$school_id' AND c.id='$id' GROUP BY c.id ORDER BY s.stdName ASC ";
+            $sql = "SELECT c.*, s.*, cd.*, c.id as c_id, s.id as s_id, c.unique_id as cuid, s.uniqueId as suid FROM candidate c LEFT JOIN class_data cd ON c.class_id=cd.id LEFT JOIN students s ON c.user_id=s.uId  WHERE c.sId='$school_id' AND c.class_id='$id' AND cd.id='$id' GROUP BY c.id ORDER BY s.stdName ASC ";
 
             $i=0;
                 $result = mysqli_query($con, $sql);
+                // print_r($result);
                 if(mysqli_num_rows($result)> 0){
                     while($row = mysqli_fetch_assoc($result)){
                         $id = $row["c_id"];
@@ -564,6 +567,8 @@ if(isset($_POST['select_class_session_candidate2'])){
                         <?php
 
                     }
+                }else{
+                    echo "Not Found";
                 }
 
         }
