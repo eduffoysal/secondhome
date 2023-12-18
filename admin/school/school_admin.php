@@ -2,6 +2,15 @@
 session_start();
 require_once '../../db/db.php';
 
+spl_autoload_register(function ($class) {
+    include $class . '.php';
+    // echo $class;
+});
+
+function my_autoloader($class) {
+    require $class . '.php';
+}
+
 $admin_id = $_SESSION['user'];
 $admin_phone = $_SESSION['user_phone'];
 $school_id = $_SESSION['school_id'];
@@ -455,13 +464,23 @@ if(isset($_POST['select_class_session_candidate'])){
     if(isset($_POST['class_id'])){
         if($_POST['class_id']!= '0' || $_POST['class_id']!=null){
             $id = $_POST['class_id'];
-            $sql = "SELECT c.*, s.*, cd.*, c.id as c_id, s.id as s_id, c.unique_id as cuid, s.uniqueId as suid FROM candidate c LEFT JOIN class_data cd ON c.class_id=cd.id LEFT JOIN students s ON c.user_id=s.uId  WHERE c.sId='$school_id' AND c.class_id='$id' AND cd.id='$id' GROUP BY c.id ORDER BY s.stdName ASC ";
+            $sql = "SELECT c.*, s.*, cd.*, c.gender as cgender, c.id as c_id, s.id as s_id, c.unique_id as cuid, s.uniqueId as suid FROM candidate c LEFT JOIN class_data cd ON c.class_id=cd.id LEFT JOIN students s ON c.user_id=s.uId  WHERE c.sId='$school_id' AND c.class_id='$id' AND cd.id='$id' GROUP BY c.id ORDER BY s.stdName ASC ";
     
             $i=1;
                 $result = mysqli_query($con, $sql);
                 if(mysqli_num_rows($result)> 0){
                     while($row = mysqli_fetch_assoc($result)){
                         $id = $row["c_id"];
+                        if($row['selected']=='0'){
+                            $c = 'danger';
+                            $select = "Sorry!";
+                        }else if($row['selected']== '1'){
+                            $c = 'info';
+                            $select = "SELECTED";
+                        }else{
+                            $c = 'warning';
+                            $select = "Waiting";
+                        }
                         ?>
                                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600" id="<?=$id?>">
                                         <td class="w-4 p-4">
@@ -471,7 +490,7 @@ if(isset($_POST['select_class_session_candidate'])){
                                             </div>
                                         </td>
                                         <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                            <?=$i?>#
+                                            <?=$i++?>#
                                         </th>
                                         <td class="px-6 py-4">
                                             <?=$row['std_id']?>
@@ -480,10 +499,10 @@ if(isset($_POST['select_class_session_candidate'])){
                                             <?=$row['stdName']?>
                                         </td>
                                         <td class="px-6 py-4">
-                                            <?=$row['gender']?>
+                                            <?=$row['cgender']?>
                                         </td>
-                                        <td class="px-6 py-4">
-                                        <?=$row['selected']?>
+                                        <td class="px-6 py-4 bg-<?=$c?>">
+                                        <?=$select?>
                                         </td>
                                         <td class="px-6 py-4">
                                         <?=$row['programme']?>
@@ -522,7 +541,7 @@ if(isset($_POST['select_class_session_candidate2'])){
     if(isset($_POST['class_id'])){
         if($_POST['class_id']!= '0' || $_POST['class_id']!=null){
             $id = $_POST['class_id'];
-            $sql = "SELECT c.*, s.*, cd.*, c.id as c_id, s.id as s_id, c.unique_id as cuid, s.uniqueId as suid FROM candidate c LEFT JOIN class_data cd ON c.class_id=cd.id LEFT JOIN students s ON c.user_id=s.uId  WHERE c.sId='$school_id' AND c.class_id='$id' AND cd.id='$id' GROUP BY c.id ORDER BY s.stdName ASC ";
+            $sql = "SELECT c.*, s.*, cd.*, c.gender as cgender, c.id as c_id, s.id as s_id, c.unique_id as cuid, s.uniqueId as suid FROM candidate c LEFT JOIN class_data cd ON c.class_id=cd.id LEFT JOIN students s ON c.user_id=s.uId  WHERE c.sId='$school_id' AND c.class_id='$id' AND cd.id='$id' GROUP BY c.id ORDER BY s.stdName ASC ";
 
             $i=1;
                 $result = mysqli_query($con, $sql);
@@ -530,6 +549,18 @@ if(isset($_POST['select_class_session_candidate2'])){
                 if(mysqli_num_rows($result)> 0){
                     while($row = mysqli_fetch_assoc($result)){
                         $id = $row["c_id"];
+
+                        if($row['selected']=='0'){
+                            $c = 'danger';
+                            $select = "Sorry!";
+                        }else if($row['selected']== '1'){
+                            $c = 'info';
+                            $select = "SELECTED";
+                        }else{
+                            $c = 'warning';
+                            $select = "Waiting";
+                        }
+
                         ?>
                                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600" id="<?=$id?>">
                                         <td class="w-4 p-4">
@@ -539,7 +570,7 @@ if(isset($_POST['select_class_session_candidate2'])){
                                             </div>
                                         </td>
                                         <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                            <?=$i?>#
+                                            <?=$i++?>#
                                         </th>
                                         <td class="px-6 py-4">
                                             <?=$row['std_id']?>
@@ -548,10 +579,10 @@ if(isset($_POST['select_class_session_candidate2'])){
                                             <?=$row['stdName']?>
                                         </td>
                                         <td class="px-6 py-4">
-                                            <?=$row['gender']?>
+                                            <?=$row['cgender']?>
                                         </td>
-                                        <td class="px-6 py-4">
-                                        <?=$row['selected']?>
+                                        <td class="px-6 py-4 bg-<?=$c?>">
+                                        <?=$select?>
                                         </td>
                                         <td class="px-6 py-4">
                                         <?=$row['serial_code']?>
@@ -578,12 +609,295 @@ if(isset($_POST['select_class_session_candidate2'])){
 }
 
 
-if(isset($_POST['lottery_submit_form_data'])){
-    if(isset($_POST['select_class_session2'])){
+if(isset($_POST['lottery_submit_form_data2'])){
+    if(isset($_POST['select_class_session22'])){
         
     }
 }
 
+my_autoloader("../../Modal/Candidate");
+
+function performLottery($candidateList, $maleSelectedCount, $maleWaitingCount, $femaleSelectedCount, $femaleWaitingCount) {
+    $maleStudents = array_filter($candidateList, function ($candidate) {
+        return $candidate->gender === 'male';
+    });
+
+    $femaleStudents = array_filter($candidateList, function ($candidate) {
+        return $candidate->gender === 'female';
+    });
+
+    shuffle($maleStudents);
+    shuffle($femaleStudents);
+
+    $selectedMale = array_slice($maleStudents, 0, $maleSelectedCount);
+    $selectedFemale = array_slice($femaleStudents, 0, $femaleSelectedCount);
+
+    foreach ($selectedMale as $candidate) {
+        $candidate->setSelected('1');
+    }
+
+    foreach ($selectedFemale as $candidate) {
+        $candidate->setSelected('1');
+    }
+
+    $waitingMale = array_slice($maleStudents, $maleSelectedCount, $maleWaitingCount);
+    $waitingFemale = array_slice($femaleStudents, $femaleSelectedCount, $femaleWaitingCount);
+
+    foreach ($waitingMale as $candidate) {
+        $candidate->setSelected('2');
+    }
+
+    foreach ($waitingFemale as $candidate) {
+        $candidate->setSelected('2');
+    }
+
+    foreach ($candidateList as $candidate) {
+        if ($candidate->getSelected() !== '1' && $candidate->getSelected() !== '2') {
+            $candidate->getSelected('0');
+        }
+    }
+    // foreach ($candidateList as $candidate) {
+    //     echo $candidate->getSelected().'\n';
+    // }
+
+    return $candidateList;
+}
+
+if(isset($_POST["lottery_submit_form_data"])){
+    if(isset($_POST["select_class_session2"]) && isset($_POST["waiting_female"])){
+        if($_POST["select_class_session2"]!= "0" || $_POST['select_class_session2']!=null){
+            $id = $_POST['select_class_session2'];
+            $s_male = $_POST['selection_male'];
+            $s_female = $_POST['selection_female'];
+            $w_male = $_POST['waiting_male'];
+            $w_female = $_POST['waiting_female'];
+
+            if($s_male!=null && $s_female!=null && $w_male!=null && $w_female!=null){
+
+
+                $sql = "SELECT * FROM candidate WHERE class_id='$id' AND selected!='1' ORDER BY RAND() ";
+
+                $result = mysqli_query($con,$sql);
+
+                $candidateList = [];
+                if(mysqli_num_rows($result)> 0){
+                    while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+                        $student = new Candidate($row);
+                        $candidateList[] = $student;
+                    }
+
+                    $maleCount = 0;
+                    $femaleCount = 0;
+
+                    $umaleCount = 0;
+                    $ufemaleCount = 0;
+
+                    $query = "SELECT 
+                            SUM(CASE WHEN gender = 'Male' THEN 1 ELSE 0 END) AS maleCount,
+                            SUM(CASE WHEN gender = 'Female' THEN 1 ELSE 0 END) AS femaleCount
+                            FROM candidate WHERE class_id='$id' ";
+
+                    $result2 = mysqli_query($con, $query);
+                    if(mysqli_num_rows($result2)>0){
+                        $r = mysqli_fetch_assoc($result2);
+                        $maleCount = $r['maleCount'];
+                        $femaleCount = $r['femaleCount'];
+
+                        $queryu = "SELECT 
+                        SUM(CASE WHEN gender = 'Male' AND selected <> '1' THEN 1 ELSE 0 END) AS umaleCount,
+                        SUM(CASE WHEN gender = 'Female' AND selected <> '1' THEN 1 ELSE 0 END) AS ufemaleCount
+                        FROM candidate WHERE class_id='$id' ";
+
+                        $result3 = mysqli_query($con, $queryu);
+                        $ru = mysqli_fetch_assoc($result3);
+                        $umaleCount = $ru['umaleCount'];
+                        $ufemaleCount = $ru['ufemaleCount'];
+
+                        // echo ''.$maleCount.''.$femaleCount.'';
+
+                        if($s_male>$umaleCount){
+                            $s_male = $umaleCount;
+                        }
+                        if($s_female>$ufemaleCount){
+                            $s_female = $ufemaleCount;
+                        }
+
+                        if($w_male>$umaleCount){
+                            $w_male = $umaleCount-$s_male;
+                        }
+
+                        if($w_female>$ufemaleCount){
+                            $w_female = $ufemaleCount-$w_female;
+                        }
+
+
+                        $candidateList = performLottery($candidateList,$s_male,$w_male,$s_female,$w_female);
+
+                        foreach ($candidateList as $candidate) {
+                            if ($candidate->getSelected() !== '0'){
+                                $cId = $candidate->getId();
+                                $sel = $candidate->getSelected();
+                                $con->query("UPDATE candidate SET selected='$sel' WHERE id='$cId' ");
+                            }
+                        }
+                        echo 1;
+
+
+                    }else{
+                        echo "male female not found";
+                    }
+
+                }else{
+                    echo "Candidate Not Found";
+                }
+
+
+
+
+
+            }else{
+                echo "Please Input All Feilds";
+            }
+
+
+        }
+    }
+
+    mysqli_close($con);
+}
+
+
+
+if(isset($_POST["my"])){
+    shuffle($studentsArray);
+    $randomStudents = array_slice($studentsArray, 0, $n);
+    $randomKeys = array_rand($studentsArray, $n);
+
+    // If only one key is selected, array_rand returns a single value, so wrap it in an array
+    if (!is_array($randomKeys)) {
+        $randomKeys = [$randomKeys];
+    }
+    
+    $randomStudents = [];
+    foreach ($randomKeys as $key) {
+        $randomStudents[] = $studentsArray[$key];
+    }
+
+// Define a custom comparison function
+function compareStudents($a, $b) {
+    return mt_rand(-1, 1); // mt_rand generates a random integer
+}
+
+// Use usort to shuffle the array
+usort($studentsArray, 'compareStudents');
+
+// Select the first N elements
+$randomStudents = array_slice($studentsArray, 0, $n);
+    
+
+
+
+
+function getRandomStudents($studentsList, $count) {
+    $randomKeys = array_rand($studentsList, $count);
+
+    // If only one key is selected, array_rand returns a single value, so wrap it in an array
+    if (!is_array($randomKeys)) {
+        $randomKeys = [$randomKeys];
+    }
+
+    $randomStudents = [];
+    foreach ($randomKeys as $key) {
+        $randomStudents[] = $studentsList[$key];
+    }
+
+    return $randomStudents;
+}
+
+
+function performLottery($studentsList, $maleSelectedCount, $maleWaitingCount, $femaleSelectedCount, $femaleWaitingCount) {
+    $maleStudents = array_filter($studentsList, function ($student) {
+        return $student->gender === 'Male';
+    });
+
+    $femaleStudents = array_filter($studentsList, function ($student) {
+        return $student->gender === 'Female';
+    });
+
+    // Shuffle the arrays to randomize the order
+    shuffle($maleStudents);
+    shuffle($femaleStudents);
+
+    // Select the first N male and female students as selected
+    $selectedMale = array_slice($maleStudents, 0, $maleSelectedCount);
+    $selectedFemale = array_slice($femaleStudents, 0, $femaleSelectedCount);
+
+    // Update statuses for selected students
+    foreach ($selectedMale as $student) {
+        $student->setStatus('selected');
+    }
+
+    foreach ($selectedFemale as $student) {
+        $student->setStatus('selected');
+    }
+
+    // Select the next N male and female students as waiting
+    $waitingMale = array_slice($maleStudents, $maleSelectedCount, $maleWaitingCount);
+    $waitingFemale = array_slice($femaleStudents, $femaleSelectedCount, $femaleWaitingCount);
+
+    // Update statuses for waiting students
+    foreach ($waitingMale as $student) {
+        $student->setStatus('waiting');
+    }
+
+    foreach ($waitingFemale as $student) {
+        $student->setStatus('waiting');
+    }
+
+    // Update statuses for the remaining students as unselected
+    foreach ($studentsList as $student) {
+        if ($student->getStatus() !== 'selected' && $student->getStatus() !== 'waiting') {
+            $student->setStatus('unselected');
+        }
+    }
+}
+
+// Example: Perform the lottery with 3 selected male, 2 waiting male, 2 selected female, and 1 waiting female students
+performLottery($studentsList, 3, 2, 2, 1);
+
+// Display the students with their statuses
+foreach ($studentsList as $student) {
+    echo "Student ID: {$student->id}, Name: {$student->name}, Gender: {$student->gender}, Status: {$student->getStatus()}\n";
+}
+
+
+
+
+
+
+
+    
+$randomStudents = getRandomStudents($studentsList, 3);
+
+function getRandomNStudents($studentsList, $count) {
+    // Shuffle the array to randomize the order
+    shuffle($studentsList);
+
+    // Slice the array to get the first N elements
+    $randomStudents = array_slice($studentsList, 0, $count);
+
+    return $randomStudents;
+}
+
+// Example: Get and display 3 random students
+$randomStudents = getRandomNStudents($studentsList, 3);
+
+foreach ($randomStudents as $student) {
+    echo "Student ID: {$student->id}, Name: {$student->uId}, Gender: {$student->gender}\n";
+}
+
+
+}
 
 
 ?>

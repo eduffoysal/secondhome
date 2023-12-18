@@ -478,7 +478,7 @@ $(document).on('click','.uppicBtn1', function(){
                                 timer: 3000,
                             
                             });
-                            alert(data);
+                            
 					setTimeout(function(){
 					$('#myalert').slideDown();
 					$('#alerttext').html(data);
@@ -488,6 +488,7 @@ $(document).on('click','.uppicBtn1', function(){
 					}, 2000);
                     setTimeout(function(){
                         $('#myalert').slideUp();
+                        alert(data);
                 }, 3000);
 				}
 			});

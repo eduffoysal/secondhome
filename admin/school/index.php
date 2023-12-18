@@ -707,19 +707,19 @@ if(!isset($_SESSION['user'])){
                                 </div>
                                 </div>
                                 <div class="form-floating pt-1">
-                                    <input type="number" class="input-1 form-control form-floating" placeholder="Please Enter Number Of Selection" name="selection_male" id="selection_male">
+                                    <input type="number" class="input-1 form-control bg-info form-floating" placeholder="Please Enter Number Of Selection" name="selection_male" id="selection_male">
                                     <label class="" for="">Selection Number of Male</label>
                                 </div>
                                 <div class="form-floating">
-                                    <input type="number" class="input-1 form-control form-floating" placeholder="Please Enter Number Of Selection" name="selection_female" id="selection_female">
+                                    <input type="number" class="input-1 form-control bg-info form-floating" placeholder="Please Enter Number Of Selection" name="selection_female" id="selection_female">
                                     <label class="" for="">Selection Number of Female</label>
                                 </div>
                                 <div class="form-floating">
-                                    <input type="number" class="input-1 form-control form-floating" placeholder="Please Enter Number Of Selection" name="waiting_male" id="waiting_male">
+                                    <input type="number" class="input-1 form-control bg-warning form-floating" placeholder="Please Enter Number Of Selection" name="waiting_male" id="waiting_male">
                                     <label class="" for="">Waiting Number of Male</label>
                                 </div>
                                 <div class="form-floating">
-                                    <input type="number" class="input-1 form-control form-floating" placeholder="Please Enter Number Of Selection" id="waiting_female" name="waiting_female">
+                                    <input type="number" class="input-1 form-control bg-warning form-floating" placeholder="Please Enter Number Of Selection" id="waiting_female" name="waiting_female">
                                     <label class="" for="">Witing Number of Female</label>
                                 </div>
                                 <div class="text-center m-auto">
@@ -2929,6 +2929,7 @@ $(document).ready(function(){
                                 timer: 3000,
                             
                             });
+                            alert(data)
                             // candidate_data(c);
                         setTimeout(function(){
                         $('#myalert_l').slideDown();
