@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Dec 13, 2023 at 06:57 AM
+-- Generation Time: Dec 19, 2023 at 08:52 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -140,25 +140,22 @@ CREATE TABLE `candidate` (
   `serial_code` varchar(20) NOT NULL,
   `selected` enum('1','0','3') NOT NULL DEFAULT '0',
   `gender` enum('male','female') NOT NULL DEFAULT 'female',
-  `submitted_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `submitted_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `roll` int(11) NOT NULL,
+  `remarks` enum('natural','good','better','best','poor','negative','positive','mannerful','mannerless','helpful','honest','false','hardworking','kind','trust','creative','polite','organized','cooperate') NOT NULL DEFAULT 'natural',
+  `about` varchar(512) NOT NULL,
+  `score` int(11) NOT NULL,
+  `score_percentage` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- --------------------------------------------------------
-
 --
--- Table structure for table `class`
+-- Dumping data for table `candidate`
 --
 
-CREATE TABLE `class` (
-  `id` int(11) NOT NULL,
-  `unique_id` varchar(255) NOT NULL,
-  `sId` varchar(255) NOT NULL,
-  `class_name` varchar(50) NOT NULL,
-  `class_code` varchar(50) NOT NULL,
-  `section_num` int(11) NOT NULL,
-  `day_bangla` varchar(50) NOT NULL,
-  `status` enum('0','1') NOT NULL DEFAULT '1'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+INSERT INTO `candidate` (`id`, `unique_id`, `sId`, `user_id`, `class_id`, `session_id`, `std_id`, `serial_code`, `selected`, `gender`, `submitted_date`, `roll`, `remarks`, `about`, `score`, `score_percentage`) VALUES
+(6, '1702895683-194825387', '3FB69C-1701233033-1741528352-162749032', 'U-FF-0000002-01816444372', '1', '11', '', 'C172654A', '1', 'male', '2023-12-18 18:45:21', 0, 'natural', 'faesfsafs', 0, 0),
+(7, '1702917640-1684858034', '3FB69C-1701233033-1741528352-162749032', 'U-FF-0000003-01585855075', '1', '11', '', '67D5920A', '1', 'female', '2023-12-18 18:12:46', 0, 'natural', 'assalamualaikum', 0, 0),
+(8, '1702895683-194825386', '3FB69C-1701233033-1741528352-162749032', 'U-FF-0000002-01816444373', '1', '11', '', 'C172654B', '1', 'male', '2023-12-18 18:12:46', 0, 'natural', 'faesfsafs', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -215,6 +212,34 @@ CREATE TABLE `classschedule` (
   `sync_status` enum('0','1') DEFAULT '1',
   `sync_key` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `class_data`
+--
+
+CREATE TABLE `class_data` (
+  `id` int(11) NOT NULL,
+  `unique_id` varchar(255) NOT NULL,
+  `sId` varchar(255) NOT NULL,
+  `class_name` varchar(50) NOT NULL,
+  `class_code` varchar(50) NOT NULL,
+  `section_num` int(11) NOT NULL,
+  `day_eve` varchar(50) NOT NULL,
+  `programme` varchar(55) NOT NULL,
+  `session_id` varchar(255) NOT NULL,
+  `status` enum('0','1') NOT NULL DEFAULT '1'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `class_data`
+--
+
+INSERT INTO `class_data` (`id`, `unique_id`, `sId`, `class_name`, `class_code`, `section_num`, `day_eve`, `programme`, `session_id`, `status`) VALUES
+(1, '91BAE8-1702692655-1350623101-521473727', '3FB69C-1701233033-1741528352-162749032', '1', '91BAE8', 5, 'bangla', 'bangla', '11', '1'),
+(2, '667274-1702692809-1747483873-526932540', '3FB69C-1701233033-1741528352-162749032', '2', '667274', 5, 'bangla', 'bangla', '11', '1'),
+(3, '8B8106-1702696407-482772982-566700107', '3FB69C-1701233033-1741528352-162749032', '3', '8B8106', 4, 'day', 'bangla', '11', '1');
 
 -- --------------------------------------------------------
 
@@ -671,6 +696,7 @@ CREATE TABLE `schedule` (
 CREATE TABLE `school` (
   `id` int(11) NOT NULL,
   `sName` varchar(255) DEFAULT NULL,
+  `s_s_name` varchar(50) NOT NULL,
   `unique_id` varchar(255) DEFAULT NULL,
   `admin_id` varchar(255) NOT NULL,
   `currSessId` varchar(255) DEFAULT NULL,
@@ -708,8 +734,9 @@ CREATE TABLE `school` (
 -- Dumping data for table `school`
 --
 
-INSERT INTO `school` (`id`, `sName`, `unique_id`, `admin_id`, `currSessId`, `sPhone`, `sPass`, `sEmail`, `sLogo`, `sId`, `sAdrs`, `sEiin`, `sStudent`, `sTeacher`, `sCourse`, `sSec`, `sUser`, `sClass`, `sItp1`, `sItp2`, `sItEmail`, `sWeb`, `sFundsBal`, `sFundsBank`, `sFundsAN`, `sActivate`, `sVerification`, `sEmpl`, `proPic`, `sync_status`, `sync_key`, `location`, `s_desc`) VALUES
-(2, 'Farhad Foysal', '3FB69C-1701233033-1741528352-162749032', 'U-FF-0000001-01770627875', NULL, '+8801770627875', NULL, 'mff585855075@gmail.com', NULL, 'CO-3FB69C-1701233033-1741528352-162749032', 'w-1, ইসলামপুর, 100, 45, 2', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '01770627875', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '3FB69C', 1, NULL, '1', NULL, '', '');
+INSERT INTO `school` (`id`, `sName`, `s_s_name`, `unique_id`, `admin_id`, `currSessId`, `sPhone`, `sPass`, `sEmail`, `sLogo`, `sId`, `sAdrs`, `sEiin`, `sStudent`, `sTeacher`, `sCourse`, `sSec`, `sUser`, `sClass`, `sItp1`, `sItp2`, `sItEmail`, `sWeb`, `sFundsBal`, `sFundsBank`, `sFundsAN`, `sActivate`, `sVerification`, `sEmpl`, `proPic`, `sync_status`, `sync_key`, `location`, `s_desc`) VALUES
+(2, 'BAF Shaheen Collage', '', '3FB69C-1701233033-1741528352-162749032', 'U-FF-0000001-01770627875', NULL, '01770627875', NULL, 'mff585855075@gmail.com', NULL, 'CO-3FB69C-1701233033-1741528352-162749032', 'w-1, ইসলামপুর, 100, 45, 2', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '01770627875', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '3FB69C', 1, NULL, '1', NULL, '', ''),
+(3, 'East Delta University', '', '3FB69C-1701233033-1741528352-162749033', 'U-FF-0000001-01770627875', NULL, '01770627855', NULL, 'mff585855075@gmail.com', NULL, 'CO-3FB69C-1701233033-1741528352-162749032', 'w-1, ইসলামপুর, 100, 45, 2', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '01770627875', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '3FB69C', 1, NULL, '1', NULL, '', '');
 
 -- --------------------------------------------------------
 
@@ -789,10 +816,18 @@ CREATE TABLE `session` (
   `id` int(11) NOT NULL,
   `unique_id` varchar(255) NOT NULL,
   `sId` varchar(255) NOT NULL,
-  `start` date NOT NULL,
-  `end` date NOT NULL,
-  `session_name` varchar(50) NOT NULL
+  `start_d` date NOT NULL,
+  `end_d` date NOT NULL,
+  `session_name` varchar(50) NOT NULL,
+  `priority` enum('0','1','2') NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `session`
+--
+
+INSERT INTO `session` (`id`, `unique_id`, `sId`, `start_d`, `end_d`, `session_name`, `priority`) VALUES
+(11, '0B259E-1702643069-1760003887-1320551578', '3FB69C-1701233033-1741528352-162749032', '2023-01-01', '2023-12-01', '2024', '2');
 
 -- --------------------------------------------------------
 
@@ -839,6 +874,14 @@ CREATE TABLE `students` (
   `program` int(11) DEFAULT NULL,
   `sync_key` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `students`
+--
+
+INSERT INTO `students` (`id`, `sId`, `studentId`, `uniqueId`, `currSessId`, `stdId`, `uId`, `stdName`, `nidBirth`, `stdPhone`, `stdEmail`, `homePhone`, `stdReligion`, `dob`, `address`, `country`, `UnionWord`, `aStatus`, `fatherName`, `motherName`, `fNid`, `mNid`, `gName`, `gAddress`, `gPhone`, `gEmail`, `stdImg`, `sMajor`, `stdPass`, `gender`, `addDate`, `proPic`, `lastlogin`, `sMajorId`, `sync_status`, `program`, `sync_key`) VALUES
+(8, '3FB69C-1701233033-1741528352-162749032', NULL, '1702895683-194825386', NULL, NULL, 'U-FF-0000002-01816444372', 'Farhad Foysal', '4r4wrw', '01816444372', 'mff585855075@gmail.com', NULL, NULL, '2023-12-08', 'w-1, ইসলামপুর, কক্স বাজার সদর, কক্স বাজার, চট্টগ্রাম', NULL, 'w-1, ইসলামপুর', '1', 'dsfsdf', 'sdfsdf', 'ew', 'wtrwer', NULL, NULL, '+8801770627875', NULL, NULL, NULL, '01816444372', 'male', '2023-12-18', 0x3137303238393536383361312e706e67, NULL, NULL, '1', NULL, NULL),
+(9, '3FB69C-1701233033-1741528352-162749032', NULL, '1702917640-1684858034', NULL, NULL, 'U-FF-0000003-01585855075', 'Farhad Foysal', '435634', '01585855075', 'mff585855075@gmail.com', NULL, NULL, '2023-11-27', 'w-1, ইসলামপুর, কক্স বাজার সদর, কক্স বাজার, চট্টগ্রাম', NULL, 'w-1, ইসলামপুর', '1', 'farid', 'rojina', '3245', '43523', NULL, NULL, '+8801770627875', NULL, NULL, NULL, '01585855075', 'female', '2023-12-18', 0x31373032393137363430312e706e67, NULL, NULL, '1', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -3883,7 +3926,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `unique_id`, `user_id`, `u_name`, `password`, `phone_pass`, `mess_id`, `school_id`, `u_type`, `a_status`, `email`, `phone`, `otp`, `last_login`) VALUES
-(9, 'U-FF-0000001-01770627875', 'U-FF-0000001', 'Mffoysal', '369725', '0177062787552', '3757CF-1701191741-695829504-311787001', '3FB69C-1701233033-1741528352-162749032', '1', '0', 'mff585855075@gmail.com', '01770627875', '', '2023-12-12 16:07:15');
+(9, 'U-FF-0000001-01770627875', 'U-FF-0000001', 'Mffoysal', '369725', '0177062787552', '3757CF-1701191741-695829504-311787001', '3FB69C-1701233033-1741528352-162749032', '1', '0', 'mff585855075@gmail.com', '01770627875', '', '2023-12-12 16:07:15'),
+(18, 'U-FF-0000002-01816444372', 'U-FF-0000002', 'Farhad Foysal', '01816444372', '0181644437201', '', '', '0', '0', 'mff585855075@gmail.com', '01816444372', '', '2023-12-18 10:34:43'),
+(19, 'U-FF-0000003-01585855075', 'U-FF-0000003', 'Farhad Foysal', '01585855075', '01585855075C9', '', '', '0', '0', 'mff585855075@gmail.com', '01585855075', '', '2023-12-18 16:40:40');
 
 -- --------------------------------------------------------
 
@@ -3904,7 +3949,7 @@ CREATE TABLE `users_profile` (
   `bal` varchar(255) DEFAULT NULL,
   `u_type` int(11) DEFAULT NULL,
   `sId` varchar(255) DEFAULT NULL,
-  `photo` blob DEFAULT NULL,
+  `photo` varchar(512) DEFAULT NULL,
   `picture` varchar(255) DEFAULT NULL,
   `fingerData` blob DEFAULT NULL,
   `stdId` varchar(255) DEFAULT NULL,
@@ -3920,7 +3965,9 @@ CREATE TABLE `users_profile` (
 --
 
 INSERT INTO `users_profile` (`id`, `u_id`, `unique_id`, `currSessId`, `designation`, `name`, `email`, `phone`, `pass`, `bal`, `u_type`, `sId`, `photo`, `picture`, `fingerData`, `stdId`, `major`, `status`, `address`, `sync_status`, `sync_key`) VALUES
-(1, 'U-FF-0000001', 'U-FF-0000001-01770627875', NULL, NULL, 'Farhad Foysal', 'mff585855075@gmail.com', '01770627875', '369725', NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, '1', NULL);
+(1, 'U-FF-0000001', 'U-FF-0000001-01770627875', NULL, NULL, 'Farhad Foysal', 'mff585855075@gmail.com', '01770627875', '369725', NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, '1', NULL),
+(10, 'U-FF-0000002', 'U-FF-0000002-01816444372', NULL, NULL, 'Farhad Foysal', 'mff585855075@gmail.com', '01816444372', '01816444372', NULL, 0, NULL, '1702895683a1.png', NULL, NULL, NULL, NULL, '1', NULL, '1', NULL),
+(11, 'U-FF-0000003', 'U-FF-0000003-01585855075', NULL, NULL, 'Farhad Foysal', 'mff585855075@gmail.com', '01585855075', '01585855075', NULL, 0, NULL, '17029176401.png', NULL, NULL, NULL, NULL, '1', NULL, '1', NULL);
 
 --
 -- Indexes for dumped tables
@@ -3957,12 +4004,6 @@ ALTER TABLE `candidate`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `class`
---
-ALTER TABLE `class`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `classes`
 --
 ALTER TABLE `classes`
@@ -3972,6 +4013,12 @@ ALTER TABLE `classes`
 -- Indexes for table `classschedule`
 --
 ALTER TABLE `classschedule`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `class_data`
+--
+ALTER TABLE `class_data`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -4189,13 +4236,7 @@ ALTER TABLE `calendar`
 -- AUTO_INCREMENT for table `candidate`
 --
 ALTER TABLE `candidate`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `class`
---
-ALTER TABLE `class`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `classes`
@@ -4208,6 +4249,12 @@ ALTER TABLE `classes`
 --
 ALTER TABLE `classschedule`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `class_data`
+--
+ALTER TABLE `class_data`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `exam_room`
@@ -4291,7 +4338,7 @@ ALTER TABLE `schedule`
 -- AUTO_INCREMENT for table `school`
 --
 ALTER TABLE `school`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `seat_distribution`
@@ -4315,13 +4362,13 @@ ALTER TABLE `sections`
 -- AUTO_INCREMENT for table `session`
 --
 ALTER TABLE `session`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `students`
 --
 ALTER TABLE `students`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `subassigned`
@@ -4357,13 +4404,13 @@ ALTER TABLE `teacher`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `users_profile`
 --
 ALTER TABLE `users_profile`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
