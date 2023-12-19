@@ -4675,14 +4675,21 @@ input[type="range"]:active::-webkit-slider-thumb {
   background-color: rgb(63 63 70 / var(--tw-bg-opacity));
 }
 
-.bg-green-700 {
+.bg-info-300 {
   --tw-bg-opacity: 1;
-  background-color: rgb(4 108 78 / var(--tw-bg-opacity));
+  background-color: rgb(182 223 236 / var(--tw-bg-opacity));
 }
 
-.bg-info-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(121 196 220 / var(--tw-bg-opacity));
+.bg-sea1 {
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/5/54/Entrance_of_EDU.jpg");
+}
+
+.bg-sea2 {
+  background-image: url("https://images.unsplash.com/photo-1524704654690-b56c05c78a00?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80");
+}
+
+.bg-sea3 {
+  background-image: url("https://scontent.fcgp32-1.fna.fbcdn.net/v/t39.30808-6/244027258_2696159537354611_975012151901318945_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=783fdb&_nc_eui2=AeHbXveebjuByFRqQsYV4hqJ8X_Izgq55UXxf8jOCrnlRbmV86MosN4-Slhc6Xk2R1ZWPdUkUw82DC_25wdhJltv&_nc_ohc=q39IfDVcWt0AX_mOwSr&_nc_ht=scontent.fcgp32-1.fna&oh=00_AfBuVGDO3peTP_4zw9lRDGOg9wGAJ-gPK7y3PkSiE0pbDQ&oe=65871349");
 }
 
 .decoration-slice {
@@ -5310,6 +5317,11 @@ input[type="range"]:active::-webkit-slider-thumb {
 .text-4xl {
   font-size: 2.25rem;
   line-height: 2.5rem;
+}
+
+.text-6xl {
+  font-size: 3.75rem;
+  line-height: 1;
 }
 
 .text-\[0\.8rem\] {
@@ -9107,6 +9119,10 @@ input[type="range"]:active::-webkit-slider-thumb {
     grid-column: span 2 / span 2;
   }
 
+  .sm\:col-span-1 {
+    grid-column: span 1 / span 1;
+  }
+
   .sm\:mb-0 {
     margin-bottom: 0px;
   }
@@ -9157,6 +9173,10 @@ input[type="range"]:active::-webkit-slider-thumb {
 
   .sm\:grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .sm\:grid-cols-1 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
   }
 
   .sm\:flex-row {
