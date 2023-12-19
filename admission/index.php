@@ -62,16 +62,6 @@ session_start();
 
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab numquam eveniet molestias veniam, inventore sint voluptates nam provident impedit laborum ipsa vel quos amet laboriosam dolorum suscipit! Nihil eos repellendus blanditiis repellat laboriosam veniam quod maxime ab! Ea eveniet doloremque, excepturi totam, et molestias dicta accusamus quibusdam quas sunt inventore!</p>
 
-    <div class="container">
-        <div class="row">
-            <div class="col-6">
-                <p>farhad</p>
-            </div>
-            <div class="col-6">
-                <p>foysal</p>
-            </div>
-        </div>
-    </div>
 
     <div class="row">
         <div class="col-md-6">
@@ -113,7 +103,14 @@ session_start();
                                     class="inline-block apply_btn mt-1 m-auto rounded-full bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]" id="apply_btn">
                                     Apply Here
                                     </button>
+
+                                    <a href="result" class="decoration-none text-dercoration-none">
+                                    <button type="button" class="btn btn-outline-info w-full bg-teal-600 text-lg font-semibold text-dark  py-2 mt-3 hover:bg-teal-700">Check Result</button>
+                                    </a>
                         </div>
+
+
+
 
                     </form>
                     </div>
@@ -126,16 +123,29 @@ session_start();
         <!-- ✅ Form Starts Here 👇 -->
         <div class="p-10 shadow-lg bg-white">
 
-        <h3 class="font-bold text-3xl mb-10">Search Your School</h3>
+        <h3 class="font-bold text-3xl mb-10">Payment Information</h3>
 
         <form class="grid sm:grid-cols-2 gap-10">
-            
-            <input type="text" name="firstName" id="firstName" class="border-b border-gray-300 py-2 pl-2" placeholder="Full Name" />
-            <input type="text" name="lastName" id="lastName" class="border-b border-gray-300 py-2 pl-2" placeholder="Last Name" />
-            <input type="email" name="email" id="email" class="border-b border-gray-300 py-2 pl-2" placeholder="Email" />
-            <input type="password" name="password" id="password" class="border-b border-gray-300 py-2 pl-2" placeholder="Password" />
 
-            <button class="bg-teal-600 text-lg font-semibold text-white sm:col-span-2 sm:w-1/2 py-2 mt-5 hover:bg-teal-700">GO</button>
+
+            
+            <input type="phone" name="phone" id="candidate_phone" class="border-b border-gray-300 py-2 pl-2" placeholder="Phone Number" />
+            <input type="text" name="lastName" id="candidate_serial_code" class="border-b border-gray-300 py-2 pl-2" placeholder="Serail Code" />
+            <input type="text" name="text" id="bank_account" class="border-b border-gray-300 py-2 pl-2" placeholder="Enter Bank/Bkash/Nagad A/N" />
+            <input type="text" name="trx" id="trx" class="border-b border-gray-300 py-2 pl-2" placeholder="Transaction Id/No" />
+
+            <div class="input-field w-full">
+                <select name="pay_method" id="pay_method" required>
+                    <option value='bkash'>Bkash</option>
+                    <option value='nagad'>Nagad</option>
+                    <option value='dbbl'>DBBL</option>
+                    <option value='islami'>Islami Bank</option>
+                    <option value='asia'>Bank Asia</option>
+                    <option value='bank'>Others Bank</option>
+                </select>
+            </div>
+
+            <button class="bg-teal-600 text-lg font-semibold text-white sm:col-span-2 sm:w-2/2 py-2 mt-2 hover:bg-teal-700">Submit</button>
         </form>
         </div>
 
@@ -143,7 +153,16 @@ session_start();
         </div>
     </div>
 
-
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <p>farhad</p>
+            </div>
+            <div class="col-6">
+                <p>foysal</p>
+            </div>
+        </div>
+    </div>
 
 
 

@@ -24,9 +24,11 @@ RewriteCond %{REQUEST_FILENAME} !-l
 
 RewriteRule ^admission/(.+)$ admission/form?id=$1 [QSA,L]
 
+RewriteRule ^candidate/result/(.+)$ admission/result/result.php?id=$1 [QSA,L]
+
 RewriteRule ^home/(.+)$ admission/home?id=$1 [QSA,L]
 
-RewriteRule ^school/(.+)$ school/school?id=$1 [QSA,L]
+RewriteRule ^edu/(.+)$ school/school.php?id=$1 [QSA,L]
 
 # RewriteRule ^ur/(.+)/(.+)$ url?u_id=$1&action=$2 [QSA,L]
 # RewriteRule ^u/(.+)/(.+)$ url?u_id=$1&action=$2 [QSA,L]
