@@ -11,8 +11,8 @@ if(isset($_SESSION['user'])){
    }else{
         if($_SESSION['role']=='teacher'){
             header("location:../../school/faculty");
-        }elseif($_SESSION['role']=='school'){
-            header("location:../school");
+        }elseif($_SESSION['role']=='mess'){
+            header("location:../mess");
         }elseif($_SESSION['role']=='user'){
             header("location:../../");
         }elseif($_SESSION['role']=='manager'){
@@ -20,12 +20,12 @@ if(isset($_SESSION['user'])){
         }
    }
 
-    if($_SESSION['mess_id']==''){
+    if($_SESSION['school_id']==''){
         header("location:sign");
     }else{
+        $s_id = $_SESSION['school_id'];
         $mess_id = $_SESSION['mess_id'];
     }
-
 
 
 }else{
@@ -55,11 +55,21 @@ if(!isset($_SESSION['user'])){
         <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lilita+One&display=swap" rel="stylesheet">
 
         <link rel="stylesheet" href="../../css/stylee.css">
+        <link rel="stylesheet" href="../../css/table.css">
 
 
 <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+
+<!-- <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.3/dist/flowbite.min.css" /> -->
+<script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
+<script src="./TW-ELEMENTS-PATH/dist/js/index.min.js"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script> -->
+
+<link rel="stylesheet" href="node_modules/tw-elements/dist/css/index.min.css" />
+<!-- <script src="node_modules/tw-elements/dist/js/index.min.js"></script> -->
+<script src="node_modules/flowbite/dist/flowbite.js"></script>
 
 
 <script src="https://kit.fontawesome.com/a076d05399.js"></script>
@@ -84,12 +94,16 @@ if(!isset($_SESSION['user'])){
   <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
     <!-- swap -->
 
-    <link rel="stylesheet" href="../bootstrap.min.css">
+    <link rel="stylesheet" href="../../bootstrap.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
 
 
     <link rel="stylesheet" href="../../css/carousel_and_other.css">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
@@ -98,6 +112,12 @@ if(!isset($_SESSION['user'])){
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="../../css/select-menu.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.0/font/bootstrap-icons.css">
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
 
 
 </head>
@@ -158,7 +178,7 @@ if(!isset($_SESSION['user'])){
                                     <a href="#" class="nav-link p-1 text-black">ROUTINE</a>
                                 </li>
                                 <li class="nav-item note_btn">
-                                    <a href="#" class="nav-link p-1 text-black">NOTE</a>
+                                    <a href="#" class="nav-link p-1 text-black">ADMISSION</a>
                                 </li>
                                 <li class="nav-item edu_btn">
                                     <a href="#" class="nav-link p-1 text-black">EDU</a>
@@ -199,7 +219,13 @@ if(!isset($_SESSION['user'])){
                     <!-- end of navbar -->
                 </div>
             </div>
-
+    <div id="myalert_l" style="display:none;">
+            <div class="container col-md-offset-4">
+            <div class="alert alert-info">
+                <center><span id="alerttext_l"></span></center>
+            </div>
+            </div>
+    </div>
             <div class="schedule_container hidden" id="schedule_container">
 
             
@@ -590,39 +616,39 @@ if(!isset($_SESSION['user'])){
 
                                         <ul style="padding-left: 0;" class="hidden text-sm font-medium pl-0 mb-2 text-center text-gray-500 rounded-lg shadow sm:flex dark:divide-gray-700 dark:text-gray-400">
                                             <li class="w-full active:bg-amber-900">
-                                                <a href="#" class="inline-block text-decoration-none user_btn w-full p-2 text-gray-900 bg-gray-100 border-r border-gray-200 dark:border-gray-700 rounded-s-lg focus:ring-4 focus:ring-blue-300 active focus:outline-none dark:bg-gray-700 dark:text-white" aria-current="page">HOME</a>
+                                                <a href="#" class="inline-block text-decoration-none home_admission_btn w-full p-2 text-gray-900 bg-gray-100 border-r border-gray-200 dark:border-gray-700 rounded-s-lg focus:ring-4 focus:ring-blue-300 active focus:outline-none dark:bg-gray-700 dark:text-white" aria-current="page">HOME</a>
                                             </li>
                                             <li class="w-full">
-                                                <a href="#" class="inline-block mess_btn text-decoration-none w-full p-2 bg-white border-r border-gray-200 dark:border-gray-700 hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">BAZAR</a>
+                                                <a href="#" class="inline-block candidate_admission_btn text-decoration-none w-full p-2 bg-white border-r border-gray-200 dark:border-gray-700 hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">CANDIDATE</a>
                                             </li>
                                             <li class="w-full">
-                                                <a href="#" class="inline-block school_btn text-decoration-none w-full p-2 bg-white border-r border-gray-200 dark:border-gray-700 hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">FEE</a>
+                                                <a href="#" class="inline-block fee_admission_btn text-decoration-none w-full p-2 bg-white border-r border-gray-200 dark:border-gray-700 hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">FEE</a>
                                             </li>
                                             <li class="w-full">
-                                                <a href="#" class="inline-block school_btn text-decoration-none w-full p-2 bg-white border-r border-gray-200 dark:border-gray-700 hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">MESS</a>
+                                                <a href="#" class="inline-block class_admission_btn text-decoration-none w-full p-2 bg-white border-r border-gray-200 dark:border-gray-700 hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">CLASS</a>
                                             </li>
                                             <li class="w-full">
-                                                <a href="#" class="inline-block school_btn text-decoration-none w-full p-2 bg-white border-r border-gray-200 dark:border-gray-700 hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">PAYMENT</a>
+                                                <a href="#" class="inline-block session_admission_btn text-decoration-none w-full p-2 bg-white border-r border-gray-200 dark:border-gray-700 hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">SESSION</a>
                                             </li>
                                             <li class="w-full">
-                                                <a href="#" class="inline-block school_btn text-decoration-none w-full p-2 bg-white border-r border-gray-200 dark:border-gray-700 hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">INBOX</a>
+                                                <a href="#" class="inline-block selected_admission_btn text-decoration-none w-full p-2 bg-white border-r border-gray-200 dark:border-gray-700 hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">SELECTED</a>
                                             </li>
                                             <li class="w-full">
-                                                <a href="#" class="inline-block w-full text-decoration-none teacher_btn p-2 bg-white border-s-0 border-gray-200 dark:border-gray-700 rounded-e-lg hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">SETTINGS</a>
+                                                <a href="#" class="inline-block w-full text-decoration-none setting_admission_btn p-2 bg-white border-s-0 border-gray-200 dark:border-gray-700 rounded-e-lg hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">SETTINGS</a>
                                             </li>
                                             
                                         </ul>
 
                                         <div class="sm:hidden">
-                                            <label for="tabs" class="sr-only">Select any setting option </label>
-                                            <select id="tabs" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                                                <option value="user" class="">HOME</option>
-                                                <option value="mess">BAZAR</option>
-                                                <option value="school">FEE</option>
-                                                <option value="teacher">PAYMENT</option>
-                                                <option value="teacher">MESS PROFILE</option>
-                                                <option value="teacher">INBOX</option>
-                                                <option value="teacher">SETTINGS</option>
+                                            <label for="admission_tabs" class="sr-only">Select any setting option </label>
+                                            <select id="admission_tabs" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                                <option value="home" class="">HOME</option>
+                                                <option value="candidate">CANDIDATE</option>
+                                                <option value="fee">FEE</option>
+                                                <option value="class">CLASS</option>
+                                                <option value="session">SESSION</option>
+                                                <option value="selected">SELECTED</option>
+                                                <option value="setting">SETTINGS</option>
                                             </select>
                                         </div>
 
@@ -642,25 +668,635 @@ if(!isset($_SESSION['user'])){
 
                                 <div class="content-tab-body">
 
-                                    <div class="_space">
+                                    <div class="home_adm_space hiddenn p-1">
+
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="text-center m-auto">
+            <h5><center>Admission System(Lottery)</center></h5>
+        </div>
+        <div class="col-md-4">
+            
+            <div class="row">
+                <div class="accordion">
+                <div class="accordion-item">
+                        <h2 style="font-size:15px" class="accordion-button" data-bs-target="#lotery_system" data-bs-toggle="collapse">Lottery System</h2>
+                        
+                        <div id="lotery_system" class="accordion-collapse collapse:visible visibility: visible show">
+                            <div class="accordion-body text-dark">
+                            <form action="#" role="form" id="lottery_form_data">
+                                <div class="container-fluidd">
+                                <div class="row" id="class_session_selection2">
+                                    <div class="col-md-6">
+                                        <div class="sm:hiddenn" id="select_class_session_div2">
+                                            <label for="select_class_session_d2" class="sr-only">Select a Class</label>
+                                            <select id="select_class_session_d2" name="select_class_session2" class="select_class_session bg-gray-50 border-0 border-b border-gray-200 text-gray-900 sm:text-sm rounded-t-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" data-tabs-toggle="#class2" role="tabClass2">
+
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="sm:hiddenn" id="select_session_div2">
+                                            <label for="select_session_d2" class="sr-only">Select a Session</label>
+                                                <select id="select_session_d2" name="select_session2" class="select_session2 bg-gray-50 border-0 border-b border-gray-200 text-gray-900 sm:text-sm rounded-t-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" data-tabs-toggle="#session2" role="tabSession2">
+                                                </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+                                <div class="form-floating pt-1">
+                                    <input type="number" class="input-1 form-control bg-info form-floating" placeholder="Please Enter Number Of Selection" name="selection_male" id="selection_male">
+                                    <label class="" for="">Selection Number of Male</label>
+                                </div>
+                                <div class="form-floating">
+                                    <input type="number" class="input-1 form-control bg-info form-floating" placeholder="Please Enter Number Of Selection" name="selection_female" id="selection_female">
+                                    <label class="" for="">Selection Number of Female</label>
+                                </div>
+                                <div class="form-floating">
+                                    <input type="number" class="input-1 form-control bg-warning form-floating" placeholder="Please Enter Number Of Selection" name="waiting_male" id="waiting_male">
+                                    <label class="" for="">Waiting Number of Male</label>
+                                </div>
+                                <div class="form-floating">
+                                    <input type="number" class="input-1 form-control bg-warning form-floating" placeholder="Please Enter Number Of Selection" id="waiting_female" name="waiting_female">
+                                    <label class="" for="">Witing Number of Female</label>
+                                </div>
+                                <div class="text-center m-auto">
+                                    <button
+                                    type="button"
+                                    class="inline-block lottery_check_result_btn rounded-full border-2 border-info px-6 pb-[6px] pt-2 text-xs font-medium uppercase leading-normal text-info transition duration-150 ease-in-out hover:border-info-600 hover:bg-neutral-500 hover:bg-opacity-10 hover:text-info-600 focus:border-info-600 focus:text-info-600 focus:outline-none focus:ring-0 active:border-info-700 active:text-info-700 dark:hover:bg-neutral-100 dark:hover:bg-opacity-10"
+                                    data-te-ripple-init>
+                                    Check Result
+                                    </button>
+                                    <input type="hidden" name="lottery_submit_form_data">
+                                    <button
+                                    type="button"
+                                    class="inline-block lottery_submit_btn mt-1 m-auto rounded-full bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]" id="lottery_submit_btn">
+                                    Submit
+                                    </button>
+                                </div>
+
+                            </form>
+
+
+
+                            </div>
+                        </div>
+                </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="accordion">
+                <div class="accordion-item">
+                        <h2 style="font-size:15px" class="accordion-button" data-bs-target="#lotery_system2" data-bs-toggle="collapse">Lottery System With Remarks Key</h2>
+                        
+                        <div id="lotery_system2" class="accordion-collapse collapse:visible visibility: visible show">
+                            <div class="accordion-body text-dark">
+                            <form action="#" role="form" id="lottery_form_data2">
+                                <div class="container-fluidd">
+                                <div class="row" id="class_session_selection22">
+                                    <div class="col-md-6">
+                                        <div class="sm:hiddenn" id="select_class_session_div22">
+                                            <label for="select_class_session_d22" class="sr-only">Select a Class</label>
+                                            <select id="select_class_session_d22" name="select_class_session22" class="select_class_session bg-gray-50 border-0 border-b border-gray-200 text-gray-900 sm:text-sm rounded-t-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" data-tabs-toggle="#class2" role="tabClass2">
+
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="sm:hiddenn" id="select_session_div22">
+                                            <label for="select_session_d22" class="sr-only">Select a Session</label>
+                                                <select id="select_session_d22" name="select_session22" class="select_session2 bg-gray-50 border-0 border-b border-gray-200 text-gray-900 sm:text-sm rounded-t-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" data-tabs-toggle="#session2" role="tabSession2">
+
+                                                    <option value="0" selected disabled>Select Remark Key</option>
+
+                                                </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+                                <div class="form-floating pt-1">
+                                    <input type="number" class="input-1 form-control form-floating" placeholder="Please Enter Number Of Selection" name="selection_remark" id="selection_remarkd">
+                                    <label class="" for="">Selection Number of Remark Key</label>
+                                </div>
+                                <div class="form-floating pt-1">
+                                    <input type="number" class="input-1 form-control form-floating" placeholder="Please Enter Number Of Selection" name="selection_male" id="selection_male2">
+                                    <label class="" for="">Selection Number of Male</label>
+                                </div>
+                                <div class="form-floating">
+                                    <input type="number" class="input-1 form-control form-floating" placeholder="Please Enter Number Of Selection" name="selection_female" id="selection_female2">
+                                    <label class="" for="">Selection Number of Female</label>
+                                </div>
+                                <div class="form-floating">
+                                    <input type="number" class="input-1 form-control form-floating" placeholder="Please Enter Number Of Selection" name="waiting_male" id="waiting_male2">
+                                    <label class="" for="">Waiting Number of Male</label>
+                                </div>
+                                <div class="form-floating">
+                                    <input type="number" class="input-1 form-control form-floating" placeholder="Please Enter Number Of Selection" id="waiting_female2" name="waiting_female">
+                                    <label class="" for="">Witing Number of Female</label>
+                                </div>
+                                <div class="text-center m-auto">
+                                    <button
+                                    type="button"
+                                    class="inline-block lottery_check_result_btn2 rounded-full border-2 border-info px-6 pb-[6px] pt-2 text-xs font-medium uppercase leading-normal text-info transition duration-150 ease-in-out hover:border-info-600 hover:bg-neutral-500 hover:bg-opacity-10 hover:text-info-600 focus:border-info-600 focus:text-info-600 focus:outline-none focus:ring-0 active:border-info-700 active:text-info-700 dark:hover:bg-neutral-100 dark:hover:bg-opacity-10"
+                                    data-te-ripple-init>
+                                    Check Result
+                                    </button>
+                                    <input type="hidden" name="lottery_submit_form_data2">
+                                    <button
+                                    type="button"
+                                    class="inline-block lottery_submit_btn2 mt-1 m-auto rounded-full bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]" id="lottery_submit_btn2">
+                                    Submit
+                                    </button>
+                                </div>
+
+                            </form>
+
+
+
+                            </div>
+                        </div>
+                </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-8">
+            <div class="accordion">
+            <div class="accordion-item">
+                    <h2 style="font-size:15px" class="accordion-button" data-bs-target="#candidate_table" data-bs-toggle="collapse">Candidate Table(Selected|Waiting)</h2>
+                    <div class="others_fees_list_hh"></div>
+                    <div id="candidate_table" class="accordion-collapse collapse:visible visibility: visible show">
+                        <div class="accordion-body">
+
+                            <div class="lottery_candidate">
+                                <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+
+                                    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                            <tr>
+                                                <th scope="col" class="p-4">
+                                                    <div class="flex items-center">
+                                                        <input id="checkbox-all-search" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                                        <label for="checkbox-all-search" class="sr-only">checkbox</label>
+                                                    </div>
+                                                </th>
+                                                <th scope="col" class="px-6 py-3">
+                                                    #
+                                                </th>
+                                                <th scope="col" class="px-6 py-3">
+                                                    Roll|SID
+                                                </th>
+                                                <th scope="col" class="px-6 py-3">
+                                                    Name
+                                                </th>
+                                                <th scope="col" class="px-6 py-3">
+                                                    Gender
+                                                </th>
+                                                <th scope="col" class="px-6 py-3">
+                                                    Status
+                                                </th>
+                                                <th scope="col" class="px-6 py-3">
+                                                    Serial
+                                                </th>
+                                                <th scope="col" class="px-6 py-3">
+                                                    Phone
+                                                </th>
+                                                <th scope="col" class="px-6 py-3">
+                                                    Action
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="lottery_candidates_data_row">
+                                            <!-- <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                                <td class="w-4 p-4">
+                                                    <div class="flex items-center">
+                                                        <input id="checkbox-table-search-1" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                                        <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
+                                                    </div>
+                                                </td>
+                                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                    Apple MacBook Pro 17"
+                                                </th>
+                                                <td class="px-6 py-4">
+                                                    Silver
+                                                </td>
+                                                <td class="px-6 py-4">
+                                                    Laptop
+                                                </td>
+                                                <td class="px-6 py-4">
+                                                    Yes
+                                                </td>
+                                                <td class="px-6 py-4">
+                                                    Yes
+                                                </td>
+                                                <td class="px-6 py-4">
+                                                    $2999
+                                                </td>
+                                                <td class="flex items-center px-6 py-4">
+                                                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                                                    <a href="#" class="font-medium text-red-600 dark:text-red-500 hover:underline ms-3">Remove</a>
+                                                </td>
+                                            </tr> -->
+
+                                        </tbody>
+                                    </table>
+                                    <nav class="flex items-center flex-column flex-wrap md:flex-row justify-between pt-4" aria-label="Table navigation">
+
+                                        <ul class="inline-flex -space-x-px rtl:space-x-reverse text-sm h-8">
+                                            <li>
+                                                <a href="#" class="flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Previous</a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">1</a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">2</a>
+                                            </li>
+                                            <li>
+                                                <a href="#" aria-current="page" class="flex items-center justify-center px-3 h-8 text-blue-600 border border-gray-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white">3</a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">4</a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">5</a>
+                                            </li>
+                                            <li>
+                                        <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Next</a>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                    </div>
+                            </div>
+
+                        </div>
+                    </div>
+            </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+
+    </div>
+
+</div>
 
                                     </div>
-                                    <div class="_space">
+                                    <div class="candidate_adm_space hidden w-full text-centerr">
+
+<div class="w-full m-auto pt-1">
+  <div class="container">
+    <div class="row">
+        <div class="col-6">
+            <h1 class="table-title">CANDIDATEs</h1>
+        </div>
+        <div class="col-6 text-end">
+            <button class="btn btn-warning new_candidate_btn" data-bs-toggle="modal" data-bs-target="#my_modal" data-bs-whatever="@mdo">
+                New
+            </button>
+        </div>
+    </div>
+    <div class="row" id="class_session_selection">
+        <div class="col-md-6">
+            <div class="sm:hiddenn" id="select_class_session_div">
+                <label for="select_class_session_d" class="sr-only">Select a Class</label>
+                <select id="select_class_session_d" name="select_class_session" class="select_class_session bg-gray-50 border-0 border-b border-gray-200 text-gray-900 sm:text-sm rounded-t-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" data-tabs-toggle="#class" role="tabClass">
+
+                </select>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="sm:hiddenn" id="select_session_div">
+                <label for="select_session_d" class="sr-only">Select a Session</label>
+                    <select id="select_session_d" name="select_session" class="select_session bg-gray-50 border-0 border-b border-gray-200 text-gray-900 sm:text-sm rounded-t-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" data-tabs-toggle="#session" role="tabSession">
+                    </select>
+            </div>
+        </div>
+    </div>
+    <div class="candidates_data" id="candidates_data">
+
+
+
+<div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+
+    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+                <th scope="col" class="p-4">
+                    <div class="flex items-center">
+                        <input id="checkbox-all-search" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                        <label for="checkbox-all-search" class="sr-only">checkbox</label>
+                    </div>
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    #
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Roll|SID
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Name
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Gender
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Status
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Programme
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Class
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Serial Code
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Phone
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Email
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Action
+                </th>
+            </tr>
+        </thead>
+        <tbody id="candidates_data_row">
+            <!-- <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                <td class="w-4 p-4">
+                    <div class="flex items-center">
+                        <input id="checkbox-table-search-1" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                        <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
+                    </div>
+                </td>
+                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    Apple MacBook Pro 17"
+                </th>
+                <td class="px-6 py-4">
+                    Silver
+                </td>
+                <td class="px-6 py-4">
+                    Laptop
+                </td>
+                <td class="px-6 py-4">
+                    Yes
+                </td>
+                <td class="px-6 py-4">
+                    Yes
+                </td>
+                <td class="px-6 py-4">
+                    $2999
+                </td>
+                <td class="flex items-center px-6 py-4">
+                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                    <a href="#" class="font-medium text-red-600 dark:text-red-500 hover:underline ms-3">Remove</a>
+                </td>
+            </tr> -->
+
+        </tbody>
+    </table>
+    <nav class="flex items-center flex-column flex-wrap md:flex-row justify-between pt-4" aria-label="Table navigation">
+        <span class="text-sm font-normal text-gray-500 dark:text-gray-400 mb-4 md:mb-0 block w-full md:inline md:w-auto">Showing <span class="font-semibold text-gray-900 dark:text-white">1-10</span> of <span class="font-semibold text-gray-900 dark:text-white">1000</span></span>
+        <ul class="inline-flex -space-x-px rtl:space-x-reverse text-sm h-8">
+            <li>
+                <a href="#" class="flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Previous</a>
+            </li>
+            <li>
+                <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">1</a>
+            </li>
+            <li>
+                <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">2</a>
+            </li>
+            <li>
+                <a href="#" aria-current="page" class="flex items-center justify-center px-3 h-8 text-blue-600 border border-gray-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white">3</a>
+            </li>
+            <li>
+                <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">4</a>
+            </li>
+            <li>
+                <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">5</a>
+            </li>
+            <li>
+        <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Next</a>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+
+    </div>
+
+  </div>
+</div>
 
                                     </div>
-                                    <div class="_space">
+                                    <div class="class_adm_space hidden">
+<div class="table-section w-full">
+  <div class="container">
+    <div class="row">
+        <div class="col-6">
+            <h1 class="table-title">Classes</h1>
+        </div>
+        <div class="col-6 text-end">
+            <button class="btn btn-warning new_class_btn" data-bs-toggle="modal" data-bs-target="#my_modal" data-bs-whatever="@mdo">
+                New
+            </button>
+        </div>
+    </div>
+    <div class="classes_data" id="classes_data">
+
+
+
+<div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+
+    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+                <th scope="col" class="p-4">
+                    <div class="flex items-center">
+                        <input id="checkbox-all-search" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                        <label for="checkbox-all-search" class="sr-only">checkbox</label>
+                    </div>
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    #
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Class Name
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Day|Evening
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Programme
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Class Code
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Sections
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Status
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Action
+                </th>
+            </tr>
+        </thead>
+        <tbody id="classes_data_row">
+            <!-- <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                <td class="w-4 p-4">
+                    <div class="flex items-center">
+                        <input id="checkbox-table-search-1" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                        <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
+                    </div>
+                </td>
+                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    Apple MacBook Pro 17"
+                </th>
+                <td class="px-6 py-4">
+                    Silver
+                </td>
+                <td class="px-6 py-4">
+                    Laptop
+                </td>
+                <td class="px-6 py-4">
+                    Yes
+                </td>
+                <td class="px-6 py-4">
+                    Yes
+                </td>
+                <td class="px-6 py-4">
+                    $2999
+                </td>
+                <td class="flex items-center px-6 py-4">
+                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                    <a href="#" class="font-medium text-red-600 dark:text-red-500 hover:underline ms-3">Remove</a>
+                </td>
+            </tr> -->
+
+        </tbody>
+    </table>
+    <nav class="flex items-center flex-column flex-wrap md:flex-row justify-between pt-4" aria-label="Table navigation">
+        <span class="text-sm font-normal text-gray-500 dark:text-gray-400 mb-4 md:mb-0 block w-full md:inline md:w-auto">Showing <span class="font-semibold text-gray-900 dark:text-white">1-10</span> of <span class="font-semibold text-gray-900 dark:text-white">1000</span></span>
+        <ul class="inline-flex -space-x-px rtl:space-x-reverse text-sm h-8">
+            <li>
+                <a href="#" class="flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Previous</a>
+            </li>
+            <li>
+                <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">1</a>
+            </li>
+            <li>
+                <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">2</a>
+            </li>
+            <li>
+                <a href="#" aria-current="page" class="flex items-center justify-center px-3 h-8 text-blue-600 border border-gray-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white">3</a>
+            </li>
+            <li>
+                <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">4</a>
+            </li>
+            <li>
+                <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">5</a>
+            </li>
+            <li>
+        <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Next</a>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+
+    </div>
+  </div>
+</div>
+                                    </div>
+                                    <div class="session_adm_space hidden">
+<div class="table-section w-full m-auto">
+  <div class="container">
+    <div class="row">
+        <div class="col-6">
+            <h1 class="table-title">SESSIONs</h1>
+        </div> 
+        <div class="col-6 text-end">
+            <button class="btn btn-warning new_session_btn" data-bs-toggle="modal" data-bs-target="#my_modal" data-bs-whatever="@mdo">
+                New
+            </button>
+        </div>
+    </div>
+    <div id="myalert_mmmm" style="display:none;">
+            <div class="container col-md-offset-4">
+            <div class="alert alert-info">
+                <center><span id="alerttext_mmmm"></span></center>
+            </div>
+            </div>
+    </div>
+    <div class="table-wrapper" id="session_data">
+
+    </div>
+  </div>
+</div>
+                                    </div>
+                                    <div class="fee_adm_space hidden">
 
                                     </div>
-                                    <div class="_space">
+                                    <div class="selected_adm_space hidden">
+<div class="table-section w-full m-auto">
+  <div class="container">
+    <div class="row">
+        <div class="col-6">
+            <h1 class="table-title">SELECTED</h1>
+        </div>
+        <div class="col-6 text-end">
+            <button class="btn btn-secondary candidate_search" data-bs-toggle="modal" data-bs-target="#my_modal" data-bs-whatever="@mdo">
+                Search
+            </button>
+        </div>
+    </div>
 
-                                    </div>
-                                    <div class="_space">
+    <div class="table-wrapper">
+      <table class="table tablec">
+        <thead>
+          <tr>
+            <th style="width: 140px;">Client ID</th>
+            <th style="width: 140px;">Client Name</th>
+            <th style="width: 140px;">Email Address</th>
+            <th style="width: 140px;">Phone Number</th>
+            <th style="width: 140px;">Project Name</th>
+            <th style="width: 140px;">Project Budget</th>
+            <th style="width: 140px;">Estimate Time</th>
+            <th style="width: 140px;">Status</th>
+            <th style="width: 140px;">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="width: 140px;">FS-34856</td>
+            <td style="width: 140px;">John Doe</td>
+            <td style="width: 140px;">johndoe@gmail.com</td>
+            <td style="width: 140px;">+348758464</td>
+            <td style="width: 140px;">Ecommerce Website</td>
+            <td style="width: 140px;">&dollar;1,568</td>
+            <td style="width: 140px;">5 days</td>
+            <td style="width: 140px;">Pending</td>
+            <td style="width: 140px;">
+              <a href="#" class="table-link">View Details</a>
+            </td>
+          </tr>
 
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
                                     </div>
-                                    <div class="_space">
-
-                                    </div>
-                                    <div class="_space">
+                                    <div class="setting_adm_space hidden">
 
                                     </div>
 
@@ -2065,6 +2701,154 @@ if(!isset($_SESSION['user'])){
 
 </div>
 
+<div class="container modal_part">
+<div class="modal fade" id="my_modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticmy_modal" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-scrollable modal-dialog-centeredd">
+    <div class="modal-content">
+      <div class="modal-header">
+      <div id="myalert" style="display:none;">
+        <div class="container col-md-offset-4">
+          <div class="alert alert-info">
+            <center><span id="alerttext"></span></center>
+          </div>
+        </div>
+      </div> 
+
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body modal_data" id="modal_data">
+
+
+        <!-- <form action="" id="manage-course">
+    <input type="hidden" name="id" value="<?php echo isset($unique_id) ? $unique_id : '' ?>">
+    <div class="row">
+    <div id="bazar_msg" class="form-group"></div>
+    
+    <div class="col">
+        <div class="row">
+
+<div class=" justify-center">
+<div>
+<div class="form-floating mb-1 md:w-100 xl:w-100">
+  <input type="text" class="form-control
+  block
+  w-full
+  px-3
+  py-1.5
+  text-base
+  font-normal
+  text-gray-700
+  bg-white bg-clip-padding
+  border border-solid border-gray-300
+  rounded
+  transition
+  ease-in-out
+  m-0
+  focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="ft" placeholder="name@example.com">
+  <label for="ft" class="text-gray-700">Fee Type</label>
+</div>
+<div class="form-floating mb-3 xl:w-100">
+  <input type="number" class="form-control
+  block
+  w-full
+  px-3
+  py-1.5
+  text-base
+  font-normal
+  text-gray-700
+  bg-white bg-clip-padding
+  border border-solid border-gray-300
+  rounded
+  transition
+  ease-in-out
+  m-0
+  focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" step="any" min="0" id="amount" placeholder="Amount">
+  <label for="floatingPassword" class="text-gray-700">Amount</label>
+</div>
+</div>
+</div>
+
+             <div class="form-group">
+
+  <button type="button" id="add_fee" class="
+  w-full
+  px-6
+  py-2.5
+  bg-blue-600
+  text-white
+  font-medium
+  text-xs
+  leading-tight
+  uppercase
+  rounded
+  shadow-md
+  hover:bg-blue-700 hover:shadow-lg
+  focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0
+  active:bg-blue-800 active:shadow-lg
+  transition
+  duration-150
+  ease-in-out">Add to List</button>
+
+                
+            </div>
+
+        </div>
+        <hr>
+        <table class="table table-condensed" id="fee-list">
+            <thead>
+                <tr>
+                    <th width="5%"></th>
+                    <th width="50%">Type</th>
+                    <th width="45%">Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+
+
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th colspan="2" class="text-center">Total</th>
+                    <th class="text-right">
+                        <input type="hidden" name="total_amount" value="<?php  ?>">
+                        <span class="tamount"><?php  ?></span>
+                    </th>
+                </tr>
+            </tfoot>
+        </table>
+        
+  <button type="submit" id="add_bazar" class="
+  mt-1
+  w-full
+  px-6
+  py-2.5
+  bg-danger
+  text-white
+  font-medium
+  text-xs
+  leading-tight
+  uppercase
+  rounded
+  shadow-md
+  hover:bg-blue-700 hover:shadow-lg
+  focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0
+  active:bg-blue-800 active:shadow-lg
+  transition
+  duration-150
+  ease-in-out">Submit Bazar List</button>
+    </div>
+    </div>
+        </form> -->
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
 
 <div class="container bottom_menu m-auto">
     <?php
@@ -2095,6 +2879,628 @@ if(!isset($_SESSION['user'])){
   });
 
 
+</script>
+<script>
+$(document).ready(function(){
+
+
+    $(document).on('click', '#lottery_submit_btn', function(){
+		if($('#select_class_session2').val()!='' && $('#waiting_female').val()!=''){
+            var c = $('#select_class_session_d2').val();
+            // alert($('#session_s_date').val());
+			$('#lottery_submit_btn').val('Saving...');
+			$('#myalert_l').slideUp();
+			var session_form = $('#lottery_form_data').serialize();
+			$.ajax({
+				method: 'POST',
+				url: './school_admin.php',
+				data: session_form,
+
+				success:function(data){
+                    if(data==1){
+                        Swal.fire({
+                                type: 'success',
+                                title: "Selection Successfully Completed!",
+                                text: "THank you Admin! ",
+                                icon: "success",
+                                button: false,
+                                dangerMode: true,
+                                timer: 3000,
+                            
+                            });
+                            candidate_data(c);
+                        setTimeout(function(){
+                        $('#myalert_l').slideDown();
+                        $('#alerttext_l').html("Selection Successfully Completed");
+                        $('#lottery_submit_btn').val('Submit');
+                        $('#lottery_form_data')[0].reset();
+                        }, 2000);
+                        setTimeout(function(){
+                            $('#myalert_l').slideUp();
+                        }, 3000);
+                    }else{
+                        Swal.fire({
+                                type: 'warning',
+                                title: "Please Try Again!",
+                                text: "THank you Admin! "+data,
+                                icon: "warning",
+                                button: false,
+                                dangerMode: true,
+                                timer: 3000,
+                            
+                            });
+                            alert(data)
+                            // candidate_data(c);
+                        setTimeout(function(){
+                        $('#myalert_l').slideDown();
+                        $('#alerttext_l').html(data);
+                        $('#lottery_submit_btn').val('Try Again Session');
+                        $('#lottery_form_data')[0].reset();
+                        }, 2000);
+                        setTimeout(function(){
+                            $('#myalert_l').slideUp();
+                        }, 3000);
+                    }
+                   
+				}
+			});
+		}
+		else{
+			alert('Please input all fields');
+		}
+	});
+
+
+
+
+
+    function candidate_data(id){
+        $('#lottery_candidates_data_row').html('<div class="container text-center m-auto"><h3><span>Please Wait One Second</span></h3></div>');
+
+            $.ajax({
+                url:'./school_admin.php',
+                type:'post',
+                data: {
+                    class_id : id,
+                    select_class_session_candidate2: true
+                },
+                success: function(response){
+                    $('#lottery_candidates_data_row').html(response);
+                    // $('#lottery_candidates_data_row').html('<div class="container text-center m-auto"><h3><span>Please Wait One Second</span></h3></div>');
+                }
+            });
+    }
+
+
+        $('#select_class_session_d2').click(function(){
+            var c = $('#select_class_session_d2').val();
+            // alert(""+c);
+            if(c!='0'){
+                // alert(c);
+                $('#lottery_candidates_data_row').html('<div class="container text-center m-auto"><h3><span>Please Wait One Second</span></h3></div>');
+            $.ajax({
+                url:'./school_admin.php',
+                type:'post',
+                data: {
+                    class_id : c,
+                    select_class_session_candidate2: true
+                },
+                success: function(response){
+                    $('#lottery_candidates_data_row').html(response);
+                    // $('#candidates_data_row').html('<div class="container text-center m-auto"><h3><span>Please Wait One Second</span></h3></div>');
+                }
+            });
+            }
+
+
+        });
+        $('#select_session_d2').click(function(){
+            // alert("dsaf");
+            var s = $('#select_session_d2').val();
+            var c = $('#select_class_session_d2').val();
+
+            if(c==null || c=='0'){
+                $('#lottery_candidates_data_row').html('<div class="container text-center m-auto"><h3><span>Please Wait One Second</span></h3></div>');
+            $.ajax({
+                url:'./school_admin.php',
+                type:'post',
+                data: {
+                    s_id : s,
+                    select_class_session_candidate2: true
+                },
+                success: function(response){
+                    $('#lottery_candidates_data_row').html(response);
+                    // $('#candidates_data_row').html('<div class="container text-center m-auto"><h3><span>Please Wait One Second</span></h3></div>');
+                }
+            });
+            }else{
+                $('#lottery_candidates_data_row').html('<div class="container text-center m-auto"><h3><span>Please Wait One Second</span></h3></div>');
+            $.ajax({
+                url:'./school_admin.php',
+                type:'post',
+                data: {
+                    class_id : c,
+                    s_id : s,
+                    select_class_session_candidate2: true
+                },
+                success: function(response){
+                    $('#lottery_candidates_data_row').html(response);
+                    // $('#candidates_data_row').html('<div class="container text-center m-auto"><h3><span>Please Wait One Second</span></h3></div>');
+                }
+            });
+            }
+
+        });
+
+
+    $('#select_class_session_d').click(function(){
+            var c = $('#select_class_session_d').val();
+            // alert(""+c);
+            if(c!='0'){
+                // alert(c);
+                $('#candidates_data_row').html('<div class="container text-center m-auto"><h3><span>Please Wait One Second</span></h3></div>');
+            $.ajax({
+                url:'./school_admin.php',
+                type:'post',
+                data: {
+                    class_id : c,
+                    select_class_session_candidate: true
+                },
+                success: function(response){
+                    $('#candidates_data_row').html(response);
+                    // $('#candidates_data_row').html('<div class="container text-center m-auto"><h3><span>Please Wait One Second</span></h3></div>');
+                }
+            });
+            }
+
+
+        });
+        $('#select_session_d').click(function(){
+            // alert("dsaf");
+            var s = $('#select_session_d').val();
+            var c = $('#select_class_session_d').val();
+
+            if(c==null || c=='0'){
+                $('#candidates_data_row').html('<div class="container text-center m-auto"><h3><span>Please Wait One Second</span></h3></div>');
+            $.ajax({
+                url:'./school_admin.php',
+                type:'post',
+                data: {
+                    s_id : s,
+                    select_class_session_candidate: true
+                },
+                success: function(response){
+                    $('#candidates_data_row').html(response);
+                    // $('#candidates_data_row').html('<div class="container text-center m-auto"><h3><span>Please Wait One Second</span></h3></div>');
+                }
+            });
+            }else{
+                $('#candidates_data_row').html('<div class="container text-center m-auto"><h3><span>Please Wait One Second</span></h3></div>');
+            $.ajax({
+                url:'./school_admin.php',
+                type:'post',
+                data: {
+                    class_id : c,
+                    s_id : s,
+                    select_class_session_candidate: true
+                },
+                success: function(response){
+                    $('#candidates_data_row').html(response);
+                    // $('#candidates_data_row').html('<div class="container text-center m-auto"><h3><span>Please Wait One Second</span></h3></div>');
+                }
+            });
+            }
+
+        });
+
+    $(document).on('click','.set_class_session_next', function(){
+
+        $('#press_btn_s').text('Requesting in...');
+        $('#myalert_mmmm').slideUp();
+        var session_id = $(this).attr('id');
+
+
+
+      Swal.fire({
+        title: 'Are you sure!?',
+        text: 'Session & Class will be Updated!',
+        type: 'warning',
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes! !',
+
+      }).then((resultm) => {
+
+          if(resultm.value){
+
+            $.ajax({
+            url:'./school_admin.php',
+            type:'post',
+            data: {
+              session_id:session_id,
+              session_update_2: true,
+            },
+            success: function(response){
+              if(response==1){
+                sessions();
+                // $('#daily_meal_alert').html(response);
+                $('#myalert_mmmm').slideDown();
+                $('#alerttext_mmmm').text('Updated Successful!');
+                $('#press_btn_s').text('Updated! Thank You!');
+                setTimeout(() => {
+                  $('#myalert_mmmm').slideUp();
+                }, 3000);
+              }else{
+                // $('#daily_meal_alert').html(response);
+                // alert(meal_id);
+
+                $('#myalert_mmmm').slideDown();
+                $('#alerttext_mmmm').text('Sorry! Try again. Session not Updated!');
+                $('#press_btn_s').text('Try Again!');
+                setTimeout(() => {
+                  $('#myalert_mmmm').slideUp();
+                }, 3000);
+                Swal.fire({
+                    type: 'info',
+                    title: "Try again!",
+                    text: "Something went wrong!",
+                    icon: "info",
+                    button: false,
+                    dangerMode: true,
+                    timer: 3000,
+
+                });
+              }
+
+
+            }
+            });
+              
+          }else{
+            Swal.fire({
+              type: 'info',
+              title: "Try again!",
+              text: "Something went wrong!",
+              icon: "info",
+              button: false,
+              dangerMode: true,
+              timer: 3000,
+
+            })
+          }
+
+      })
+
+
+
+    });
+
+
+$('#classes_data_row').ready(function(){
+
+$.ajax({
+      url:'./school_admin.php',
+      type:'post',
+      data: {
+        class_data_f: true
+      },
+      success: function(response){
+        $('#classes_data_row').html(response);
+
+      }
+    });
+
+
+});
+
+
+function classes(){
+    $.ajax({
+      url:'./school_admin.php',
+      type:'post',
+      data: {
+        class_data_f: true
+      },
+      success: function(response){
+        $('#classes_data_row').html(response);
+
+      }
+    });
+};
+
+
+    $(document).on('click', '#class_add_btn', function(){
+		if($('#class_name').val()!='' && $('#class_section').val()!=''){
+            // alert($('#session_s_date').val());
+			$('#class_add_btn').val('Saving...');
+			$('#myalert').slideUp();
+			var class_form = $('#class_form_data').serialize();
+			$.ajax({
+				method: 'POST',
+				url: './school_admin.php',
+				data: class_form,
+
+				success:function(data){
+                    if(data==1){
+                        Swal.fire({
+                                type: 'success',
+                                title: "Class Successfully Added!",
+                                text: "THank you Admin! ",
+                                icon: "success",
+                                button: false,
+                                dangerMode: true,
+                                timer: 3000,
+                            
+                            });
+                        setTimeout(function(){
+                        $('#myalert').slideDown();
+                        $('#alerttext').html("Class Successfully Added");
+                        $('#class_add_btn').val('Save Class');
+                        $('#class_form_data')[0].reset();
+                        }, 2000);
+                        setTimeout(function(){
+                        // location.reload();
+                        }, 3000);
+                    }else{
+                        Swal.fire({
+                                type: 'warning',
+                                title: "Please Try Again!",
+                                text: "THank you Admin! "+data,
+                                icon: "warning",
+                                button: false,
+                                dangerMode: true,
+                                timer: 3000,
+                            
+                            });
+                        setTimeout(function(){
+                        $('#myalert').slideDown();
+                        $('#alerttext').html(data);
+                        $('#class_add_btn').val('Try Again, Class');
+                        $('#class_form_data')[0].reset();
+                        }, 2000);
+                        setTimeout(function(){
+                        // location.reload();
+                        }, 3000);
+                    }
+                   
+				}
+			});
+		}
+		else{
+			alert('Please input all fields');
+		}
+	});        
+
+$('#class_session_selection22').ready(function(){
+
+$.ajax({
+  url:'./school_admin.php',
+  type:'post',
+  data: {
+    select_class_session: true
+  },
+  success: function(response){
+    $('#select_class_session_d2').html(response);
+    $('#select_class_session_d22').html(response);
+
+  }
+});
+
+$.ajax({
+  url:'./school_admin.php',
+  type:'post',
+  data: {
+    select_session: true
+  },
+  success: function(response){
+    $('#select_session_d2').html(response);
+
+  }
+});
+
+
+}); 
+$('#class_session_selection').ready(function(){
+
+    $.ajax({
+      url:'./school_admin.php',
+      type:'post',
+      data: {
+        select_class_session: true
+      },
+      success: function(response){
+        $('#select_class_session_d').html(response);
+        $('#select_class_session_d2').html(response);
+        $('#select_class_session_d2').html(response);
+      }
+    });
+
+    $.ajax({
+      url:'./school_admin.php',
+      type:'post',
+      data: {
+        select_session: true
+      },
+      success: function(response){
+        $('#select_session_d').html(response);
+        $('#select_session_d2').html(response);
+
+      }
+    });
+
+
+});    
+
+$('#session_data').ready(function(){
+
+$.ajax({
+      url:'./school_admin.php',
+      type:'post',
+      data: {
+        session_data_f: true
+      },
+      success: function(response){
+        $('#session_data').html(response);
+
+      }
+    });
+
+
+});
+
+function sessions(){
+    $.ajax({
+      url:'./school_admin.php',
+      type:'post',
+      data: {
+        session_data_f: true
+      },
+      success: function(response){
+        $('#session_data').html(response);
+
+      }
+    });
+};
+
+    $(document).on('click', '#session_add_btn', function(){
+		if($('#session_s_date').val()!='' && $('#session_e_date').val()!=''){
+            // alert($('#session_s_date').val());
+			$('#session_add_btn').val('Saving...');
+			$('#myalert').slideUp();
+			var session_form = $('#session_form_data').serialize();
+			$.ajax({
+				method: 'POST',
+				url: './school_admin.php',
+				data: session_form,
+
+				success:function(data){
+                    if(data==1){
+                        Swal.fire({
+                                type: 'success',
+                                title: "Session Successfully Added!",
+                                text: "THank you Admin! ",
+                                icon: "success",
+                                button: false,
+                                dangerMode: true,
+                                timer: 3000,
+                            
+                            });
+                        setTimeout(function(){
+                        $('#myalert').slideDown();
+                        $('#alerttext').html("Session Successfully Added");
+                        $('#session_add_btn').val('Save Session');
+                        $('#session_form_data')[0].reset();
+                        }, 2000);
+                        setTimeout(function(){
+                        // location.reload();
+                        }, 3000);
+                    }else{
+                        Swal.fire({
+                                type: 'warning',
+                                title: "Please Try Again!",
+                                text: "THank you Admin! "+data,
+                                icon: "warning",
+                                button: false,
+                                dangerMode: true,
+                                timer: 3000,
+                            
+                            });
+                        setTimeout(function(){
+                        $('#myalert').slideDown();
+                        $('#alerttext').html(data);
+                        $('#session_add_btn').val('Try Again Session');
+                        $('#session_form_data')[0].reset();
+                        }, 2000);
+                        setTimeout(function(){
+                        // location.reload();
+                        }, 3000);
+                    }
+                   
+				}
+			});
+		}
+		else{
+			alert('Please input all fields');
+		}
+	});
+
+    });
+</script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.new_session_btn').click(function(){
+
+            $('#modal_data').html("<div class='text-center'><center><span>Please Wait One Second</span></center></div>");
+
+            $.ajax({
+                url:'../../data/modal_data.php',
+                type:'post',
+                data: {
+                    new_session: true
+                },
+                success: function(response){
+                    $('#modal_data').html(response);
+
+                }
+                }); 
+
+        });
+        $('.new_candidate_btn').click(function(){
+
+            $('#modal_data').html('<div class="container text-center"><h3><span>Please Wait One Second</span></h3></div>');
+            $.ajax({
+                url:'../../data/modal_data.php',
+                type:'post',
+                data: {
+                    new_candidate: true
+                },
+                success: function(response){
+                    // $('#modal_data').html(response);
+                    $('#modal_data').html('<div class="container text-center"><h3><span>Please Wait One Second</span></h3></div>');
+                }
+                }); 
+
+        });        
+    });
+</script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.new_class_btn').click(function(){
+
+            $('#modal_data').html("<div class='text-center'><center><span>Please Wait One Second</span></center></div>");
+
+            $.ajax({
+                url:'../../data/modal_data.php',
+                type:'post',
+                data: {
+                    new_class: true
+                },
+                success: function(response){
+                    $('#modal_data').html(response);
+
+                }
+                }); 
+
+        });
+        $('.new_candidate_btnn').click(function(){
+
+            $('#modal_data').html('<div class="container text-center"><h3><span>Please Wait One Second</span></h3></div>');
+            $.ajax({
+                url:'../../data/modal_data.php',
+                type:'post',
+                data: {
+                    new_candidate: true
+                },
+                success: function(response){
+                    // $('#modal_data').html(response);
+                    $('#modal_data').html('<div class="container text-center"><h3><span>Please Wait One Second</span></h3></div>');
+                }
+            }); 
+
+        });        
+    });
 </script>
 <script type="text/javascript">
     $(document).ready(function(){
@@ -2167,6 +3573,13 @@ if(!isset($_SESSION['user'])){
         });
     });
 </script>
+
+
+
+
+
+
+
 
 <script type="text/javascript">
     $(document).ready(function(){
@@ -2258,6 +3671,76 @@ if(!isset($_SESSION['user'])){
         });
     });
 </script>
+
+<script>
+        $(document).ready(function(){
+            $('#admission_tabs').click(function(){
+                var op = $('#admission_tabs').val();
+                // alert('Selected Value: ' + op);
+                if(op=='home'){
+                    $('.home_adm_space').removeClass('hidden');
+                    $('.fee_adm_space, .candidate_adm_space, .class_adm_space, .session_adm_space, .selected_adm_space, .setting_adm_space').addClass('hidden');
+
+                }else if(op=='candidate'){
+                    $('.candidate_adm_space').removeClass('hidden');
+                    $('.home_adm_space, .fee_adm_space, .class_adm_space, .session_adm_space, .selected_adm_space, .setting_adm_space').addClass('hidden');
+                }else if(op=='fee'){
+                    $('.fee_adm_space').removeClass('hidden');
+                    $('.home_adm_space, .candidate_adm_space, .class_adm_space, .session_adm_space, .selected_adm_space, .setting_adm_space').addClass('hidden');
+                }else if(op=='class'){
+                    $('.class_adm_space').removeClass('hidden');
+                    $('.home_adm_space, .fee_adm_space, .candidate_adm_space, .session_adm_space, .selected_adm_space, .setting_adm_space').addClass('hidden');
+                }else if(op=='session'){
+                    $('.session_adm_space').removeClass('hidden');
+                    $('.home_adm_space, .fee_adm_space, .candidate_adm_space, .class_adm_space, .selected_adm_space, .setting_adm_space').addClass('hidden');
+                }else if(op=='selected'){
+                    $('.selected_adm_space').removeClass('hidden');
+                    $('.home_adm_space, .fee_adm_space, .candidate_adm_space, .class_adm_space, .session_adm_space, .setting_adm_space').addClass('hidden');
+                }else if(op=='setting'){
+                    $('.setting_adm_space').removeClass('hidden');
+                    $('.home_adm_space, .fee_adm_space, .candidate_adm_space, .class_adm_space, .session_adm_space, .selected_adm_space').addClass('hidden');
+                }
+
+            });
+        });
+    </script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.home_admission_btn').click(function(){
+            $('.home_adm_space').removeClass('hidden');
+            $('.fee_adm_space, .candidate_adm_space, .class_adm_space, .session_adm_space, .selected_adm_space, .setting_adm_space').addClass('hidden');
+        });
+
+        $('.fee_admission_btn').click(function(){
+            $('.fee_adm_space').removeClass('hidden');
+            $('.home_adm_space, .candidate_adm_space, .class_adm_space, .session_adm_space, .selected_adm_space, .setting_adm_space').addClass('hidden');
+        });
+        $('.candidate_admission_btn').click(function(){
+            $('.candidate_adm_space').removeClass('hidden');
+            $('.home_adm_space, .fee_adm_space, .class_adm_space, .session_adm_space, .selected_adm_space, .setting_adm_space').addClass('hidden');
+        });
+        $('.class_admission_btn').click(function(){
+            $('.class_adm_space').removeClass('hidden');
+            $('.home_adm_space, .fee_adm_space, .candidate_adm_space, .session_adm_space, .selected_adm_space, .setting_adm_space').addClass('hidden');
+        });
+        $('.session_admission_btn').click(function(){
+            $('.session_adm_space').removeClass('hidden');
+            $('.home_adm_space, .fee_adm_space, .candidate_adm_space, .class_adm_space, .selected_adm_space, .setting_adm_space').addClass('hidden');
+
+
+
+        });
+        $('.selected_admission_btn').click(function(){
+            $('.selected_adm_space').removeClass('hidden');
+            $('.home_adm_space, .fee_adm_space, .candidate_adm_space, .class_adm_space, .session_adm_space, .setting_adm_space').addClass('hidden');
+        });
+        $('.setting_admission_btn').click(function(){
+            $('.setting_adm_space').removeClass('hidden');
+            $('.home_adm_space, .fee_adm_space, .candidate_adm_space, .class_adm_space, .session_adm_space, .selected_adm_space').addClass('hidden');
+        });
+
+    });
+</script>    
 <script>
         $(document).ready(function(){
             $('#mess_tabs').click(function(){
@@ -2290,3 +3773,6 @@ if(!isset($_SESSION['user'])){
             });
         });
     </script>
+    <script src="../../dist/js/table.js"></script>
+    <script src="../../js/sweetalert.min.js"></script>
+<script src="../../js/sweetalert2.all.min.js"></script>

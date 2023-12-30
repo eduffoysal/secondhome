@@ -9,22 +9,16 @@ if(isset($_SESSION['user'])){
    if(!isset($_SESSION['role'])){
         header("location:../../login");
    }else{
-        if($_SESSION['role']=='teacher'){
-            header("location:../../school/faculty");
-        }elseif($_SESSION['role']=='school'){
-            header("location:../school");
+        if($_SESSION['role']=='school'){
+            header("location:../../admin/school");
+        }elseif($_SESSION['role']=='mess'){
+            header("location:../../admin/mess");
         }elseif($_SESSION['role']=='user'){
             header("location:../../");
         }elseif($_SESSION['role']=='manager'){
             header("location:../../");
         }
    }
-
-    if($_SESSION['mess_id']==''){
-        header("location:sign");
-    }else{
-        $mess_id = $_SESSION['mess_id'];
-    }
 
 
 
@@ -84,7 +78,7 @@ if(!isset($_SESSION['user'])){
   <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
     <!-- swap -->
 
-    <link rel="stylesheet" href="../bootstrap.min.css">
+    <link rel="stylesheet" href="../../bootstrap.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
 

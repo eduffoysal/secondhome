@@ -1,9 +1,27 @@
 <?php
+include('../db/db.php');
 session_start();
-if(isset($_SESSION['user'])){
-    header('location:../');
-}
 
+if(isset($_SESSION['user'])){
+   $_SESSION['visitor_id']=$_SESSION['user'];
+   $_SESSION['unique_id']=$_SESSION['user'];
+
+   if(!isset($_SESSION['role'])){
+        header("location:login");
+   }else{
+        if($_SESSION['role']=='school'){
+            header("location:../admin/school");
+        }elseif($_SESSION['role']=='mess'){
+            header("location:../admin/mess");
+        }elseif($_SESSION['role']=='teacher'){
+            header("location:../school/faculty");
+        }elseif($_SESSION['role']=='user'){
+            header("location:../");
+        }
+   }
+
+
+}
 
 
 ?>
@@ -226,7 +244,7 @@ if(isset($_SESSION['user'])){
 	</div> -->
 
 
-<div class="container mb-3">
+<div class="container-fluid mb-3">
     <div class="user" id="user">
 
 
@@ -239,88 +257,94 @@ if(isset($_SESSION['user'])){
                     <a href="#" class="font-medium text-indigo-600 border-b border-indigo-600 user_c_btn"> register User|Student FREE account </a>
                     </p>
                 </div>
-                <div class="max-w-md w-full mx-auto bg-white shadow rounded-lg p-4 space-y-6">
-                    <div class="flex flex-col">
-                    <label class="text-sm font-bold text-gray-600 mb-1" for="email">Email Address</label>
-                    <input class="border rounded-md bg-white px-3 py-2" type="text" name="email" id="email" placeholder="Enter your Email Address" />
-                    </div>
-                    <div class="flex flex-col">
-                    <label class="text-sm font-bold text-gray-600 mb-1" for="password">Password</label>
-                    <input class="border rounded-md bg-white px-3 py-2" type="password" name="password" id="password" placeholder="Enter your Password" />
-                    </div>
-                    <div class="flex justify-between text-sm">
-                    <div class="flex items-center space-x-2">
-                        <input class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded" type="checkbox" name="remember" id="remember" />
-                        <label for="remember">Remember me</label>
-                    </div>
-                    <div>
-                        <a class="text-indigo-600">Forgot your Password?</a>
-                    </div>
-                    </div>
-                    <div>
-                    <button class="w-full bg-indigo-600 text-white rounded-md p-2">Sign in</button>
-                    </div>
-                    <div class="relative pb-2">
-                    <div class="absolute top-0 left-0 w-full border-b"></div>
-                    <div class="absolute -top-3 left-0 w-full text-center">
-                        <span class="bg-white px-3 text-sm">or continue via</span>
-                    </div>
-                    </div>
-                    <div class="grid grid-cols-3 gap-3 text-xl">
-                    <div class="border-2 rounded-md p-3 text-center cursor-pointer hover:border-gray-600">
-                        <i class="fab fa-twitter"></i>
-                    </div>
-                    <div class="border-2 rounded-md p-3 text-center cursor-pointer hover:border-gray-600">
-                        <i class="fab fa-facebook"></i>
-                    </div>
-                    <div class="border-2 rounded-md p-3 text-center cursor-pointer hover:border-gray-600">
-                        <i class="fab fa-linkedin"></i>
-                    </div>
-                    </div>
-                </div>
+
+                    <div class="max-w-md w-full mx-auto bg-white shadow rounded-lg p-4 space-y-6">
+                        <form action="#" class="user_login"  role="form" id="user_logform">
+                            <div class="flex flex-col">
+                            <label class="text-sm font-bold text-gray-600 mb-1" for="email">Phone | User_Name</label>
+                            <input class="border rounded-md bg-white px-3 py-2" type="text" name="username" id="user_username" placeholder="Enter your Phone | User_name" />
+                            <input class="form-control" placeholder="Phone/User ID" name="user_melogin" id="user_melogin" type="hidden">
+
+                            </div>
+                            <div class="flex flex-col">
+                            <label class="text-sm font-bold text-gray-600 mb-1" for="password">Password</label>
+                            <input class="border rounded-md bg-white px-3 py-2" type="password" name="password" id="password" placeholder="Enter your Password" />
+                            </div>
+                            <div class="flex justify-between text-sm">
+                            <div class="flex items-center space-x-2">
+                                <input class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded" type="checkbox" name="remember" id="remember" />
+                                <label for="remember">Remember me</label>
+                            </div>
+                            <div>
+                                <a class="text-indigo-600">Forgot your Password?</a>
+                            </div>
+                            </div>
+                            <div>
+                            <button type="button" id="user_loginbutton" class="w-full bg-indigo-600 text-white rounded-md p-2">Sign in</button>
+                            </div>
+                        </form>
+                            <div class="relative pb-2">
+                            <div class="absolute top-0 left-0 w-full border-b"></div>
+                            <div class="absolute -top-3 left-0 w-full text-center">
+                                <span class="bg-white px-3 text-sm">or continue via</span>
+                            </div>
+                            </div>
+                            <div class="grid grid-cols-3 gap-3 text-xl">
+                            <div class="border-2 rounded-md p-3 text-center cursor-pointer hover:border-gray-600">
+                                <i class="fab fa-twitter"></i>
+                            </div>
+                            <div class="border-2 rounded-md p-3 text-center cursor-pointer hover:border-gray-600">
+                                <i class="fab fa-facebook"></i>
+                            </div>
+                            <div class="border-2 rounded-md p-3 text-center cursor-pointer hover:border-gray-600">
+                                <i class="fab fa-linkedin"></i>
+                            </div>
+                            </div>
+
+                    </div>            
+
                 </main>
             </div>
 
             <div class="user_create_box hidden">
                 
                 <div class="my-4 py-8" style="background-image: linear-gradient(115deg, #9F7AEA, #FEE2FE)">
-                <div class="container mx-auto">
-                    <div class="flex flex-col lg:flex-row w-10/12 lg:w-8/12 bg-white rounded-xl mx-auto shadow-lg overflow-hidden">
-                    <div class="w-full lg:w-1/2 flex flex-col items-center justify-center p-12 bg-no-repeat bg-cover bg-center" style="background-image: url('../image/Register-Background.png');">
-                        <h1 class="text-white text-3xl mb-3">Welcome</h1>
-                        <div>
-                        <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean suspendisse aliquam varius rutrum purus maecenas ac <a href="#" class="text-purple-500 font-semibold user_l_btn">Login Now</a></p>
-                        </div>
+                <div class="container-fluid mx-auto">
+                    <div class="flex flex-col lg:flex-row w-11/12 lg:w-12/12 bg-white rounded-xl mx-auto shadow-lg overflow-hidden">
+                    <div class="w-full lg:w-1/2 flex flex-col items-center justify-center p-2 bg-no-repeat bg-cover bg-center" style="background-image: url('../image/Register-Background.png');">
+                    <h1 class="text-white text-3xl mb-3">Welcome</h1>
+                    <div>
+                    <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean suspendisse aliquam varius rutrum purus maecenas ac <a href="#" class="text-purple-500 font-semibold border-2 border-rose-600 p-1 m-1 shadow-lg space-y-3 hover:bg-sky-500 hover:ring-sky-500 rounded-full user_l_btn">Login Now</a></p>
                     </div>
-                    <div class="w-full lg:w-1/2 py-16 px-12">
+                </div>
+                    <div class="w-full lg:w-1/2 py-16 px-2">
                         <h2  class="text-3xl mb-4">Register User</h2>
                         <p class="mb-4">
                         Create User|Student account. It’s free and only take a minute
                         </p>
-                        <form action="#">
+                    <form action="#" class="user_signup" role="form" id="user_signform">
+                        <input class="form-control" placeholder="Phone/Student ID" name="user_mesignup" id="user_mesignup" type="hidden">
+
                         <div class="grid grid-cols-2 gap-5">
-                            <input type="text" placeholder="Firstname" class="border border-gray-400 py-1 px-2">
-                            <input type="text" placeholder="Surname" class="border border-gray-400 py-1 px-2">
+                            <input type="text" placeholder="Full Name"  name="fname" id="fname" class="border border-gray-400 py-1 px-2">
+                            <input type="text" placeholder="User Name | Surname" name="susername" id="user_susername" class="border border-gray-400 py-1 px-2">
                         </div>
                         <div class="mt-5">
-                            <input type="text" placeholder="Email" class="border border-gray-400 py-1 px-2 w-full">
+                            <input type="phone" placeholder="Phone"  name="phone" id="sphone" class="border  border-gray-400 py-1 px-2 w-full">
                         </div>
                         <div class="mt-5">
-                            <input type="password" placeholder="Password" class="border border-gray-400 py-1 px-2 w-full">
+                            <input type="text" placeholder="Email" name="semail" id="semail" class="border border-gray-400 py-1 px-2 w-full">
                         </div>
                         <div class="mt-5">
-                            <input type="password" placeholder="Confirm Password" class="border border-gray-400 py-1 px-2 w-full">
+                            <input name="spassword" id="spassword" type="number" placeholder="Password" class="border border-gray-400 py-1 px-2 w-full">
                         </div>
                         <div class="mt-5">
-                            <input type="checkbox" class="border border-gray-400">
-                            <span>
-                            I accept the <a href="#" class="text-purple-500 font-semibold">Terms of Use</a> &  <a href="#" class="text-purple-500 font-semibold">Privacy Policy</a> 
-                            </span>
+                            <input type="password" placeholder="Confirm Password" name="scpassword" id="scpassword" class="border border-gray-400 py-1 px-2 w-full">
                         </div>
                         <div class="mt-5">
-                            <button class="w-full bg-purple-500 py-3 text-center text-white">Register Now</button>
+                            <button class="w-full bg-purple-500 py-3 text-center text-white" type="button" id="user_signupbutton">Register Now</button>
                         </div>
-                        </form>
+                    </form>
                     </div>
                     </div>
                 </div>
@@ -345,26 +369,30 @@ if(isset($_SESSION['user'])){
                 <a href="#" class="font-medium text-indigo-600 border-b border-indigo-600 mess_c_btn"> register Mess Admin FREE account </a>
                 </p>
                     <hr class="mt-1">
-                    <div class="mt-1">
-                        <label for="username" class="block text-base mb-2">Username</label>
-                        <input type="text" id="username" class="border w-full text-base px-2 py-1 focus:outline-none focus:ring-0 focus:border-gray-600" placeholder="Enter Username..." />
-                    </div>
-                    <div class="mt-3">
-                        <label for="password" class="block text-base mb-2">Password</label>
-                        <input type="password" id="password" class="border w-full text-base px-2 py-1 focus:outline-none focus:ring-0 focus:border-gray-600" placeholder="Enter Password..." />
-                    </div>
-                    <div class="mt-3 flex justify-between items-center">
-                        <div>
-                            <input type="checkbox">
-                            <label>Remember Me</label>
+                    <form action="#"  class="mess_login"  role="form" id="mess_logform">
+                        <div class="mt-1">
+                            <input class="form-control" placeholder="Phone/User ID" name="mess_melogin" id="mess_melogin" type="hidden">
+
+                            <label for="username" class="block text-base mb-2">Username</label>
+                            <input name="username" id="mess_username" type="text" autofocus required class="border w-full text-base px-2 py-1 focus:outline-none focus:ring-0 focus:border-gray-600" placeholder="Enter Phone|Username..." />
                         </div>
-                        <div>
-                            <a href="#" class="text-indigo-800 font-semibold">Forgot Password?</a>
+                        <div class="mt-3">
+                            <label for="password" class="block text-base mb-2">Password</label>
+                            <input type="password" name="password" id="password" class="border w-full text-base px-2 py-1 focus:outline-none focus:ring-0 focus:border-gray-600" placeholder="Enter Password..." />
                         </div>
-                    </div>
-                    <div class="mt-5">
-                        <button type="submit" class="border-2 border-indigo-700 bg-indigo-700 text-white py-1 w-full rounded-md hover:bg-transparent hover:text-indigo-700 font-semibold"><i class="fa-solid fa-right-to-bracket"></i>&nbsp;&nbsp;Login</button>
-                    </div>
+                        <div class="mt-3 flex justify-between items-center">
+                            <div>
+                                <input type="checkbox">
+                                <label>Remember Me</label>
+                            </div>
+                            <div>
+                                <a href="#" class="text-indigo-800 font-semibold">Forgot Password?</a>
+                            </div>
+                        </div>
+                        <div class="mt-5">
+                            <button type="button" id="mess_loginbutton" class="border-2 border-indigo-700 bg-indigo-700 text-white py-1 w-full rounded-md hover:bg-transparent hover:text-indigo-700 font-semibold"><i class="fa-solid fa-right-to-bracket"></i>&nbsp;&nbsp;Login</button>
+                        </div>
+                    </form>
                 </div>
             </div>
 
@@ -373,41 +401,40 @@ if(isset($_SESSION['user'])){
         <div class="mess_create_box hidden">
             
             <div class="my-4 py-8" style="background-image: linear-gradient(115deg, #9F7AEA, #FEE2FE)">
-            <div class="container mx-auto">
-                <div class="flex flex-col lg:flex-row w-10/12 lg:w-8/12 bg-white rounded-xl mx-auto shadow-lg overflow-hidden">
-                <div class="w-full lg:w-1/2 flex flex-col items-center justify-center p-12 bg-no-repeat bg-cover bg-center" style="background-image: url('../image/Register-Background.png');">
+            <div class="container-fluid mx-auto">
+                <div class="flex flex-col lg:flex-row w-11/12 lg:w-12/12 bg-white rounded-xl mx-auto shadow-lg overflow-hidden">
+                <div class="w-full lg:w-1/2 flex flex-col items-center justify-center p-2 bg-no-repeat bg-cover bg-center" style="background-image: url('../image/Register-Background.png');">
                     <h1 class="text-white text-3xl mb-3">Welcome</h1>
                     <div>
-                    <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean suspendisse aliquam varius rutrum purus maecenas ac <a href="#" class="text-purple-500 font-semibold mess_l_btn">Login Now</a></p>
+                    <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean suspendisse aliquam varius rutrum purus maecenas ac <a href="#" class="text-purple-500 font-semibold border-2 border-rose-600 p-1 m-1 shadow-lg space-y-3 hover:bg-sky-500 hover:ring-sky-500 rounded-full mess_l_btn">Login Now</a></p>
                     </div>
                 </div>
-                <div class="w-full lg:w-1/2 py-16 px-12">
+                <div class="w-full lg:w-1/2 py-16 px-2">
                     <h2  class="text-3xl mb-4">Register Mess</h2>
                     <p class="mb-4">
                     Create Mess Admin account. It’s free and only take a minute
                     </p>
-                    <form action="#">
-                    <div class="grid grid-cols-2 gap-5">
-                        <input type="text" placeholder="Firstname" class="border border-gray-400 py-1 px-2">
-                        <input type="text" placeholder="Surname" class="border border-gray-400 py-1 px-2">
-                    </div>
+                    <form action="#" class="mess_signup" role="form" id="mess_signform">
+                        <input class="form-control" placeholder="Phone/Student ID" name="mess_mesignup" id="mess_mesignup" type="hidden">
+
+                        <div class="grid grid-cols-2 gap-5">
+                            <input type="text" placeholder="Full Name"  name="fname" id="fname" class="border border-gray-400 py-1 px-2">
+                            <input type="text" placeholder="User Name | Surname" name="susername" id="mess_susername" class="border border-gray-400 py-1 px-2">
+                        </div>
+                        <div class="mt-5">
+                            <input type="phone" placeholder="Phone"  name="phone" id="sphone" class="border  border-gray-400 py-1 px-2 w-full">
+                        </div>
+                        <div class="mt-5">
+                            <input type="text" placeholder="Email" name="semail" id="semail" class="border border-gray-400 py-1 px-2 w-full">
+                        </div>
+                        <div class="mt-5">
+                            <input name="spassword" id="spassword" type="number" placeholder="Password" class="border border-gray-400 py-1 px-2 w-full">
+                        </div>
+                        <div class="mt-5">
+                            <input type="password" placeholder="Confirm Password" name="scpassword" id="scpassword" class="border border-gray-400 py-1 px-2 w-full">
+                        </div>
                     <div class="mt-5">
-                        <input type="text" placeholder="Email" class="border border-gray-400 py-1 px-2 w-full">
-                    </div>
-                    <div class="mt-5">
-                        <input type="password" placeholder="Password" class="border border-gray-400 py-1 px-2 w-full">
-                    </div>
-                    <div class="mt-5">
-                        <input type="password" placeholder="Confirm Password" class="border border-gray-400 py-1 px-2 w-full">
-                    </div>
-                    <div class="mt-5">
-                        <input type="checkbox" class="border border-gray-400">
-                        <span>
-                        I accept the <a href="#" class="text-purple-500 font-semibold">Terms of Use</a> &  <a href="#" class="text-purple-500 font-semibold">Privacy Policy</a> 
-                        </span>
-                    </div>
-                    <div class="mt-5">
-                        <button class="w-full bg-purple-500 py-3 text-center text-white">Register Now</button>
+                        <button class="w-full bg-purple-500 py-3 text-center text-white" type="button" id="mess_signupbutton">Register Now</button>
                     </div>
                     </form>
                 </div>
@@ -429,88 +456,93 @@ if(isset($_SESSION['user'])){
                     <a href="#" class="font-medium text-indigo-600 border-b border-indigo-600 school_c_btn"> register Organizer Admin FREE account </a>
                     </p>
                 </div>
+
                 <div class="max-w-md w-full mx-auto bg-white shadow rounded-lg p-4 space-y-6">
-                    <div class="flex flex-col">
-                    <label class="text-sm font-bold text-gray-600 mb-1" for="email">Email Address</label>
-                    <input class="border rounded-md bg-white px-3 py-2" type="text" name="email" id="email" placeholder="Enter your Email Address" />
-                    </div>
-                    <div class="flex flex-col">
-                    <label class="text-sm font-bold text-gray-600 mb-1" for="password">Password</label>
-                    <input class="border rounded-md bg-white px-3 py-2" type="password" name="password" id="password" placeholder="Enter your Password" />
-                    </div>
-                    <div class="flex justify-between text-sm">
-                    <div class="flex items-center space-x-2">
-                        <input class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded" type="checkbox" name="remember" id="remember" />
-                        <label for="remember">Remember me</label>
-                    </div>
-                    <div>
-                        <a class="text-indigo-600">Forgot your Password?</a>
-                    </div>
-                    </div>
-                    <div>
-                    <button class="w-full bg-indigo-600 text-white rounded-md p-2">Sign in</button>
-                    </div>
-                    <div class="relative pb-2">
-                    <div class="absolute top-0 left-0 w-full border-b"></div>
-                    <div class="absolute -top-3 left-0 w-full text-center">
-                        <span class="bg-white px-3 text-sm">or continue via</span>
-                    </div>
-                    </div>
-                    <div class="grid grid-cols-3 gap-3 text-xl">
-                    <div class="border-2 rounded-md p-3 text-center cursor-pointer hover:border-gray-600">
-                        <i class="fab fa-twitter"></i>
-                    </div>
-                    <div class="border-2 rounded-md p-3 text-center cursor-pointer hover:border-gray-600">
-                        <i class="fab fa-facebook"></i>
-                    </div>
-                    <div class="border-2 rounded-md p-3 text-center cursor-pointer hover:border-gray-600">
-                        <i class="fab fa-linkedin"></i>
-                    </div>
-                    </div>
-                </div>
+                    <form action="#" class="school_login"  role="form" id="school_logform">
+                        <div class="flex flex-col">
+                        <label class="text-sm font-bold text-gray-600 mb-1" for="email">Phone | User_Name</label>
+                        <input class="border rounded-md bg-white px-3 py-2" type="text" name="username" id="school_username" placeholder="Enter your Phone | User_name" />
+                        <input class="form-control" placeholder="Phone/User ID" name="school_melogin" id="school_melogin" type="hidden">
+
+                        </div>
+                        <div class="flex flex-col">
+                        <label class="text-sm font-bold text-gray-600 mb-1" for="password">Password</label>
+                        <input class="border rounded-md bg-white px-3 py-2" type="password" name="password" id="password" placeholder="Enter your Password" />
+                        </div>
+                        <div class="flex justify-between text-sm">
+                        <div class="flex items-center space-x-2">
+                            <input class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded" type="checkbox" name="remember" id="remember" />
+                            <label for="remember">Remember me</label>
+                        </div>
+                        <div>
+                            <a class="text-indigo-600">Forgot your Password?</a>
+                        </div>
+                        </div>
+                        <div>
+                        <button type="button" id="school_loginbutton" class="w-full bg-indigo-600 text-white rounded-md p-2">Sign in</button>
+                        </div>
+                    </form>
+                        <div class="relative pb-2">
+                        <div class="absolute top-0 left-0 w-full border-b"></div>
+                        <div class="absolute -top-3 left-0 w-full text-center">
+                            <span class="bg-white px-3 text-sm">or continue via</span>
+                        </div>
+                        </div>
+                        <div class="grid grid-cols-3 gap-3 text-xl">
+                        <div class="border-2 rounded-md p-3 text-center cursor-pointer hover:border-gray-600">
+                            <i class="fab fa-twitter"></i>
+                        </div>
+                        <div class="border-2 rounded-md p-3 text-center cursor-pointer hover:border-gray-600">
+                            <i class="fab fa-facebook"></i>
+                        </div>
+                        <div class="border-2 rounded-md p-3 text-center cursor-pointer hover:border-gray-600">
+                            <i class="fab fa-linkedin"></i>
+                        </div>
+                        </div>
+                    </div>            
+
                 </main>
             </div>
 
             <div class="school_create_box hidden">
             
                 <div class="my-4 py-8" style="background-image: linear-gradient(115deg, #9F7AEA, #FEE2FE)">
-                <div class="container mx-auto">
-                    <div class="flex flex-col lg:flex-row w-10/12 lg:w-8/12 bg-white rounded-xl mx-auto shadow-lg overflow-hidden">
-                    <div class="w-full lg:w-1/2 flex flex-col items-center justify-center p-12 bg-no-repeat bg-cover bg-center" style="background-image: url('../image/Register-Background.png');">
+                <div class="container-fluid mx-auto">
+                    <div class="flex flex-col lg:flex-row w-11/12 lg:w-12/12 bg-white rounded-xl mx-auto shadow-lg overflow-hidden">
+                    <div class="w-full lg:w-1/2 flex flex-col items-center justify-center p-2 bg-no-repeat bg-cover bg-center" style="background-image: url('../image/Register-Background.png');">
                         <h1 class="text-white text-3xl mb-3">Welcome</h1>
                         <div>
-                        <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean suspendisse aliquam varius rutrum purus maecenas ac <a href="#" class="text-purple-500 font-semibold school_l_btn">Login Now</a></p>
+                        <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean suspendisse aliquam varius rutrum purus maecenas ac <a href="#" class="text-purple-500 font-semibold border-2 border-rose-600 p-1 m-1 shadow-lg space-y-3 hover:bg-sky-500 hover:ring-sky-500 rounded-full school_l_btn">Login Now</a></p>
                         </div>
                     </div>
-                    <div class="w-full lg:w-1/2 py-16 px-12">
+                    <div class="w-full lg:w-1/2 py-16 px-2">
                         <h2  class="text-3xl mb-4">Register Organizer</h2>
                         <p class="mb-4">
                         Create Organizer Admin account. It’s free and only take a minute
                         </p>
-                        <form action="#">
+                    <form action="#" class="school_signup" role="form" id="school_signform">
+                        <input class="form-control" placeholder="Phone/Student ID" name="school_mesignup" id="school_mesignup" type="hidden">
+
                         <div class="grid grid-cols-2 gap-5">
-                            <input type="text" placeholder="Firstname" class="border border-gray-400 py-1 px-2">
-                            <input type="text" placeholder="Surname" class="border border-gray-400 py-1 px-2">
+                            <input type="text" placeholder="Full Name"  name="fname" id="fname" class="border border-gray-400 py-1 px-2">
+                            <input type="text" placeholder="User Name | Surname" name="susername" id="school_susername" class="border border-gray-400 py-1 px-2">
                         </div>
                         <div class="mt-5">
-                            <input type="text" placeholder="Email" class="border border-gray-400 py-1 px-2 w-full">
+                            <input type="phone" placeholder="Phone"  name="phone" id="sphone" class="border  border-gray-400 py-1 px-2 w-full">
                         </div>
                         <div class="mt-5">
-                            <input type="password" placeholder="Password" class="border border-gray-400 py-1 px-2 w-full">
+                            <input type="text" placeholder="Email" name="semail" id="semail" class="border border-gray-400 py-1 px-2 w-full">
                         </div>
                         <div class="mt-5">
-                            <input type="password" placeholder="Confirm Password" class="border border-gray-400 py-1 px-2 w-full">
+                            <input name="spassword" id="spassword" type="number" placeholder="Password" class="border border-gray-400 py-1 px-2 w-full">
                         </div>
                         <div class="mt-5">
-                            <input type="checkbox" class="border border-gray-400">
-                            <span>
-                            I accept the <a href="#" class="text-purple-500 font-semibold">Terms of Use</a> &  <a href="#" class="text-purple-500 font-semibold">Privacy Policy</a> 
-                            </span>
+                            <input type="password" placeholder="Confirm Password" name="scpassword" id="scpassword" class="border border-gray-400 py-1 px-2 w-full">
                         </div>
                         <div class="mt-5">
-                            <button class="w-full bg-purple-500 py-3 text-center text-white">Register Now</button>
+                            <button class="w-full bg-purple-500 py-3 text-center text-white" type="button" id="school_signupbutton">Register Now</button>
                         </div>
-                        </form>
+                    </form>
                     </div>
                     </div>
                 </div>
@@ -532,26 +564,31 @@ if(isset($_SESSION['user'])){
                 <a href="#" class="font-medium text-indigo-600 border-b border-indigo-600 teacher_c_btn"> register your FREE account </a>
                 </p>
                     <hr class="mt-1">
-                    <div class="mt-1">
-                        <label for="username" class="block text-base mb-2">Username</label>
-                        <input type="text" id="username" class="border w-full text-base px-2 py-1 focus:outline-none focus:ring-0 focus:border-gray-600" placeholder="Enter Username..." />
-                    </div>
-                    <div class="mt-3">
-                        <label for="password" class="block text-base mb-2">Password</label>
-                        <input type="password" id="password" class="border w-full text-base px-2 py-1 focus:outline-none focus:ring-0 focus:border-gray-600" placeholder="Enter Password..." />
-                    </div>
-                    <div class="mt-3 flex justify-between items-center">
-                        <div>
-                            <input type="checkbox">
-                            <label>Remember Me</label>
+                    <form action="#"  class="teacher_login"  role="form" id="teacher_logform">
+                        <div class="mt-1">
+                            <input class="form-control" placeholder="Phone/User ID" name="teacher_melogin" id="teacher_melogin" type="hidden">
+
+                            <label for="username" class="block text-base mb-2">Username</label>
+                            <input name="username" id="teacher_username" type="text" autofocus required class="border w-full text-base px-2 py-1 focus:outline-none focus:ring-0 focus:border-gray-600" placeholder="Enter Phone|Username..." />
                         </div>
-                        <div>
-                            <a href="#" class="text-indigo-800 font-semibold">Forgot Password?</a>
+                        <div class="mt-3">
+                            <label for="password" class="block text-base mb-2">Password</label>
+                            <input type="password" name="password" id="password" class="border w-full text-base px-2 py-1 focus:outline-none focus:ring-0 focus:border-gray-600" placeholder="Enter Password..." />
                         </div>
-                    </div>
-                    <div class="mt-5">
-                        <button type="submit" class="border-2 border-indigo-700 bg-indigo-700 text-white py-1 w-full rounded-md hover:bg-transparent hover:text-indigo-700 font-semibold"><i class="fa-solid fa-right-to-bracket"></i>&nbsp;&nbsp;Login</button>
-                    </div>
+                        <div class="mt-3 flex justify-between items-center">
+                            <div>
+                                <input type="checkbox">
+                                <label>Remember Me</label>
+                            </div>
+                            <div>
+                                <a href="#" class="text-indigo-800 font-semibold">Forgot Password?</a>
+                            </div>
+                        </div>
+                        <div class="mt-5">
+                            <button type="button" id="teacher_loginbutton" class="border-2 border-indigo-700 bg-indigo-700 text-white py-1 w-full rounded-md hover:bg-transparent hover:text-indigo-700 font-semibold"><i class="fa-solid fa-right-to-bracket"></i>&nbsp;&nbsp;Login</button>
+                        </div>
+                    </form>
+
                 </div>
             </div>
 
@@ -560,41 +597,40 @@ if(isset($_SESSION['user'])){
         <div class="teacher_create_box hidden">
         
             <div class="my-4 py-8" style="background-image: linear-gradient(115deg, #9F7AEA, #FEE2FE)">
-            <div class="container mx-auto">
-                <div class="flex flex-col lg:flex-row w-10/12 lg:w-8/12 bg-white rounded-xl mx-auto shadow-lg overflow-hidden">
-                <div class="w-full lg:w-1/2 flex flex-col items-center justify-center p-12 bg-no-repeat bg-cover bg-center" style="background-image: url('../image/Register-Background.png');">
+            <div class="container-fluid mx-auto">
+                <div class="flex flex-col lg:flex-row w-11/12 lg:w-12/12 bg-white rounded-xl mx-auto shadow-lg overflow-hidden">
+                <div class="w-full lg:w-1/2 flex flex-col items-center justify-center p-2 bg-no-repeat bg-cover bg-center" style="background-image: url('../image/Register-Background.png');">
                     <h1 class="text-white text-3xl mb-3">Welcome</h1>
                     <div>
-                    <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean suspendisse aliquam varius rutrum purus maecenas ac <a href="#" class="text-purple-500 font-semibold teacher_l_btn">Login Now</a></p>
+                    <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean suspendisse aliquam varius rutrum purus maecenas ac <a href="#" class="text-purple-500 font-semibold border-2 border-rose-600 p-1 m-1 shadow-lg space-y-3 hover:bg-sky-500 hover:ring-sky-500 rounded-full teacher_l_btn">Login Now</a></p>
                     </div>
                 </div>
-                <div class="w-full lg:w-1/2 py-16 px-12">
+                <div class="w-full lg:w-1/2 py-16 px-2">
                     <h2  class="text-3xl mb-4">Register</h2>
                     <p class="mb-4">
                     Create your account. It’s free and only take a minute
                     </p>
-                    <form action="#">
-                    <div class="grid grid-cols-2 gap-5">
-                        <input type="text" placeholder="Firstname" class="border border-gray-400 py-1 px-2">
-                        <input type="text" placeholder="Surname" class="border border-gray-400 py-1 px-2">
-                    </div>
+                    <form action="#" class="teacher_signup" role="form" id="teacher_signform">
+                        <input class="form-control" placeholder="Phone/Student ID" name="teacher_mesignup" id="teacher_mesignup" type="hidden">
+
+                        <div class="grid grid-cols-2 gap-5">
+                            <input type="text" placeholder="Full Name"  name="fname" id="fname" class="border border-gray-400 py-1 px-2">
+                            <input type="text" placeholder="User Name | Surname" name="susername" id="teacher_susername" class="border border-gray-400 py-1 px-2">
+                        </div>
+                        <div class="mt-5">
+                            <input type="phone" placeholder="Phone"  name="phone" id="sphone" class="border  border-gray-400 py-1 px-2 w-full">
+                        </div>
+                        <div class="mt-5">
+                            <input type="text" placeholder="Email" name="semail" id="semail" class="border border-gray-400 py-1 px-2 w-full">
+                        </div>
+                        <div class="mt-5">
+                            <input name="spassword" id="spassword" type="number" placeholder="Password" class="border border-gray-400 py-1 px-2 w-full">
+                        </div>
+                        <div class="mt-5">
+                            <input type="password" placeholder="Confirm Password" name="scpassword" id="scpassword" class="border border-gray-400 py-1 px-2 w-full">
+                        </div>
                     <div class="mt-5">
-                        <input type="text" placeholder="Email" class="border border-gray-400 py-1 px-2 w-full">
-                    </div>
-                    <div class="mt-5">
-                        <input type="password" placeholder="Password" class="border border-gray-400 py-1 px-2 w-full">
-                    </div>
-                    <div class="mt-5">
-                        <input type="password" placeholder="Confirm Password" class="border border-gray-400 py-1 px-2 w-full">
-                    </div>
-                    <div class="mt-5">
-                        <input type="checkbox" class="border border-gray-400">
-                        <span>
-                        I accept the <a href="#" class="text-purple-500 font-semibold">Terms of Use</a> &  <a href="#" class="text-purple-500 font-semibold">Privacy Policy</a> 
-                        </span>
-                    </div>
-                    <div class="mt-5">
-                        <button class="w-full bg-purple-500 py-3 text-center text-white">Register Now</button>
+                        <button class="w-full bg-purple-500 py-3 text-center text-white" type="button" id="teacher_signupbutton">Register Now</button>
                     </div>
                     </form>
                 </div>
@@ -904,3 +940,426 @@ allTabMenu.forEach(item=> {
 	}
 })
 </script>
+<script>
+    $(document).ready(function(){
+	//bind enter key to click button
+	$(document).keypress(function(e){
+    	if (e.which == 13){
+    		if($('#loginform').is(":visible")){
+    			$("#loginbutton").click();
+    		}
+        	else if($('#signupform').is(":visible")){
+        		$("#signupbutton").click();
+        	}
+    	}
+	});
+
+	$('#signup').click(function(){
+		$('#loginform').slideUp();
+		$('#signupform').slideDown();
+		$('#myalert').slideUp();
+		$('#signform')[0].reset();
+	});
+
+	$('#login').click(function(){
+		$('#loginform').slideDown();
+		$('#signupform').slideUp();
+		$('#myalert').slideUp();
+		$('#logform')[0].reset();
+	});
+
+	$(document).on('click', '#mess_signupbutton', function(){
+		if($('#mess_susername').val()!='' && $('#mess_spassword').val()!=''){
+			$('#mess_signupbutton').val('Signing up...');
+			$('#myalert').slideUp();
+			var signform = $('#mess_signform').serialize();
+			$.ajax({
+				method: 'POST',
+				url: 'login.php',
+				data: signform,
+
+				success:function(data){
+                    Swal.fire({
+                                type: 'success',
+                                title: "Mess Admin Successfully Signed Up!",
+                                text: "THank you Admin! "+data,
+                                icon: "success",
+                                button: false,
+                                dangerMode: true,
+                                timer: 3000,
+                            
+                            });
+					setTimeout(function(){
+					$('#myalert').slideDown();
+					$('#alerttext').html(data);
+					$('#mess_signupbutton').val('Sign up');
+					$('#mess_signform')[0].reset();
+            //    alert(data);
+					}, 2000);
+				}
+			});
+		}
+		else{
+			alert('Please input all fields to Sign Up');
+		}
+	});
+
+	$(document).on('click', '#mess_loginbutton', function(){
+		if($('#mess_username').val()!=''){
+			$('#mess_loginbutton').val('Logging in...');
+			$('#myalert').slideUp();
+			var logform = $('#mess_logform').serialize();
+			setTimeout(function(){
+				$.ajax({
+					method: 'POST',
+					url: './login.php',
+					data: logform,
+					success:function(data){
+						if(data==1){
+                            // alert(data);
+                            Swal.fire({
+                                type: 'success',
+                                title: "Mess Admin Successfully Logged In!",
+                                text: "THank you Admin! "+data,
+                                icon: "success",
+                                button: false,
+                                dangerMode: true,
+                                timer: 3000,
+                            
+                            });
+
+							$('#myalert').slideDown();
+							$('#alerttext').text('Login Successful. User Verified!');
+							$('#mess_loginbutton').val('Thank You!');
+							$('#mess_logform')[0].reset();
+							setTimeout(function(){
+								location.reload();
+							}, 2000);
+						}
+						else{
+                    //  alert(data);
+
+                    Swal.fire({
+                                type: 'warning',
+                                title: "Mess Admin not Found!",
+                                text: "Try again you, Admin! "+data,
+                                icon: "warning",
+                                button: false,
+                                dangerMode: true,
+                                timer: 3000,
+                            
+                            });
+
+							$('#myalert').slideDown();
+							$('#alerttext').html(data);
+							$('#mess_loginbutton').val('Try Again!');
+							$('#mess_logform')[0].reset();
+						}
+					}
+				});
+			}, 2000);
+		}
+		else{
+			alert('Please input Phone fields to Login');
+		}
+	});
+
+
+    $(document).on('click', '#user_signupbutton', function(){
+		if($('#user_susername').val()!='' && $('#user_spassword').val()!=''){
+			$('#user_signupbutton').val('Signing up...');
+			$('#myalert').slideUp();
+			var signform = $('#user_signform').serialize();
+			$.ajax({
+				method: 'POST',
+				url: './login.php',
+				data: signform,
+
+				success:function(data){
+
+                    Swal.fire({
+                                type: 'success',
+                                title: "User Successfully Signed Up!",
+                                text: "THank you User! "+data,
+                                icon: "success",
+                                button: false,
+                                dangerMode: true,
+                                timer: 3000,
+                            
+                            });
+
+					setTimeout(function(){
+					$('#myalert').slideDown();
+					$('#alerttext').html(data);
+					$('#user_signupbutton').val('Sign up');
+					$('#user_signform')[0].reset();
+            //    alert(data);
+					}, 2000);
+				}
+			});
+		}
+		else{
+			alert('Please input all fields to Sign Up');
+		}
+	});
+
+	$(document).on('click', '#user_loginbutton', function(){
+		if($('#user_username').val()!=''){
+			$('#user_loginbutton').val('Logging in...');
+			$('#myalert').slideUp();
+			var logform = $('#user_logform').serialize();
+			setTimeout(function(){
+				$.ajax({
+					method: 'POST',
+					url: './login.php',
+					data: logform,
+					success:function(data){
+						if(data==1){
+
+                            Swal.fire({
+                                type: 'success',
+                                title: "User Successfully Logged In!",
+                                text: "THank you User! "+data,
+                                icon: "success",
+                                button: false,
+                                dangerMode: true,
+                                timer: 3000,
+                            
+                            });
+
+							$('#myalert').slideDown();
+							$('#alerttext').text('Login Successful. User Verified!');
+							$('#user_loginbutton').val('Thank You!');
+							$('#user_logform')[0].reset();
+							setTimeout(function(){
+								location.reload();
+							}, 2000);
+						}
+						else{
+                    //  alert(data);
+                    Swal.fire({
+                                type: 'warning',
+                                title: "User not Found!",
+                                text: "Try again you, User !"+data,
+                                icon: "warning",
+                                button: false,
+                                dangerMode: true,
+                                timer: 3000,
+                            
+                            });
+
+							$('#myalert').slideDown();
+							$('#alerttext').html(data);
+							$('#user_loginbutton').val('Try Again!');
+							$('#user_logform')[0].reset();
+						}
+					}
+				});
+			}, 2000);
+		}
+		else{
+			alert('Please input Phone fields to Login');
+		}
+	});
+
+
+    $(document).on('click', '#school_signupbutton', function(){
+		if($('#school_susername').val()!='' && $('#school_spassword').val()!=''){
+			$('#school_signupbutton').val('Signing up...');
+			$('#myalert').slideUp();
+			var signform = $('#school_signform').serialize();
+			$.ajax({
+				method: 'POST',
+				url: 'login.php',
+				data: signform,
+
+				success:function(data){
+
+                    Swal.fire({
+                                type: 'success',
+                                title: "School Admin Successfully Signed Up!",
+                                text: "THank you Admin, "+data,
+                                icon: "success",
+                                button: false,
+                                dangerMode: true,
+                                timer: 3000,
+                            
+                            });
+
+					setTimeout(function(){
+					$('#myalert').slideDown();
+					$('#alerttext').html(data);
+					$('#school_signupbutton').val('Sign up');
+					$('#school_signform')[0].reset();
+            //    alert(data);
+					}, 2000);
+				}
+			});
+		}
+		else{
+			alert('Please input all fields to Sign Up');
+		}
+	});
+
+	$(document).on('click', '#school_loginbutton', function(){
+		if($('#school_username').val()!=''){
+			$('#school_loginbutton').val('Logging in...');
+			$('#myalert').slideUp();
+			var logform = $('#school_logform').serialize();
+			setTimeout(function(){
+				$.ajax({
+					method: 'POST',
+					url: './login.php',
+					data: logform,
+					success:function(data){
+						if(data==1){
+
+                            Swal.fire({
+                                type: 'success',
+                                title: "Organizer Admin Successfully Logged In!",
+                                text: "THank you Organizer! "+data,
+                                icon: "success",
+                                button: false,
+                                dangerMode: true,
+                                timer: 3000,
+                            
+                            });
+
+							$('#myalert').slideDown();
+							$('#alerttext').text('Login Successful. User Verified!');
+							$('#school_loginbutton').val('Thank You!');
+							$('#school_logform')[0].reset();
+							setTimeout(function(){
+								location.reload();
+							}, 2000);
+						}
+						else{
+
+                            Swal.fire({
+                                type: 'warning',
+                                title: "School Admin not Found!",
+                                text: "Try again you, Teacher! "+data,
+                                icon: "warning",
+                                button: false,
+                                dangerMode: true,
+                                timer: 3000,
+                            
+                            });
+
+                    //  alert(data);
+							$('#myalert').slideDown();
+							$('#alerttext').html(data);
+							$('#school_loginbutton').val('Try Again!');
+							$('#school_logform')[0].reset();
+						}
+					}
+				});
+			}, 2000);
+		}
+		else{
+			alert('Please input Phone fields to Login');
+		}
+	});
+
+
+    $(document).on('click', '#teacher_signupbutton', function(){
+		if($('#teacher_susername').val()!='' && $('#teacher_spassword').val()!=''){
+			$('#teacher_signupbutton').val('Signing up...');
+			$('#myalert').slideUp();
+			var signform = $('#teacher_signform').serialize();
+			$.ajax({
+				method: 'POST',
+				url: 'login.php',
+				data: signform,
+
+				success:function(data){
+                    Swal.fire({
+                                type: 'success',
+                                title: "Teacher Successfully Signed Up!",
+                                text: "THank you Teacher! "+data,
+                                icon: "success",
+                                button: false,
+                                dangerMode: true,
+                                timer: 3000,
+                            
+                            });
+					setTimeout(function(){
+					$('#myalert').slideDown();
+					$('#alerttext').html(data);
+					$('#teacher_signupbutton').val('Sign up');
+					$('#teacher_signform')[0].reset();
+            //    alert(data);
+					}, 2000);
+				}
+			});
+		}
+		else{
+			alert('Please input all fields to Sign Up');
+		}
+	});
+
+	$(document).on('click', '#teacher_loginbutton', function(){
+		if($('#teacher_username').val()!=''){
+			$('#teacher_loginbutton').val('Logging in...');
+			$('#myalert').slideUp();
+			var logform = $('#teacher_logform').serialize();
+			setTimeout(function(){
+				$.ajax({
+					method: 'POST',
+					url: './login.php',
+					data: logform,
+					success:function(data){
+						if(data==1){
+							$('#myalert').slideDown();
+							$('#alerttext').text('Login Successful. User Verified!');
+							$('#teacher_loginbutton').val('Thank You!');
+							$('#teacher_logform')[0].reset();
+                            // alert(data);
+                            Swal.fire({
+                                type: 'success',
+                                title: "Teacher Successfully Login!",
+                                text: "THank you Teacher! "+data,
+                                icon: "success",
+                                button: false,
+                                dangerMode: true,
+                                timer: 3000,
+                            
+                            });
+							setTimeout(function(){
+								location.reload();
+							}, 2000);
+						}
+						else{
+                    //  alert(data);
+                            Swal.fire({
+                                type: 'warning',
+                                title: "Teacher not Found!",
+                                text: "Try again you, Teacher! "+data,
+                                icon: "warning",
+                                button: false,
+                                dangerMode: true,
+                                timer: 3000,
+                            
+                            });
+							$('#myalert').slideDown();
+							$('#alerttext').html(data);
+							$('#teacher_loginbutton').val('Try Again!');
+							$('#teacher_logform')[0].reset();
+						}
+					}
+				});
+			}, 2000);
+		}
+		else{
+			alert('Please input Phone fields to Login');
+		}
+	});
+
+
+});
+
+
+
+</script>
+<script src="../js/sweetalert.min.js"></script>
+<script src="../js/sweetalert2.all.min.js"></script>

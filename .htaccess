@@ -3,7 +3,7 @@ php_value error_reporting 9999
 
 RewriteEngine On
 
-RewriteBase /
+# RewriteBase /
 
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}\.php -f
@@ -22,18 +22,39 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-l
 
-RewriteRule ^ur/(.+)/(.+)$ url?u_id=$1&action=$2 [QSA,L]
-RewriteRule ^u/(.+)/(.+)$ url?u_id=$1&action=$2 [QSA,L]
-RewriteRule ^url.php/(.+)/(.+)$ url?u_id=$1&action=$2 [QSA,L]
-RewriteRule ^url/(.+)/(.+)$ url.php?u_id=$1&action=$2 [QSA,L]
+RewriteRule ^admission/(.+)$ admission/form?id=$1 [QSA,L]
 
-RewriteRule ^mr/(.+)/(.+)$ mrl?u_id=$1&action=$2 [QSA,L]
-RewriteRule ^mess/(.+)/(.+)$ mrl?u_id=$1&action=$2 [QSA,L]
-RewriteRule ^me/(.+)/(.+)$ mrl?u_id=$1&action=$2 [QSA,L]
-RewriteRule ^m/(.+)/(.+)$ mrl?u_id=$1&action=$2 [QSA,L]
-RewriteRule ^mrl.php/(.+)/(.+)$ mrl?u_id=$1&action=$2 [QSA,L]
-RewriteRule ^mrl/(.+)/(.+)$ mrl.php?u_id=$1&action=$2 [QSA,L]
+RewriteRule ^candidate/result/(.+)$ admission/result/result.php?id=$1 [QSA,L]
 
-RewriteRule ^uu/(.+)/(.+)/(.+)$ urll?u_id=$1&action=$2&name=$3 [QSA,L]
-RewriteRule ^urll.php/(.+)/(.+)/(.+)$ urll?u_id=$1&action=$2&name=$3 [QSA,L]
-RewriteRule ^urll/(.+)/(.+)/(.+)$ urll.php?u_id=$1&action=$2&name=$3 [QSA,L]
+RewriteRule ^home/(.+)$ admission/home?id=$1 [QSA,L]
+
+RewriteRule ^edu/(.+)$ school/school.php?id=$1 [QSA,L]
+
+# RewriteRule ^ur/(.+)/(.+)$ url?u_id=$1&action=$2 [QSA,L]
+# RewriteRule ^u/(.+)/(.+)$ url?u_id=$1&action=$2 [QSA,L]
+# RewriteRule ^url.php/(.+)/(.+)$ url?u_id=$1&action=$2 [QSA,L]
+# RewriteRule ^url/(.+)/(.+)$ url.php?u_id=$1&action=$2 [QSA,L]
+
+# RewriteRule ^mr/(.+)/(.+)$ mrl?u_id=$1&action=$2 [QSA,L]
+# RewriteRule ^mess/(.+)/(.+)$ mrl?u_id=$1&action=$2 [QSA,L]
+# RewriteRule ^me/(.+)/(.+)$ mrl?u_id=$1&action=$2 [QSA,L]
+# RewriteRule ^m/(.+)/(.+)$ mrl?u_id=$1&action=$2 [QSA,L]
+# RewriteRule ^mrl.php/(.+)/(.+)$ mrl?u_id=$1&action=$2 [QSA,L]
+# RewriteRule ^mrl/(.+)/(.+)$ mrl.php?u_id=$1&action=$2 [QSA,L]
+
+# RewriteRule ^uu/(.+)/(.+)/(.+)$ urll?u_id=$1&action=$2&name=$3 [QSA,L]
+# RewriteRule ^urll.php/(.+)/(.+)/(.+)$ urll?u_id=$1&action=$2&name=$3 [QSA,L]
+# RewriteRule ^urll/(.+)/(.+)/(.+)$ urll.php?u_id=$1&action=$2&name=$3 [QSA,L]
+
+
+RewriteRule ^h(.*)$ preload/home.php?id=$1 [QSA,L]
+# RewriteRule ^a(.*)$ admin/index.php?id=$1 [QSA,L]
+
+RewriteRule ^id(.*)$ home.php?id=$1 [QSA,L]
+
+
+
+# ErrorDocument 404 page_not_found
+ErrorDocument 404 /edu/404.php
+
+
