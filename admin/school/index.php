@@ -227,7 +227,7 @@ if(!isset($_SESSION['user'])){
             </div>
     </div>
 
-    <div class="routine_schedule_table" id="routine_schedule_table bg-blue-100">
+    <div class="container-fluid routine_schedule_table" id="routine_schedule_table bg-blue-100">
     <div class="popup-routine_schedule text-center hidden">
         <div class="content-routine_schedule text-center border-pink-300 border-2 shadow-lg  rounded-lg bg-white-100 p-2">
                 <div class="back"><button type="button" class="routine_schedule_back_btn float-end text-3xl font-medium ml-5 text-pink-600"><i class="bi bi-arrow-left-circle-fill"></i></button></div>
@@ -240,67 +240,162 @@ if(!isset($_SESSION['user'])){
 
 
 <div class="rounded-lg form-control shadow-lg bg-white">
-  <form action='' role="form" id="fee_m_a_form">
 
-<h5 class="text-center" >Add a Mess fee</h5>
+<div class="container-fluid" id="routine_schedules_data">
+<h5 class="text-center" >Please Wait to Load Routine Scheduls</h5>
 
-  <div class="form-floating ">
-      <input type="text" class="form-control
-      w-full
-      text-base
-      font-normal
-      text-gray-700
-      bg-white bg-clip-padding
-      border border-solid border-gray-300
-      rounded
-      transition
-      ease-in-out
-      focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" name="fee_m_a_t" id="fee_m_a_t" placeholder="Fee Type">
-      <label for="fee_m_a_t" class="text-gray-700">Fee Type</label>
-  </div>
-  <div class="form-floating ">
-      <input type="number" class="form-control
-      w-full
-      text-base
-      font-normal
-      text-gray-700
-      bg-white bg-clip-padding
-      border border-solid border-gray-300
-      rounded
-      transition
-      ease-in-out
-      focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" name="fee_m_a_a" id="fee_m_a_a" placeholder="Amount">
-      <label for="fee_m_a_a" class="text-gray-700">Amount</label>
-  </div>
+<!-- <div class="container-fluid">
+
+<div class="row">
+    <div class="text-center m-auto">
+
+    </div>
+    <div class="row">
+        <div class="col-6 text-start">
+        <button class="btn btn-warning new_schedule_btn" data-bs-toggle="modal" data-bs-target="#my_modal_schedule_add" data-bs-whatever="@mdo">
+            <center>Schedules</center>
+        </button>
+        </div>
+        <div class="col-6 text-end">
+            <button class="btn btn-warning new_schedule_btn" data-bs-toggle="modal" data-bs-target="#my_modal_schedule_add" data-bs-whatever="@mdo">
+                New
+            </button>
+        </div>
+    </div>
+    <div class="col-md">
+        <div class="accordion">
+        <div class="accordion-item">
+                <h2 style="font-size:15px" class="accordion-button" data-bs-target="#schedule_table" data-bs-toggle="collapse">Schedules</h2>
+                <div class="others_fees_list_hhh"></div>
+                <div id="schedule_table" class="accordion-collapse collapse:visible visibility: visible show">
+                    <div class="accordion-body">
+
+                        <div class="routine_schedule_table_list">
+                            <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+
+                                <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                        <tr>
+                                            <th scope="col" class="p-4">
+                                                <div class="flex items-center">
+                                                    <input id="checkbox-all-search" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                                    <label for="checkbox-all-search" class="sr-only">checkbox</label>
+                                                </div>
+                                            </th>
+                                            <th scope="col" class="px-6 py-3">
+                                                #
+                                            </th>
+                                            <th scope="col" class="px-6 py-3">
+                                                Roll|SID
+                                            </th>
+                                            <th scope="col" class="px-6 py-3">
+                                                Name
+                                            </th>
+                                            <th scope="col" class="px-6 py-3">
+                                                Gender
+                                            </th>
+                                            <th scope="col" class="px-6 py-3">
+                                                Status
+                                            </th>
+                                            <th scope="col" class="px-6 py-3">
+                                                Serial
+                                            </th>
+                                            <th scope="col" class="px-6 py-3">
+                                                Phone
+                                            </th>
+                                            <th scope="col" class="px-6 py-3">
+                                                Action
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="_candidates_data_row">
 
 
-    <button type="button" class="
-      fee_m_ad_btn
-      w-full
-      px-6
-      py-2.5
-      border-2 
-      border-green-500 
-      text-green-500
-      font-medium
-      text-xs
-      leading-tight
-      uppercase
-      rounded
-      shadow-md
-      hover:bg-blue-700 hover:shadow-lg
-      focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0
-      active:bg-blue-800 active:shadow-lg
-      transition
-      duration-150
-      ease-in-out" name="fee_m_a_btn" id="fee_m_a_btn">Add Fee</button>
-      <input class="form-control" placeholder="" name="fee_m_a" id="fee_m_a" type="hidden">
-  </form>
+                                    </tbody>
+                                </table>
+                                <nav class="flex items-center flex-column flex-wrap md:flex-row justify-between pt-4" aria-label="Table navigation">
 
-    <div id="myalert_mmfee" style="display:none;">
+                                    <ul class="inline-flex -space-x-px rtl:space-x-reverse text-sm h-8">
+                                        <li>
+                                            <a href="#" class="flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Previous</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">1</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">2</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" aria-current="page" class="flex items-center justify-center px-3 h-8 text-blue-600 border border-gray-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white">3</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">4</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">5</a>
+                                        </li>
+                                        <li>
+                                    <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Next</a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                                </div>
+                        </div>
+
+                    </div>
+                </div>
+        </div>
+        </div>
+    </div>
+
+</div>
+<div class="row">
+<div class="col-md">
+        
+        <div class="row">
+            <div class="accordion">
+            <div class="accordion-item">
+                    <h2 style="font-size:15px" class="accordion-button" data-bs-target="#lotery_system3e" data-bs-toggle="collapse">System</h2>
+                    
+                    <div id="lotery_system3e" class="accordion-collapse collapse:visible visibility: visible show">
+                        <div class="accordion-body text-dark">
+
+
+
+
+                        </div>
+                    </div>
+            </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="accordion">
+            <div class="accordion-item">
+                    <h2 style="font-size:15px" class="accordion-button" data-bs-target="#lotery_system22e" data-bs-toggle="collapse">Remarks Key</h2>
+                    
+                    <div id="lotery_system22e" class="accordion-collapse collapse:visible visibility: visible show">
+                        <div class="accordion-body text-dark">
+
+
+
+
+                        </div>
+                    </div>
+            </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</div> -->
+
+</div>
+
+    <div id="myalert_routine_schedules" style="display:none;">
         <div class="container col-md-offset-4">
             <div class="alert alert-info">
-                <center><span id="alerttext_mmfee"></span></center>
+                <center><span id="alerttext_routine_schedules"></span></center>
             </div>
         </div>
     </div>
@@ -4553,7 +4648,7 @@ if(!isset($_SESSION['user'])){
       <div class="modal-header">
       <div id="myalert_room_add" style="display:none;">
         <div class="container col-md-offset-4">
-          <div class="alert alert-info_room_add">
+          <div class="alert alert-info _room_add">
             <center><span id="alerttext_room_add"></span></center>
           </div>
         </div>
@@ -4645,7 +4740,7 @@ if(!isset($_SESSION['user'])){
       <div class="modal-header">
       <div id="myalert_routine_add" style="display:none;">
         <div class="container col-md-offset-4">
-          <div class="alert alert-info_routine_add">
+          <div class="alert alert-info _routine_add">
             <center><span id="alerttext_routine_add"></span></center>
           </div>
         </div>
@@ -4707,7 +4802,7 @@ if(!isset($_SESSION['user'])){
       <div class="modal-header">
       <div id="myalert_routine_edu_add" style="display:none;">
         <div class="container col-md-offset-4">
-          <div class="alert alert-info_routine_edu_add">
+          <div class="alert alert-info _routine_edu_add">
             <center><span id="alerttext_routine_edu_add"></span></center>
           </div>
         </div>
@@ -4771,7 +4866,7 @@ if(!isset($_SESSION['user'])){
       <div class="modal-header">
       <div id="myalert_exam_routine_add" style="display:none;">
         <div class="container col-md-offset-4">
-          <div class="alert alert-info_exam_routine_add">
+          <div class="alert alert-info _exam_routine_add">
             <center><span id="alerttext_exam_routine_add"></span></center>
           </div>
         </div>
@@ -4833,7 +4928,7 @@ if(!isset($_SESSION['user'])){
       <div class="modal-header">
       <div id="myalert_routine_schedule_add" style="display:none;">
         <div class="container col-md-offset-4">
-          <div class="alert alert-info_routine_schedule_add">
+          <div class="alert alert-info _routine_schedule_add">
             <center><span id="alerttext_routine_schedule_add"></span></center>
           </div>
         </div>
@@ -5341,7 +5436,6 @@ $(document).on('click','.exam_routine_btn',function(){
       }
     });
 });
-
 
 
     $(document).on('click', '#class_add_btn', function(){
@@ -6107,12 +6201,37 @@ function sessions_routine(){
             $('.home_routine_space').addClass('hidden');
         });
         $(document).on('click','.routine_schedule_back_btn', function(){
-          var butn_id = $(this).attr('id');
+          var btn_id = $(this).attr('id');
           $('.popup-routine_schedule').addClass('hidden');
-          $('.routine_schedule_main').removeClass('hidden');
+          $('.routine_container').removeClass('hidden');
           // $('.popup-sett_fee').removeClass('hidden');
+        //   schedule(btn_id);
 
         });
+        $(document).on('click','.routine_wise_data_btn', function(){
+          var btn_id = $(this).attr('id');
+          $('.popup-routine_schedule').removeClass('hidden');
+          $('.routine_container').addClass('hidden');
+          schedule(btn_id);
+
+        });
+
+function schedule(id){
+    $.ajax({
+      url:'./school_admin.php',
+      type:'post',
+      data: {
+        id:id,
+        routine_schedule_data: true
+      },
+      success: function(response){
+        $('#routine_schedules_data').html(response);
+        // $('#classes_data_row_routine').html(response);
+
+      }
+    });
+};
+
     });
 </script>
 <script>

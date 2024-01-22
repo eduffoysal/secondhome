@@ -298,6 +298,157 @@ if(isset($_POST["session_data_ff"])){
 
 }
 
+if(isset($_POST['routine_schedule_data'])){
+    ?>
+
+<div class="container-fluid">
+
+<div class="row">
+    <div class="text-center m-auto">
+
+    </div>
+    <div class="row">
+        <div class="col-6 text-start">
+        <button class="btn btn-warning new_schedule_btn" data-bs-toggle="modal" data-bs-target="#my_modal_schedule_add" data-bs-whatever="@mdo">
+            <center>Schedules</center>
+        </button>
+        </div>
+        <div class="col-6 text-end">
+            <button class="btn btn-warning new_schedule_btn" data-bs-toggle="modal" data-bs-target="#my_modal_schedule_add" data-bs-whatever="@mdo">
+                New
+            </button>
+        </div>
+    </div>
+    <div class="col-md">
+        <div class="accordion">
+        <div class="accordion-item">
+                <h2 style="font-size:15px" class="accordion-button" data-bs-target="#schedule_table" data-bs-toggle="collapse">Schedules</h2>
+                <div class="others_fees_list_hhh"></div>
+                <div id="schedule_table" class="accordion-collapse collapse:visible visibility: visible show">
+                    <div class="accordion-body">
+
+                        <div class="routine_schedule_table_list">
+                            <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+
+                                <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                        <tr>
+                                            <th scope="col" class="p-4">
+                                                <div class="flex items-center">
+                                                    <input id="checkbox-all-search" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                                    <label for="checkbox-all-search" class="sr-only">checkbox</label>
+                                                </div>
+                                            </th>
+                                            <th scope="col" class="px-6 py-3">
+                                                #
+                                            </th>
+                                            <th scope="col" class="px-6 py-3">
+                                                Roll|SID
+                                            </th>
+                                            <th scope="col" class="px-6 py-3">
+                                                Name
+                                            </th>
+                                            <th scope="col" class="px-6 py-3">
+                                                Gender
+                                            </th>
+                                            <th scope="col" class="px-6 py-3">
+                                                Status
+                                            </th>
+                                            <th scope="col" class="px-6 py-3">
+                                                Serial
+                                            </th>
+                                            <th scope="col" class="px-6 py-3">
+                                                Phone
+                                            </th>
+                                            <th scope="col" class="px-6 py-3">
+                                                Action
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="_candidates_data_row">
+
+
+                                    </tbody>
+                                </table>
+                                <nav class="flex items-center flex-column flex-wrap md:flex-row justify-between pt-4" aria-label="Table navigation">
+
+                                    <ul class="inline-flex -space-x-px rtl:space-x-reverse text-sm h-8">
+                                        <li>
+                                            <a href="#" class="flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Previous</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">1</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">2</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" aria-current="page" class="flex items-center justify-center px-3 h-8 text-blue-600 border border-gray-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white">3</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">4</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">5</a>
+                                        </li>
+                                        <li>
+                                    <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Next</a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                                </div>
+                        </div>
+
+                    </div>
+                </div>
+        </div>
+        </div>
+    </div>
+
+</div>
+<div class="row">
+<div class="col-md">
+        
+        <div class="row">
+            <div class="accordion">
+            <div class="accordion-item">
+                    <h2 style="font-size:15px" class="accordion-button" data-bs-target="#lotery_system3e" data-bs-toggle="collapse">System</h2>
+                    
+                    <div id="lotery_system3e" class="accordion-collapse collapse:visible visibility: visible show">
+                        <div class="accordion-body text-dark">
+
+
+
+
+                        </div>
+                    </div>
+            </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="accordion">
+            <div class="accordion-item">
+                    <h2 style="font-size:15px" class="accordion-button" data-bs-target="#lotery_system22e" data-bs-toggle="collapse">Remarks Key</h2>
+                    
+                    <div id="lotery_system22e" class="accordion-collapse collapse:visible visibility: visible show">
+                        <div class="accordion-body text-dark">
+
+
+
+
+                        </div>
+                    </div>
+            </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</div>
+
+    <?php
+}
 
 if(isset($_POST['routine_data'])){
 
@@ -375,7 +526,7 @@ if(isset($_POST["routine_data_f"])){
 
             ?>
 
-            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600" id="<?=$id?>">
+            <tr class="bg-white border-b routine_wise_data_btn dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600" id="<?=$id?>">
                 <td class="w-4 p-4">
                     <div class="flex items-center">
                         <input id="checkbox-table-search-1" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
@@ -497,7 +648,7 @@ if(isset($_POST["routine_edu_data_f"])){
 
             ?>
 
-            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600" id="<?=$id?>">
+            <tr class="bg-white border-b routine_edu_wise_data_btn dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600" id="<?=$id?>">
                 <td class="w-4 p-4">
                     <div class="flex items-center">
                         <input id="checkbox-table-search-1" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
@@ -619,7 +770,7 @@ if(isset($_POST["exam_routine_data_f"])){
 
             ?>
 
-            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600" id="<?=$id?>">
+            <tr class="bg-white border-b exam_routine_wise_data_btn dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600" id="<?=$id?>">
                 <td class="w-4 p-4">
                     <div class="flex items-center">
                         <input id="checkbox-table-search-1" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
@@ -771,7 +922,7 @@ if(isset($_POST["class_data_f"])){
 
             ?>
 
-            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600" id="<?=$id?>">
+            <tr class="bg-white border-b class_wise_data_btn dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600" id="<?=$id?>">
                 <td class="w-4 p-4">
                     <div class="flex items-center">
                         <input id="checkbox-table-search-1" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
@@ -898,7 +1049,7 @@ if(isset($_POST["room_data_f"])){
 
             ?>
 
-            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600" id="<?=$id?>">
+            <tr class="bg-white border-b room_wise_data_btn dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600" id="<?=$id?>">
                 <td class="w-4 p-4">
                     <div class="flex items-center">
                         <input id="checkbox-table-search-1" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
