@@ -4736,7 +4736,7 @@ if(!isset($_SESSION['user'])){
       <div class="modal-body modal_data_room" id="modal_data_room">
 
 
-      <div class="container text-center classes_container_data" id="classes_container_data">
+        <div class="container text-center classes_container_data" id="classes_container_data">
                               
 
                               <div class="p-1 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
@@ -4800,7 +4800,7 @@ if(!isset($_SESSION['user'])){
                               </div>
                               
                               
-                        </div>
+        </div>
 
 
       </div>
@@ -5770,6 +5770,67 @@ $(document).on('click','.exam_routine_btn',function(){
 
 
 
+
+    $(document).on('click', '#schedule_add_btn', function(){
+		if($('#sub_name').val()!='' && $('#sub_code').val()!=''){
+            // alert($('#session_s_date').val());
+			$('#schedule_add_btn').val('Saving...');
+			$('#myalert_routine_schedules').slideUp();
+			var schedule_form = $('#schedule_form_data').serialize();
+			$.ajax({
+				method: 'POST',
+				url: './school_admin.php',
+				data: schedule_form,
+
+				success:function(data){
+                    if(data==1){
+                        Swal.fire({
+                                type: 'success',
+                                title: "Schedule Successfully Added!",
+                                text: "Thank you Admin! ",
+                                icon: "success",
+                                button: false,
+                                dangerMode: true,
+                                timer: 3000,
+                            
+                            });
+                        setTimeout(function(){
+                        $('#myalert_routine_schedules').slideDown();
+                        $('#alerttext_routine_schedules').html("Schedule Successfully Added");
+                        $('#schedule_add_btn').val('Save Schedule');
+                        $('#schedule_form_data')[0].reset();
+                        }, 2000);
+                        setTimeout(function(){
+                        // location.reload();
+                        }, 3000);
+                    }else{
+                        Swal.fire({
+                                type: 'warning',
+                                title: "Please Try Again!",
+                                text: "Thank you Admin! "+data,
+                                icon: "warning",
+                                button: false,
+                                dangerMode: true,
+                                timer: 3000,
+                            
+                            });
+                        setTimeout(function(){
+                        $('#myalert_routine_schedules').slideDown();
+                        $('#alerttext_routine_schedules').html(data);
+                        $('#schedule_form_data').val('Try Again, Schedule');
+                        $('#schedule_form_data')[0].reset();
+                        }, 2000);
+                        setTimeout(function(){
+                        // location.reload();
+                        }, 3000);
+                    }            
+				}
+			});
+		}
+		else{
+			alert('Please input all fields');
+		}
+	});    
 
     $(document).on('click', '#room_add_btn', function(){
 		if($('#room_name').val()!='' && $('#room_code').val()!=''){

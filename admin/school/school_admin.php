@@ -298,6 +298,67 @@ if(isset($_POST["session_data_ff"])){
 
 }
 
+if(isset($_POST['schedule_data'])){
+    $r_id = $_POST['schedule_data'];
+
+    $sub_name = $_POST['sub_name'];
+    $sub_code = $_POST['sub_code'];
+    $room = $_POST['room'];
+    $teacher = $_POST['teacher'];
+    $day = $_POST['sel_day'];
+    $section = $_POST['schedule_section'];
+    $time_to = $_POST['time_to'];
+    $time_from = $_POST['time_from'];
+    $room_id = $_POST['sel_room'];
+    $lab_theory = $_POST['lab_theory'];
+
+    if($room_id!='0'){
+        $rsql = "SELECT * FROM room WHERE id='$room_id' ";
+        $rq = mysqli_query($con,$rsql);
+        $rn = mysqli_num_rows($rq);
+        if($rn==1){
+            $rrow = mysqli_fetch_assoc($rq);
+            $room = $rrow['room_code'];
+        }
+        
+    }
+
+
+    $uniqueId= time().'-'.mt_rand();
+    $unique = strtoupper(bin2hex(random_bytes(3)));
+    $ran_id = rand(time(), 100000000);
+    $unique_id = $unique.'-'.$uniqueId.'-'.$ran_id;
+
+
+    $r_code = $unique;
+    $r_type = '0';
+
+    $sqlc= "SELECT * FROM routine WHERE sId='$school_id' AND id='$r_id' ";
+
+    $result = mysqli_query($con, $sqlc);
+    if(mysqli_num_rows($result)==1){
+
+        $rnrow = mysqli_fetch_assoc($result);
+        $temp_code = $rnrow['temp_code'];
+        $temp_num = $rnrow['temp_num'];
+
+        $sql = "INSERT INTO schedule(sId, unique_id, sub_name, sub_code, t_name, section, routine_id, room_id, room, day, start_time, end_time, temp_code, temp_num, lab_theory) VALUES('$school_id','$unique_id','$sub_name','$sub_code','$teacher','$section','$r_id','$room_id','$room','$day','$time_from','$time_to','$temp_code','$temp_num','$lab_theory')";
+
+        if ($con->query($sql)) {
+
+            echo 1;
+
+        } else {
+            echo "Sorry, Something Went Wrong! Try Again Please! Error: " . $con->error;
+
+            // error_log("MySQL Error: " . $con->error);
+        }
+    }else{
+        echo 2;
+    }
+
+}
+
 if(isset($_POST['routine_schedule_data'])){
     $r_id = $_POST['id'];
     ?>
@@ -306,7 +367,109 @@ if(isset($_POST['routine_schedule_data'])){
             <div class="back"><button type="button" class="add_schedule_container_back_btn float-end text-3xl font-medium ml-5 text-pink-600"><i class="bi bi-arrow-left-circle-fill"></i></button></div>
             <div class="add_schedule_container_body pt-2">
 
-            
+            <div class="p-1 pt-2 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+                                  <form class="space-y-2 schedule_form_data" id="schedule_form_data" action="#" role="form">
+                                    <div class="form-floating">
+                                    <input type="text" class="input-1 form-control form-floating" placeholder="Course or Subject Title" name="sub_name" id="sub_name">
+                                    <label class="" for="sub_name">Course or Subject Title</label>
+                                    </div>
+                                    <div class="form-floating">
+                                        <input type="text" name="sub_code" id="sub_code" class="form-control form-floating bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Course or Subject Code" required="">
+                                        <label for="sub_code" class="sr-onlyy">Course or Subject Code</label>
+
+                                    </div>
+                                    <div class="form-floating">
+                                    <input type="text" class="input-1 form-control form-floating" placeholder="Instructor or Teacher" name="teacher" id="teacher">
+                                    <label class="" for="teacher">Instructor or Teacher</label>
+                                    </div>
+                                    <div class="form-floating">
+                                        <input type="text" name="schedule_section" id="schedule_section" class="form-control form-floating bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Section">
+                                        <label for="schedule_section" class="sr-onlyy">Section</label>
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-floating">
+                                            <input type="time" class="input-1 form-control form-floating" placeholder="Time(From)" name="time_from" id="time_from">
+                                            <label class="" for="time_from">Time(From)</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                        <div class="form-floating">
+                                            <input type="time" class="input-1 form-control form-floating" placeholder="Time(To)" name="time_to" id="time_to">
+                                            <label class="" for="time_to">Time(To)</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-floating">
+                                        <input type="text" name="room" id="room" class="form-control form-floating bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Type Room No or Select Room below" required="">
+                                        <label for="room" class="sr-onlyy">Room</label>
+
+                                    </div>
+
+                                    <div class="sm:hiddenn" id="select_room">
+                                        <label for="sel_room" class="sr-only">Select Room</label>
+                                            <select id="sel_room" name="sel_room" class="sel_room bg-gray-50 border-0 border-b border-gray-200 text-gray-900 sm:text-sm rounded-t-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" data-tabs-toggle="#user_all_contentt" role="tablistt">
+                                            <option id="about-tab" value="0" data-tabs-target="#about"   aria-controls="about" aria-selected="false">Select Room</option>
+
+                        <?php
+                            $sql = "SELECT * FROM room WHERE sId='$school_id' GROUP BY id ";
+                            $i = 0;
+                            $result = mysqli_query($con, $sql);
+                            if(mysqli_num_rows($result)> 0){
+                                while($row = mysqli_fetch_array($result)){
+                                    $id = $row["id"];
+    
+                                    ?>
+                                    <option id="<?=$row['id']?>" value="<?=$row['id']?>" data-tabs-target="#stats"  aria-controls="stats" aria-selected="true"><?=$row['room_name'].' -'.$row['room_code']?></option>
+                                    <?php
+                                }
+                            }
+    
+                            
+                        ?>
+
+                                            </select>
+                                  </div>
+                                  <div class="sm:hiddenn" id="class_programme">
+                                        <label for="sel_day" class="sr-only">Select Day</label>
+                                            <select id="sel_day" name="sel_day" class="sel_day bg-gray-50 border-0 border-b border-gray-200 text-gray-900 sm:text-sm rounded-t-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" data-tabs-toggle="#user_all_contentt" role="tablistt">
+                                            <option id="about-tab" value="Sunday" data-tabs-target="#about"   aria-controls="about" aria-selected="false">Select Day</option>
+                                                <option id="" value="Sunday" data-tabs-target="#stats"  aria-controls="stats" aria-selected="true">Sunday</option>
+                                                <option id="" value="Monday" data-tabs-target="#stats"  aria-controls="stats" aria-selected="true">Monday</option>
+                                                <option id="" value="Tuesday" data-tabs-target="#stats"  aria-controls="stats" aria-selected="true">Tuesday</option>
+                                                <option id="" value="Wednesday" data-tabs-target="#stats"  aria-controls="stats" aria-selected="true">Wednesday</option>
+                                                <option id="" value="Thursday" data-tabs-target="#stats"  aria-controls="stats" aria-selected="true">Thursday</option>
+                                                <option id="" value="Friday" data-tabs-target="#stats"  aria-controls="stats" aria-selected="true">Friday</option>
+                                                <option id="" value="Saturday" data-tabs-target="#stats"  aria-controls="stats" aria-selected="true">Saturday</option>
+                                                <option id="" value="Everyday" data-tabs-target="#stats"  aria-controls="stats" aria-selected="true">Everyday</option>
+
+
+                                            </select>
+                                  </div>
+                                  <div class="sm:hiddenn" id="class_code">
+                                        <label for="sel_lab_theory" class="sr-only">Select Lab|Theroy</label>
+                                            <select id="sel_lab_theory" name="lab_theory" class="sel_lab_theory bg-gray-50 border-0 border-b border-gray-200 text-gray-900 sm:text-sm rounded-t-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" data-tabs-toggle="#user_all_contentt" role="tablistt">
+                                            <option id="about-tab" value="theory" data-tabs-target="#about"   aria-controls="about" aria-selected="false">Select Lab|Theroy</option>
+
+                                            <option id="" value="theory" data-tabs-target="#stats"  aria-controls="stats" aria-selected="true">Theory</option>
+                                            <option id="" value="lab" data-tabs-target="#stats"  aria-controls="stats" aria-selected="true">Lab</option>
+
+                                            </select>
+                                  </div>
+
+                                      <!-- <div>
+                                          <input type="number" name="number_phone" id="tk_pay" placeholder="Phone number" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required="">
+                                      </div>
+                                      <div>
+                                          <input type="number" name="number_tk" id="tk_pay" placeholder="Amount at least 10/=" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required="">
+                                      </div> -->
+                                      <div class="flex items-start">
+                                      <input type="hidden" name="schedule_data" value="<?=$r_id?>">
+                                      </div>
+                                      <button type="button" class="btn-primary w-full schedule_add_btn text-dark hover:text-white bg-blue-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" id="schedule_add_btn">Save Schedule</button>
+                                  </form>
+                              </div>
 
             </div>
     </div>      
@@ -368,7 +531,7 @@ foreach ($daysOfWeek as $index => $day) {
                                     <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
 
                                     <?php
-$sql = "SELECT * FROM schedule WHERE routine_id='$r_id' AND day='$day' ORDER BY start_time, room";
+$sql = "SELECT * FROM schedule WHERE routine_id='$r_id' AND (day='$day' OR day='Everyday') ORDER BY start_time, room";
 $result = $con->query($sql);
 
 if ($result->num_rows > 0) {
