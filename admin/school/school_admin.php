@@ -12,6 +12,7 @@ function my_autoloader($class) {
 }
 
 $admin_id = $_SESSION['user'];
+$u_id = $_SESSION['user'];
 $admin_phone = $_SESSION['user_phone'];
 $school_id = $_SESSION['school_id'];
 
@@ -197,6 +198,475 @@ if(isset($_POST["session_data_f"])){
 
 }
 
+if(isset($_POST["session_data_ff"])){
+
+
+    $sql = "SELECT * FROM session WHERE sId='$school_id'";
+
+    $result = mysqli_query($con, $sql);
+    $i = 1;
+    if(mysqli_num_rows($result)> 0){
+
+        while($row = mysqli_fetch_assoc($result)){
+            $id = $row["id"];
+            $sdate = $row['start_d'];
+            $edate = $row['end_d'];
+
+        $dates = strtotime($sdate);
+      
+        $datee = strtotime($edate);
+
+        $month = date('m', $dates);
+        $mo = date('F', $dates);
+        $year= date('Y', $dates);
+        
+        $mon = date('m', $datee);
+        $m = date('F', $datee);
+        $yea= date('Y', $datee);
+
+        $s_date = $mo .', '. $year;
+        $e_date = $m.', '.$yea;
+
+            $priority = $row['priority'];
+
+            if($priority== '0'){
+                $p = 'None';
+            }else if($priority== '1'){
+                $p = 'Active';
+            }else{ 
+                $p = 'Upcomming';
+            }
+
+            ?>
+
+                <tr>
+                <td class="w-4 p-4">
+                    <div class="flex items-center">
+                        <input id="checkbox-table-search-1" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                        <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
+                    </div>
+                </td>
+                    <td style="width: 140px;"><?=$i++?>#</td>
+                    <td style="width: 140px;"><?=$row['session_name']?></td>
+                    <td style="width: 140px;"><?=$s_date?></td>
+                    <td style="width: 140px;"><?=$e_date?></td>
+                    <td style="width: 140px;"><?=$p?></td>
+                    <td style="width: 240px;">
+                    <?php
+                                    if($priority== '0'){
+                                        $p = 'None';
+                                        ?>
+                                    <button class="set_class_session_active py-1 px-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75" id="<?=$id?>">
+                                        Active
+                                    </button>
+                                    <button class="set_class_session_next py-1 px-2 bg-warning  text-white font-semibold rounded-lg shadow-md hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75" id="<?=$id?>">
+                                        Next->
+                                    </button>
+                                        <?php
+                                    }else if($priority== '1'){
+                                        $p = 'Active';
+                                        ?>
+                                        <button class="set_class_session_next py-1 px-2 bg-warning text-white font-semibold rounded-lg shadow-md hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75" id="<?=$id?>">
+                                            Next->
+                                        </button>
+                                        <button class="set_class_session_none py-1 px-2 bg-danger text-white font-semibold rounded-lg shadow-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75" id="<?=$id?>">
+                                            None
+                                        </button>
+                                        <?php
+                                    }else{ 
+                                        $p = 'Upcomming';
+                                        ?>
+                                        <button class="set_class_session_active py-1 px-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75" id="<?=$id?>">
+                                            Active
+                                        </button>
+                                        <button class="set_class_session_none py-1 px-2 bg-danger text-white font-semibold rounded-lg shadow-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75" id="<?=$id?>">
+                                            None
+                                        </button>
+                                        <?php
+                                    }
+                    ?>
+
+                    </td>
+                </tr>
+
+            <?php
+
+        }
+    }else{
+
+    }
+
+}
+
+
+if(isset($_POST['routine_data'])){
+
+
+    if($_POST['routine_name']!=""){
+        $r_name = $_POST["routine_name"];
+        $r_details = $_POST["routine_details"];
+        $r_session = $_POST["select_session_for_routine"];
+
+
+        // $dateef = strtotime($datef);
+      
+        // $monthh = date('m', $dateef);
+        // $yearr= date('Y', $dateef);
+        
+        // $mon = date('m', $dateef);
+        // $yea= date('Y', $dateef);
+
+        $uniqueId= time().'-'.mt_rand();
+        $unique = strtoupper(bin2hex(random_bytes(3)));
+        $ran_id = rand(time(), 100000000);
+        $unique_id = $unique.'-'.$uniqueId.'-'.$ran_id;
+
+    
+        $r_code = $unique;
+        $r_type = '0';
+        
+
+        $sqlc= "SELECT * FROM routine WHERE sId='$school_id' AND session_id='$r_session' AND temp_name='$r_name' ";
+
+        $result = mysqli_query($con, $sqlc);
+        if(mysqli_num_rows($result)==0){
+
+        $sql = "INSERT INTO routine(sId, unique_id, temp_name, temp_code, temp_details, temp_num, uId, session_id, routine_type) VALUES('$school_id','$unique_id','$r_name','$r_code','$r_details','$ran_id','$u_id','$r_session','$r_type')";
+
+            if ($con->query($sql)) {
+
+                echo 1;
+
+            } else {
+                echo "Sorry, Something Went Wrong! Try Again Please! Error: " . $con->error;
+
+                // error_log("MySQL Error: " . $con->error);
+            }
+        }else{
+            echo "Routine Already added with these Data". $con->error;
+        }    
+    
+    
+        }else{
+    
+        echo "Sorry, Something Went Wrong! Try Again Please!";
+    
+        }
+
+
+}
+
+if(isset($_POST["routine_data_f"])){
+
+    $sql = "SELECT *,r.id as rid, s.id as sid FROM routine r, session s WHERE r.sId='$school_id' AND r.session_id=s.id AND r.routine_type='0' ";
+
+    $result = mysqli_query($con, $sql);
+    $i = 1;
+    if(mysqli_num_rows($result)> 0){
+
+        while($row = mysqli_fetch_assoc($result)){
+            $id = $row["rid"];
+
+            if($row['aStatus']=='1'){
+                $status = "Active";
+            }else{
+                $status = "Disabled";
+            }
+
+            ?>
+
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600" id="<?=$id?>">
+                <td class="w-4 p-4">
+                    <div class="flex items-center">
+                        <input id="checkbox-table-search-1" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                        <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
+                    </div>
+                </td>
+                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    <?=$i++?>
+                </th>
+                <td class="px-6 py-4">
+                    <?=$row['session_name']?>
+                </td>
+                <td class="px-6 py-4">
+                    <?=$row['temp_name']?>
+                </td>
+                <td class="px-6 py-4">
+                <?=$row['temp_code']?>
+                </td>
+                <td class="px-6 py-4">
+                <?=$status?>
+                </td>
+                
+                <td class="px-6 py-4">
+                <?=$row['temp_num']?>
+                </td>
+                <td class="flex items-center px-6 py-4">
+                    <a href="#" class="class_edit font-medium text-blue-600 dark:text-blue-500 hover:underline" id="<?=$id?>">Edit</a>
+                    <a href="#" class="class_delete font-medium text-red-600 dark:text-red-500 hover:underline ms-3" id="<?=$id?>">Remove</a>
+                </td>
+            </tr>
+
+            <?php
+
+        }
+    }else{
+        ?>
+            <tr>
+                <td colspan='8' class='text-center m-auto'>
+                    Data Not Found
+                </td>
+            </tr>
+        <?php
+    }
+
+}
+
+if(isset($_POST['routine_edu_data'])){
+
+
+    if($_POST['routine_name']!=""){
+        $r_name = $_POST["routine_name"];
+        $r_details = $_POST["routine_details"];
+        $r_session = $_POST["select_session_for_routine"];
+
+
+        // $dateef = strtotime($datef);
+      
+        // $monthh = date('m', $dateef);
+        // $yearr= date('Y', $dateef);
+        
+        // $mon = date('m', $dateef);
+        // $yea= date('Y', $dateef);
+
+        $uniqueId= time().'-'.mt_rand();
+        $unique = strtoupper(bin2hex(random_bytes(3)));
+        $ran_id = rand(time(), 100000000);
+        $unique_id = $unique.'-'.$uniqueId.'-'.$ran_id;
+
+    
+        $r_code = $unique;
+        $r_type = '1';
+
+        $sqlc= "SELECT * FROM routine WHERE sId='$school_id' AND session_id='$r_session' AND temp_name='$r_name' ";
+
+        $result = mysqli_query($con, $sqlc);
+        if(mysqli_num_rows($result)==0){
+
+        $sql = "INSERT INTO routine(sId, unique_id, temp_name, temp_code, temp_details, temp_num, uId, session_id, routine_type) VALUES('$school_id','$unique_id','$r_name','$r_code','$r_details','$ran_id','$u_id','$r_session','$r_type')";
+
+            if ($con->query($sql)) {
+
+                echo 1;
+
+            } else {
+                echo "Sorry, Something Went Wrong! Try Again Please! Error: " . $con->error;
+
+                // error_log("MySQL Error: " . $con->error);
+            }
+        }else{
+            echo "Routine Already added with these Data". $con->error;
+        }    
+    
+    
+        }else{
+    
+        echo "Sorry, Something Went Wrong! Try Again Please!";
+    
+        }
+
+
+}
+
+if(isset($_POST["routine_edu_data_f"])){
+
+    $sql = "SELECT *,r.id as rid, s.id as sid FROM routine r, session s WHERE r.sId='$school_id' AND r.session_id=s.id AND r.routine_type='1' ";
+
+    $result = mysqli_query($con, $sql);
+    $i = 1;
+    if(mysqli_num_rows($result)> 0){
+
+        while($row = mysqli_fetch_assoc($result)){
+            $id = $row["rid"];
+
+            if($row['aStatus']=='1'){
+                $status = "Active";
+            }else{
+                $status = "Disabled";
+            }
+
+            ?>
+
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600" id="<?=$id?>">
+                <td class="w-4 p-4">
+                    <div class="flex items-center">
+                        <input id="checkbox-table-search-1" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                        <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
+                    </div>
+                </td>
+                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    <?=$i++?>
+                </th>
+                <td class="px-6 py-4">
+                    <?=$row['session_name']?>
+                </td>
+                <td class="px-6 py-4">
+                    <?=$row['temp_name']?>
+                </td>
+                <td class="px-6 py-4">
+                <?=$row['temp_code']?>
+                </td>
+                <td class="px-6 py-4">
+                <?=$status?>
+                </td>
+                
+                <td class="px-6 py-4">
+                <?=$row['temp_num']?>
+                </td>
+                <td class="flex items-center px-6 py-4">
+                    <a href="#" class="class_edit font-medium text-blue-600 dark:text-blue-500 hover:underline" id="<?=$id?>">Edit</a>
+                    <a href="#" class="class_delete font-medium text-red-600 dark:text-red-500 hover:underline ms-3" id="<?=$id?>">Remove</a>
+                </td>
+            </tr>
+
+            <?php
+
+        }
+    }else{
+        ?>
+            <tr>
+                <td colspan='8' class='text-center m-auto'>
+                    Data Not Found
+                </td>
+            </tr>
+        <?php
+    }
+
+}
+
+if(isset($_POST['exam_routine_data'])){
+
+
+    if($_POST['routine_name']!=""){
+        $r_name = $_POST["routine_name"];
+        $r_details = $_POST["routine_details"];
+        $r_session = $_POST["select_session_for_routine"];
+
+
+        // $dateef = strtotime($datef);
+      
+        // $monthh = date('m', $dateef);
+        // $yearr= date('Y', $dateef);
+        
+        // $mon = date('m', $dateef);
+        // $yea= date('Y', $dateef);
+
+        $uniqueId= time().'-'.mt_rand();
+        $unique = strtoupper(bin2hex(random_bytes(3)));
+        $ran_id = rand(time(), 100000000);
+        $unique_id = $unique.'-'.$uniqueId.'-'.$ran_id;
+
+    
+        $r_code = $unique;
+        $r_type = '2';
+
+        $sqlc= "SELECT * FROM routine WHERE sId='$school_id' AND session_id='$r_session' AND temp_name='$r_name' ";
+
+        $result = mysqli_query($con, $sqlc);
+        if(mysqli_num_rows($result)==0){
+
+        $sql = "INSERT INTO routine(sId, unique_id, temp_name, temp_code, temp_details, temp_num, uId, session_id, routine_type) VALUES('$school_id','$unique_id','$r_name','$r_code','$r_details','$ran_id','$u_id','$r_session','$r_type')";
+
+            if ($con->query($sql)) {
+
+                echo 1;
+
+            } else {
+                echo "Sorry, Something Went Wrong! Try Again Please! Error: " . $con->error;
+
+                // error_log("MySQL Error: " . $con->error);
+            }
+        }else{
+            echo "Routine Already added with these Data". $con->error;
+        }    
+    
+    
+        }else{
+    
+        echo "Sorry, Something Went Wrong! Try Again Please!";
+    
+        }
+
+
+}
+
+if(isset($_POST["exam_routine_data_f"])){
+
+    $sql = "SELECT *,r.id as rid, s.id as sid FROM routine r, session s WHERE r.sId='$school_id' AND r.session_id=s.id AND r.routine_type='2' ";
+
+    $result = mysqli_query($con, $sql);
+    $i = 1;
+    if(mysqli_num_rows($result)> 0){
+
+        while($row = mysqli_fetch_assoc($result)){
+            $id = $row["rid"];
+
+            if($row['aStatus']=='1'){
+                $status = "Active";
+            }else{
+                $status = "Disabled";
+            }
+
+            ?>
+
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600" id="<?=$id?>">
+                <td class="w-4 p-4">
+                    <div class="flex items-center">
+                        <input id="checkbox-table-search-1" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                        <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
+                    </div>
+                </td>
+                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    <?=$i++?>
+                </th>
+                <td class="px-6 py-4">
+                    <?=$row['session_name']?>
+                </td>
+                <td class="px-6 py-4">
+                    <?=$row['temp_name']?>
+                </td>
+                <td class="px-6 py-4">
+                <?=$row['temp_code']?>
+                </td>
+                <td class="px-6 py-4">
+                <?=$status?>
+                </td>
+                
+                <td class="px-6 py-4">
+                <?=$row['temp_num']?>
+                </td>
+                <td class="flex items-center px-6 py-4">
+                    <a href="#" class="class_edit font-medium text-blue-600 dark:text-blue-500 hover:underline" id="<?=$id?>">Edit</a>
+                    <a href="#" class="class_delete font-medium text-red-600 dark:text-red-500 hover:underline ms-3" id="<?=$id?>">Remove</a>
+                </td>
+            </tr>
+
+            <?php
+
+        }
+    }else{
+        ?>
+            <tr>
+                <td colspan='8' class='text-center m-auto'>
+                    Data Not Found
+                </td>
+            </tr>
+        <?php
+    }
+
+}
+
+
 if(isset($_POST['class_data'])){
 
 
@@ -339,7 +809,137 @@ if(isset($_POST["class_data_f"])){
 
         }
     }else{
+        ?>
+            <tr>
+                <td colspan='6' class='text-center m-auto'>
+                    Data Not Found
+                </td>
+            </tr>
+        <?php
+    }
 
+}
+
+if(isset($_POST['room_data'])){
+
+
+    if($_POST['room_name']!=""){
+        $r_name = $_POST["room_name"];
+        $r_code = $_POST["room_code"];
+        $r_campus = $_POST["campus_name"];
+        $invigilator = $_POST['invigilator'];
+
+        $lab_theory = $_POST['lab_theory'];
+        $r_column = $_POST['room_column'];
+
+        // $dateef = strtotime($datef);
+      
+        // $monthh = date('m', $dateef);
+        // $yearr= date('Y', $dateef);
+        
+        // $mon = date('m', $dateef);
+        // $yea= date('Y', $dateef);
+
+        $uniqueId= time().'-'.mt_rand();
+        $unique = strtoupper(bin2hex(random_bytes(3)));
+        $ran_id = rand(time(), 100000000);
+        $unique_id = $unique.'-'.$uniqueId.'-'.$ran_id;
+
+    
+        $room_code = $unique;
+        
+
+        $sqlc= "SELECT * FROM room WHERE sId='$school_id' AND campus='$r_campus' AND room_code='$r_code' ";
+
+        $result = mysqli_query($con, $sqlc);
+        if(mysqli_num_rows($result)==0){
+
+        $sql = "INSERT INTO room(sId, unique_id, room_name, room_code, campus, invigilator, lab_theory, num_column) VALUES('$school_id','$unique_id','$r_name','$r_code','$r_campus','$invigilator','$lab_theory','$r_column')";
+
+            if ($con->query($sql)) {
+
+                echo 1;
+
+            } else {
+                echo "Sorry, Something Went Wrong! Try Again Please! Error: " . $con->error;
+
+                // error_log("MySQL Error: " . $con->error);
+            }
+        }else{
+            echo "Room Already added with these Data". $con->error;
+        }    
+    
+    
+        }else{
+    
+        echo "Sorry, Something Went Wrong! Try Again Please!";
+    
+        }
+
+
+}
+
+if(isset($_POST["room_data_f"])){
+
+    $sql = "SELECT * FROM room WHERE sId='$school_id'";
+
+    $result = mysqli_query($con, $sql);
+    $i = 1;
+    if(mysqli_num_rows($result)> 0){
+
+        while($row = mysqli_fetch_assoc($result)){
+            $id = $row["id"];
+
+            if($row['status']=='1'){
+                $status = "Active";
+            }else{
+                $status = "Disabled";
+            }
+
+            ?>
+
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600" id="<?=$id?>">
+                <td class="w-4 p-4">
+                    <div class="flex items-center">
+                        <input id="checkbox-table-search-1" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                        <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
+                    </div>
+                </td>
+                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    <?=$i++?>
+                </th>
+                <td class="px-6 py-4">
+                    <?=$row['room_code']?>
+                </td>
+                <td class="px-6 py-4">
+                    <?=$row['room_name']?>
+                </td>
+                <td class="px-6 py-4">
+                <?=$row['campus']?>
+                </td>
+                <td class="px-6 py-4">
+                <?=$status?>
+                </td>
+                <td class="px-6 py-4">
+                    <?=$row['invigilator']?>
+                </td>
+                <td class="flex items-center px-6 py-4">
+                    <a href="#" class="class_edit font-medium text-blue-600 dark:text-blue-500 hover:underline" id="<?=$id?>">Edit</a>
+                    <a href="#" class="class_delete font-medium text-red-600 dark:text-red-500 hover:underline ms-3" id="<?=$id?>">Remove</a>
+                </td>
+            </tr>
+
+            <?php
+
+        }
+    }else{
+        ?>
+            <tr>
+                <td colspan='6' class='text-center m-auto'>
+                    Data Not Found
+                </td>
+            </tr>
+        <?php
     }
 
 }

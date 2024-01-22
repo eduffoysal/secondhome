@@ -53,7 +53,7 @@
 
     if(isset($_POST["new_class"])){
         ?>
-                                <div class="container text-center classes_container_data" id="classes_container_data">
+                        <div class="container text-center classes_container_data" id="classes_container_data">
                               
 
                               <div class="p-1 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
@@ -96,7 +96,7 @@
                                       <div class="flex items-start">
                                       <input type="hidden" name="class_data">
                                       </div>
-                                      <button type="button" class="btn-primary w-full session_add_btn text-dark hover:text-white bg-blue-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" id="class_add_btn">Save Class</button>
+                                      <button type="button" class="btn-primary w-full class_add_btn text-dark hover:text-white bg-blue-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" id="class_add_btn">Save Class</button>
                                   </form>
                               </div>
                               

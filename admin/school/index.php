@@ -146,7 +146,7 @@ if(!isset($_SESSION['user'])){
 <div class="topheader fixed-bottom">
     <header class="tophead">
         <nav class="topnav">
-            <a href="#main" class="btttnu-1"  id="HtmlBtn"><i class="bi bi-house-fill"><span class="topname">HOME</span> <i class="bi bi-share"></i></i></a>
+            <a href="#main" class="btttnu-1"  id="HtmlBtn"><i class="bi bi-house-fill"><span class="topname">SCHEDULE</span> <i class="bi bi-share"></i></i></a>
             <a href="#user" class="btttnu-2"><i class="bi bi-activity"><span class="topname" >MESS</span></i></a>
             <a href="#others" class="btttnu-3"><i class="bi bi-three-dots"><span class="topname">ROUTINE</span></i></a>
             <a href="#signup" class="btttnu-4"><i class="bi bi-file-earmark-person-fill"><span class="topname">NOTE</span></i></a>
@@ -168,10 +168,10 @@ if(!isset($_SESSION['user'])){
                                 <button class="navbar-hide-btn" type="button">
                                     <img src="../../assets/icons/close-icon.svg" alt="">
                                 </button>
-                                <li class="nav-item schedule_btn">
+                                <li class="nav-item active schedule_btn">
                                     <a href="#" class="nav-link p-1 text-decoration-none text-black">SCHEDULE</a>
                                 </li>
-                                <li class="nav-item active mess_btn">
+                                <li class="nav-item activee mess_btn">
                                     <a href="#" class="nav-link p-1 text-black">MESS</a>
                                 </li>
                                 <li class="nav-item routine_btn">
@@ -226,7 +226,99 @@ if(!isset($_SESSION['user'])){
             </div>
             </div>
     </div>
-            <div class="schedule_container hidden" id="schedule_container">
+
+    <div class="routine_schedule_table" id="routine_schedule_table bg-blue-100">
+    <div class="popup-routine_schedule text-center hidden">
+        <div class="content-routine_schedule text-center border-pink-300 border-2 shadow-lg  rounded-lg bg-white-100 p-2">
+                <div class="back"><button type="button" class="routine_schedule_back_btn float-end text-3xl font-medium ml-5 text-pink-600"><i class="bi bi-arrow-left-circle-fill"></i></button></div>
+                <div class="main_routine_schedule_body pt-2">
+
+                  <div class="containerr routine_schedule text-center pt-1" id="routine_schedule">
+                      <div class="routine_schedule_dis">
+
+
+
+
+<div class="rounded-lg form-control shadow-lg bg-white">
+  <form action='' role="form" id="fee_m_a_form">
+
+<h5 class="text-center" >Add a Mess fee</h5>
+
+  <div class="form-floating ">
+      <input type="text" class="form-control
+      w-full
+      text-base
+      font-normal
+      text-gray-700
+      bg-white bg-clip-padding
+      border border-solid border-gray-300
+      rounded
+      transition
+      ease-in-out
+      focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" name="fee_m_a_t" id="fee_m_a_t" placeholder="Fee Type">
+      <label for="fee_m_a_t" class="text-gray-700">Fee Type</label>
+  </div>
+  <div class="form-floating ">
+      <input type="number" class="form-control
+      w-full
+      text-base
+      font-normal
+      text-gray-700
+      bg-white bg-clip-padding
+      border border-solid border-gray-300
+      rounded
+      transition
+      ease-in-out
+      focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" name="fee_m_a_a" id="fee_m_a_a" placeholder="Amount">
+      <label for="fee_m_a_a" class="text-gray-700">Amount</label>
+  </div>
+
+
+    <button type="button" class="
+      fee_m_ad_btn
+      w-full
+      px-6
+      py-2.5
+      border-2 
+      border-green-500 
+      text-green-500
+      font-medium
+      text-xs
+      leading-tight
+      uppercase
+      rounded
+      shadow-md
+      hover:bg-blue-700 hover:shadow-lg
+      focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0
+      active:bg-blue-800 active:shadow-lg
+      transition
+      duration-150
+      ease-in-out" name="fee_m_a_btn" id="fee_m_a_btn">Add Fee</button>
+      <input class="form-control" placeholder="" name="fee_m_a" id="fee_m_a" type="hidden">
+  </form>
+
+    <div id="myalert_mmfee" style="display:none;">
+        <div class="container col-md-offset-4">
+            <div class="alert alert-info">
+                <center><span id="alerttext_mmfee"></span></center>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+                      </div>
+                  </div>
+
+                </div>
+        </div>      
+    </div>            
+    </div>    
+
+            <div class="schedule_container hiddenn" id="schedule_container">
 
             
                 <div class="schedule_home" id="schedule_home">
@@ -345,7 +437,7 @@ if(!isset($_SESSION['user'])){
 
             </div>
 
-            <div class="mess_container" id="mess_container">
+            <div class="mess_container hidden" id="mess_container">
             
                 <div class="mess_home" id="mess_home">
                         <div class="page-content">
@@ -498,77 +590,1684 @@ if(!isset($_SESSION['user'])){
 
                                         <ul style="padding-left: 0;" class="hidden text-sm font-medium pl-0 mb-2 text-center text-gray-500 rounded-lg shadow sm:flex dark:divide-gray-700 dark:text-gray-400">
                                             <li class="w-full active:bg-amber-900">
-                                                <a href="#" class="inline-block text-decoration-none user_btn w-full p-2 text-gray-900 bg-gray-100 border-r border-gray-200 dark:border-gray-700 rounded-s-lg focus:ring-4 focus:ring-blue-300 active focus:outline-none dark:bg-gray-700 dark:text-white" aria-current="page">HOME</a>
+                                                <a href="#" class="inline-block text-decoration-none home_routine_btn w-full p-2 text-gray-900 bg-gray-100 border-r border-gray-200 dark:border-gray-700 rounded-s-lg focus:ring-4 focus:ring-blue-300 active focus:outline-none dark:bg-gray-700 dark:text-white" aria-current="page">HOME</a>
                                             </li>
                                             <li class="w-full">
-                                                <a href="#" class="inline-block mess_btn text-decoration-none w-full p-2 bg-white border-r border-gray-200 dark:border-gray-700 hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">BAZAR</a>
+                                                <a href="#" class="inline-block exam_routine_btn text-decoration-none w-full p-2 bg-white border-r border-gray-200 dark:border-gray-700 hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">EXAM</a>
                                             </li>
                                             <li class="w-full">
-                                                <a href="#" class="inline-block school_btn text-decoration-none w-full p-2 bg-white border-r border-gray-200 dark:border-gray-700 hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">FEE</a>
+                                                <a href="#" class="inline-block class_routine_btn text-decoration-none w-full p-2 bg-white border-r border-gray-200 dark:border-gray-700 hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">CLASS/SEMESTER</a>
                                             </li>
                                             <li class="w-full">
-                                                <a href="#" class="inline-block school_btn text-decoration-none w-full p-2 bg-white border-r border-gray-200 dark:border-gray-700 hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">MESS</a>
+                                                <a href="#" class="inline-block session_routine_btn text-decoration-none w-full p-2 bg-white border-r border-gray-200 dark:border-gray-700 hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">SESSION</a>
                                             </li>
                                             <li class="w-full">
-                                                <a href="#" class="inline-block school_btn text-decoration-none w-full p-2 bg-white border-r border-gray-200 dark:border-gray-700 hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">PAYMENT</a>
+                                                <a href="#" class="inline-block room_routine_btn text-decoration-none w-full p-2 bg-white border-r border-gray-200 dark:border-gray-700 hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">ROOM</a>
                                             </li>
                                             <li class="w-full">
-                                                <a href="#" class="inline-block school_btn text-decoration-none w-full p-2 bg-white border-r border-gray-200 dark:border-gray-700 hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">INBOX</a>
+                                                <a href="#" class="inline-block column_routine_btn text-decoration-none w-full p-2 bg-white border-r border-gray-200 dark:border-gray-700 hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">COLUMN</a>
                                             </li>
                                             <li class="w-full">
-                                                <a href="#" class="inline-block w-full text-decoration-none teacher_btn p-2 bg-white border-s-0 border-gray-200 dark:border-gray-700 rounded-e-lg hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">SETTINGS</a>
+                                                <a href="#" class="inline-block w-full text-decoration-none faculty_routine_btn p-2 bg-white border-s-0 border-gray-200 dark:border-gray-700 rounded-e-lg hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">FACULTY</a>
                                             </li>
                                             
                                         </ul>
 
                                         <div class="sm:hidden">
-                                            <label for="tabs" class="sr-only">Select any setting option </label>
-                                            <select id="tabs" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                                                <option value="user" class="">HOME</option>
-                                                <option value="mess">BAZAR</option>
-                                                <option value="school">FEE</option>
-                                                <option value="teacher">PAYMENT</option>
-                                                <option value="teacher">MESS PROFILE</option>
-                                                <option value="teacher">INBOX</option>
-                                                <option value="teacher">SETTINGS</option>
+                                            <label for="routine_tabs" class="sr-only">Select any Routine option </label>
+                                            <select id="routine_tabs" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                                <option value="home" class="">HOME</option>
+                                                <option value="exam">EXAM</option>
+                                                <option value="class">CLASS</option>
+                                                <option value="session">SESSION</option>
+                                                <option value="room">ROOM</option>
+                                                <option value="column">COLUMN</option>
+                                                <option value="faculty">FACULTY</option>
                                             </select>
                                         </div>
 
                                     </div>
 
                                     <div class="tab-r">
-                                        <button class="tab-r-btn m-auto">
+                                        <button class="tab-r-btn m-auto my_routine_btn">
                                             <img src="../../assets/icons/maximize-icon.svg" class="tab-r-btn-icon" alt="">
-                                            <span class="tab-r-btn-text">Full screens</span>
+                                            <span class="tab-r-btn-text">MY ROUTINE</span>
                                         </button>
-                                        <button class="tab-r-btn ms-3 m-auto">
+                                        <button class="tab-r-btn ms-3 m-auto edu_routine_btn">
                                             <img src="../../assets/icons/funnel-icon.svg" class="tab-r-btn-icon" alt="">
-                                            <span class="tab-r-btn-text">Filters</span>
+                                            <span class="tab-r-btn-text">eDU ROUTINE</span>
                                         </button>
                                     </div>
                                 </div>
 
                                 <div class="content-tab-body">
 
-                                    <div class="_space">
+                                    <div class="home_routine_space">
+
+                                    <div class="container-fluid">
+
+<div class="row">
+    <div class="text-center m-auto">
+        <h5><center>Routine List(User)</center></h5>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <button class="btn btn-warning new_routin_download_btn" data-bs-toggle="modal" data-bs-target="#my_modal_routine_download" data-bs-whatever="@mdo">
+                DOWNLOAD
+            </button>
+        </div>
+        <div class="col-6 text-end">
+            <button class="btn btn-warning new_routine_btn" data-bs-toggle="modal" data-bs-target="#my_modal_routine" data-bs-whatever="@mdo">
+                New
+            </button>
+        </div>
+    </div>
+    <div class="col-md-8">
+        <div class="accordion">
+        <div class="accordion-item">
+                <h2 style="font-size:15px" class="accordion-button" data-bs-target="#routines_table" data-bs-toggle="collapse">Routines</h2>
+                <div class="others_fees_list_hhh"></div>
+                <div id="routines_table" class="accordion-collapse collapse:visible visibility: visible show">
+                    <div class="accordion-body">
+
+                        <div class="lottery_candidate">
+                            <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+
+                                <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                        <tr>
+                                            <th scope="col" class="p-4">
+                                                <div class="flex items-center">
+                                                    <input id="checkbox-all-search" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                                    <label for="checkbox-all-search" class="sr-only">checkbox</label>
+                                                </div>
+                                            </th>
+                                            <th scope="col" class="px-6 py-3">
+                                                #
+                                            </th>
+                                            <th scope="col" class="px-6 py-3">
+                                                Session
+                                            </th>
+                                            <th scope="col" class="px-6 py-3">
+                                                Routine Name
+                                            </th>
+                                            <th scope="col" class="px-6 py-3">
+                                                Routine Code
+                                            </th>
+                                            <th scope="col" class="px-6 py-3">
+                                                Status
+                                            </th>
+                                            <th scope="col" class="px-6 py-3">
+                                                Routine Number
+                                            </th>
+                                            <th scope="col" class="px-6 py-3">
+                                                Action
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="routine_data_row">
+                                        <!-- <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                            <td class="w-4 p-4">
+                                                <div class="flex items-center">
+                                                    <input id="checkbox-table-search-1" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                                    <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
+                                                </div>
+                                            </td>
+                                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                Apple MacBook Pro 17"
+                                            </th>
+                                            <td class="px-6 py-4">
+                                                Silver
+                                            </td>
+                                            <td class="px-6 py-4">
+                                                Laptop
+                                            </td>
+                                            <td class="px-6 py-4">
+                                                Yes
+                                            </td>
+                                            <td class="px-6 py-4">
+                                                Yes
+                                            </td>
+                                            <td class="px-6 py-4">
+                                                $2999
+                                            </td>
+                                            <td class="flex items-center px-6 py-4">
+                                                <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                                                <a href="#" class="font-medium text-red-600 dark:text-red-500 hover:underline ms-3">Remove</a>
+                                            </td>
+                                        </tr> -->
+
+                                    </tbody>
+                                </table>
+                                <nav class="flex items-center flex-column flex-wrap md:flex-row justify-between pt-4" aria-label="Table navigation">
+
+                                    <ul class="inline-flex -space-x-px rtl:space-x-reverse text-sm h-8">
+                                        <li>
+                                            <a href="#" class="flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Previous</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">1</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">2</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" aria-current="page" class="flex items-center justify-center px-3 h-8 text-blue-600 border border-gray-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white">3</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">4</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">5</a>
+                                        </li>
+                                        <li>
+                                    <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Next</a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                                </div>
+                        </div>
+
+                    </div>
+                </div>
+        </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        
+        <div class="row">
+            <div class="accordion">
+            <div class="accordion-item">
+                    <h2 style="font-size:15px" class="accordion-button" data-bs-target="#lotery_system3" data-bs-toggle="collapse">System</h2>
+                    
+                    <div id="lotery_system3" class="accordion-collapse collapse:visible visibility: visible show">
+                        <div class="accordion-body text-dark">
+                        <form action="#" role="form" id="_form_data">
+                            <div class="container-fluidd">
+                            <div class="row" id="_session_selection2">
+                                <div class="col-md-6">
+                                    <div class="sm:hiddenn" id="_class_session_div2">
+                                        <label for="_class_session_d2" class="sr-only">Select a Class</label>
+                                        <select id="_class_session_d2" name="_class_session2" class="_class_session bg-gray-50 border-0 border-b border-gray-200 text-gray-900 sm:text-sm rounded-t-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" data-tabs-toggle="#class2" role="tabClass2">
+
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="sm:hiddenn" id="select_session_div2">
+                                        <label for="_session_d2" class="sr-only">Select a Session</label>
+                                            <select id="_session_d2" name="select_session2" class="select_session2 bg-gray-50 border-0 border-b border-gray-200 text-gray-900 sm:text-sm rounded-t-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" data-tabs-toggle="#session2" role="tabSession2">
+                                            </select>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                            <div class="form-floating pt-1">
+                                <input type="number" class="input-1 form-control bg-info form-floating" placeholder="Please Enter Number Of Selection" name="selection_male" id="selection_male">
+                                <label class="" for="">Selection Number of Male</label>
+                            </div>
+                            <div class="form-floating">
+                                <input type="number" class="input-1 form-control bg-info form-floating" placeholder="Please Enter Number Of Selection" name="selection_female" id="selection_female">
+                                <label class="" for="">Selection Number of Female</label>
+                            </div>
+                            <div class="form-floating">
+                                <input type="number" class="input-1 form-control bg-warning form-floating" placeholder="Please Enter Number Of Selection" name="waiting_male" id="waiting_male">
+                                <label class="" for="">Waiting Number of Male</label>
+                            </div>
+                            <div class="form-floating">
+                                <input type="number" class="input-1 form-control bg-warning form-floating" placeholder="Please Enter Number Of Selection" id="waiting_female" name="waiting_female">
+                                <label class="" for="">Witing Number of Female</label>
+                            </div>
+                            <div class="text-center m-auto">
+                                <button
+                                type="button"
+                                class="inline-block _check_result_btn rounded-full border-2 border-info px-6 pb-[6px] pt-2 text-xs font-medium uppercase leading-normal text-info transition duration-150 ease-in-out hover:border-info-600 hover:bg-neutral-500 hover:bg-opacity-10 hover:text-info-600 focus:border-info-600 focus:text-info-600 focus:outline-none focus:ring-0 active:border-info-700 active:text-info-700 dark:hover:bg-neutral-100 dark:hover:bg-opacity-10"
+                                data-te-ripple-init>
+                                Check Result
+                                </button>
+                                <input type="hidden" name="lottery_submit_form_data">
+                                <button
+                                type="button"
+                                class="inline-block lottery_submit_btn mt-1 m-auto rounded-full bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]" id="_submit_btn">
+                                Submit
+                                </button>
+                            </div>
+
+                        </form>
+
+
+
+                        </div>
+                    </div>
+            </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="accordion">
+            <div class="accordion-item">
+                    <h2 style="font-size:15px" class="accordion-button" data-bs-target="#lotery_system22" data-bs-toggle="collapse">Remarks Key</h2>
+                    
+                    <div id="lotery_system22" class="accordion-collapse collapse:visible visibility: visible show">
+                        <div class="accordion-body text-dark">
+                        <form action="#" role="form" id="_form_data2">
+                            <div class="container-fluidd">
+                            <div class="row" id="class_">
+                                <div class="col-md-6">
+                                    <div class="sm:hiddenn" id="_session_div22">
+                                        <label for="_session_d22" class="sr-only">Select a Class</label>
+                                        <select id="_session_d22" name="select_class_session22" class="_session bg-gray-50 border-0 border-b border-gray-200 text-gray-900 sm:text-sm rounded-t-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" data-tabs-toggle="#class2" role="tabClass2">
+
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="sm:hiddenn" id="_session_div22">
+                                        <label for="_session_d22" class="sr-only">Select a Session</label>
+                                            <select id="_session_d22" name="select_session22" class="_session2 bg-gray-50 border-0 border-b border-gray-200 text-gray-900 sm:text-sm rounded-t-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" data-tabs-toggle="#session2" role="tabSession2">
+
+                                                <option value="0" selected disabled>Select Remark Key</option>
+
+                                            </select>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                            <div class="form-floating pt-1">
+                                <input type="number" class="input-1 form-control form-floating" placeholder="Please Enter Number Of Selection" name="selection_remark" id="selection_remarkd">
+                                <label class="" for="">Selection Number of Remark Key</label>
+                            </div>
+                            <div class="form-floating pt-1">
+                                <input type="number" class="input-1 form-control form-floating" placeholder="Please Enter Number Of Selection" name="selection_male" id="selection_male2">
+                                <label class="" for="">Selection Number of Male</label>
+                            </div>
+                            <div class="form-floating">
+                                <input type="number" class="input-1 form-control form-floating" placeholder="Please Enter Number Of Selection" name="selection_female" id="selection_female2">
+                                <label class="" for="">Selection Number of Female</label>
+                            </div>
+                            <div class="form-floating">
+                                <input type="number" class="input-1 form-control form-floating" placeholder="Please Enter Number Of Selection" name="waiting_male" id="waiting_male2">
+                                <label class="" for="">Waiting Number of Male</label>
+                            </div>
+                            <div class="form-floating">
+                                <input type="number" class="input-1 form-control form-floating" placeholder="Please Enter Number Of Selection" id="waiting_female2" name="waiting_female">
+                                <label class="" for="">Witing Number of Female</label>
+                            </div>
+                            <div class="text-center m-auto">
+                                <button
+                                type="button"
+                                class="inline-block _check_result_btn2 rounded-full border-2 border-info px-6 pb-[6px] pt-2 text-xs font-medium uppercase leading-normal text-info transition duration-150 ease-in-out hover:border-info-600 hover:bg-neutral-500 hover:bg-opacity-10 hover:text-info-600 focus:border-info-600 focus:text-info-600 focus:outline-none focus:ring-0 active:border-info-700 active:text-info-700 dark:hover:bg-neutral-100 dark:hover:bg-opacity-10"
+                                data-te-ripple-init>
+                                Check Result
+                                </button>
+                                <input type="hidden" name="lottery_submit_form_data2">
+                                <button
+                                type="button"
+                                class="inline-block _submit_btn2 mt-1 m-auto rounded-full bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]" id="_submit_btn2">
+                                Submit
+                                </button>
+                            </div>
+
+                        </form>
+
+
+
+                        </div>
+                    </div>
+            </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="row">
+
+</div>
 
                                     </div>
-                                    <div class="_space">
 
                                     </div>
-                                    <div class="_space">
+                                    <div class="home_edu_routine_space hidden">
+
+                                    <div class="container-fluid">
+
+                                    <div class="row">
+                                    <div class="text-center m-auto">
+                                    <h5><center>School Routine List(School)</center></h5>
+                                    </div>
+                                    <div class="row">
+                                    <div class="col-6">
+                                    <button class="btn btn-warning new_edu_routine_download_btn" data-bs-toggle="modal" data-bs-target="#my_modal_routine_download_edu" data-bs-whatever="@mdo">
+                                        DOWNLOAD
+                                    </button>                                    
+                                    </div>
+                                    <div class="col-6 text-end">
+                                    <button class="btn btn-warning new_edu_routine_btn" data-bs-toggle="modal" data-bs-target="#my_modal_routine_edu" data-bs-whatever="@mdo">
+                                    New
+                                    </button>
+                                    </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                    <div class="accordion">
+                                    <div class="accordion-item">
+                                    <h2 style="font-size:15px" class="accordion-button" data-bs-target="#routines_table_edu" data-bs-toggle="collapse">Routines</h2>
+                                    <div class="others_fees_list_hhh"></div>
+                                    <div id="routines_table_edu" class="accordion-collapse collapse:visible visibility: visible show">
+                                    <div class="accordion-body">
+
+                                    <div class="lottery_candidate_edu">
+                                    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+
+                                    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                    <tr>
+                                    <th scope="col" class="p-4">
+                                    <div class="flex items-center">
+                                    <input id="checkbox-all-search" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                    <label for="checkbox-all-search" class="sr-only">checkbox</label>
+                                    </div>
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                    #
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Session
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Routine Name
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Routine Code
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Status
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Routine Number
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Action
+                                    </th>
+                                    </tr>
+                                    </thead>
+                                    <tbody id="routine_edu_data_row">
+                                    <!-- <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                    <td class="w-4 p-4">
+                                    <div class="flex items-center">
+                                    <input id="checkbox-table-search-1" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                    <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
+                                    </div>
+                                    </td>
+                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    Apple MacBook Pro 17"
+                                    </th>
+                                    <td class="px-6 py-4">
+                                    Silver
+                                    </td>
+                                    <td class="px-6 py-4">
+                                    Laptop
+                                    </td>
+                                    <td class="px-6 py-4">
+                                    Yes
+                                    </td>
+                                    <td class="px-6 py-4">
+                                    Yes
+                                    </td>
+                                    <td class="px-6 py-4">
+                                    $2999
+                                    </td>
+                                    <td class="flex items-center px-6 py-4">
+                                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                                    <a href="#" class="font-medium text-red-600 dark:text-red-500 hover:underline ms-3">Remove</a>
+                                    </td>
+                                    </tr> -->
+
+                                    </tbody>
+                                    </table>
+                                    <nav class="flex items-center flex-column flex-wrap md:flex-row justify-between pt-4" aria-label="Table navigation">
+
+                                    <ul class="inline-flex -space-x-px rtl:space-x-reverse text-sm h-8">
+                                    <li>
+                                    <a href="#" class="flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Previous</a>
+                                    </li>
+                                    <li>
+                                    <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">1</a>
+                                    </li>
+                                    <li>
+                                    <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">2</a>
+                                    </li>
+                                    <li>
+                                    <a href="#" aria-current="page" class="flex items-center justify-center px-3 h-8 text-blue-600 border border-gray-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white">3</a>
+                                    </li>
+                                    <li>
+                                    <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">4</a>
+                                    </li>
+                                    <li>
+                                    <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">5</a>
+                                    </li>
+                                    <li>
+                                    <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Next</a>
+                                    </li>
+                                    </ul>
+                                    </nav>
+                                    </div>
+                                    </div>
 
                                     </div>
-                                    <div class="_space">
+                                    </div>
+                                    </div>
+                                    </div>
+                                    </div>
+                                    <div class="col-md-4">
+
+                                    <div class="row">
+                                    <div class="accordion">
+                                    <div class="accordion-item">
+                                    <h2 style="font-size:15px" class="accordion-button" data-bs-target="#lotery_system3edu" data-bs-toggle="collapse">System</h2>
+
+                                    <div id="lotery_system3edu" class="accordion-collapse collapse:visible visibility: visible show">
+                                    <div class="accordion-body text-dark">
+                                    <form action="#" role="form" id="_form_data">
+                                    <div class="container-fluidd">
+                                    <div class="row" id="_session_selection2">
+                                    <div class="col-md-6">
+                                    <div class="sm:hiddenn" id="_class_session_div2">
+                                    <label for="_class_session_d2" class="sr-only">Select a Class</label>
+                                    <select id="_class_session_d2" name="_class_session2" class="_class_session bg-gray-50 border-0 border-b border-gray-200 text-gray-900 sm:text-sm rounded-t-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" data-tabs-toggle="#class2" role="tabClass2">
+
+                                    </select>
+                                    </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                    <div class="sm:hiddenn" id="select_session_div2">
+                                    <label for="_session_d2" class="sr-only">Select a Session</label>
+                                    <select id="_session_d2" name="select_session2" class="select_session2 bg-gray-50 border-0 border-b border-gray-200 text-gray-900 sm:text-sm rounded-t-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" data-tabs-toggle="#session2" role="tabSession2">
+                                    </select>
+                                    </div>
+                                    </div>
+                                    </div>
+                                    </div>
+                                    <div class="form-floating pt-1">
+                                    <input type="number" class="input-1 form-control bg-info form-floating" placeholder="Please Enter Number Of Selection" name="selection_male" id="selection_male">
+                                    <label class="" for="">Selection Number of Male</label>
+                                    </div>
+                                    <div class="form-floating">
+                                    <input type="number" class="input-1 form-control bg-info form-floating" placeholder="Please Enter Number Of Selection" name="selection_female" id="selection_female">
+                                    <label class="" for="">Selection Number of Female</label>
+                                    </div>
+                                    <div class="form-floating">
+                                    <input type="number" class="input-1 form-control bg-warning form-floating" placeholder="Please Enter Number Of Selection" name="waiting_male" id="waiting_male">
+                                    <label class="" for="">Waiting Number of Male</label>
+                                    </div>
+                                    <div class="form-floating">
+                                    <input type="number" class="input-1 form-control bg-warning form-floating" placeholder="Please Enter Number Of Selection" id="waiting_female" name="waiting_female">
+                                    <label class="" for="">Witing Number of Female</label>
+                                    </div>
+                                    <div class="text-center m-auto">
+                                    <button
+                                    type="button"
+                                    class="inline-block _check_result_btn rounded-full border-2 border-info px-6 pb-[6px] pt-2 text-xs font-medium uppercase leading-normal text-info transition duration-150 ease-in-out hover:border-info-600 hover:bg-neutral-500 hover:bg-opacity-10 hover:text-info-600 focus:border-info-600 focus:text-info-600 focus:outline-none focus:ring-0 active:border-info-700 active:text-info-700 dark:hover:bg-neutral-100 dark:hover:bg-opacity-10"
+                                    data-te-ripple-init>
+                                    Check Result
+                                    </button>
+                                    <input type="hidden" name="lottery_submit_form_data">
+                                    <button
+                                    type="button"
+                                    class="inline-block lottery_submit_btn mt-1 m-auto rounded-full bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]" id="_submit_btn">
+                                    Submit
+                                    </button>
+                                    </div>
+
+                                    </form>
+
+
 
                                     </div>
-                                    <div class="_space">
+                                    </div>
+                                    </div>
+                                    </div>
+                                    </div>
+                                    <div class="row">
+                                    <div class="accordion">
+                                    <div class="accordion-item">
+                                    <h2 style="font-size:15px" class="accordion-button" data-bs-target="#lotery_system22edu" data-bs-toggle="collapse">Remarks Key</h2>
+
+                                    <div id="lotery_system22edu" class="accordion-collapse collapse:visible visibility: visible show">
+                                    <div class="accordion-body text-dark">
+                                    <form action="#" role="form" id="_form_data2">
+                                    <div class="container-fluidd">
+                                    <div class="row" id="class_">
+                                    <div class="col-md-6">
+                                    <div class="sm:hiddenn" id="_session_div22">
+                                    <label for="_session_d22" class="sr-only">Select a Class</label>
+                                    <select id="_session_d22" name="select_class_session22" class="_session bg-gray-50 border-0 border-b border-gray-200 text-gray-900 sm:text-sm rounded-t-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" data-tabs-toggle="#class2" role="tabClass2">
+
+                                    </select>
+                                    </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                    <div class="sm:hiddenn" id="_session_div22">
+                                    <label for="_session_d22" class="sr-only">Select a Session</label>
+                                    <select id="_session_d22" name="select_session22" class="_session2 bg-gray-50 border-0 border-b border-gray-200 text-gray-900 sm:text-sm rounded-t-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" data-tabs-toggle="#session2" role="tabSession2">
+
+                                    <option value="0" selected disabled>Select Remark Key</option>
+
+                                    </select>
+                                    </div>
+                                    </div>
+                                    </div>
+                                    </div>
+                                    <div class="form-floating pt-1">
+                                    <input type="number" class="input-1 form-control form-floating" placeholder="Please Enter Number Of Selection" name="selection_remark" id="selection_remarkd">
+                                    <label class="" for="">Selection Number of Remark Key</label>
+                                    </div>
+                                    <div class="form-floating pt-1">
+                                    <input type="number" class="input-1 form-control form-floating" placeholder="Please Enter Number Of Selection" name="selection_male" id="selection_male2">
+                                    <label class="" for="">Selection Number of Male</label>
+                                    </div>
+                                    <div class="form-floating">
+                                    <input type="number" class="input-1 form-control form-floating" placeholder="Please Enter Number Of Selection" name="selection_female" id="selection_female2">
+                                    <label class="" for="">Selection Number of Female</label>
+                                    </div>
+                                    <div class="form-floating">
+                                    <input type="number" class="input-1 form-control form-floating" placeholder="Please Enter Number Of Selection" name="waiting_male" id="waiting_male2">
+                                    <label class="" for="">Waiting Number of Male</label>
+                                    </div>
+                                    <div class="form-floating">
+                                    <input type="number" class="input-1 form-control form-floating" placeholder="Please Enter Number Of Selection" id="waiting_female2" name="waiting_female">
+                                    <label class="" for="">Witing Number of Female</label>
+                                    </div>
+                                    <div class="text-center m-auto">
+                                    <button
+                                    type="button"
+                                    class="inline-block _check_result_btn2 rounded-full border-2 border-info px-6 pb-[6px] pt-2 text-xs font-medium uppercase leading-normal text-info transition duration-150 ease-in-out hover:border-info-600 hover:bg-neutral-500 hover:bg-opacity-10 hover:text-info-600 focus:border-info-600 focus:text-info-600 focus:outline-none focus:ring-0 active:border-info-700 active:text-info-700 dark:hover:bg-neutral-100 dark:hover:bg-opacity-10"
+                                    data-te-ripple-init>
+                                    Check Result
+                                    </button>
+                                    <input type="hidden" name="lottery_submit_form_data2">
+                                    <button
+                                    type="button"
+                                    class="inline-block _submit_btn2 mt-1 m-auto rounded-full bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]" id="_submit_btn2">
+                                    Submit
+                                    </button>
+                                    </div>
+
+                                    </form>
+
+
 
                                     </div>
-                                    <div class="_space">
+                                    </div>
+                                    </div>
+                                    </div>
+                                    </div>
 
                                     </div>
-                                    <div class="_space">
+                                    </div>
+                                    <div class="row">
+
+                                    </div>
+
+                                    </div>
+
+                                    </div>
+                                    <div class="exam_routine_space hidden">
+
+                                    <div class="container-fluid">
+
+<div class="row">
+    <div class="text-center m-auto">
+        <h5><center>Routine List(Exam)</center></h5>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <button class="btn btn-warning new_exam_routin_download_btn" data-bs-toggle="modal" data-bs-target="#my_modal_exam_routine_download" data-bs-whatever="@mdo">
+                DOWNLOAD
+            </button>
+        </div>
+        <div class="col-6 text-end">
+            <button class="btn btn-warning new_exam_routine_btn" data-bs-toggle="modal" data-bs-target="#my_modal_exam_routine" data-bs-whatever="@mdo">
+                New
+            </button>
+        </div>
+    </div>
+    <div class="col-md-8">
+        <div class="accordion">
+        <div class="accordion-item">
+                <h2 style="font-size:15px" class="accordion-button" data-bs-target="#routines_tablee" data-bs-toggle="collapse">Routines</h2>
+                <div class="others_fees_list_hhh"></div>
+                <div id="routines_tablee" class="accordion-collapse collapse:visible visibility: visible show">
+                    <div class="accordion-body">
+
+                        <div class="lottery_candidate">
+                            <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+
+                                <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                        <tr>
+                                            <th scope="col" class="p-4">
+                                                <div class="flex items-center">
+                                                    <input id="checkbox-all-search" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                                    <label for="checkbox-all-search" class="sr-only">checkbox</label>
+                                                </div>
+                                            </th>
+                                            <th scope="col" class="px-6 py-3">
+                                                #
+                                            </th>
+                                            <th scope="col" class="px-6 py-3">
+                                                Session
+                                            </th>
+                                            <th scope="col" class="px-6 py-3">
+                                                Routine Name
+                                            </th>
+                                            <th scope="col" class="px-6 py-3">
+                                                Routine Code
+                                            </th>
+                                            <th scope="col" class="px-6 py-3">
+                                                Status
+                                            </th>
+                                            <th scope="col" class="px-6 py-3">
+                                                Routine Number
+                                            </th>
+                                            <th scope="col" class="px-6 py-3">
+                                                Action
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="exam_routine_data_row">
+                                        <!-- <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                            <td class="w-4 p-4">
+                                                <div class="flex items-center">
+                                                    <input id="checkbox-table-search-1" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                                    <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
+                                                </div>
+                                            </td>
+                                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                Apple MacBook Pro 17"
+                                            </th>
+                                            <td class="px-6 py-4">
+                                                Silver
+                                            </td>
+                                            <td class="px-6 py-4">
+                                                Laptop
+                                            </td>
+                                            <td class="px-6 py-4">
+                                                Yes
+                                            </td>
+                                            <td class="px-6 py-4">
+                                                Yes
+                                            </td>
+                                            <td class="px-6 py-4">
+                                                $2999
+                                            </td>
+                                            <td class="flex items-center px-6 py-4">
+                                                <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                                                <a href="#" class="font-medium text-red-600 dark:text-red-500 hover:underline ms-3">Remove</a>
+                                            </td>
+                                        </tr> -->
+
+                                    </tbody>
+                                </table>
+                                <nav class="flex items-center flex-column flex-wrap md:flex-row justify-between pt-4" aria-label="Table navigation">
+
+                                    <ul class="inline-flex -space-x-px rtl:space-x-reverse text-sm h-8">
+                                        <li>
+                                            <a href="#" class="flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Previous</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">1</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">2</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" aria-current="page" class="flex items-center justify-center px-3 h-8 text-blue-600 border border-gray-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white">3</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">4</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">5</a>
+                                        </li>
+                                        <li>
+                                    <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Next</a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                                </div>
+                        </div>
+
+                    </div>
+                </div>
+        </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        
+        <div class="row">
+            <div class="accordion">
+            <div class="accordion-item">
+                    <h2 style="font-size:15px" class="accordion-button" data-bs-target="#lotery_system3e" data-bs-toggle="collapse">System</h2>
+                    
+                    <div id="lotery_system3e" class="accordion-collapse collapse:visible visibility: visible show">
+                        <div class="accordion-body text-dark">
+
+
+
+
+                        </div>
+                    </div>
+            </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="accordion">
+            <div class="accordion-item">
+                    <h2 style="font-size:15px" class="accordion-button" data-bs-target="#lotery_system22e" data-bs-toggle="collapse">Remarks Key</h2>
+                    
+                    <div id="lotery_system22e" class="accordion-collapse collapse:visible visibility: visible show">
+                        <div class="accordion-body text-dark">
+
+
+
+
+                        </div>
+                    </div>
+            </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="row">
+
+</div>
+
+                                    </div>
+
+                                    </div>
+                                    <div class="class_routine_space hidden">
+
+                                    <div class="container-fluid">
+
+<div class="row">
+    <div class="text-center m-auto">
+        <h5><center>Routine List(Template)</center></h5>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <button class="btn btn-warning new_routin_download_btn" data-bs-toggle="modal" data-bs-target="#my_modal" data-bs-whatever="@mdo">
+                DOWNLOAD
+            </button>
+        </div>
+        <div class="col-6 text-end">
+            <button class="btn btn-warning new_routine_btn" data-bs-toggle="modal" data-bs-target="#my_modal" data-bs-whatever="@mdo">
+                New
+            </button>
+        </div>
+    </div>
+    <div class="col-md-8">
+        <div class="accordion">
+        <div class="accordion-item">
+                <h2 style="font-size:15px" class="accordion-button" data-bs-target="#routines_tablee" data-bs-toggle="collapse">Routines</h2>
+                <div class="others_fees_list_hhh"></div>
+                <div id="routines_tablee" class="accordion-collapse collapse:visible visibility: visible show">
+                    <div class="accordion-body">
+
+                        <div class="lottery_candidate">
+                            <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+
+                                <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                        <tr>
+                                            <th scope="col" class="p-4">
+                                                <div class="flex items-center">
+                                                    <input id="checkbox-all-search" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                                    <label for="checkbox-all-search" class="sr-only">checkbox</label>
+                                                </div>
+                                            </th>
+                                            <th scope="col" class="px-6 py-3">
+                                                #
+                                            </th>
+                                            <th scope="col" class="px-6 py-3">
+                                                Class Name
+                                            </th>
+                                            <th scope="col" class="px-6 py-3">
+                                                Day|Evening
+                                            </th>
+                                            <th scope="col" class="px-6 py-3">
+                                                Programme
+                                            </th>
+                                            <th scope="col" class="px-6 py-3">
+                                                Class Code
+                                            </th>
+                                            <th scope="col" class="px-6 py-3">
+                                                Sections
+                                            </th>
+                                            <th scope="col" class="px-6 py-3">
+                                                Status
+                                            </th>
+                                            <th scope="col" class="px-6 py-3">
+                                                Action
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="classes_data_row_routine">
+                                        <!-- <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                            <td class="w-4 p-4">
+                                                <div class="flex items-center">
+                                                    <input id="checkbox-table-search-1" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                                    <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
+                                                </div>
+                                            </td>
+                                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                Apple MacBook Pro 17"
+                                            </th>
+                                            <td class="px-6 py-4">
+                                                Silver
+                                            </td>
+                                            <td class="px-6 py-4">
+                                                Laptop
+                                            </td>
+                                            <td class="px-6 py-4">
+                                                Yes
+                                            </td>
+                                            <td class="px-6 py-4">
+                                                Yes
+                                            </td>
+                                            <td class="px-6 py-4">
+                                                $2999
+                                            </td>
+                                            <td class="flex items-center px-6 py-4">
+                                                <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                                                <a href="#" class="font-medium text-red-600 dark:text-red-500 hover:underline ms-3">Remove</a>
+                                            </td>
+                                        </tr> -->
+
+                                    </tbody>
+                                </table>
+                                <nav class="flex items-center flex-column flex-wrap md:flex-row justify-between pt-4" aria-label="Table navigation">
+
+                                    <ul class="inline-flex -space-x-px rtl:space-x-reverse text-sm h-8">
+                                        <li>
+                                            <a href="#" class="flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Previous</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">1</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">2</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" aria-current="page" class="flex items-center justify-center px-3 h-8 text-blue-600 border border-gray-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white">3</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">4</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">5</a>
+                                        </li>
+                                        <li>
+                                    <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Next</a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                                </div>
+                        </div>
+
+                    </div>
+                </div>
+        </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        
+        <div class="row">
+            <div class="accordion">
+            <div class="accordion-item">
+                    <h2 style="font-size:15px" class="accordion-button" data-bs-target="#lotery_system3e" data-bs-toggle="collapse">System</h2>
+                    
+                    <div id="lotery_system3e" class="accordion-collapse collapse:visible visibility: visible show">
+                        <div class="accordion-body text-dark">
+
+
+
+
+                        </div>
+                    </div>
+            </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="accordion">
+            <div class="accordion-item">
+                    <h2 style="font-size:15px" class="accordion-button" data-bs-target="#lotery_system22e" data-bs-toggle="collapse">Remarks Key</h2>
+                    
+                    <div id="lotery_system22e" class="accordion-collapse collapse:visible visibility: visible show">
+                        <div class="accordion-body text-dark">
+
+
+
+
+                        </div>
+                    </div>
+            </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="row">
+
+</div>
+
+                                    </div>
+
+                                    </div>
+                                    <div class="session_routine_space hidden">
+
+                                    <div class="container-fluid">
+
+<div class="row">
+    <div class="text-center m-auto">
+        <h5><center>Routine List(Template)</center></h5>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <button class="btn btn-warning new_routin_download_btn" data-bs-toggle="modal" data-bs-target="#my_modal" data-bs-whatever="@mdo">
+                DOWNLOAD
+            </button>
+        </div>
+        <div class="col-6 text-end">
+            <button class="btn btn-warning new_routine_btn" data-bs-toggle="modal" data-bs-target="#my_modal" data-bs-whatever="@mdo">
+                New
+            </button>
+        </div>
+    </div>
+    <div class="col-md-8">
+        <div class="accordion">
+        <div class="accordion-item">
+                <h2 style="font-size:15px" class="accordion-button" data-bs-target="#routines_tablee" data-bs-toggle="collapse">Routines</h2>
+                <div class="others_fees_list_hhh"></div>
+                <div id="routines_tablee" class="accordion-collapse collapse:visible visibility: visible show">
+                    <div class="accordion-body">
+
+                        <div class="lottery_candidate">
+                            <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+
+                                <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                        <tr>
+                                            <th scope="col" class="p-4">
+                                                <div class="flex items-center">
+                                                    <input id="checkbox-all-search" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                                    <label for="checkbox-all-search" class="sr-only">checkbox</label>
+                                                </div>
+                                            </th>
+                                            <th scope="col" class="px-6 py-3">
+                                                #
+                                            </th>
+                                            <th scope="col" class="px-6 py-3">
+                                                Session
+                                            </th>
+                                            <th scope="col" class="px-6 py-3">
+                                                From
+                                            </th>
+                                            <th scope="col" class="px-6 py-3">
+                                                End
+                                            </th>
+                                            <th scope="col" class="px-6 py-3">
+                                                Status
+                                            </th>
+                                            <th scope="col" class="px-6 py-3">
+                                                Action
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="session_data_row_routine">
+                                        <!-- <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                            <td class="w-4 p-4">
+                                                <div class="flex items-center">
+                                                    <input id="checkbox-table-search-1" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                                    <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
+                                                </div>
+                                            </td>
+                                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                Apple MacBook Pro 17"
+                                            </th>
+                                            <td class="px-6 py-4">
+                                                Silver
+                                            </td>
+                                            <td class="px-6 py-4">
+                                                Laptop
+                                            </td>
+                                            <td class="px-6 py-4">
+                                                Yes
+                                            </td>
+                                            <td class="px-6 py-4">
+                                                Yes
+                                            </td>
+                                            <td class="px-6 py-4">
+                                                $2999
+                                            </td>
+                                            <td class="flex items-center px-6 py-4">
+                                                <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                                                <a href="#" class="font-medium text-red-600 dark:text-red-500 hover:underline ms-3">Remove</a>
+                                            </td>
+                                        </tr> -->
+
+                                    </tbody>
+                                </table>
+                                <nav class="flex items-center flex-column flex-wrap md:flex-row justify-between pt-4" aria-label="Table navigation">
+
+                                    <ul class="inline-flex -space-x-px rtl:space-x-reverse text-sm h-8">
+                                        <li>
+                                            <a href="#" class="flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Previous</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">1</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">2</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" aria-current="page" class="flex items-center justify-center px-3 h-8 text-blue-600 border border-gray-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white">3</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">4</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">5</a>
+                                        </li>
+                                        <li>
+                                    <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Next</a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                                </div>
+                        </div>
+
+                    </div>
+                </div>
+        </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        
+        <div class="row">
+            <div class="accordion">
+            <div class="accordion-item">
+                    <h2 style="font-size:15px" class="accordion-button" data-bs-target="#lotery_system3e" data-bs-toggle="collapse">System</h2>
+                    
+                    <div id="lotery_system3e" class="accordion-collapse collapse:visible visibility: visible show">
+                        <div class="accordion-body text-dark">
+
+
+
+
+                        </div>
+                    </div>
+            </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="accordion">
+            <div class="accordion-item">
+                    <h2 style="font-size:15px" class="accordion-button" data-bs-target="#lotery_system22e" data-bs-toggle="collapse">Remarks Key</h2>
+                    
+                    <div id="lotery_system22e" class="accordion-collapse collapse:visible visibility: visible show">
+                        <div class="accordion-body text-dark">
+
+
+
+
+                        </div>
+                    </div>
+            </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="row">
+
+</div>
+
+                                    </div>
+
+                                    </div>
+                                    <div class="room_routine_space hidden">
+
+                                    <div class="container-fluid">
+
+<div class="row">
+    <div class="text-center m-auto">
+        <h5><center>Room List</center></h5>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <button class="btn btn-warning new_routin_download_btn" data-bs-toggle="modal" data-bs-target="#my_modal_room" data-bs-whatever="@mdo">
+                DOWNLOAD
+            </button>
+        </div>
+        <div class="col-6 text-end">
+            <button class="btn btn-warning new_room_btn" data-bs-toggle="modal" data-bs-target="#my_modal_room" data-bs-whatever="@mdo">
+                New
+            </button>
+        </div>
+    </div>
+    <div class="col-md-8">
+        <div class="accordion">
+        <div class="accordion-item">
+                <h2 style="font-size:15px" class="accordion-button" data-bs-target="#routines_tablee" data-bs-toggle="collapse">Room</h2>
+                <div class="others_fees_list_hhh"></div>
+                <div id="routines_tablee" class="accordion-collapse collapse:visible visibility: visible show">
+                    <div class="accordion-body">
+
+                        <div class="lottery_candidate">
+                            <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+
+                                <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                        <tr>
+                                            <th scope="col" class="p-4">
+                                                <div class="flex items-center">
+                                                    <input id="checkbox-all-search" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                                    <label for="checkbox-all-search" class="sr-only">checkbox</label>
+                                                </div>
+                                            </th>
+                                            <th scope="col" class="px-6 py-3">
+                                                #
+                                            </th>
+                                            <th scope="col" class="px-6 py-3">
+                                                Room Code
+                                            </th>
+                                            <th scope="col" class="px-6 py-3">
+                                                Name
+                                            </th>
+                                            <th scope="col" class="px-6 py-3">
+                                                Campus
+                                            </th>
+                                            <th scope="col" class="px-6 py-3">
+                                                Status
+                                            </th>
+                                            <th scope="col" class="px-6 py-3">
+                                                Invisilator
+                                            </th>
+                                            <th scope="col" class="px-6 py-3">
+                                                Action
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="room_data_row">
+                                        <!-- <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                            <td class="w-4 p-4">
+                                                <div class="flex items-center">
+                                                    <input id="checkbox-table-search-1" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                                    <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
+                                                </div>
+                                            </td>
+                                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                Apple MacBook Pro 17"
+                                            </th>
+                                            <td class="px-6 py-4">
+                                                Silver
+                                            </td>
+                                            <td class="px-6 py-4">
+                                                Laptop
+                                            </td>
+                                            <td class="px-6 py-4">
+                                                Yes
+                                            </td>
+                                            <td class="px-6 py-4">
+                                                Yes
+                                            </td>
+                                            <td class="px-6 py-4">
+                                                $2999
+                                            </td>
+                                            <td class="flex items-center px-6 py-4">
+                                                <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                                                <a href="#" class="font-medium text-red-600 dark:text-red-500 hover:underline ms-3">Remove</a>
+                                            </td>
+                                        </tr> -->
+
+                                    </tbody>
+                                </table>
+                                <nav class="flex items-center flex-column flex-wrap md:flex-row justify-between pt-4" aria-label="Table navigation">
+
+                                    <ul class="inline-flex -space-x-px rtl:space-x-reverse text-sm h-8">
+                                        <li>
+                                            <a href="#" class="flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Previous</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">1</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">2</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" aria-current="page" class="flex items-center justify-center px-3 h-8 text-blue-600 border border-gray-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white">3</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">4</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">5</a>
+                                        </li>
+                                        <li>
+                                    <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Next</a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                                </div>
+                        </div>
+
+                    </div>
+                </div>
+        </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        
+        <div class="row">
+            <div class="accordion">
+            <div class="accordion-item">
+                    <h2 style="font-size:15px" class="accordion-button" data-bs-target="#lotery_system3e" data-bs-toggle="collapse">System</h2>
+                    
+                    <div id="lotery_system3e" class="accordion-collapse collapse:visible visibility: visible show">
+                        <div class="accordion-body text-dark">
+
+
+
+
+                        </div>
+                    </div>
+            </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="accordion">
+            <div class="accordion-item">
+                    <h2 style="font-size:15px" class="accordion-button" data-bs-target="#lotery_system22e" data-bs-toggle="collapse">Remarks Key</h2>
+                    
+                    <div id="lotery_system22e" class="accordion-collapse collapse:visible visibility: visible show">
+                        <div class="accordion-body text-dark">
+
+
+
+
+                        </div>
+                    </div>
+            </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="row">
+
+</div>
+
+                                    </div>
+
+                                    </div>
+                                    <div class="column_routine_space hidden">
+
+                                    <div class="container-fluid">
+
+<div class="row">
+    <div class="text-center m-auto">
+        <h5><center>Routine List(Template)</center></h5>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <button class="btn btn-warning new_routin_download_btn" data-bs-toggle="modal" data-bs-target="#my_modal" data-bs-whatever="@mdo">
+                DOWNLOAD
+            </button>
+        </div>
+        <div class="col-6 text-end">
+            <button class="btn btn-warning new_routine_btn" data-bs-toggle="modal" data-bs-target="#my_modal" data-bs-whatever="@mdo">
+                New
+            </button>
+        </div>
+    </div>
+    <div class="col-md-8">
+        <div class="accordion">
+        <div class="accordion-item">
+                <h2 style="font-size:15px" class="accordion-button" data-bs-target="#routines_tablee" data-bs-toggle="collapse">Routines</h2>
+                <div class="others_fees_list_hhh"></div>
+                <div id="routines_tablee" class="accordion-collapse collapse:visible visibility: visible show">
+                    <div class="accordion-body">
+
+                        <div class="lottery_candidate">
+                            <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+
+                                <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                        <tr>
+                                            <th scope="col" class="p-4">
+                                                <div class="flex items-center">
+                                                    <input id="checkbox-all-search" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                                    <label for="checkbox-all-search" class="sr-only">checkbox</label>
+                                                </div>
+                                            </th>
+                                            <th scope="col" class="px-6 py-3">
+                                                #
+                                            </th>
+                                            <th scope="col" class="px-6 py-3">
+                                                Roll|SID
+                                            </th>
+                                            <th scope="col" class="px-6 py-3">
+                                                Name
+                                            </th>
+                                            <th scope="col" class="px-6 py-3">
+                                                Gender
+                                            </th>
+                                            <th scope="col" class="px-6 py-3">
+                                                Status
+                                            </th>
+                                            <th scope="col" class="px-6 py-3">
+                                                Serial
+                                            </th>
+                                            <th scope="col" class="px-6 py-3">
+                                                Phone
+                                            </th>
+                                            <th scope="col" class="px-6 py-3">
+                                                Action
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="_candidates_data_row">
+                                        <!-- <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                            <td class="w-4 p-4">
+                                                <div class="flex items-center">
+                                                    <input id="checkbox-table-search-1" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                                    <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
+                                                </div>
+                                            </td>
+                                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                Apple MacBook Pro 17"
+                                            </th>
+                                            <td class="px-6 py-4">
+                                                Silver
+                                            </td>
+                                            <td class="px-6 py-4">
+                                                Laptop
+                                            </td>
+                                            <td class="px-6 py-4">
+                                                Yes
+                                            </td>
+                                            <td class="px-6 py-4">
+                                                Yes
+                                            </td>
+                                            <td class="px-6 py-4">
+                                                $2999
+                                            </td>
+                                            <td class="flex items-center px-6 py-4">
+                                                <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                                                <a href="#" class="font-medium text-red-600 dark:text-red-500 hover:underline ms-3">Remove</a>
+                                            </td>
+                                        </tr> -->
+
+                                    </tbody>
+                                </table>
+                                <nav class="flex items-center flex-column flex-wrap md:flex-row justify-between pt-4" aria-label="Table navigation">
+
+                                    <ul class="inline-flex -space-x-px rtl:space-x-reverse text-sm h-8">
+                                        <li>
+                                            <a href="#" class="flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Previous</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">1</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">2</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" aria-current="page" class="flex items-center justify-center px-3 h-8 text-blue-600 border border-gray-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white">3</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">4</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">5</a>
+                                        </li>
+                                        <li>
+                                    <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Next</a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                                </div>
+                        </div>
+
+                    </div>
+                </div>
+        </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        
+        <div class="row">
+            <div class="accordion">
+            <div class="accordion-item">
+                    <h2 style="font-size:15px" class="accordion-button" data-bs-target="#lotery_system3e" data-bs-toggle="collapse">System</h2>
+                    
+                    <div id="lotery_system3e" class="accordion-collapse collapse:visible visibility: visible show">
+                        <div class="accordion-body text-dark">
+
+
+
+
+                        </div>
+                    </div>
+            </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="accordion">
+            <div class="accordion-item">
+                    <h2 style="font-size:15px" class="accordion-button" data-bs-target="#lotery_system22e" data-bs-toggle="collapse">Remarks Key</h2>
+                    
+                    <div id="lotery_system22e" class="accordion-collapse collapse:visible visibility: visible show">
+                        <div class="accordion-body text-dark">
+
+
+
+
+                        </div>
+                    </div>
+            </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="row">
+
+</div>
+
+                                    </div>
+
+                                    </div>
+                                    <div class="faculty_routine_space hidden">
+
+                                    <div class="container-fluid">
+
+<div class="row">
+    <div class="text-center m-auto">
+        <h5><center>Routine List(Template)</center></h5>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <button class="btn btn-warning new_routin_download_btn" data-bs-toggle="modal" data-bs-target="#my_modal" data-bs-whatever="@mdo">
+                DOWNLOAD
+            </button>
+        </div>
+        <div class="col-6 text-end">
+            <button class="btn btn-warning new_routine_btn" data-bs-toggle="modal" data-bs-target="#my_modal" data-bs-whatever="@mdo">
+                New
+            </button>
+        </div>
+    </div>
+    <div class="col-md-8">
+        <div class="accordion">
+        <div class="accordion-item">
+                <h2 style="font-size:15px" class="accordion-button" data-bs-target="#routines_tablee" data-bs-toggle="collapse">Routines</h2>
+                <div class="others_fees_list_hhh"></div>
+                <div id="routines_tablee" class="accordion-collapse collapse:visible visibility: visible show">
+                    <div class="accordion-body">
+
+                        <div class="lottery_candidate">
+                            <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+
+                                <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                        <tr>
+                                            <th scope="col" class="p-4">
+                                                <div class="flex items-center">
+                                                    <input id="checkbox-all-search" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                                    <label for="checkbox-all-search" class="sr-only">checkbox</label>
+                                                </div>
+                                            </th>
+                                            <th scope="col" class="px-6 py-3">
+                                                #
+                                            </th>
+                                            <th scope="col" class="px-6 py-3">
+                                                Roll|SID
+                                            </th>
+                                            <th scope="col" class="px-6 py-3">
+                                                Name
+                                            </th>
+                                            <th scope="col" class="px-6 py-3">
+                                                Gender
+                                            </th>
+                                            <th scope="col" class="px-6 py-3">
+                                                Status
+                                            </th>
+                                            <th scope="col" class="px-6 py-3">
+                                                Serial
+                                            </th>
+                                            <th scope="col" class="px-6 py-3">
+                                                Phone
+                                            </th>
+                                            <th scope="col" class="px-6 py-3">
+                                                Action
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="_candidates_data_row">
+                                        <!-- <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                            <td class="w-4 p-4">
+                                                <div class="flex items-center">
+                                                    <input id="checkbox-table-search-1" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                                    <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
+                                                </div>
+                                            </td>
+                                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                Apple MacBook Pro 17"
+                                            </th>
+                                            <td class="px-6 py-4">
+                                                Silver
+                                            </td>
+                                            <td class="px-6 py-4">
+                                                Laptop
+                                            </td>
+                                            <td class="px-6 py-4">
+                                                Yes
+                                            </td>
+                                            <td class="px-6 py-4">
+                                                Yes
+                                            </td>
+                                            <td class="px-6 py-4">
+                                                $2999
+                                            </td>
+                                            <td class="flex items-center px-6 py-4">
+                                                <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                                                <a href="#" class="font-medium text-red-600 dark:text-red-500 hover:underline ms-3">Remove</a>
+                                            </td>
+                                        </tr> -->
+
+                                    </tbody>
+                                </table>
+                                <nav class="flex items-center flex-column flex-wrap md:flex-row justify-between pt-4" aria-label="Table navigation">
+
+                                    <ul class="inline-flex -space-x-px rtl:space-x-reverse text-sm h-8">
+                                        <li>
+                                            <a href="#" class="flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Previous</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">1</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">2</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" aria-current="page" class="flex items-center justify-center px-3 h-8 text-blue-600 border border-gray-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white">3</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">4</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">5</a>
+                                        </li>
+                                        <li>
+                                    <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Next</a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                                </div>
+                        </div>
+
+                    </div>
+                </div>
+        </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        
+        <div class="row">
+            <div class="accordion">
+            <div class="accordion-item">
+                    <h2 style="font-size:15px" class="accordion-button" data-bs-target="#lotery_system3e" data-bs-toggle="collapse">System</h2>
+                    
+                    <div id="lotery_system3e" class="accordion-collapse collapse:visible visibility: visible show">
+                        <div class="accordion-body text-dark">
+
+
+
+
+                        </div>
+                    </div>
+            </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="accordion">
+            <div class="accordion-item">
+                    <h2 style="font-size:15px" class="accordion-button" data-bs-target="#lotery_system22e" data-bs-toggle="collapse">Remarks Key</h2>
+                    
+                    <div id="lotery_system22e" class="accordion-collapse collapse:visible visibility: visible show">
+                        <div class="accordion-body text-dark">
+
+
+
+
+                        </div>
+                    </div>
+            </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="row">
+
+</div>
+
+                                    </div>
 
                                     </div>
 
@@ -581,7 +2280,6 @@ if(!isset($_SESSION['user'])){
             </div>
 
             <div class="note_container hidden" id="note_container">
-               
             
                 <div class="note_home" id="note_home">
                         <div class="page-content">
@@ -2848,6 +4546,315 @@ if(!isset($_SESSION['user'])){
     </div>
   </div>
 </div>
+
+<div class="modal fade" id="my_modal_room" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticmy_modal_room" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-scrollable modal-dialog-centeredd">
+    <div class="modal-content">
+      <div class="modal-header">
+      <div id="myalert_room_add" style="display:none;">
+        <div class="container col-md-offset-4">
+          <div class="alert alert-info_room_add">
+            <center><span id="alerttext_room_add"></span></center>
+          </div>
+        </div>
+      </div> 
+
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body modal_data_room" id="modal_data_room">
+
+
+      <div class="container text-center classes_container_data" id="classes_container_data">
+                              
+
+                              <div class="p-1 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+                                  <form class="space-y-2 room_form_data" id="room_form_data" action="#" role="form">
+                                    <div class="form-floating">
+                                    <input type="text" class="input-1 form-control form-floating" placeholder="Please enter Room name" name="room_name" id="room_name">
+                                    <label class="" for="room_name">Enter New Room Name</label>
+                                    </div>
+                                    <div class="form-floating">
+                                        <input type="text" name="room_code" id="room_code" class="form-control form-floating bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Room Code" required="">
+                                        <label for="room_code" class="sr-onlyy">Enter Room Code</label>
+
+                                    </div>
+                                    <div class="form-floating">
+                                    <input type="text" class="input-1 form-control form-floating" placeholder="Please enter campus name" name="campus_name" id="campus_name" value='main campus'>
+                                    <label class="" for="campus_name">Campus</label>
+                                    </div>
+                                    <div class="form-floating">
+                                        <input type="text" name="invigilator" id="invigilator" class="form-control form-floating bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Invigilator|Faculty Name" required="">
+                                        <label for="invigilator" class="sr-onlyy">Enter a Invigilator</label>
+
+                                    </div>
+                                  <div class="sm:hiddenn" id="class_programme">
+                                        <label for="sel_room_column" class="sr-only">Select no of Column</label>
+                                            <select id="sel_room_column" name="room_column" class="sel_room_column bg-gray-50 border-0 border-b border-gray-200 text-gray-900 sm:text-sm rounded-t-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" data-tabs-toggle="#user_all_contentt" role="tablistt">
+                                            <option id="about-tab" value="4" data-tabs-target="#about"   aria-controls="about" aria-selected="false">Select no of Column</option>
+                                                <option id="" value="1" data-tabs-target="#stats"  aria-controls="stats" aria-selected="true">1</option>
+                                                <option id="" value="2" data-tabs-target="#stats"  aria-controls="stats" aria-selected="true">2</option>
+                                                <option id="" value="3" data-tabs-target="#stats"  aria-controls="stats" aria-selected="true">3</option>
+                                                <option id="" value="4" data-tabs-target="#stats"  aria-controls="stats" aria-selected="true">4</option>
+                                                <option id="" value="5" data-tabs-target="#stats"  aria-controls="stats" aria-selected="true">5</option>
+                                                <option id="" value="6" data-tabs-target="#stats"  aria-controls="stats" aria-selected="true">6</option>
+                                                <option id="" value="7" data-tabs-target="#stats"  aria-controls="stats" aria-selected="true">7</option>
+                                                <option id="" value="8" data-tabs-target="#stats"  aria-controls="stats" aria-selected="true">8</option>
+
+
+                                            </select>
+                                  </div>
+                                  <div class="sm:hiddenn" id="class_code">
+                                        <label for="sel_lab_theory" class="sr-only">Select Lab|Theroy</label>
+                                            <select id="sel_lab_theory" name="lab_theory" class="sel_lab_theory bg-gray-50 border-0 border-b border-gray-200 text-gray-900 sm:text-sm rounded-t-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" data-tabs-toggle="#user_all_contentt" role="tablistt">
+                                            <option id="about-tab" value="theory" data-tabs-target="#about"   aria-controls="about" aria-selected="false">Select Lab|Theroy</option>
+
+                                            <option id="" value="theory" data-tabs-target="#stats"  aria-controls="stats" aria-selected="true">Theory</option>
+                                            <option id="" value="lab" data-tabs-target="#stats"  aria-controls="stats" aria-selected="true">Lab</option>
+
+                                            </select>
+                                  </div>
+
+                                      <!-- <div>
+                                          <input type="number" name="number_phone" id="tk_pay" placeholder="Phone number" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required="">
+                                      </div>
+                                      <div>
+                                          <input type="number" name="number_tk" id="tk_pay" placeholder="Amount at least 10/=" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required="">
+                                      </div> -->
+                                      <div class="flex items-start">
+                                      <input type="hidden" name="room_data">
+                                      </div>
+                                      <button type="button" class="btn-primary w-full room_add_btn text-dark hover:text-white bg-blue-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" id="room_add_btn">Save Room</button>
+                                  </form>
+                              </div>
+                              
+                              
+                        </div>
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="my_modal_routine" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticmy_modal_routine" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-scrollable modal-dialog-centeredd">
+    <div class="modal-content">
+      <div class="modal-header">
+      <div id="myalert_routine_add" style="display:none;">
+        <div class="container col-md-offset-4">
+          <div class="alert alert-info_routine_add">
+            <center><span id="alerttext_routine_add"></span></center>
+          </div>
+        </div>
+      </div> 
+
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body modal_data_routine" id="modal_data_routine">
+
+
+      <div class="p-1 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+                                  <form class="space-y-2 routine_form_data" id="routine_form_data" action="#" role="form">
+                                    <div class="form-floating">
+                                    <input type="text" class="input-1 form-control form-floating" placeholder="Please enter Routine name" name="routine_name" id="routine_name">
+                                    <label class="" for="routine_name">Enter New Routine Name</label>
+                                    </div>
+                                    <div class="form-floating">
+                                        <input type="text" name="routine_details" id="routine_details" class="form-control form-floating bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Enter Routine Details" required="">
+                                        <label for="routine_details" class="sr-onlyy">Enter Routine Details</label>
+
+                                    </div>
+
+                                  <div class="sm:hiddenn" id="class_code">
+                                        <label for="select_session_for_routine" class="sr-only">Select Session</label>
+                                            <select id="select_session_for_routine" name="select_session_for_routine" class="select_session_for_routine bg-gray-50 border-0 border-b border-gray-200 text-gray-900 sm:text-sm rounded-t-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" data-tabs-toggle="#user_all_contentt" role="tablistt">
+                                            <option id="about-tab" value="0" data-tabs-target="#about"   aria-controls="about" aria-selected="false">Select Session</option>
+
+                                            </select>
+                                  </div>
+
+                                      <!-- <div>
+                                          <input type="number" name="number_phone" id="tk_pay" placeholder="Phone number" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required="">
+                                      </div>
+                                      <div>
+                                          <input type="number" name="number_tk" id="tk_pay" placeholder="Amount at least 10/=" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required="">
+                                      </div> -->
+                                      <div class="flex items-start">
+                                      <input type="hidden" name="routine_data">
+                                      </div>
+                                      <button type="button" class="btn-primary w-full routine_add_btn text-dark hover:text-white bg-blue-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" id="routine_add_btn">Save Routine</button>
+                                  </form>
+                              </div>
+                              
+                              
+                        </div>
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="my_modal_routine_edu" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticmy_modal_routine_edu" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-scrollable modal-dialog-centeredd">
+    <div class="modal-content">
+      <div class="modal-header">
+      <div id="myalert_routine_edu_add" style="display:none;">
+        <div class="container col-md-offset-4">
+          <div class="alert alert-info_routine_edu_add">
+            <center><span id="alerttext_routine_edu_add"></span></center>
+          </div>
+        </div>
+      </div> 
+
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body modal_data_routine" id="modal_data_routine">
+
+
+      <div class="p-1 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+                                  <form class="space-y-2 routine_edu_form_data" id="routine_edu_form_data" action="#" role="form">
+                                    <div class="form-floating">
+                                    <input type="text" class="input-1 form-control form-floating" placeholder="Please enter Routine name" name="routine_edu_name" id="routine_edu_name">
+                                    <label class="" for="routine_edu_name">Enter New Routine Name</label>
+                                    </div>
+                                    <div class="form-floating">
+                                        <input type="text" name="routine_edu_details" id="routine_edu_details" class="form-control form-floating bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Enter Routine Details" required="">
+                                        <label for="routine_edu_details" class="sr-onlyy">Enter Routine Details</label>
+
+                                    </div>
+
+                                  <div class="sm:hiddenn" id="class_code">
+                                        <label for="select_session_for_routine_edu" class="sr-only">Select Session</label>
+                                            <select id="select_session_for_routine_edu" name="select_session_for_routine_edu" class="select_session_for_routine_edu bg-gray-50 border-0 border-b border-gray-200 text-gray-900 sm:text-sm rounded-t-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" data-tabs-toggle="#user_all_contentt" role="tablistt">
+                                            <option id="about-tab" value="theory" data-tabs-target="#about"   aria-controls="about" aria-selected="false">Select Session</option>
+
+                                                <option id="" value="lab" data-tabs-target="#stats"  aria-controls="stats" aria-selected="true">Lab</option>
+                                                <option id="" value="theory" data-tabs-target="#stats"  aria-controls="stats" aria-selected="true">Theory</option>
+                                            </select>
+                                  </div>
+
+                                      <!-- <div>
+                                          <input type="number" name="number_phone" id="tk_pay" placeholder="Phone number" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required="">
+                                      </div>
+                                      <div>
+                                          <input type="number" name="number_tk" id="tk_pay" placeholder="Amount at least 10/=" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required="">
+                                      </div> -->
+                                      <div class="flex items-start">
+                                      <input type="hidden" name="routine_edu_data">
+                                      </div>
+                                      <button type="button" class="btn-primary w-full routine_edu_add_btn text-dark hover:text-white bg-blue-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" id="routine_edu_add_btn">Save Routine</button>
+                                  </form>
+                              </div>
+                              
+                              
+                        </div>
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="my_modal_exam_routine" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticmy_modal_exam_routine" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-scrollable modal-dialog-centeredd">
+    <div class="modal-content">
+      <div class="modal-header">
+      <div id="myalert_exam_routine_add" style="display:none;">
+        <div class="container col-md-offset-4">
+          <div class="alert alert-info_exam_routine_add">
+            <center><span id="alerttext_exam_routine_add"></span></center>
+          </div>
+        </div>
+      </div> 
+
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body modal_data_routine" id="modal_data_routine">
+
+
+      <div class="p-1 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+                                  <form class="space-y-2 exam_routine_form_data" id="exam_routine_form_data" action="#" role="form">
+                                    <div class="form-floating">
+                                    <input type="text" class="input-1 form-control form-floating" placeholder="Please enter Routine name" name="exam_routine_name" id="exam_routine_name">
+                                    <label class="" for="exam_routine_name">Enter New Routine Name</label>
+                                    </div>
+                                    <div class="form-floating">
+                                        <input type="text" name="exam_routine_details" id="exam_routine_details" class="form-control form-floating bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Enter Routine Details" required="">
+                                        <label for="exam_routine_details" class="sr-onlyy">Enter Routine Details</label>
+
+                                    </div>
+
+                                  <div class="sm:hiddenn" id="class_code">
+                                        <label for="select_session_for_exam_routine" class="sr-only">Select Session</label>
+                                            <select id="select_session_for_exam_routine" name="select_session_for_exam_routine" class="select_session_for_exam_routine bg-gray-50 border-0 border-b border-gray-200 text-gray-900 sm:text-sm rounded-t-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" data-tabs-toggle="#user_all_contentt" role="tablistt">
+                                            <option id="about-tab" value="0" data-tabs-target="#about"   aria-controls="about" aria-selected="false">Select Session</option>
+
+                                            </select>
+                                  </div>
+
+                                      <!-- <div>
+                                          <input type="number" name="number_phone" id="tk_pay" placeholder="Phone number" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required="">
+                                      </div>
+                                      <div>
+                                          <input type="number" name="number_tk" id="tk_pay" placeholder="Amount at least 10/=" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required="">
+                                      </div> -->
+                                      <div class="flex items-start">
+                                      <input type="hidden" name="exam_routine_data">
+                                      </div>
+                                      <button type="button" class="btn-primary w-full exam_routine_add_btn text-dark hover:text-white bg-blue-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" id="exam_routine_add_btn">Save Routine</button>
+                                  </form>
+                              </div>
+                              
+                              
+                        </div>
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="my_modal_routine_schedule" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticmy_modal_routine_schedule" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-scrollable modal-dialog-centeredd">
+    <div class="modal-content">
+      <div class="modal-header">
+      <div id="myalert_routine_schedule_add" style="display:none;">
+        <div class="container col-md-offset-4">
+          <div class="alert alert-info_routine_schedule_add">
+            <center><span id="alerttext_routine_schedule_add"></span></center>
+          </div>
+        </div>
+      </div> 
+
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body modal_data_routine_schedule" id="modal_data_routine_schedule">
+
+
+
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 </div>
 
 <div class="container bottom_menu m-auto">
@@ -3188,6 +5195,7 @@ $.ajax({
       },
       success: function(response){
         $('#classes_data_row').html(response);
+        $('#classes_data_row_routine').html(response);
 
       }
     });
@@ -3205,10 +5213,135 @@ function classes(){
       },
       success: function(response){
         $('#classes_data_row').html(response);
+        $('#classes_data_row_routine').html(response);
 
       }
     });
 };
+
+function rooms(){
+    $.ajax({
+      url:'./school_admin.php',
+      type:'post',
+      data: {
+        room_data_f: true
+      },
+      success: function(response){
+        $('#room_data_row').html(response);
+        // $('#classes_data_row_routine').html(response);
+
+      }
+    });
+};
+
+$(document).on('click','.room_routine_btn',function(){
+    $.ajax({
+      url:'./school_admin.php',
+      type:'post',
+      data: {
+        room_data_f: true
+      },
+      success: function(response){
+        $('#room_data_row').html(response);
+        // $('#classes_data_row_routine').html(response);
+
+      }
+    });
+});
+
+
+function routine(){
+    $.ajax({
+      url:'./school_admin.php',
+      type:'post',
+      data: {
+        routine_data_f: true
+      },
+      success: function(response){
+        $('#routine_data_row').html(response);
+        // $('#classes_data_row_routine').html(response);
+
+      }
+    });
+};
+
+$(document).on('click','.routine_btn',function(){
+    $.ajax({
+      url:'./school_admin.php',
+      type:'post',
+      data: {
+        routine_data_f: true
+      },
+      success: function(response){
+        $('#routine_data_row').html(response);
+        // $('#classes_data_row_routine').html(response);
+
+      }
+    });
+});
+
+
+function routine_edu(){
+    $.ajax({
+      url:'./school_admin.php',
+      type:'post',
+      data: {
+        routine_edu_data_f: true
+      },
+      success: function(response){
+        $('#routine_edu_data_row').html(response);
+        // $('#classes_data_row_routine').html(response);
+
+      }
+    });
+};
+
+$(document).on('click','.edu_routine_btn',function(){
+    $.ajax({
+      url:'./school_admin.php',
+      type:'post',
+      data: {
+        routine_edu_data_f: true
+      },
+      success: function(response){
+        $('#routine_edu_data_row').html(response);
+        // $('#classes_data_row_routine').html(response);
+
+      }
+    });
+});
+
+
+function exam_routine(){
+    $.ajax({
+      url:'./school_admin.php',
+      type:'post',
+      data: {
+        exam_routine_data_f: true
+      },
+      success: function(response){
+        $('#exam_routine_data_row').html(response);
+        // $('#classes_data_row_routine').html(response);
+
+      }
+    });
+};
+
+$(document).on('click','.exam_routine_btn',function(){
+    $.ajax({
+      url:'./school_admin.php',
+      type:'post',
+      data: {
+        exam_routine_data_f: true
+      },
+      success: function(response){
+        $('#exam_routine_data_row').html(response);
+        // $('#classes_data_row_routine').html(response);
+
+      }
+    });
+});
+
 
 
     $(document).on('click', '#class_add_btn', function(){
@@ -3271,7 +5404,262 @@ function classes(){
 		else{
 			alert('Please input all fields');
 		}
-	});        
+	});
+    
+    
+
+    $(document).on('click', '#routine_add_btn', function(){
+		if($('#routine_name').val()!='' && $('#routine_details').val()!=''){
+            // alert($('#session_s_date').val());
+			$('#routine_add_btn').val('Saving...');
+			$('#myalert_routine_add').slideUp();
+			var routine_form = $('#routine_form_data').serialize();
+			$.ajax({
+				method: 'POST',
+				url: './school_admin.php',
+				data: routine_form,
+
+				success:function(data){
+                    if(data==1){
+                        Swal.fire({
+                                type: 'success',
+                                title: "Routine Successfully Added!",
+                                text: "Thank you Admin! ",
+                                icon: "success",
+                                button: false,
+                                dangerMode: true,
+                                timer: 3000,
+                            
+                            });
+                        setTimeout(function(){
+                        $('#myalert_routine_add').slideDown();
+                        $('#alerttext_routine_add').html("Routine Successfully Added");
+                        $('#routine_add_btn').val('Save Routine');
+                        $('#routine_form_data')[0].reset();
+                        }, 2000);
+                        routine();
+                        setTimeout(function(){
+                        // location.reload();
+                        }, 3000);
+                    }else{
+                        Swal.fire({
+                                type: 'warning',
+                                title: "Please Try Again!",
+                                text: "Thank you Admin! "+data,
+                                icon: "warning",
+                                button: false,
+                                dangerMode: true,
+                                timer: 3000,
+                            
+                            });
+                        setTimeout(function(){
+                        $('#myalert_routine_add').slideDown();
+                        $('#alerttext_routine_add').html(data);
+                        $('#routine_add_btn').val('Try Again, Routine');
+                        $('#routine_form_data')[0].reset();
+                        }, 2000);
+                        setTimeout(function(){
+                        // location.reload();
+                        }, 3000);
+                    }            
+				}
+			});
+		}
+		else{
+			alert('Please input all fields');
+		}
+	});
+
+
+
+    $(document).on('click', '#routine_edu_add_btn', function(){
+		if($('#routine_edu_name').val()!='' && $('#routine_edu_details').val()!=''){
+            // alert($('#session_s_date').val());
+			$('#routine_edu_add_btn').val('Saving...');
+			$('#myalert_routine_edu_add').slideUp();
+			var routine_edu_form = $('#routine_edu_form_data').serialize();
+			$.ajax({
+				method: 'POST',
+				url: './school_admin.php',
+				data: routine_edu_form,
+
+				success:function(data){
+                    if(data==1){
+                        Swal.fire({
+                                type: 'success',
+                                title: "Routine Successfully Added!",
+                                text: "Thank you Admin! ",
+                                icon: "success",
+                                button: false,
+                                dangerMode: true,
+                                timer: 3000,
+                            
+                            });
+                        setTimeout(function(){
+                        $('#myalert_routine_edu_add').slideDown();
+                        $('#alerttext_routine_edu_add').html("Routine Successfully Added");
+                        $('#routine_edu_add_btn').val('Save Routine');
+                        $('#routine_edu_form_data')[0].reset();
+                        }, 2000);
+                        routine_edu();
+                        setTimeout(function(){
+                        // location.reload();
+                        }, 3000);
+                    }else{
+                        Swal.fire({
+                                type: 'warning',
+                                title: "Please Try Again!",
+                                text: "Thank you Admin! "+data,
+                                icon: "warning",
+                                button: false,
+                                dangerMode: true,
+                                timer: 3000,
+                            
+                            });
+                        setTimeout(function(){
+                        $('#myalert_routine_edu_add').slideDown();
+                        $('#alerttext_routine_add').html(data);
+                        $('#routine_edu_add_btn').val('Try Again, Routine');
+                        $('#routine_edu_form_data')[0].reset();
+                        }, 2000);
+                        setTimeout(function(){
+                        // location.reload();
+                        }, 3000);
+                    }            
+				}
+			});
+		}
+		else{
+			alert('Please input all fields');
+		}
+	});
+
+
+    $(document).on('click', '#exam_routine_add_btn', function(){
+		if($('#exam_routine_name').val()!='' && $('#exam_routine_details').val()!=''){
+            // alert($('#session_s_date').val());
+			$('#exam_routine_add_btn').val('Saving...');
+			$('#myalert_exam_routine_add').slideUp();
+			var exam_routine_form = $('#exam_routine_form_data').serialize();
+			$.ajax({
+				method: 'POST',
+				url: './school_admin.php',
+				data: exam_routine_form,
+
+				success:function(data){
+                    if(data==1){
+                        Swal.fire({
+                                type: 'success',
+                                title: "Routine Successfully Added!",
+                                text: "Thank you Admin! ",
+                                icon: "success",
+                                button: false,
+                                dangerMode: true,
+                                timer: 3000,
+                            
+                            });
+                        setTimeout(function(){
+                        $('#myalert_exam_routine_add').slideDown();
+                        $('#alerttext_exam_routine_add').html("Routine Successfully Added");
+                        $('#exam_routine_add_btn').val('Save Routine');
+                        $('#exam_routine_form_data')[0].reset();
+                        }, 2000);
+                        exam_routine();
+                        setTimeout(function(){
+                        // location.reload();
+                        }, 3000);
+                    }else{
+                        Swal.fire({
+                                type: 'warning',
+                                title: "Please Try Again!",
+                                text: "Thank you Admin! "+data,
+                                icon: "warning",
+                                button: false,
+                                dangerMode: true,
+                                timer: 3000,
+                            
+                            });
+                        setTimeout(function(){
+                        $('#myalert_exam_routine_add').slideDown();
+                        $('#alerttext_exam_routine_add').html(data);
+                        $('#exam_routine_add_btn').val('Try Again, Routine');
+                        $('#exam_routine_form_data')[0].reset();
+                        }, 2000);
+                        setTimeout(function(){
+                        // location.reload();
+                        }, 3000);
+                    }            
+				}
+			});
+		}
+		else{
+			alert('Please input all fields');
+		}
+	});
+
+
+
+
+    $(document).on('click', '#room_add_btn', function(){
+		if($('#room_name').val()!='' && $('#room_code').val()!=''){
+            // alert($('#session_s_date').val());
+			$('#room_add_btn').val('Saving...');
+			$('#myalert_room_add').slideUp();
+			var room_form = $('#room_form_data').serialize();
+			$.ajax({
+				method: 'POST',
+				url: './school_admin.php',
+				data: room_form,
+
+				success:function(data){
+                    if(data==1){
+                        Swal.fire({
+                                type: 'success',
+                                title: "Room Successfully Added!",
+                                text: "Thank you Admin! ",
+                                icon: "success",
+                                button: false,
+                                dangerMode: true,
+                                timer: 3000,
+                            
+                            });
+                        setTimeout(function(){
+                        $('#myalert_room_add').slideDown();
+                        $('#alerttext_room_add').html("Room Successfully Added");
+                        $('#room_add_btn').val('Save Room');
+                        $('#room_form_data')[0].reset();
+                        }, 2000);
+                        setTimeout(function(){
+                        // location.reload();
+                        }, 3000);
+                    }else{
+                        Swal.fire({
+                                type: 'warning',
+                                title: "Please Try Again!",
+                                text: "Thank you Admin! "+data,
+                                icon: "warning",
+                                button: false,
+                                dangerMode: true,
+                                timer: 3000,
+                            
+                            });
+                        setTimeout(function(){
+                        $('#myalert_room_add').slideDown();
+                        $('#alerttext_room_add').html(data);
+                        $('#room_add_btn').val('Try Again, Room');
+                        $('#room_form_data')[0].reset();
+                        }, 2000);
+                        setTimeout(function(){
+                        // location.reload();
+                        }, 3000);
+                    }            
+				}
+			});
+		}
+		else{
+			alert('Please input all fields');
+		}
+	});    
 
 $('#class_session_selection22').ready(function(){
 
@@ -3296,6 +5684,9 @@ $.ajax({
   },
   success: function(response){
     $('#select_session_d2').html(response);
+    $('#select_session_for_routine').html(response);
+    $('#select_session_for_routine_edu').html(response);
+    $('#select_session_for_exam_routine').html(response);
 
   }
 });
@@ -3326,6 +5717,9 @@ $('#class_session_selection').ready(function(){
       success: function(response){
         $('#select_session_d').html(response);
         $('#select_session_d2').html(response);
+        $('#select_session_for_routine').html(response);
+    $('#select_session_for_routine_edu').html(response);
+    $('#select_session_for_exam_routine').html(response);
 
       }
     });
@@ -3359,6 +5753,37 @@ function sessions(){
       },
       success: function(response){
         $('#session_data').html(response);
+
+      }
+    });
+};
+
+$('#session_data_row_routine').ready(function(){
+
+$.ajax({
+      url:'./school_admin.php',
+      type:'post',
+      data: {
+        session_data_ff: true
+      },
+      success: function(response){
+        $('#session_data_row_routine').html(response);
+
+      }
+    });
+
+
+});
+
+function sessions_routine(){
+    $.ajax({
+      url:'./school_admin.php',
+      type:'post',
+      data: {
+        session_data_ff: true
+      },
+      success: function(response){
+        $('#session_data_row_routine').html(response);
 
       }
     });
@@ -3671,7 +6096,25 @@ function sessions(){
         });
     });
 </script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.my_routine_btn').click(function(){
+            $('.home_routine_space').removeClass('hidden');
+            $('.home_edu_routine_space').addClass('hidden');
+        });
+        $('.edu_routine_btn').click(function(){
+            $('.home_edu_routine_space').removeClass('hidden');
+            $('.home_routine_space').addClass('hidden');
+        });
+        $(document).on('click','.routine_schedule_back_btn', function(){
+          var butn_id = $(this).attr('id');
+          $('.popup-routine_schedule').addClass('hidden');
+          $('.routine_schedule_main').removeClass('hidden');
+          // $('.popup-sett_fee').removeClass('hidden');
 
+        });
+    });
+</script>
 <script>
         $(document).ready(function(){
             $('#admission_tabs').click(function(){
@@ -3740,11 +6183,75 @@ function sessions(){
         });
 
     });
-</script>    
+</script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.home_routine_btn').click(function(){
+            $('.home_routine_space').removeClass('hidden');
+                    $('.exam_routine_space, .class_routine_space, .session_routine_space, .room_routine_space, .column_routine_space, .faculty_routine_space').addClass('hidden');
+        });
+
+        $('.exam_routine_btn').click(function(){
+            $('.exam_routine_space').removeClass('hidden');
+                    $('.home_routine_space, .class_routine_space, .session_routine_space, .room_routine_space, .column_routine_space, .faculty_routine_space').addClass('hidden');
+        });
+        $('.class_routine_btn').click(function(){
+            $('.class_routine_space').removeClass('hidden');
+                    $('.exam_routine_space, .home_routine_space, .session_routine_space, .room_routine_space, .column_routine_space, .faculty_routine_space').addClass('hidden');
+        });
+        $('.session_routine_btn').click(function(){
+            $('.session_routine_space').removeClass('hidden');
+                    $('.exam_routine_space, .class_routine_space, .home_routine_space, .room_routine_space, .column_routine_space, .faculty_routine_space').addClass('hidden');
+        });
+        $('.room_routine_btn').click(function(){
+            $('.room_routine_space').removeClass('hidden');
+                    $('.exam_routine_space, .class_routine_space, .session_routine_space, .home_routine_space, .column_routine_space, .faculty_routine_space').addClass('hidden');
+        });
+        $('.column_routine_btn').click(function(){
+            $('.column_routine_space').removeClass('hidden');
+                    $('.exam_routine_space, .class_routine_space, .session_routine_space, .room_routine_space, .home_routine_space, .faculty_routine_space').addClass('hidden');
+        });
+        $('.faculty_routine_btn').click(function(){
+            $('.faculty_routine_space').removeClass('hidden');
+                    $('.exam_routine_space, .class_routine_space, .session_routine_space, .room_routine_space, .column_routine_space, .home_routine_space').addClass('hidden');
+        });
+
+    });
+</script>
+<script>
+    $(document).ready(function(){
+        $('#routine_tabs').click(function(){
+            var op = $('#routine_tabs').val();
+                if(op=='home'){
+                    $('.home_routine_space').removeClass('hidden');
+                    $('.exam_routine_space, .class_routine_space, .session_routine_space, .room_routine_space, .column_routine_space, .faculty_routine_space').addClass('hidden');
+
+                }else if(op=='exam'){
+                    $('.exam_routine_space').removeClass('hidden');
+                    $('.home_routine_space, .class_routine_space, .session_routine_space, .room_routine_space, .column_routine_space, .faculty_routine_space').addClass('hidden');
+                }else if(op=='class'){
+                    $('.class_routine_space').removeClass('hidden');
+                    $('.exam_routine_space, .home_routine_space, .session_routine_space, .room_routine_space, .column_routine_space, .faculty_routine_space').addClass('hidden');
+                }else if(op=='session'){
+                    $('.session_routine_space').removeClass('hidden');
+                    $('.exam_routine_space, .class_routine_space, .home_routine_space, .room_routine_space, .column_routine_space, .faculty_routine_space').addClass('hidden');
+                }else if(op=='room'){
+                    $('.room_routine_space').removeClass('hidden');
+                    $('.exam_routine_space, .class_routine_space, .session_routine_space, .home_routine_space, .column_routine_space, .faculty_routine_space').addClass('hidden');
+                }else if(op=='column'){
+                    $('.column_routine_space').removeClass('hidden');
+                    $('.exam_routine_space, .class_routine_space, .session_routine_space, .room_routine_space, .home_routine_space, .faculty_routine_space').addClass('hidden');
+                }else if(op=='faculty'){
+                    $('.faculty_routine_space').removeClass('hidden');
+                    $('.exam_routine_space, .class_routine_space, .session_routine_space, .room_routine_space, .column_routine_space, .home_routine_space').addClass('hidden');
+                }
+        });
+    });
+</script>
 <script>
         $(document).ready(function(){
             $('#mess_tabs').click(function(){
-                var op = $('#tabs').val();
+                var op = $('#mess_tabs').val();
                 // alert('Selected Value: ' + op);
                 if(op=='home'){
                     $('.mess_home_space').removeClass('hidden');
