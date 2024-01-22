@@ -119,7 +119,84 @@ if(!isset($_SESSION['user'])){
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 
 
+<style>
 
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+        .nav-tabs-scroll {
+            display: flex;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+
+        .nav-link {
+            min-width: 80px;
+            text-align: center;
+        }
+        
+/* start: Category */
+.category-section {
+    border-bottom: 1px solid var(--gray-300);
+}
+.category-wrapper {
+    position: relative;
+}
+.category-arrow {
+    position: absolute;
+    top: 0;
+    width: 48px;
+    height: 100%;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+.category-arrow.hidden {
+    display: none;
+}
+.category-arrow.prev {
+    left: 0;
+    background-image: linear-gradient(90deg, var(--white) 60%, transparent);
+}
+.category-arrow.next {
+    right: 0;
+    background-image: linear-gradient(-90deg, var(--white) 60%, transparent);
+}
+.category-link {
+    display: flex;
+    align-items: center;
+    overflow-x: auto;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    scroll-padding: 48px;
+}
+.category-link::-webkit-scrollbar {
+    display: none;
+}
+.category-link > a {
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--black);
+    white-space: nowrap;
+    padding: 3px 0px;
+    scroll-snap-align: start;
+    transition: all .2s;
+}
+.category-link > a:hover {
+    box-shadow: inset 0 -2px 0 0 var(--blue-500);
+    color: var(--blue-600);
+}
+.category-link > a:not(:last-child) {
+    margin-right: 15px;
+}
+/* end: Category */
+    </style>
 </head>
 <body>
 
@@ -241,7 +318,7 @@ if(!isset($_SESSION['user'])){
 
 <div class="rounded-lg form-control shadow-lg bg-white">
 
-<div class="container-fluid" id="routine_schedules_data">
+<div class="" id="routine_schedules_data">
 <h5 class="text-center" >Please Wait to Load Routine Scheduls</h5>
 
 <!-- <div class="container-fluid">
@@ -4954,7 +5031,7 @@ if(!isset($_SESSION['user'])){
 
 <div class="container bottom_menu m-auto">
     <?php
-        include('../../menu.php');
+        // include('../../menu.php');
     ?>
 </div>
 
@@ -6215,6 +6292,18 @@ function sessions_routine(){
           schedule(btn_id);
 
         });
+        $(document).on('click','.add_schedule_container_back_btn', function(){
+          var btn_id = $(this).attr('id');
+          $('.popup-add_schedule_container').addClass('hidden');
+          $('.schedule_container_body').removeClass('hidden');
+
+        });
+        $(document).on('click','.new_schedule_btn', function(){
+          var btn_id = $(this).attr('id');
+          $('.popup-add_schedule_container').removeClass('hidden');
+          $('.schedule_container_body').addClass('hidden');
+
+        });
 
 function schedule(id){
     $.ajax({
@@ -6402,3 +6491,22 @@ function schedule(id){
     <script src="../../dist/js/table.js"></script>
     <script src="../../js/sweetalert.min.js"></script>
 <script src="../../js/sweetalert2.all.min.js"></script>
+<script>
+    function openTab(evt, tabName) {
+
+        var tabContents = document.getElementsByClassName("tab-content");
+        for (var i = 0; i < tabContents.length; i++) {
+            tabContents[i].classList.remove("active");
+        }
+
+
+        var tabLinks = document.getElementsByClassName("tablinks");
+        for (var i = 0; i < tabLinks.length; i++) {
+            tabLinks[i].classList.remove("active");
+        }
+
+        document.getElementById(tabName).classList.add("active");
+        evt.currentTarget.classList.add("active");
+    }
+</script>
+<script src="../../dist/js/scriptp.js"></script>

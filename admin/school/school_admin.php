@@ -299,26 +299,54 @@ if(isset($_POST["session_data_ff"])){
 }
 
 if(isset($_POST['routine_schedule_data'])){
+    $r_id = $_POST['id'];
     ?>
+<div class="popup-add_schedule_container hidden">
+    <div class="content-add_schedule_container text-justify border-pink-300 border-2 shadow-lg  rounded-lg bg-white-100 ">
+            <div class="back"><button type="button" class="add_schedule_container_back_btn float-end text-3xl font-medium ml-5 text-pink-600"><i class="bi bi-arrow-left-circle-fill"></i></button></div>
+            <div class="add_schedule_container_body pt-2">
 
-<div class="container-fluid">
+            
 
-<div class="row">
-    <div class="text-center m-auto">
-
-    </div>
-    <div class="row">
-        <div class="col-6 text-start">
-        <button class="btn btn-warning new_schedule_btn" data-bs-toggle="modal" data-bs-target="#my_modal_schedule_add" data-bs-whatever="@mdo">
-            <center>Schedules</center>
-        </button>
-        </div>
-        <div class="col-6 text-end">
-            <button class="btn btn-warning new_schedule_btn" data-bs-toggle="modal" data-bs-target="#my_modal_schedule_add" data-bs-whatever="@mdo">
-                New
+            </div>
+    </div>      
+</div> 
+<div class="schedule_container_body">
+<div class="row text-start">
+        <div class="col text-start">
+            <button class="btn btn-warning new_schedule_btn" id="<?=$r_id?>" data-bs-toggle="modal" data-bs-target="#my_modal_schedule_add" data-bs-whatever="@mdo">
+                Add Schedule
             </button>
         </div>
-    </div>
+</div>
+<div class="row">
+
+<div class="category-section">
+        <div class="">
+            <div class="category-wrapper">
+                <button type="button" class="category-arrow prev prevv hidden"><i class="bi bi-arrow-left-square-fill"></i></button>
+                <button type="button" class="category-arrow next nextt"><i class="bi bi-arrow-right-square-fill"></i></button>
+                <div class="category-link" id="day_btn">
+
+
+                    <!-- <a href="#">Electronics</a>
+                    <a href="#">Automotive</a> -->
+
+<?php
+
+$daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
+foreach ($daysOfWeek as $index => $day) {
+    $activeClass = ($index === 0) ? 'active' : '';
+    ?>
+        <a href="#" class="tablinks <?=$activeClass?>" onclick="openTab(event,'<?=$day?>')" id="nav-<?=$day?>-tab" data-bs-toggle="tab" data-bs-target="#nav-<?=$day?>" type="button" role="tab" aria-controls="nav-<?=$day?>" aria-selected="true"><?=$day?></a>
+    <?php
+}
+?>
+                </div>
+            </div>
+        </div>
+</div>
     <div class="col-md">
         <div class="accordion">
         <div class="accordion-item">
@@ -327,45 +355,182 @@ if(isset($_POST['routine_schedule_data'])){
                 <div id="schedule_table" class="accordion-collapse collapse:visible visibility: visible show">
                     <div class="accordion-body">
 
-                        <div class="routine_schedule_table_list">
+<?php
+
+foreach ($daysOfWeek as $index => $day) {
+
+    $activeClass = ($index === 0) ? 'activee' : '';
+    ?>
+                        <div class="routine_schedule_table_list tab-content <?=$activeClass?>" id="<?=$day?>">
                             <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
 
                                 <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                                     <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                                        <tr>
-                                            <th scope="col" class="p-4">
-                                                <div class="flex items-center">
-                                                    <input id="checkbox-all-search" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                                    <label for="checkbox-all-search" class="sr-only">checkbox</label>
-                                                </div>
-                                            </th>
-                                            <th scope="col" class="px-6 py-3">
-                                                #
-                                            </th>
-                                            <th scope="col" class="px-6 py-3">
-                                                Roll|SID
-                                            </th>
-                                            <th scope="col" class="px-6 py-3">
-                                                Name
-                                            </th>
-                                            <th scope="col" class="px-6 py-3">
-                                                Gender
-                                            </th>
-                                            <th scope="col" class="px-6 py-3">
-                                                Status
-                                            </th>
-                                            <th scope="col" class="px-6 py-3">
-                                                Serial
-                                            </th>
-                                            <th scope="col" class="px-6 py-3">
-                                                Phone
-                                            </th>
-                                            <th scope="col" class="px-6 py-3">
-                                                Action
-                                            </th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="_candidates_data_row">
+
+                                    <?php
+$sql = "SELECT * FROM schedule WHERE routine_id='$r_id' AND day='$day' ORDER BY start_time, room";
+$result = $con->query($sql);
+
+if ($result->num_rows > 0) {
+
+    ?>
+                        <tr>
+                            <th scope="col" class="p-4">
+                                <div class="flex items-center">
+                                    <input id="checkbox-all-search" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                    <label for="checkbox-all-search" class="sr-only">Time</label>
+                                </div>
+                            </th>
+    <?php
+
+    $roomNames = array();
+    while ($row = $result->fetch_assoc()) {
+        $roomNames[$row['room']] = true;
+    }
+
+    foreach ($roomNames as $roomName => $value) {
+        ?>
+                <th scope="col" class="px-6 py-3">
+                    <?=$roomName?>  
+                </th>
+        <?php
+    }
+
+    ?>
+                        </tr>
+                    </thead>
+                    <tbody id="schedule_data_row">
+    <?php
+
+    $result->data_seek(0);
+    while ($row = $result->fetch_assoc()) {
+?>
+            <tr>
+                <td class="px-6 py-4">
+                    <?=$row['start_time']?>
+                </td>
+<?php
+
+        foreach ($roomNames as $roomName => $value) {
+            echo '<td class="px-6 py-4">';
+            if ($row['room'] == $roomName) {
+                echo $row['sub_name'];
+            }
+            echo '</td>';
+        }
+
+        echo '</tr>';
+    }
+
+} else {
+    echo "No records found";
+}
+
+// $con->close();
+?>
+
+
+                                    </tbody>
+                                </table>
+                                <nav class="flex items-center flex-column flex-wrap md:flex-row justify-between pt-4" aria-label="Table navigation">
+
+                                    <ul class="inline-flex -space-x-px rtl:space-x-reverse text-sm h-8">
+                                        <li>
+                                            <a href="#" class="flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Previous</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">1</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">2</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" aria-current="page" class="flex items-center justify-center px-3 h-8 text-blue-600 border border-gray-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white">3</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">4</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">5</a>
+                                        </li>
+                                        <li>
+                                    <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Next</a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                                </div>
+                        </div>
+    <?php
+}
+?>
+
+                        <div class="routine_schedule_table_list" id="All">
+                            <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+
+                                <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+
+                                    <?php
+$sql = "SELECT * FROM schedule WHERE routine_id='$r_id' ORDER BY start_time, room";
+$result = $con->query($sql);
+
+if ($result->num_rows > 0) {
+
+    ?>
+                        <tr>
+                            <th scope="col" class="p-4">
+                                <div class="flex items-center">
+                                    <input id="checkbox-all-search" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                    <label for="checkbox-all-search" class="sr-only">Time</label>
+                                </div>
+                            </th>
+    <?php
+
+    $roomNames = array();
+    while ($row = $result->fetch_assoc()) {
+        $roomNames[$row['room']] = true;
+    }
+
+    foreach ($roomNames as $roomName => $value) {
+        ?>
+                <th scope="col" class="px-6 py-3">
+                    <?=$roomName?>  
+                </th>
+        <?php
+    }
+
+    ?>
+                        </tr>
+                    </thead>
+                    <tbody id="schedule_data_row">
+    <?php
+
+    $result->data_seek(0);
+    while ($row = $result->fetch_assoc()) {
+?>
+            <tr>
+                <td class="px-6 py-4">
+                    <?=$row['start_time']?>
+                </td>
+<?php
+
+        foreach ($roomNames as $roomName => $value) {
+            echo '<td class="px-6 py-4">';
+            if ($row['room'] == $roomName) {
+                echo $row['sub_name'];
+            }
+            echo '</td>';
+        }
+
+        echo '</tr>';
+    }
+
+} else {
+    echo "No records found";
+}
+
+$con->close();
+?>
 
 
                                     </tbody>
@@ -407,7 +572,7 @@ if(isset($_POST['routine_schedule_data'])){
 
 </div>
 <div class="row">
-<div class="col-md">
+    <div class="col-md">
         
         <div class="row">
             <div class="accordion">
