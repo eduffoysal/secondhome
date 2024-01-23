@@ -6385,7 +6385,7 @@ function sessions_routine(){
                 success: function(response){
                     $('#alerttext_l').html(response);
                     // alert(response);
-
+                    window.location.href = '../../edu_routine_schedule_export.xlsx';
 
                 }
             });

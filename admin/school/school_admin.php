@@ -67,7 +67,7 @@ if (isset($_POST['export_routine'])) {
             header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
             header('Content-Disposition: attachment; filename=' . basename($excelFileName));
 
-            header("location:$excelFileName");
+            header("Location:$excelFileName");
             $writer->save('php://output');
             readfile($excelFileName);
 
