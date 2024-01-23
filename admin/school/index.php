@@ -6366,6 +6366,38 @@ function sessions_routine(){
 
         });
 
+
+        $(document).on('click','.schedule_specific_btn', function(){
+          var schedule_id = $(this).attr('id');
+          alert(schedule_id);
+
+        });
+
+        $(document).on('click','.export_routine_schedule_btn', function(){
+          var r_id = $(this).attr('id');
+            $.ajax({
+                url:'../../RoutineExporter.php',
+                type:'post',
+                data: {
+                    id:r_id,
+                    export_routine: true
+                },
+                success: function(response){
+                    $('#alerttext_l').html(response);
+                    // alert(response);
+
+
+                }
+            });
+
+        });
+
+        $(document).on('click','.import_routine_schedule_btn', function(){
+          var r_id = $(this).attr('id');
+
+
+        });
+
 function schedule(id){
     $.ajax({
       url:'./school_admin.php',

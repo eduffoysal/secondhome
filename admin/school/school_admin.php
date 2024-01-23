@@ -1,10 +1,13 @@
 <?php
 session_start();
 require_once '../../db/db.php';
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+use PhpOffice\PhpSpreadsheet\Writer\Xls;
+use PhpOffice\PhpSpreadsheet\Writer\Csv;
 
 spl_autoload_register(function ($class) {
     include $class . '.php';
-    // echo $class;
 });
 
 function my_autoloader($class) {
@@ -22,6 +25,71 @@ $unique = strtoupper(bin2hex(random_bytes(3)));
 $ran_id = rand(time(), 100000000);
 
 $unique.' - '.$uniqueId.' - '.$ran_id;
+
+
+if (isset($_POST['export_routine'])) {
+
+    $routineId = isset($_POST['id']) ? intval($_POST['id']) : 0;
+
+    if ($routineId > 0) {
+        $stmt = $con->prepare("SELECT routine_id, day, start_time, end_time, sub_name, sub_code, section, room, t_name, lab_theory FROM schedule WHERE routine_id = ?");
+        $stmt->bind_param("i", $routineId);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        $data = array();
+        while ($row = $result->fetch_assoc()) {
+            $data[] = $row;
+        }
+
+        if (!empty($data)) {
+
+            $spreadsheet = new PhpOffice\PhpSpreadsheet\Spreadsheet();
+            $sheet = $spreadsheet->getActiveSheet();
+
+            // Add headers
+            $headers = array_keys($data[0]);
+            $sheet->fromArray([$headers], NULL, 'A1');
+
+            // Add data
+            $row = 2;
+            foreach ($data as $rowdata) {
+                $sheet->fromArray([$rowdata], NULL, 'A' . $row);
+                $row++;
+            }
+
+            // Save the Excel file
+            $excelFileName = 'edu_routine_schedule_export.xlsx';
+            $writer = new PhpOffice\PhpSpreadsheet\Writer\Xlsx($spreadsheet);
+            $writer = new Xlsx($spreadsheet);
+            $writer->save($excelFileName);
+            
+            header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+            header('Content-Disposition: attachment; filename=' . basename($excelFileName));
+
+            header("location:$excelFileName");
+            $writer->save('php://output');
+            readfile($excelFileName);
+
+            // $fileHandle = fopen($excelFileName, 'rb');
+            // while (!feof($fileHandle)) {
+            //     echo fread($fileHandle, 8192);
+            // }
+            // fclose($fileHandle);
+            
+
+            // unlink($excelFileName);
+            exit;
+
+        } else {
+            echo 'No data found for the specified routine ID.';
+        }
+    } else {
+        echo 'Invalid routine ID.';
+    }
+}
+
+
 
 if(isset($_POST['session_data'])){
 
@@ -477,9 +545,12 @@ if(isset($_POST['routine_schedule_data'])){
 <div class="schedule_container_body">
 <div class="row text-start">
         <div class="col text-start">
-            <button class="btn btn-warning new_schedule_btn" id="<?=$r_id?>" data-bs-toggle="modal" data-bs-target="#my_modal_schedule_add" data-bs-whatever="@mdo">
-                Add Schedule
-            </button>
+            <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                <button type="button" class="btn btn-danger new_schedule_btn" id="<?=$r_id?>" data-bs-toggle="modal" data-bs-target="#my_modal_schedule_add" data-bs-whatever="@mdo">New</button>
+                <button type="button" class="btn btn-warning import_routine_schedule_btn" id="<?=$r_id?>" data-bs-toggle="modal" data-bs-target="#my_modal_schedule_addd" data-bs-whatever="@mdo">IMPORT</button>
+                <button type="button" class="btn btn-success export_routine_schedule_btn" id="<?=$r_id?>" data-bs-toggle="modal" data-bs-target="#my_modal_schedule_adddd" data-bs-whatever="@mdo">EXPORT</button>
+            </div>
+
         </div>
 </div>
 <div class="row">
@@ -575,11 +646,16 @@ if ($result->num_rows > 0) {
 <?php
 
         foreach ($roomNames as $roomName => $value) {
-            echo '<td class="px-6 py-4">';
+            ?>
+            <td class="px-6 py-4 schedule_specific_btn" id="<?=$row['id']?>">
+            <?php
+
             if ($row['room'] == $roomName) {
                 echo $row['sub_name'];
             }
-            echo '</td>';
+            ?>
+            </td>
+            <?php
         }
 
         echo '</tr>';
@@ -678,7 +754,7 @@ if ($result->num_rows > 0) {
 <?php
 
         foreach ($roomNames as $roomName => $value) {
-            echo '<td class="px-6 py-4">';
+            echo '<td class="px-6 py-4 schedule_specific_btn" id="'.$row['id'].'" >';
             if ($row['room'] == $roomName) {
                 echo $row['sub_name'];
             }
