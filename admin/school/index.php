@@ -4828,7 +4828,7 @@ if(!isset($_SESSION['user'])){
       <div class="modal-body modal_data_routine" id="modal_data_routine">
 
 
-      <div class="p-1 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+                    <div class="p-1 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
                                   <form class="space-y-2 routine_form_data" id="routine_form_data" action="#" role="form">
                                     <div class="form-floating">
                                     <input type="text" class="input-1 form-control form-floating" placeholder="Please enter Routine name" name="routine_name" id="routine_name">
@@ -4859,10 +4859,8 @@ if(!isset($_SESSION['user'])){
                                       </div>
                                       <button type="button" class="btn-primary w-full routine_add_btn text-dark hover:text-white bg-blue-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" id="routine_add_btn">Save Routine</button>
                                   </form>
-                              </div>
-                              
-                              
-                        </div>
+                    </div>
+
 
 
       </div>
@@ -4874,7 +4872,7 @@ if(!isset($_SESSION['user'])){
 </div>
 
 <div class="modal fade" id="my_modal_routine_edu" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticmy_modal_routine_edu" aria-hidden="true">
-  <div class="modal-dialog modal-lg modal-dialog-scrollable modal-dialog-centeredd">
+  <div class="modal-dialog modal-md modal-dialog-scrollable modal-dialog-centeredd">
     <div class="modal-content">
       <div class="modal-header">
       <div id="myalert_routine_edu_add" style="display:none;">
@@ -4938,7 +4936,7 @@ if(!isset($_SESSION['user'])){
 </div>
 
 <div class="modal fade" id="my_modal_exam_routine" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticmy_modal_exam_routine" aria-hidden="true">
-  <div class="modal-dialog modal-lg modal-dialog-scrollable modal-dialog-centeredd">
+  <div class="modal-dialog modal-md modal-dialog-scrollable modal-dialog-centeredd">
     <div class="modal-content">
       <div class="modal-header">
       <div id="myalert_exam_routine_add" style="display:none;">
@@ -4999,24 +4997,60 @@ if(!isset($_SESSION['user'])){
   </div>
 </div>
 
-<div class="modal fade" id="my_modal_routine_schedule" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticmy_modal_routine_schedule" aria-hidden="true">
-  <div class="modal-dialog modal-lg modal-dialog-scrollable modal-dialog-centeredd">
+<div class="modal fade" id="my_modal_routine_import" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticmy_modal_routine_schedule" aria-hidden="true">
+  <div class="modal-dialog modal-md modal-dialog-scrollable modal-dialog-centeredd">
     <div class="modal-content">
       <div class="modal-header">
-      <div id="myalert_routine_schedule_add" style="display:none;">
+      <div id="myalert_routine_schedule_import" style="display:none;">
         <div class="container col-md-offset-4">
-          <div class="alert alert-info _routine_schedule_add">
-            <center><span id="alerttext_routine_schedule_add"></span></center>
+          <div class="alert alert-info _routine_schedule_import">
+            <center><span id="alerttext_routine_schedule_import"></span></center>
           </div>
         </div>
       </div> 
 
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body modal_data_routine_schedule" id="modal_data_routine_schedule">
+      <div class="modal-body routine_import_body" id="routine_import_body">
 
 
+        <div class="container shadow-md">
+        <form class="space-y-2 routine_import_form_data" id="routine_import_form_data" action="#" role="form">
+                                    <div class="form-floating">
+                                        <input type="file" name="routine_file" id="routine_file" class="form-control  form-floating bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Select a Xlsx/xls/csv file" required="">
+                                        <label for="routine_file" class="sr-onlyy">Select a Xlsx/xls/csv file</label>
 
+                                    </div>
+                                    <div class="form-floating">
+                                    <input type="text" class="input-1 form-control form-floating" placeholder="Please enter Routine name" name="routine_import_name" id="routine_import_name">
+                                    <label class="" for="routine_name">Enter New Routine Name</label>
+                                    </div>
+                                    <div class="form-floating">
+                                        <input type="text" name="routine_import_details" id="routine_import_details" class="form-control form-floating bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Enter Routine Details" required="">
+                                        <label for="routine_details" class="sr-onlyy">Enter Routine Details</label>
+
+                                    </div>
+
+                                  <div class="sm:hiddenn" id="class_code">
+                                        <label for="select_session_for_routine_import" class="sr-only">Select Session</label>
+                                            <select id="select_session_for_routine_import" name="select_session_for_routine_import" class="select_session_for_routine_import bg-gray-50 border-0 border-b border-gray-200 text-gray-900 sm:text-sm rounded-t-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" data-tabs-toggle="#user_all_contentt" role="tablistt">
+                                            <option id="about-tab" value="0" data-tabs-target="#about"   aria-controls="about" aria-selected="false">Select Session</option>
+
+                                            </select>
+                                  </div>
+
+                                      <!-- <div>
+                                          <input type="number" name="number_phone" id="tk_pay" placeholder="Phone number" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required="">
+                                      </div>
+                                      <div>
+                                          <input type="number" name="number_tk" id="tk_pay" placeholder="Amount at least 10/=" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required="">
+                                      </div> -->
+                                      <div class="flex items-start">
+                                      <input type="hidden" name="routine_import_data">
+                                      </div>
+                                      <button type="button" class="btn-primary w-full routine_import_add_btn text-dark hover:text-white bg-blue-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" id="routine_import_add_btn">Import & Save Routine</button>
+                                  </form>
+        </div>
 
 
       </div>
@@ -5577,6 +5611,70 @@ $(document).on('click','.exam_routine_btn',function(){
 		}
 	});
     
+
+    
+    $(document).on('click', '#routine_import_add_btn', function(){
+		if($('#routine_import_name').val()!='' && $('#routine_import_details').val()!=''){
+            // alert($('#session_s_date').val());
+			$('#routine_import_add_btn').val('Saving...');
+			$('#myalert_routine_schedule_import').slideUp();
+			var routine_form = $('#routine_import_form_data').serialize();
+			$.ajax({
+				method: 'POST',
+				url: './school_admin.php',
+				data: routine_form,
+
+				success:function(data){
+                    if(data==1){
+                        Swal.fire({
+                                type: 'success',
+                                title: "Routine Successfully Imported!",
+                                text: "Thank you Admin! ",
+                                icon: "success",
+                                button: false,
+                                dangerMode: true,
+                                timer: 3000,
+                            
+                            });
+                        setTimeout(function(){
+                        $('#myalert_routine_schedule_import').slideDown();
+                        $('#alerttext_routine_schedule_import').html("Routine Successfully Imported");
+                        $('#routine_import_add_btn').val('Save Routine');
+                        $('#routine_import_form_data')[0].reset();
+                        }, 2000);
+                        routine();
+                        setTimeout(function(){
+                        // location.reload();
+                        }, 3000);
+                    }else{
+                        Swal.fire({
+                                type: 'warning',
+                                title: "Please Try Again!",
+                                text: "Thank you Admin! "+data,
+                                icon: "warning",
+                                button: false,
+                                dangerMode: true,
+                                timer: 3000,
+                            
+                            });
+                        setTimeout(function(){
+                        $('#myalert_routine_schedule_import').slideDown();
+                        $('#alerttext_routine_schedule_import').html(data);
+                        $('#routine_import_add_btn').val('Try Again, Routine');
+                        $('#routine_import_form_data')[0].reset();
+                        }, 2000);
+                        setTimeout(function(){
+                        // location.reload();
+                        }, 3000);
+                    }            
+				}
+			});
+		}
+		else{
+			alert('Please input all fields');
+		}
+	});
+
     
 
     $(document).on('click', '#routine_add_btn', function(){
@@ -5919,6 +6017,7 @@ $.ajax({
     $('#select_session_for_routine').html(response);
     $('#select_session_for_routine_edu').html(response);
     $('#select_session_for_exam_routine').html(response);
+    $('#select_session_for_routine_import').html(response);
 
   }
 });
@@ -5952,7 +6051,7 @@ $('#class_session_selection').ready(function(){
         $('#select_session_for_routine').html(response);
     $('#select_session_for_routine_edu').html(response);
     $('#select_session_for_exam_routine').html(response);
-
+    $('#select_session_for_routine_import').html(response);
       }
     });
 
@@ -6393,8 +6492,19 @@ function sessions_routine(){
         });
 
         $(document).on('click','.import_routine_schedule_btn', function(){
-          var r_id = $(this).attr('id');
+            var r_id = $(this).attr('id');
 
+            $.ajax({
+                url:'./school_admin.php',
+                type:'post',
+                data: {
+                    id:r_id,
+                    export_routine_schedules: true
+                },
+                success: function(response){
+                    $('#routine_import_body').html(response);
+                }
+            });
 
         });
 

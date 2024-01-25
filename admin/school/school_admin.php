@@ -89,7 +89,25 @@ if (isset($_POST['export_routine'])) {
     }
 }
 
+if(isset($_POST['export_routine_schedules'])){
+    ?>
 
+<div class="container shadow-md">
+        <form class="space-y-2 routine_import_form_data" id="routine_import_form_data" action="#" role="form">
+                                    <div class="form-floating">
+                                        <input type="file" name="routine_file" id="routine_file" class="form-control  form-floating bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Select a Xlsx/xls/csv file" required="">
+                                        <label for="routine_file" class="sr-onlyy">Select a Xlsx/xls/csv file</label>
+
+                                    </div>
+                                    <div class="flex items-start">
+                                      <input type="hidden" name="routine_schedule_import_data" value="<?=$_POST['id']?>">
+                                      </div>
+                                      <button type="button" class="btn-primary w-full routine_import_add_btn text-dark hover:text-white bg-blue-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" id="routine_import_add_btn">Import & Save Schedules</button>
+                                  </form>
+        </div>
+
+    <?php
+}
 
 if(isset($_POST['session_data'])){
 
@@ -547,7 +565,7 @@ if(isset($_POST['routine_schedule_data'])){
         <div class="col text-start">
             <div class="btn-group" role="group" aria-label="Basic mixed styles example">
                 <button type="button" class="btn btn-danger new_schedule_btn" id="<?=$r_id?>" data-bs-toggle="modal" data-bs-target="#my_modal_schedule_add" data-bs-whatever="@mdo">New</button>
-                <button type="button" class="btn btn-warning import_routine_schedule_btn" id="<?=$r_id?>" data-bs-toggle="modal" data-bs-target="#my_modal_schedule_addd" data-bs-whatever="@mdo">IMPORT</button>
+                <button type="button" class="btn btn-warning import_routine_schedule_btn" id="<?=$r_id?>" data-bs-toggle="modal" data-bs-target="#my_modal_routine_import" data-bs-whatever="@mdo">IMPORT</button>
                 <button type="button" class="btn btn-success export_routine_schedule_btn" id="<?=$r_id?>" data-bs-toggle="modal" data-bs-target="#my_modal_schedule_adddd" data-bs-whatever="@mdo">EXPORT</button>
             </div>
 
