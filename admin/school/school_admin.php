@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once '../../db/db.php';
+require_once '../../vendor/autoload.php';
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 use PhpOffice\PhpSpreadsheet\Writer\Xls;
@@ -89,11 +90,234 @@ if (isset($_POST['export_routine'])) {
     }
 }
 
+if(isset($_POST['routine_import_data'])){
+    
+    if($_POST['routine_import_name']!=""){
+        $r_name = $_POST["routine_import_name"];
+        $r_details = $_POST["routine_import_details"];
+        $r_session = $_POST["select_session_for_routine_import"];
+
+        $file_name = $_FILES['routine_file']['name'];
+        $file_ext = pathinfo($file_name, PATHINFO_EXTENSION);
+        $allowed_extentions = ['xls','csv','xlsx'];
+
+        if(in_array($file_ext, $allowed_extentions)){
+
+                $uniqueId= time().'-'.mt_rand();
+                $unique = strtoupper(bin2hex(random_bytes(3)));
+                $ran_id = rand(time(), 100000000);
+                $unique_id = $unique.'-'.$uniqueId.'-'.$ran_id;
+
+            
+                $r_code = $unique;
+                $r_type = '0';
+                
+
+                $sqlc= "SELECT * FROM routine WHERE sId='$school_id' AND session_id='$r_session' AND temp_name='$r_name' ";
+
+                $result = mysqli_query($con, $sqlc);
+                if(mysqli_num_rows($result)==0){
+
+                $sql = "INSERT INTO routine(sId, unique_id, temp_name, temp_code, temp_details, temp_num, uId, session_id, routine_type) VALUES('$school_id','$unique_id','$r_name','$r_code','$r_details','$ran_id','$u_id','$r_session','$r_type')";
+
+                    if ($con->query($sql)) {
+
+                        $r_sql = "SELECT id FROM routine WHERE unique_id='$unique_id' ";
+                        $r_q = mysqli_query($con,$r_sql);
+                        $row = mysqli_fetch_assoc($r_q);
+
+                        $r_id = $row['id'];
+
+                        $inputFileNamePath = $_FILES['routine_file']['tmp_name'];
+                        $spreadsheet = \PhpOffice\PhpSpreadsheet\IOFactory::load($inputFileNamePath);
+                        $sheet = $spreadsheet->getActiveSheet();
+                        $data = $sheet->toArray();
+                        $highestRow = $sheet->getHighestRow();
+
+                        $count = 0;
+                        foreach($data as $row){
+                
+                            if($count>0){
+                                $routine_id = $row['0'];
+                                $day = $row['1'];
+                                $time_from = $row['2'];
+                                $time_to = $row['3'];
+                                $sub_name = $row['4'];
+                                $sub_code = $row['5'];
+                                $section = $row['6'];
+                                $room = $row['7'];
+                                $teacher = $row['8'];
+                                $lab_theory = $row['9'];
+                    
+                            
+                                $uniqueId= time().'-'.mt_rand();
+                                $unique = strtoupper(bin2hex(random_bytes(3)));
+                                $ran_id = rand(time(), 100000000);
+                                $unique_id = $unique.'-'.$uniqueId.'-'.$ran_id;
+                            
+                            
+                                $r_code = $unique;
+                                $r_type = '0';
+                            
+                                $sqlc= "SELECT * FROM routine WHERE sId='$school_id' AND id='$r_id' ";
+                            
+                                $result = mysqli_query($con, $sqlc);
+                                if(mysqli_num_rows($result)==1){
+                            
+                                    $rnrow = mysqli_fetch_assoc($result);
+                                    $temp_code = $rnrow['temp_code'];
+                                    $temp_num = $rnrow['temp_num'];
+                            
+                                    $sql = "INSERT INTO schedule(sId, unique_id, sub_name, sub_code, t_name, section, routine_id, room, day, start_time, end_time, temp_code, temp_num, lab_theory) VALUES('$school_id','$unique_id','$sub_name','$sub_code','$teacher','$section','$r_id','$room','$day','$time_from','$time_to','$temp_code','$temp_num','$lab_theory')";
+                            
+                                    if ($con->query($sql)) {
+                            
+                                        echo 1;
+                            
+                                    } else {
+                                        echo "Sorry, Something Went Wrong! Try Again Please! Error: " . $con->error;
+                            
+                                        // error_log("MySQL Error: " . $con->error);
+                                    }
+                                }else{
+                                    echo 2;
+                                }
+                            }else{
+                                echo 2;
+                            }    
+                        }
+            
+                        $routineData = [];
+                        for ($row = 2; $row <= $highestRow; ++$row) {
+                            $rowData = $sheet->rangeToArray('A' . $row . ':T' . $row, null, true, false)[0];
+                            $routineData[] = $rowData;
+                        }
+            
+                        // var_dump($routineData);
+
+
+                        echo 1;
+
+                    } else {
+                        echo "Sorry, Something Went Wrong! Try Again Please! Error: " . $con->error;
+
+                        // error_log("MySQL Error: " . $con->error);
+                    }
+                }else{
+                    echo "Routine Already added with these Data". $con->error;
+                }
+
+
+
+        }else{
+            echo "File Type is invalied";
+        }
+
+        // $dateef = strtotime($datef);
+      
+        // $monthh = date('m', $dateef);
+        // $yearr= date('Y', $dateef);
+        
+        // $mon = date('m', $dateef);
+        // $yea= date('Y', $dateef);
+    
+    
+    
+        }else{
+    
+        echo "Sorry, Something Went Wrong! Try Again Please!";
+    
+        }
+
+}
+
+if(isset($_POST['routine_schedule_import_data'])){
+    $r_id = $_POST['routine_schedule_import_data'];
+
+    $file_name = $_FILES['routine_file']['name'];
+    $file_ext = pathinfo($file_name, PATHINFO_EXTENSION);
+    $allowed_extentions = ['xls','csv','xlsx'];
+
+    if(in_array($file_ext, $allowed_extentions)){
+        $inputFileNamePath = $_FILES['routine_file']['tmp_name'];
+        $spreadsheet = \PhpOffice\PhpSpreadsheet\IOFactory::load($inputFileNamePath);
+        $sheet = $spreadsheet->getActiveSheet();
+        $data = $sheet->toArray();
+        $highestRow = $sheet->getHighestRow();
+
+        $count = 0;
+        foreach($data as $row){
+
+            if($count>0){
+
+                $routine_id = $row['0'];
+                $day = $row['1'];
+                $time_from = $row['2'];
+                $time_to = $row['3'];
+                $sub_name = $row['4'];
+                $sub_code = $row['5'];
+                $section = $row['6'];
+                $room = $row['7'];
+                $teacher = $row['8'];
+                $lab_theory = $row['9'];
+
+            
+                $uniqueId= time().'-'.mt_rand();
+                $unique = strtoupper(bin2hex(random_bytes(3)));
+                $ran_id = rand(time(), 100000000);
+                $unique_id = $unique.'-'.$uniqueId.'-'.$ran_id;
+            
+            
+                $r_code = $unique;
+                $r_type = '0';
+            
+                $sqlc= "SELECT * FROM routine WHERE sId='$school_id' AND id='$r_id' ";
+            
+                $result = mysqli_query($con, $sqlc);
+                if(mysqli_num_rows($result)==1){
+            
+                    $rnrow = mysqli_fetch_assoc($result);
+                    $temp_code = $rnrow['temp_code'];
+                    $temp_num = $rnrow['temp_num'];
+            
+                    $sql = "INSERT INTO schedule(sId, unique_id, sub_name, sub_code, t_name, section, routine_id, room, day, start_time, end_time, temp_code, temp_num, lab_theory) VALUES('$school_id','$unique_id','$sub_name','$sub_code','$teacher','$section','$r_id','$room','$day','$time_from','$time_to','$temp_code','$temp_num','$lab_theory')";
+            
+                    if ($con->query($sql)) {
+            
+            
+                    } else {
+                        echo "Sorry, Something Went Wrong! Try Again Please! Error: " . $con->error;
+            
+                        // error_log("MySQL Error: " . $con->error);
+                    }
+                }else{
+                    echo 2;
+                }
+
+            }else{
+                $count = 1;
+            }
+
+        }
+    
+        $routineData = [];
+        for ($row = 2; $row <= $highestRow; ++$row) {
+            $rowData = $sheet->rangeToArray('A' . $row . ':T' . $row, null, true, false)[0];
+            $routineData[] = $rowData;
+        }
+    
+        // var_dump($routineData);
+    }else{
+        echo "File Type is invalied";
+    }
+
+}
+
 if(isset($_POST['export_routine_schedules'])){
     ?>
 
 <div class="container shadow-md">
-        <form class="space-y-2 routine_import_form_data" id="routine_import_form_data" action="#" role="form">
+        <form class="space-y-2 routine_import_form_data" id="routine_import_form_data" action="#" role="form" method="POST" enctype="multipart/form-data">
                                     <div class="form-floating">
                                         <input type="file" name="routine_file" id="routine_file" class="form-control  form-floating bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Select a Xlsx/xls/csv file" required="">
                                         <label for="routine_file" class="sr-onlyy">Select a Xlsx/xls/csv file</label>

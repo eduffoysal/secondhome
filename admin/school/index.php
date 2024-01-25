@@ -4998,7 +4998,7 @@ if(!isset($_SESSION['user'])){
 </div>
 
 <div class="modal fade" id="my_modal_routine_import" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticmy_modal_routine_schedule" aria-hidden="true">
-  <div class="modal-dialog modal-md modal-dialog-scrollable modal-dialog-centeredd">
+  <div class="modal-dialog modal-lg modal-dialog-scrollable modal-dialog-centeredd">
     <div class="modal-content">
       <div class="modal-header">
       <div id="myalert_routine_schedule_import" style="display:none;">
@@ -5015,7 +5015,7 @@ if(!isset($_SESSION['user'])){
 
 
         <div class="container shadow-md">
-        <form class="space-y-2 routine_import_form_data" id="routine_import_form_data" action="#" role="form">
+        <form class="space-y-2 routine_import_form_data" id="routine_import_form_data" action="#" role="form" method="POST" enctype="multipart/form-data">
                                     <div class="form-floating">
                                         <input type="file" name="routine_file" id="routine_file" class="form-control  form-floating bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Select a Xlsx/xls/csv file" required="">
                                         <label for="routine_file" class="sr-onlyy">Select a Xlsx/xls/csv file</label>
@@ -5619,13 +5619,19 @@ $(document).on('click','.exam_routine_btn',function(){
 			$('#routine_import_add_btn').val('Saving...');
 			$('#myalert_routine_schedule_import').slideUp();
 			var routine_form = $('#routine_import_form_data').serialize();
+            var routine_form = new FormData($('#routine_import_form_data')[0]);
 			$.ajax({
 				method: 'POST',
 				url: './school_admin.php',
+                async: false,
+                cache: false,
+                contentType: false,
+                enctype: 'multipart/form-data',
+                processData: false,
 				data: routine_form,
 
 				success:function(data){
-                    if(data==1){
+                    if(data==1||data==''){
                         Swal.fire({
                                 type: 'success',
                                 title: "Routine Successfully Imported!",
